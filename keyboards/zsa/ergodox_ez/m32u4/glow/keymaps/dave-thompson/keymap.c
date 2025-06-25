@@ -2,16 +2,10 @@
 #include "version.h"
 #include "i18n.h"
 
-#include "features/sentence_case.h"
-#include "features/custom_shift_keys.h"
-#include "features/select_word.h"
 #include "features/switcher.h"
 
 enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
-  SELWFWD,
-  SELWBAK,
-  SELLINE,
   SWITCH,
 };
 
@@ -21,8 +15,6 @@ const custom_shift_key_t custom_shift_keys[] = {
   {KC_DOT , KC_EXLM}, // Shift . is !
   {KC_QUOTE, KC_DOUBLE_QUOTE}, // Shift ' is "
 };
-uint8_t NUM_CUSTOM_SHIFT_KEYS =
-    sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
 /** Switcher **/
 uint16_t SWITCHER_TRIGGER_KEYCODE = SWITCH;
@@ -75,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [3] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,                KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,
-    KC_TRANSPARENT, LGUI(KC_N),     LGUI(KC_W),       LGUI(LCTL(KC_F)),              LGUI(KC_M),     LGUI(KC_I),     KC_TRANSPARENT,                KC_TRANSPARENT, SELLINE,        SELWBAK,        KC_UP,          SELWFWD,        LGUI(LCTL(KC_Q)), KC_TRANSPARENT,
+    KC_TRANSPARENT, LGUI(KC_N),     LGUI(KC_W),       LGUI(LCTL(KC_F)),              LGUI(KC_M),     LGUI(KC_I),     KC_TRANSPARENT,                KC_TRANSPARENT, SELLINE,        SELWBAK,        KC_UP,          SELWORD,        LGUI(LCTL(KC_Q)), KC_TRANSPARENT,
     KC_TRANSPARENT, LGUI(KC_A),     LGUI(KC_X),       LGUI(KC_C),                    LGUI(KC_V),     LGUI(KC_B),                                                    KC_TAB,         KC_LEFT,        KC_DOWN,        KC_RIGHT,       SWITCH,         KC_TRANSPARENT,
     KC_TRANSPARENT, LGUI(KC_Z),     LGUI(LSFT(KC_Z)), KC_DOT,                        LGUI(KC_S),     LGUI(KC_U),     KC_TRANSPARENT,                KC_TRANSPARENT, QK_LLCK,        LALT(KC_BSPC),  LGUI(KC_SPACE), KC_BSPC,        KC_ENTER,           KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,                KC_TRANSPARENT,                                                                                KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,
@@ -115,7 +107,7 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodo
 
 const uint16_t PROGMEM combo0[] = { LGUI(KC_N), LGUI(KC_W), COMBO_END};
 const uint16_t PROGMEM combo1[] = { LGUI(KC_V), LGUI(KC_B), COMBO_END};
-const uint16_t PROGMEM combo2[] = { KC_UP, SELWFWD, COMBO_END};
+const uint16_t PROGMEM combo2[] = { KC_UP, SELWORD, COMBO_END};
 const uint16_t PROGMEM combo3[] = { SELWBAK, KC_UP, COMBO_END};
 const uint16_t PROGMEM combo4[] = { LGUI(KC_SPACE), KC_BSPC, COMBO_END};
 const uint16_t PROGMEM combo5[] = { LALT(KC_BSPC), LGUI(KC_SPACE), COMBO_END};
@@ -211,41 +203,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // Switcher
   if(!process_switcher(keycode, record)) { return false; }
 
-  // Sentence Case
-  if (!process_sentence_case(keycode, record)) { return false; }
-
-  // Custom Shift Keys
-  if (!process_custom_shift_keys(keycode, record)) { return false; }
-
-  // Select Word
-  if (!process_select_word(keycode, record)) { return false; }
-
-  switch (keycode) {
-    case SELWBAK:  // Backward word selection.
-      if (record->event.pressed) {
-        select_word_register('B');
-      } else {
-        select_word_unregister();
-      }
-      break;
-
-    case SELWFWD:  // Forward word selection.
-      if (record->event.pressed) {
-        select_word_register('W');
-      } else {
-        select_word_unregister();
-      }
-      break;
-
-    case SELLINE:  // Line selection.
-      if(record->event.pressed) {
-        select_word_register('L');
-      } else {
-        select_word_unregister();
-      }
-      break;
-  }
-
   // Oryx Stuff
   switch (keycode) {
 
@@ -270,7 +227,7 @@ char sentence_case_press_user(uint16_t keycode,
         return 'a';  // Letter key.
 
       case KC_DOT:  // . is punctuation, Shift . is a symbol (>)
-        return '.'; // DT Cutomisation - Shift-. is  ! rather than >
+        return '.'; // DT Customisation - Shift-. is  ! rather than >
       
       case KC_COMM:
         return shifted ? '.' : '#'; // DT Cutomisation - Shift-, is  ? rather than <
@@ -287,7 +244,7 @@ char sentence_case_press_user(uint16_t keycode,
         return '#';  // Symbol key.
       
       case KC_SPC:
-      case KC_ENTER: // DT Cusomisation - Treat enter as a space, thus capitalising the start of paragraphs.
+      case KC_ENTER: // DT Customisation - Treat enter as a space, thus capitalising the start of paragraphs.
         return ' ';  // Space key.
       
       case KC_QUOT:

@@ -1,12 +1,12 @@
 #include "switcher.h"
 #define SWITCHER_WINDOWS_OPEN_DELAY 500
 
-static bool switcher_active = false; // Is the app switcher in use?
-static bool windows_active = false; // Is the window switcher in use?
+static bool switcher_active = false; // Is the switcher in use?
+static bool window_mode = false; // Are we in window switcher mode or app switcher mode?
 
 static void exit_switcher(void) {
     unregister_code(SWITCHER_VIRTUAL_HOLD_KEY);
-    switcher_active = windows_active = false;
+    switcher_active = window_mode = false;
 }
 
 bool process_switcher(uint16_t current_keycode, keyrecord_t *record) {
@@ -40,18 +40,18 @@ bool process_switcher(uint16_t current_keycode, keyrecord_t *record) {
                 } else {
                     unregister_code(virtual_keycode);
                     // if entering window browsing (expose): preselect the first window in the list
-                    if (!windows_active &&
+                    if (!window_mode &&
                         ((virtual_keycode == KC_UP) || (virtual_keycode == KC_DOWN) || (virtual_keycode == KC_1))) {
                         wait_ms(500); // Waiting for the window switcher to be shown
                         tap_code(KC_RIGHT);
-                        windows_active = true;
+                        window_mode = true;
                     }
                     // if the user selected a window themselves: clean up
-                    if (windows_active && (virtual_keycode == KC_ENTER)) {
+                    if (window_mode && (virtual_keycode == KC_ENTER)) {
                         exit_switcher();
                     }
                     // if app switcher cancelled: clean up
-                    if ((virtual_keycode == KC_ESC) || (!windows_active && (virtual_keycode == KC_DOT))) {
+                    if ((virtual_keycode == KC_ESC) || (!window_mode && (virtual_keycode == KC_DOT))) {
                         exit_switcher();
                     }
                 }
@@ -59,7 +59,7 @@ bool process_switcher(uint16_t current_keycode, keyrecord_t *record) {
             }
         }
         // it's not a secondary trigger: end the switching sequence
-        if (windows_active) { // if window switcher in use: select the highlighted window
+        if (window_mode) { // if window switcher in use: select the highlighted window
             tap_code(KC_ENTER);
             exit_switcher();
         }
