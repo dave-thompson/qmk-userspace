@@ -215,6 +215,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record,
+                           uint16_t prev_keycode) {
+    if (is_flow_tap_key(keycode) && is_flow_tap_key(prev_keycode)) {
+        // Disable flow tap when shifting after a space, enter or backspace
+        uint16_t prev_tap = get_tap_keycode(prev_keycode);
+        if (prev_tap == KC_SPC || prev_tap == KC_ENTER || prev_tap == KC_BSPC) {
+            switch (keycode) {
+                case MT(MOD_LSFT, KC_S):
+                case MT(MOD_RSFT, KC_H):
+                    return 0;
+                default:
+                    return FLOW_TAP_TERM;
+            }
+        }  
+    }
+    return 0;
+}
+
 char sentence_case_press_user(uint16_t keycode,
                               keyrecord_t* record,
                               uint8_t mods) {
