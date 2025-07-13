@@ -7,6 +7,7 @@
 enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
   SWITCH,
+  EPISTORY_NAV,
 };
 
 /** Custom Shift **/
@@ -145,8 +146,8 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo10, LGUI(KC_Q)),
     COMBO(combo11, LALT(KC_BSPC)),
     COMBO(combo12, KC_ENTER),
-    COMBO(epistory_enter_nav, TG(5)), // EPISTORY combo - delete when no longer playing
-    COMBO(epistory_exit_nav, TG(5)), // EPISTORY combo - delete when no longer playing
+    COMBO(epistory_enter_nav, EPISTORY_NAV), // EPISTORY combo - delete when no longer playing
+    COMBO(epistory_exit_nav, EPISTORY_NAV), // EPISTORY combo - delete when no longer playing
 };
 
 
@@ -223,6 +224,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   // Switcher
   if(!process_switcher(keycode, record)) { return false; }
+
+  // EPISTORY
+  switch (keycode) {
+        case EPISTORY_NAV:
+            if (record->event.pressed) {
+                tap_code(KC_SPC);
+                layer_invert(5);
+            }
+            return false;
+    }
 
   // Oryx Stuff
   switch (keycode) {
