@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
-  [4] = LAYOUT_ergodox_pretty(
+  [4] = LAYOUT_ergodox_pretty( // temp NANOTALE layer (delete when no longer playing): has non-modtap homekeys, for navigating in NANOTALE
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_N,           KC_R,           KC_T,           KC_S,           KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_H,           KC_A,           KC_E,           KC_I,           KC_TRANSPARENT,
@@ -84,6 +84,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+  ),
+  [5] = LAYOUT_ergodox_pretty(  // temp EPISTORY Nav Layer (delete layer when no longer playing): Same as Nav layer 3 above, but with EFJI mapped in for Epistory's navigation.
+    KC_NO,          KC_NO,          KC_NO,            KC_NO,        KC_NO,          KC_NO,          KC_NO,                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,         
+    KC_NO,          KC_NO,          KC_NO,            KC_E,         KC_NO,          KC_NO,          KC_NO,                          KC_NO,          KC_NO,          KC_NO,          KC_I,           KC_NO,          KC_NO,          KC_NO,         
+    KC_NO,          KC_NO,          KC_NO,            KC_NO,        KC_F,           KC_NO,                                                          KC_NO,          KC_J,           KC_NO,          KC_NO,          KC_NO,          KC_NO,         
+    KC_NO,          KC_NO,          KC_NO,            KC_NO,        KC_NO,          KC_NO,          KC_NO,                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,         
+    KC_NO,          KC_NO,          KC_NO,            KC_NO,        KC_NO,                                                                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,         
+                                                                                                    KC_NO,          KC_NO,          KC_NO,          KC_NO,        
+                                                                                                                    KC_NO,          KC_NO,         
+                                                                                     KC_NO,         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO        
   ),
 };
 
@@ -118,6 +128,8 @@ const uint16_t PROGMEM combo9[] = { LGUI(KC_C), LGUI(KC_V), COMBO_END};
 const uint16_t PROGMEM combo10[] = { LGUI(KC_W), LGUI(LCTL(KC_F)), COMBO_END};
 const uint16_t PROGMEM combo11[] = { MT(MOD_LCTL, KC_R), MT(MOD_LGUI, KC_T), MT(MOD_LSFT, KC_S), COMBO_END};
 const uint16_t PROGMEM combo12[] = { MT(MOD_RSFT, KC_H), MT(MOD_RGUI, KC_A), MT(MOD_RCTL, KC_E), COMBO_END};
+const uint16_t PROGMEM epistory_enter_nav[] = { KC_D, MT(MOD_LSFT, KC_S), MT(MOD_RSFT, KC_H), KC_O, COMBO_END}; // EPISTORY combo - delete when no longer playing
+const uint16_t PROGMEM epistory_exit_nav[] = { KC_E, KC_F, KC_J, KC_I, COMBO_END}; // EPISTORY combo - delete when no longer playing
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_ESCAPE),
@@ -133,6 +145,8 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo10, LGUI(KC_Q)),
     COMBO(combo11, LALT(KC_BSPC)),
     COMBO(combo12, KC_ENTER),
+    COMBO(epistory_enter_nav, TG(5)), // EPISTORY combo - delete when no longer playing
+    COMBO(epistory_exit_nav, TG(5)), // EPISTORY combo - delete when no longer playing
 };
 
 
@@ -151,7 +165,11 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
     [3] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
+    // NANOTALE
     [4] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
+
+    // EPISTORY
+    [5] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
 };
 
@@ -187,9 +205,12 @@ bool rgb_matrix_indicators_user(void) {
     case 3:
       set_layer_color(3);
       break;
-    case 4:
+    case 4: // NANOTALE
       set_layer_color(4);
       break;
+    case 5: // EPISTORY
+      set_layer_color(5);
+      break;  
    default:
     if (rgb_matrix_get_flags() == LED_FLAG_NONE)
       rgb_matrix_set_color_all(0, 0, 0);
