@@ -7,6 +7,8 @@
 
 #define SENTENCE_CASE_TIMEOUT 0  // disable timeout
 
+#define QUICK_TAP_TERM 0 // Disable key repeating, even on the second keypress, so that a quick <space> then <num layer hold> activates the num layer rather than holding down the space key
+
 #undef RGB_MATRIX_TIMEOUT
 #define RGB_MATRIX_TIMEOUT 60000
 
