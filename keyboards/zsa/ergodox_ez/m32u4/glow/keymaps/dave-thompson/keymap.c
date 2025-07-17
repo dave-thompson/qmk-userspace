@@ -2,11 +2,8 @@
 #include "version.h"
 #include "i18n.h"
 
-#include "features/switcher.h"
-
 enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
-  SWITCH,
   EPISTORY_NAV,
 };
 
@@ -18,7 +15,6 @@ const custom_shift_key_t custom_shift_keys[] = {
 };
 
 /** Switcher **/
-uint16_t SWITCHER_TRIGGER_KEYCODE = SWITCH;
 uint16_t SWITCHER_VIRTUAL_HOLD_KEY = KC_LGUI;
 uint16_t SWITCHER_VIRTUAL_TAP_KEY = KC_TAB;
 const switcher_key_t switcher_secondary_keys[] = {
@@ -32,8 +28,6 @@ const switcher_key_t switcher_secondary_keys[] = {
   {LGUI(KC_C), KC_DOT}, // left middle sends '.' to silently exit switcher
   // All other keycodes both exit the switcher and send the keycode for processing
 };
-uint8_t NUM_SWITCHER_SECONDARY_KEYS =
-    sizeof(switcher_secondary_keys) / sizeof(switcher_key_t);
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
@@ -69,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [3] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,                KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,
     KC_TRANSPARENT, LGUI(KC_N),     LGUI(KC_W),       LGUI(LCTL(KC_F)),              LGUI(KC_M),     LGUI(KC_I),     KC_TRANSPARENT,                KC_TRANSPARENT, KC_NO,          SELWBAK,        KC_UP,          SELWORD,        LGUI(LCTL(KC_Q)), KC_TRANSPARENT,
-    KC_TRANSPARENT, LGUI(KC_A),     LGUI(KC_X),       LGUI(KC_C),                    LGUI(KC_V),     LGUI(KC_B),                                                    KC_TAB,         KC_LEFT,        KC_DOWN,        KC_RIGHT,       SWITCH,           KC_TRANSPARENT,
+    KC_TRANSPARENT, LGUI(KC_A),     LGUI(KC_X),       LGUI(KC_C),                    LGUI(KC_V),     LGUI(KC_B),                                                    KC_TAB,         KC_LEFT,        KC_DOWN,        KC_RIGHT,       SWITCHER,         KC_TRANSPARENT,
     KC_TRANSPARENT, LGUI(KC_Z),     LGUI(LSFT(KC_Z)), KC_DOT,                        LGUI(KC_S),     LGUI(KC_U),     KC_TRANSPARENT,                KC_TRANSPARENT, QK_LLCK,        SELLINE,        LGUI(KC_SPACE), KC_BSPC,        KC_ENTER,         KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,                KC_TRANSPARENT,                                                                                KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -221,9 +215,6 @@ bool rgb_matrix_indicators_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-
-  // Switcher
-  if(!process_switcher(keycode, record)) { return false; }
 
   // EPISTORY
   switch (keycode) {
