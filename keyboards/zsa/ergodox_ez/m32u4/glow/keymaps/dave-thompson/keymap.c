@@ -63,8 +63,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [3] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,                KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,
     KC_TRANSPARENT, LGUI(KC_N),     LGUI(KC_W),       LGUI(LCTL(KC_F)),              LGUI(KC_M),     LGUI(KC_I),     KC_TRANSPARENT,                KC_TRANSPARENT, KC_NO,          SELWBAK,        KC_UP,          SELWORD,        LGUI(LCTL(KC_Q)), KC_TRANSPARENT,
-    KC_TRANSPARENT, LGUI(KC_A),     LGUI(KC_X),       LGUI(KC_C),                    LGUI(KC_V),     LGUI(KC_B),                                                    KC_TAB,         KC_LEFT,        KC_DOWN,        KC_RIGHT,       SWITCHER,         KC_TRANSPARENT,
-    KC_TRANSPARENT, LGUI(KC_Z),     LGUI(LSFT(KC_Z)), KC_DOT,                        LGUI(KC_S),     LGUI(KC_U),     KC_TRANSPARENT,                KC_TRANSPARENT, QK_LLCK,        SELLINE,        LGUI(KC_SPACE), KC_BSPC,        KC_ENTER,         KC_TRANSPARENT,
+    KC_TRANSPARENT, LGUI(KC_A),     LGUI(KC_X),       LGUI(KC_C),                    LGUI(KC_V),     LGUI(KC_B),                                                    KC_TAB,         KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_BSPC,          KC_TRANSPARENT,
+    KC_TRANSPARENT, LGUI(KC_Z),     LGUI(LSFT(KC_Z)), KC_DOT,                        LGUI(KC_S),     LGUI(KC_U),     KC_TRANSPARENT,                KC_TRANSPARENT, QK_LLCK,        LGUI(KC_SPACE), SELLINE,        SWITCHER,       KC_ENTER,         KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,                KC_TRANSPARENT,                                                                                KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
@@ -114,8 +114,8 @@ const uint16_t PROGMEM combo0[] = { LGUI(KC_N), LGUI(KC_W), COMBO_END};
 const uint16_t PROGMEM combo1[] = { LGUI(KC_V), LGUI(KC_B), COMBO_END};
 const uint16_t PROGMEM combo2[] = { KC_UP, SELWORD, COMBO_END};
 const uint16_t PROGMEM combo3[] = { SELWBAK, KC_UP, COMBO_END};
-const uint16_t PROGMEM combo4[] = { LGUI(KC_SPACE), KC_BSPC, COMBO_END};
-const uint16_t PROGMEM combo5[] = { SELLINE, LGUI(KC_SPACE), COMBO_END};
+const uint16_t PROGMEM combo4[] = { SELLINE, SWITCHER, COMBO_END};
+const uint16_t PROGMEM combo5[] = { LGUI(KC_SPACE), SELLINE, COMBO_END};
 const uint16_t PROGMEM combo6[] = { LGUI(KC_S), KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo7[] = { KC_DOT, LGUI(LSFT(KC_Z)), COMBO_END};
 const uint16_t PROGMEM combo8[] = { LGUI(KC_X), LGUI(KC_C), COMBO_END};
