@@ -222,13 +222,35 @@ bool rgb_matrix_indicators_user(void) {
   return true;
 }
 
+bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
+    // One-shot Shifting via Thumb keys: Special early handling for Custom Shifted keys only
+    // (This is too early for the general case, but process_record_user will be too late for Custom Shifted keys specifically)
+
+    // Is it a custom shift key?
+    bool is_custom_shift_key = false;
+    for (int i = 0; i < (int)ARRAY_SIZE(custom_shift_keys); ++i) {
+        const custom_shift_key_t* custom_shift_key = &custom_shift_keys[i];
+        if (keycode == custom_shift_key->keycode) {
+            is_custom_shift_key = true;
+        }
+    }
+
+    // If shift combo recently tapped, not been tapped a second time, and now a custom shift key tapped
+    if (shift_tap_timer && is_custom_shift_key) { 
+            // SINGLE_TAP followed by Custom Shift key => (JIT) ONE SHOT SHIFT
+            set_oneshot_mods(MOD_LSFT);
+            shift_tap_timer = 0;
+        }
+    return true;
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   
     // One-shot Shifting via Thumb keys
     if (keycode == SHIFT_COMBO) { // It's the Shift combo
         if (record->event.pressed) {
-                if (shift_tap_timer && !timer_expired(timer_read(), shift_tap_timer)) {
-                    // This is the second half of a double tap
+                if (shift_tap_timer && !timer_expired(timer_read(), shift_tap_timer)) { // This is the second half of a double tap
+                    // DOUBLE TAP => CAPS_WORD
                     caps_word_on();
                     shift_tap_timer = 0;
                 } else {
@@ -244,8 +266,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
     else { // It's something else; check to see if we need to apply shift before it's processed
-        if (shift_tap_timer) {
-            // Shift combo was tapped recently, it's not been tapped a second time, and now something else has been tapped
+        if (shift_tap_timer) { // Shift combo was tapped recently, it's not been tapped a second time, and now something else has been tapped
+                // SINGLE_TAP => (JIT) ONE SHOT SHIFT
                 set_oneshot_mods(MOD_LSFT);
                 shift_tap_timer = 0;
          }
@@ -273,8 +295,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 void housekeeping_task_user(void) {
-    if (shift_tap_timer && timer_expired(timer_read(), shift_tap_timer)) {
-    // Shift combo was tapped recently, it's not been tapped a second time, and the tapping term is up
+    if (shift_tap_timer && timer_expired(timer_read(), shift_tap_timer)) {// Shift combo was tapped recently, it's not been tapped a second time, and the tapping term's expired
+    // SINGLE_TAP => ONE SHOT SHIFT
     set_oneshot_mods(MOD_LSFT);
     shift_tap_timer = 0;
   }
