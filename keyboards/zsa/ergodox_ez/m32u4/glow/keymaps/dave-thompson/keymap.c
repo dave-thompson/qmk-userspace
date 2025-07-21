@@ -5,6 +5,7 @@
 enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
   EPISTORY_NAV,
+  SHIFT_COMBO,
 };
 
 /** Custom Shift **/
@@ -28,6 +29,11 @@ const switcher_key_t switcher_secondary_keys[] = {
   {LGUI(KC_C), KC_DOT}, // left middle sends '.' to silently exit switcher
   // All other keycodes both exit the switcher and send the keycode for processing
 };
+
+/** One-shot shift via Thumb Keys **/
+static uint16_t shift_tap_timer = 0;
+#define SHIFT_TAP_TIMEOUT 1000 // Maximum time in ms between shift combo presses to count as a double tap and thus CAPS_WORD; double tapping both thumb keys simultaneously takes longer than a typical TAPPING_TERM
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
@@ -125,6 +131,7 @@ const uint16_t PROGMEM combo11[] = { MT(MOD_LCTL, KC_R), MT(MOD_LGUI, KC_T), MT(
 const uint16_t PROGMEM combo12[] = { MT(MOD_RSFT, KC_H), MT(MOD_RGUI, KC_A), MT(MOD_RCTL, KC_E), COMBO_END};
 const uint16_t PROGMEM epistory_enter_nav[] = { KC_D, MT(MOD_LSFT, KC_S), MT(MOD_RSFT, KC_H), KC_O, COMBO_END}; // EPISTORY combo - delete when no longer playing
 const uint16_t PROGMEM epistory_exit_nav[] = { KC_E, KC_F, KC_J, KC_I, COMBO_END}; // EPISTORY combo - delete when no longer playing
+const uint16_t PROGMEM one_shot_shift[] = { MO(3), LT(1, KC_SPACE), COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_ESCAPE),
@@ -142,6 +149,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo12, KC_ENTER),
     COMBO(epistory_enter_nav, EPISTORY_NAV), // EPISTORY combo - delete when no longer playing
     COMBO(epistory_exit_nav, EPISTORY_NAV), // EPISTORY combo - delete when no longer playing
+    COMBO(one_shot_shift, SHIFT_COMBO),
 };
 
 
@@ -215,27 +223,61 @@ bool rgb_matrix_indicators_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  
+    // One-shot Shifting via Thumb keys
+    if (keycode == SHIFT_COMBO) { // It's the Shift combo
+        if (record->event.pressed) {
+                if (shift_tap_timer && !timer_expired(timer_read(), shift_tap_timer)) {
+                    // This is the second half of a double tap
+                    caps_word_on();
+                    shift_tap_timer = 0;
+                } else {
+                    // This is either a single tap, or the first half of a double tap; let's wait to find out which.
+                    //
+                    // The bitwise OR here, "| 1", increments any even number by 1 to make it odd. This addresses the 
+                    //   corner case where the computed value is 0, which otherwise would happen roughly 1 in 65k times
+                    //   (16-bit timer loops every 2^16 = 65536ms), falsely signalling that no timer was running. The
+                    //   resulting 1ms inaccuracy is unimportant.
+                    shift_tap_timer = (record->event.time + SHIFT_TAP_TIMEOUT) | 1;
+                }
+            } 
+            return false;
+    }
+    else { // It's something else; check to see if we need to apply shift before it's processed
+        if (shift_tap_timer) {
+            // Shift combo was tapped recently, it's not been tapped a second time, and now something else has been tapped
+                set_oneshot_mods(MOD_LSFT);
+                shift_tap_timer = 0;
+         }
+    }
 
-  // EPISTORY
-  switch (keycode) {
+    switch (keycode) {
+
+        // EPISTORY
         case EPISTORY_NAV:
             if (record->event.pressed) {
                 tap_code(KC_SPC);
                 layer_invert(5);
             }
             return false;
-    }
 
-  // Oryx Stuff
-  switch (keycode) {
+        // Oryx Stuff
+        case RGB_SLD:
+            if (record->event.pressed) {
+                rgblight_mode(1);
+            }
+            return false;
+    } 
 
-    case RGB_SLD:
-      if (record->event.pressed) {
-        rgblight_mode(1);
-      }
-      return false;
+    return true;
+}
+
+void housekeeping_task_user(void) {
+    if (shift_tap_timer && timer_expired(timer_read(), shift_tap_timer)) {
+    // Shift combo was tapped recently, it's not been tapped a second time, and the tapping term is up
+    set_oneshot_mods(MOD_LSFT);
+    shift_tap_timer = 0;
   }
-  return true;
 }
 
 uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record,
