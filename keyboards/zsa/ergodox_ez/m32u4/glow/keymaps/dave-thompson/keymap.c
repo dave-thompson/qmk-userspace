@@ -224,7 +224,7 @@ bool rgb_matrix_indicators_user(void) {
 
 bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
     // One-shot Shifting via Thumb keys: Special early handling for Custom Shifted keys only
-    // (This is too early for the general case, but process_record_user will be too late for Custom Shifted keys specifically)
+    // (This is too early for the general case, but process_record_user will be too late for __Custom_Shifted__ keys.)
 
     // Is it a custom shift key?
     bool is_custom_shift_key = false;
@@ -232,6 +232,7 @@ bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
         const custom_shift_key_t* custom_shift_key = &custom_shift_keys[i];
         if (keycode == custom_shift_key->keycode) {
             is_custom_shift_key = true;
+            break;
         }
     }
 
@@ -354,6 +355,9 @@ char sentence_case_press_user(uint16_t keycode,
       
       case KC_QUOT:
         return '\'';  // Quote key.
+
+      case SHIFT_COMBO: // DT Customisation - ignore the Shift Combo
+        return '\0';
     }
   }
 
