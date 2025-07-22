@@ -330,6 +330,7 @@ char sentence_case_press_user(uint16_t keycode,
     switch (keycode) {
       
       case KC_A ... KC_Z:
+      case KC_2 ... KC_0:  // 2 3 4 5 6 7 8 9 0  (DT Customisation - treat numbers as letters rather than symbols)
         return 'a';  // Letter key.
 
       case KC_DOT:  // . is punctuation, Shift . is a symbol (>)
@@ -342,7 +343,6 @@ char sentence_case_press_user(uint16_t keycode,
       case KC_QUES:
         return '.';
       
-      case KC_2 ... KC_0:  // 2 3 4 5 6 7 8 9 0
       case KC_AT ... KC_RPRN:  // @ # $ % ^ & * ( )
       case KC_MINS ... KC_SCLN:  // - = [ ] backslash ;
       case KC_UNDS ... KC_COLN:  // _ + { } | :
@@ -350,13 +350,13 @@ char sentence_case_press_user(uint16_t keycode,
         return '#';  // Symbol key.
       
       case KC_SPC:
-      case KC_ENTER: // DT Customisation - Treat enter as a space, thus capitalising the start of paragraphs.
+      case KC_ENTER: // DT Customisation - Treat enter as a space, thus capitalising the start of paragraphs
         return ' ';  // Space key.
       
       case KC_QUOT:
         return '\'';  // Quote key.
 
-      case SHIFT_COMBO: // DT Customisation - ignore the Shift Combo
+      case SHIFT_COMBO: // DT Customisation - Ignore the Shift Combo
         return '\0';
     }
   }
