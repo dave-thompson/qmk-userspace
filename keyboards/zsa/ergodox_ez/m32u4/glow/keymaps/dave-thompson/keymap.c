@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 LALT(LGUI(LCTL(LSFT(KC_K)))),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, QK_BOOT,
     KC_TRANSPARENT, KC_B,           KC_L,           KC_D,           KC_W,           KC_Z,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_QUOTE,       KC_F,           KC_O,           KC_U,           KC_J,           KC_TRANSPARENT,
-    KC_TRANSPARENT, MT(MOD_LALT, KC_N),MT(MOD_LCTL, KC_R),MT(MOD_LGUI, KC_T),MT(MOD_LSFT, KC_S),KC_G,                                                                           KC_Y,           MT(MOD_RSFT, KC_H),MT(MOD_RGUI, KC_A),MT(MOD_RCTL, KC_E),MT(MOD_RALT, KC_I),KC_TRANSPARENT,
+    KC_TRANSPARENT, MT(MOD_LALT, KC_N),MT(MOD_LCTL, KC_R),MT(MOD_LGUI, KC_T),MT(MOD_LSFT, KC_S),KC_G,                                                               KC_Y,           MT(MOD_RSFT, KC_H),MT(MOD_RGUI, KC_A),MT(MOD_RCTL, KC_E),MT(MOD_RALT, KC_I),KC_TRANSPARENT,
     KC_TRANSPARENT, KC_Q,           KC_X,           KC_M,           KC_C,           KC_V,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_K,           KC_P,           KC_COMMA,       KC_DOT,         OSL(2),         TG(4),
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, QK_DYNAMIC_TAPPING_TERM_PRINT,QK_DYNAMIC_TAPPING_TERM_DOWN,QK_DYNAMIC_TAPPING_TERM_UP,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_LABK,        KC_MINUS,       KC_PERC,        KC_SLASH,       KC_LBRC,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_RBRC,        KC_ASTR,        KC_EQUAL,       KC_PLUS,        KC_RABK,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_LPRN,                                                                        KC_RPRN,        KC_7,           KC_8,           KC_9,           KC_0,           KC_TRANSPARENT,
+    KC_TRANSPARENT, MT(MOD_LALT, KC_1),MT(MOD_LCTL, KC_2),MT(MOD_LGUI, KC_3),MT(MOD_LSFT, KC_4), KC_LPRN,                                                           KC_RPRN,        MT(MOD_RSFT, KC_7),MT(MOD_RGUI, KC_8),MT(MOD_RCTL, KC_9),MT(MOD_RALT, KC_0), KC_TRANSPARENT,
     KC_TRANSPARENT, KC_CIRC,        KC_DLR,         UK_PND,         KC_5,           KC_LCBR,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_RCBR,        KC_6,           KC_TRANSPARENT, KC_TRANSPARENT, OSL(2),         KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -247,6 +247,7 @@ bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   
+    // TODO: Refactor one-shot shift / caps word so that one-shot shift is applied instantly, and then just removed and replaced with caps word on double tap
     // One-shot Shifting via Thumb keys
     if (keycode == SHIFT_COMBO) { // It's the Shift combo
         if (record->event.pressed) {
@@ -256,11 +257,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     shift_tap_timer = 0;
                 } else {
                     // This is either a single tap, or the first half of a double tap; let's wait to find out which.
-                    //
-                    // The bitwise OR here, "| 1", increments any even number by 1 to make it odd. This addresses the 
-                    //   corner case where the computed value is 0, which otherwise would happen roughly 1 in 65k times
-                    //   (16-bit timer loops every 2^16 = 65536ms), falsely signalling that no timer was running. The
-                    //   resulting 1ms inaccuracy is unimportant.
                     shift_tap_timer = (record->event.time + SHIFT_TAP_TIMEOUT) | 1;
                 }
             } 
