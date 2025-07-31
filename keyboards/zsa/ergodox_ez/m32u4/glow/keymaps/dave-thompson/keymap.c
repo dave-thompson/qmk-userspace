@@ -16,8 +16,6 @@ const custom_shift_key_t custom_shift_keys[] = {
 };
 
 /** Switcher **/
-uint16_t SWITCHER_VIRTUAL_HOLD_KEY = KC_LGUI;
-uint16_t SWITCHER_VIRTUAL_TAP_KEY = KC_TAB;
 const switcher_key_t switcher_secondary_keys[] = {
   // When switcher is active:
   {KC_LEFT, KC_LEFT}, // 'left' functions as usual

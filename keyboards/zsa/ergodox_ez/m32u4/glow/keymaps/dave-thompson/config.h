@@ -1,25 +1,59 @@
+// Combos //
+//--------//
+#define COMBO_COUNT 16
+
+// Tap-Hold //
+//----------//
 #define FLOW_TAP_TERM 125
 #define CHORDAL_HOLD
-#define ONESHOT_TAP_TOGGLE 2
+#define QUICK_TAP_TERM 0 // Disable key repeating, even on the second keypress, so that a quick <space> then <num layer hold> activates the num layer rather than holding down the space key
 
+
+// Oneshots //
+//----------//
+#define ONESHOT_TAP_TOGGLE 2
 #undef ONESHOT_TIMEOUT
 #define ONESHOT_TIMEOUT 5000
 
+
+// Switcher //
+//----------//
+#define SWITCHER_MACOS_APP_SWITCHER
+#define SWITCHER_ENABLE_SECONDARY_KEYS
+
+
+// Getreuer //
+//----------//
 #define SENTENCE_CASE_TIMEOUT 0  // disable timeout
+#define SELECT_WORD_OS_MAC
 
-#define QUICK_TAP_TERM 0 // Disable key repeating, even on the second keypress, so that a quick <space> then <num layer hold> activates the num layer rather than holding down the space key
 
-#undef RGB_MATRIX_TIMEOUT
-#define RGB_MATRIX_TIMEOUT 60000
-
+// ZSA //
+//-----//
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define SERIAL_NUMBER "aW7eb/B49raD"
 #define LAYER_STATE_8BIT
-#define COMBO_COUNT 16
-
+// RGB:
 #define RGB_MATRIX_STARTUP_SPD 60
+#undef RGB_MATRIX_TIMEOUT
+#define RGB_MATRIX_TIMEOUT 60000
 
-#define SELECT_WORD_OS_MAC
+
+// Space Saving //
+//--------------//
+
+#define DISABLE_LEADER
+
+#ifndef NO_DEBUG
+	#define NO_DEBUG
+#endif
+
+#if !defined(NO_PRINT) && !defined(CONSOLE_ENABLE)
+	#define NO_PRINT
+#endif
+
+#undef LOCKING_SUPPORT_ENABLE
+#undef LOCKING_RESYNC_ENABLE
 
 #undef ENABLE_RGB_MATRIX_ALPHAS_MODS
 #undef ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
@@ -50,20 +84,3 @@
 #undef ENABLE_RGB_MATRIX_PIXEL_FRACTAL
 #undef ENABLE_RGB_MATRIX_PIXEL_FLOW
 #undef ENABLE_RGB_MATRIX_PIXEL_RAIN
-
-// Space saving //
-/////////////////
-#define DISABLE_LEADER
-
-#ifndef NO_DEBUG
-#define NO_DEBUG
-#endif // !NO_DEBUG
-
-#if !defined(NO_PRINT) && !defined(CONSOLE_ENABLE)
-#define NO_PRINT
-#endif // !NO_PRINT
-
-
-#undef LOCKING_SUPPORT_ENABLE
-#undef LOCKING_RESYNC_ENABLE
-
