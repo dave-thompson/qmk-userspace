@@ -16,16 +16,14 @@ const custom_shift_key_t custom_shift_keys[] = {
 };
 
 /** Switcher **/
-const switcher_key_t switcher_secondary_keys[] = {
-  // When switcher is active:
-  {KC_LEFT, KC_LEFT}, // 'left' functions as usual
-  {KC_RIGHT, KC_RIGHT}, // 'right' functions as usual
-  {KC_UP, KC_UP}, // 'up' functions as usual
-  {KC_DOWN, KC_DOWN}, // 'down' functions as usual
-  {LGUI(KC_A), KC_Q}, // left pinky sends 'Q' to quit app
-  {LGUI(KC_V), KC_H}, // left index sends 'H' to hide app
-  // All other keycodes both exit the switcher and send the keycode for processing
-};
+SWITCHER_SECONDARY_KEYS(
+    {KC_LEFT, KC_LEFT},     // 'left' functions as usual
+    {KC_RIGHT, KC_RIGHT},   // 'right' functions as usual  
+    {KC_UP, KC_UP},         // 'up' functions as usual
+    {KC_DOWN, KC_DOWN},     // 'down' functions as usual
+    {LGUI(KC_A), KC_Q},     // left pinky sends 'Q' to quit app
+    {LGUI(KC_V), KC_H},     // left index sends 'H' to hide app
+);
 
 /** One-shot shift via Thumb Keys **/
 static uint16_t shift_tap_timer = 0;
