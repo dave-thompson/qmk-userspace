@@ -32,7 +32,7 @@
 // RGB:
 #define RGB_MATRIX_STARTUP_SPD 60
 #undef RGB_MATRIX_TIMEOUT
-#define RGB_MATRIX_TIMEOUT 60000
+#define RGB_MATRIX_TIMEOUT 30000
 
 
 // Space Saving //

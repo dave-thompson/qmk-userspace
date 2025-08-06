@@ -260,25 +260,32 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record,
 const uint16_t PROGMEM enter[] = { HRM_H, HRM_A, HRM_E, COMBO_END};
 const uint16_t PROGMEM del_word[] = { HRM_R, HRM_T, HRM_S, COMBO_END};
 const uint16_t PROGMEM one_shot_shift[] = { MO(3), NUM_SPC, COMBO_END};
+
 // Editing
 const uint16_t PROGMEM paste_plain[] = { PASTE, BOLD, COMBO_END};
+
 // Window Navigation
 const uint16_t PROGMEM prev_tab[] = { SELWBAK, KC_UP, COMBO_END};
 const uint16_t PROGMEM next_tab[] = { KC_UP, SELWORD, COMBO_END};
 const uint16_t PROGMEM prev_win[] = { ALFRED, SELLINE, COMBO_END};
 const uint16_t PROGMEM next_win[] = { SELLINE, SWTCH, COMBO_END};
+
 // Window Layout
 const uint16_t PROGMEM left_screen[] = { CUT, COPY, COMBO_END};
 const uint16_t PROGMEM right_screen[] = { COPY, PASTE, COMBO_END};
+
 // Window Management
 const uint16_t PROGMEM escape[] = { NEW, CLOSE, COMBO_END};
 const uint16_t PROGMEM quit[] = { CLOSE, FULLSCR, COMBO_END};
+
 // Magnification
 const uint16_t PROGMEM zoom_out[] = { REDO, KC_DOT, COMBO_END};
 const uint16_t PROGMEM zoom_in[] = { KC_DOT, SAVE, COMBO_END};
+
 // Gaming
 const uint16_t PROGMEM epistory_enter_nav[] = { KC_D, HRM_S, HRM_H, KC_O, COMBO_END};
 const uint16_t PROGMEM epistory_exit_nav[] = { KC_E, KC_F, KC_J, KC_I, COMBO_END};
+
 
 combo_t key_combos[] = {
 
@@ -314,75 +321,56 @@ combo_t key_combos[] = {
 
 };
 
+
 ///////////////////////////////////////////////////////////////////////////////
 // RGB Matrix Lighting
 ///////////////////////////////////////////////////////////////////////////////
 
 extern rgb_config_t rgb_matrix_config;
 
-void keyboard_post_init_user(void) {
-  rgb_matrix_enable();
-}
+typedef struct {
+    uint8_t h, s, v;
+} hsv_color_t;
 
-const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
-    [0] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
+// Only light up 3x5 keys on each side
+const uint8_t active_leds[] =
+    {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43};
 
-    [1] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {74,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
-
-    [2] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,245,245}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
-
-    [3] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
-
-    [4] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
-
+const hsv_color_t PROGMEM layer_colors[] = {
+    [BASE] = {0, 0, 255},    // White (hue=0, sat=0, bright=255)
+    [NUM] = {74, 255, 255},  // Green
+    [SYM] = {0, 255, 255},   // Red
+    [NAV] = {188, 255, 255}, // Purple
+    [EPI] = {219, 255, 255}, // Pink
 };
 
-void set_layer_color(int layer) {
-  for (int i = 0; i < RGB_MATRIX_LED_COUNT; i++) {
-    HSV hsv = {
-      .h = pgm_read_byte(&ledmap[layer][i][0]),
-      .s = pgm_read_byte(&ledmap[layer][i][1]),
-      .v = pgm_read_byte(&ledmap[layer][i][2]),
-    };
-    if (!hsv.h && !hsv.s && !hsv.v) {
-        rgb_matrix_set_color( i, 0, 0, 0 );
-    } else {
-        RGB rgb = hsv_to_rgb( hsv );
-        float f = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
-        rgb_matrix_set_color( i, f * rgb.r, f * rgb.g, f * rgb.b );
+void set_layer_color(uint8_t layer) {
+
+    // Get HSV colour
+    uint8_t h = pgm_read_byte(&layer_colors[layer].h);
+    uint8_t s = pgm_read_byte(&layer_colors[layer].s);
+    uint8_t v = pgm_read_byte(&layer_colors[layer].v);    
+    HSV hsv = {.h = h, .s = s, .v = v};
+
+    // Convert HSV to RGB
+    RGB rgb = hsv_to_rgb(hsv); 
+
+    // Apply global brightness scaling
+    float f = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
+    
+    // Update the LEDs
+    rgb_matrix_set_color_all(0, 0, 0); // Clear any old colours
+    for (int i = 0; i < ARRAY_SIZE(active_leds); i++) {
+        rgb_matrix_set_color(active_leds[i], f * rgb.r, f * rgb.g, f * rgb.b);
     }
-  }
+
 }
 
 bool rgb_matrix_indicators_user(void) {
-  if (keyboard_config.disable_layer_led) { return false; }
-  switch (biton32(layer_state)) {
-    case 0:
-      set_layer_color(0);
-      break;
-    case 1:
-      set_layer_color(1);
-      break;
-    case 2:
-      set_layer_color(2);
-      break;
-    case 3:
-      set_layer_color(3);
-      break;
-    case 4:
-      set_layer_color(4);
-      break;
-   default:
-    if (rgb_matrix_get_flags() == LED_FLAG_NONE)
-      rgb_matrix_set_color_all(0, 0, 0);
-    break;
-  }
-  return true;
+    if (keyboard_config.disable_layer_led) return false;
+    set_layer_color(get_highest_layer(layer_state));
+    return true;
 }
-
-uint8_t layer_state_set_user(uint8_t state) {
-  return state;
-};
 
 
 ///////////////////////////////////////////////////////////////////////////////
