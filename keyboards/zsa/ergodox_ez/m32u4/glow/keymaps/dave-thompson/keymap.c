@@ -8,91 +8,225 @@ enum custom_keycodes {
   SHIFT_COMBO,
 };
 
-/** Custom Shift **/
+
+///////////////////////////////////////////////////////////////////////////////
+// Keyboard Layout
+///////////////////////////////////////////////////////////////////////////////
+
+enum layers {
+  BASE,
+  NUM,
+  SYM,
+  NAV,
+  NNT,
+  EPI,
+};
+
+enum keycode_aliases {
+
+  // Home-row Mods
+  HRM_N = LALT_T(KC_N),
+  HRM_R = LCTL_T(KC_R),
+  HRM_T = LGUI_T(KC_T),
+  HRM_S = LSFT_T(KC_S),
+  HRM_H = RSFT_T(KC_H),
+  HRM_A = RGUI_T(KC_A),
+  HRM_E = RCTL_T(KC_E),
+  HRM_I = RALT_T(KC_I),
+  HRM_1 = LALT_T(KC_1),
+  HRM_2 = LCTL_T(KC_2),
+  HRM_3 = LGUI_T(KC_3),
+  HRM_4 = LSFT_T(KC_4),
+  HRM_7 = RSFT_T(KC_7),
+  HRM_8 = RGUI_T(KC_8),
+  HRM_9 = RCTL_T(KC_9),
+  HRM_0 = RALT_T(KC_0),
+
+  // Layer Switches
+  NUM_SPC = LT(NUM, KC_SPC),
+
+  // Symbols
+  M_DSH = A(S(KC_MINS)),
+  HASH = A(S(KC_MINS)),
+
+  // Window Management
+  NEW = G(KC_N),
+  CLOSE = G(KC_W),
+  FULLSCR = G(C(KC_F)),
+  MINIM = G(KC_M),
+
+  // Formatting
+  ITALIC = G(KC_I),
+  BOLD = G(KC_B),
+  UNDER = G(KC_U),
+
+  // Editing
+  ALL = G(KC_A),
+  CUT = G(KC_X),
+  COPY = G(KC_C),
+  PASTE = G(KC_V),
+
+  // State
+  UNDO = G(KC_Z),
+  REDO = G(S(KC_Z)),
+  SAVE = G(KC_S),
+
+  // Miscellaneous
+  ALFRED = G(KC_SPC),
+  LOCKCMP = G(C(KC_Q)),
+  BUILD_K = A(G(C(S(KC_K)))),
+
+};
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+  [BASE] = LAYOUT_ergodox_pretty(
+    _______, _______, _______, _______, _______, _______, _______,          BUILD_K, _______, _______, _______, _______, _______, QK_BOOT,
+    _______, KC_B,    KC_L,    KC_D,    KC_W,    KC_Z,    _______,          _______, KC_QUOT, KC_F,    KC_O,    KC_U,    KC_J,    _______,
+    _______, HRM_N,   HRM_R,   HRM_T,   HRM_S,   KC_G,                               KC_Y,    HRM_H,   HRM_A,   HRM_E,   HRM_I,   _______,
+    _______, KC_Q,    KC_X,    KC_M,    KC_C,    KC_V,    _______,          _______, KC_K,    KC_P,    KC_COMM, KC_DOT,  OSL(SYM),TG(NNT),
+    _______, _______, _______, _______, _______,                                              _______, _______, DT_PRNT, DT_UP,   DT_DOWN,
+
+                                                     _______, _______,  _______, _______,
+                                                              _______,  _______,
+                                            MO(NAV), _______, _______,  _______, _______, NUM_SPC
+
+  ),
+  [NUM] = LAYOUT_ergodox_pretty(
+    _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
+    _______, KC_LABK, KC_MINS, KC_PERC, KC_SLSH, KC_LBRC, _______,          _______, KC_RBRC, KC_ASTR, KC_EQL,  KC_PLUS, KC_RABK, _______,
+    _______, HRM_1,   HRM_2,   HRM_3,   HRM_4,   KC_LPRN,                            KC_RPRN, HRM_7,   HRM_8,   HRM_9,   HRM_0,   _______,
+    _______, KC_CIRC, KC_DLR,  UK_PND,  KC_5,    KC_LCBR, _______,          _______, KC_RCBR, KC_6,    _______, _______, OSL(SYM),_______,
+    _______, _______, _______, _______, _______,                                              _______, _______, _______, _______, _______,
+
+                                                     _______, _______,  _______, _______,
+                                                              _______,  _______,
+                                            _______, _______, _______,  _______, _______, KC_SPC
+  ),
+  [SYM] = LAYOUT_ergodox_pretty(
+    _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
+    _______, KC_GRV,  KC_BSLS, KC_PIPE, KC_SLSH, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
+    _______, KC_AMPR, KC_UNDS, KC_AT,   M_DSH,   _______,                            _______, _______, _______, _______, _______, _______,
+    _______, KC_TILD, HASH,    KC_SCLN, KC_COLN, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______,                                              _______, _______, _______, _______, _______,
+
+                                                     _______, _______,  _______, _______,
+                                                              _______,  _______,
+                                            _______, _______, _______,  _______, _______, _______
+  ),
+  [NAV] = LAYOUT_ergodox_pretty(
+    _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
+    _______, NEW,     CLOSE,   FULLSCR, MINIM,   ITALIC,  _______,          _______, SWTCH_E, SELWBAK, KC_UP,   SELWORD, QK_LLCK, _______,
+    _______, ALL,     CUT,     COPY,    PASTE,   BOLD,                               KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, KC_BSPC, _______,
+    _______, UNDO,    REDO,    KC_DOT,  SAVE,    UNDER,   _______,          _______, _______, ALFRED,  SELLINE, SWTCH,   LOCKCMP, _______,
+    _______, _______, _______, _______, _______,                                              _______, _______, _______, _______, _______,
+
+                                                     _______, _______,  _______, _______,
+                                                              _______,  _______,
+                                            _______, _______, _______,  _______, _______, _______
+  ),
+  [NNT] = LAYOUT_ergodox_pretty(
+    _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
+    _______, KC_N,    KC_R,    KC_T,    KC_S,    _______,                            _______, KC_H,    KC_A,    KC_E,    KC_I,    _______,
+    _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______,                                              _______, _______, _______, _______, _______,
+
+                                                     _______, _______,  _______, _______,
+                                                              _______,  _______,
+                                            _______, _______, _______,  _______, _______, _______
+  ),
+  [EPI] = LAYOUT_ergodox_pretty(
+    _______, _______, _______, _______, _______, _______,  _______,         _______, _______, _______, _______, _______, _______, _______,         
+    _______, _______, _______, KC_E,    _______, _______,  _______,         _______, _______, _______, KC_I,    _______, _______, _______,         
+    _______, _______, _______, _______, KC_F,    _______,                            _______, KC_J,    _______, _______, _______, _______,         
+    _______, _______, _______, _______, _______, _______,  _______,         _______, _______, _______, _______, _______, _______, _______,         
+    _______, _______, _______, _______, _______,                                              _______, _______, _______, _______, _______,         
+
+                                                     _______, _______,  _______, _______,
+                                                              _______,  _______,
+                                            _______, _______, _______,  _______, _______, _______
+  ),
+};
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Custom Shift
+///////////////////////////////////////////////////////////////////////////////
+
 const custom_shift_key_t custom_shift_keys[] = {
-  {KC_COMM, KC_QUES}, // Shift , is ?
-  {KC_DOT , KC_EXLM}, // Shift . is !
+  {KC_COMM, KC_QUES},          // Shift , is ?
+  {KC_DOT , KC_EXLM},          // Shift . is !
   {KC_QUOTE, KC_DOUBLE_QUOTE}, // Shift ' is "
 };
 
-/** Switcher **/
+
+///////////////////////////////////////////////////////////////////////////////
+// Switcher
+///////////////////////////////////////////////////////////////////////////////
+
 SWITCHER_SECONDARY_KEYS(
     {KC_LEFT, KC_LEFT},     // 'left' functions as usual
     {KC_RIGHT, KC_RIGHT},   // 'right' functions as usual  
     {KC_UP, KC_UP},         // 'up' functions as usual
     {KC_DOWN, KC_DOWN},     // 'down' functions as usual
-    {LGUI(KC_A), KC_Q},     // left pinky sends 'Q' to quit app
-    {LGUI(KC_V), KC_H},     // left index sends 'H' to hide app
+    {G(KC_A), KC_Q},        // left pinky sends 'Q' to quit app
+    {G(KC_V), KC_H},        // left index sends 'H' to hide app
 );
 
-/** One-shot shift via Thumb Keys **/
-static uint16_t shift_tap_timer = 0;
-#define SHIFT_TAP_TIMEOUT 1000 // Maximum time in ms between shift combo presses to count as a double tap and thus CAPS_WORD; double tapping both thumb keys simultaneously takes longer than a typical TAPPING_TERM
+
+///////////////////////////////////////////////////////////////////////////////
+// Sentence Case
+///////////////////////////////////////////////////////////////////////////////
+
+char sentence_case_press_user(uint16_t keycode,
+                              keyrecord_t* record,
+                              uint8_t mods) {
+
+  if ((mods & ~(MOD_MASK_SHIFT | MOD_BIT(KC_RALT))) == 0) {
+    const bool shifted = mods & MOD_MASK_SHIFT;
+    switch (keycode) {
+      
+      case KC_A ... KC_Z:
+      case KC_2 ... KC_0:  // 2 3 4 5 6 7 8 9 0  (DT Customisation - treat numbers as letters rather than symbols)
+        return 'a';  // Letter key.
+
+      case KC_DOT:  // . is punctuation, Shift . is a symbol (>)
+        return '.'; // DT Customisation - Shift-. is  ! rather than >
+      
+      case KC_COMM:
+        return shifted ? '.' : '#'; // DT Cutomisation - Shift-, is  ? rather than <
+      
+      case KC_EXLM:
+      case KC_QUES:
+        return '.';
+      
+      case KC_AT ... KC_RPRN:  // @ # $ % ^ & * ( )
+      case KC_MINS ... KC_SCLN:  // - = [ ] backslash ;
+      case KC_UNDS ... KC_COLN:  // _ + { } | :
+      case KC_GRV:
+        return '#';  // Symbol key.
+      
+      case KC_SPC:
+      case KC_ENTER: // DT Customisation - Treat enter as a space, thus capitalising the start of paragraphs
+        return ' ';  // Space key.
+      
+      case KC_QUOT:
+        return '\'';  // Quote key.
+
+      case SHIFT_COMBO: // DT Customisation - Ignore the Shift Combo
+        return '\0';
+    }
+  }
+
+  // Otherwise clear Sentence Case to initial state.
+  sentence_case_clear();
+  return '\0';
+}
 
 
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT_ergodox_pretty(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 LALT(LGUI(LCTL(LSFT(KC_K)))),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, QK_BOOT,
-    KC_TRANSPARENT, KC_B,           KC_L,           KC_D,           KC_W,           KC_Z,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_QUOTE,       KC_F,           KC_O,           KC_U,           KC_J,           KC_TRANSPARENT,
-    KC_TRANSPARENT, MT(MOD_LALT, KC_N),MT(MOD_LCTL, KC_R),MT(MOD_LGUI, KC_T),MT(MOD_LSFT, KC_S),KC_G,                                                               KC_Y,           MT(MOD_RSFT, KC_H),MT(MOD_RGUI, KC_A),MT(MOD_RCTL, KC_E),MT(MOD_RALT, KC_I),KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_Q,           KC_X,           KC_M,           KC_C,           KC_V,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_K,           KC_P,           KC_COMMA,       KC_DOT,         OSL(2),         TG(4),
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, QK_DYNAMIC_TAPPING_TERM_PRINT,QK_DYNAMIC_TAPPING_TERM_DOWN,QK_DYNAMIC_TAPPING_TERM_UP,
-                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                    MO(3),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, LT(1, KC_SPACE)
-  ),
-  [1] = LAYOUT_ergodox_pretty(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_LABK,        KC_MINUS,       KC_PERC,        KC_SLASH,       KC_LBRC,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_RBRC,        KC_ASTR,        KC_EQUAL,       KC_PLUS,        KC_RABK,        KC_TRANSPARENT,
-    KC_TRANSPARENT, MT(MOD_LALT, KC_1),MT(MOD_LCTL, KC_2),MT(MOD_LGUI, KC_3),MT(MOD_LSFT, KC_4), KC_LPRN,                                                           KC_RPRN,        MT(MOD_RSFT, KC_7),MT(MOD_RGUI, KC_8),MT(MOD_RCTL, KC_9),MT(MOD_RALT, KC_0), KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_CIRC,        KC_DLR,         UK_PND,         KC_5,           KC_LCBR,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_RCBR,        KC_6,           KC_TRANSPARENT, KC_TRANSPARENT, OSL(2),         KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_SPACE
-  ),
-  [2] = LAYOUT_ergodox_pretty(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_GRAVE,       KC_BSLS,        KC_PIPE,        KC_SLASH,       KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_AMPR,        KC_UNDS,        KC_AT,          LALT(LSFT(KC_MINUS)),KC_TRANSPARENT,                                                            KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TILD,        LALT(KC_3),     KC_SCLN,        KC_COLN,        KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
-  ),
-  [3] = LAYOUT_ergodox_pretty(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,                KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,
-    KC_TRANSPARENT, LGUI(KC_N),     LGUI(KC_W),       LGUI(LCTL(KC_F)),              LGUI(KC_M),     LGUI(KC_I),     KC_TRANSPARENT,                KC_TRANSPARENT, SWITCHER_EXPOSE,SELWBAK,        KC_UP,          SELWORD,        QK_LLCK,          KC_TRANSPARENT,
-    KC_TRANSPARENT, LGUI(KC_A),     LGUI(KC_X),       LGUI(KC_C),                    LGUI(KC_V),     LGUI(KC_B),                                                    KC_TAB,         KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_BSPC,          KC_TRANSPARENT,
-    KC_TRANSPARENT, LGUI(KC_Z),     LGUI(LSFT(KC_Z)), KC_DOT,                        LGUI(KC_S),     LGUI(KC_U),     KC_TRANSPARENT,                KC_TRANSPARENT, KC_NO,          LGUI(KC_SPACE), SELLINE,        SWITCHER,       LGUI(LCTL(KC_Q)), KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,                KC_TRANSPARENT,                                                                                KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,
-                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
-  ),
-  [4] = LAYOUT_ergodox_pretty( // temp NANOTALE layer (delete when no longer playing): has non-modtap homekeys, for navigating in NANOTALE
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_N,           KC_R,           KC_T,           KC_S,           KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_H,           KC_A,           KC_E,           KC_I,           KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
-  ),
-  [5] = LAYOUT_ergodox_pretty(  // temp EPISTORY Nav Layer (delete layer when no longer playing): Same as Nav layer 3 above, but with EFJI mapped in for Epistory's navigation.
-    KC_NO,          KC_NO,          KC_NO,            KC_NO,        KC_NO,          KC_NO,          KC_NO,                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,         
-    KC_NO,          KC_NO,          KC_NO,            KC_E,         KC_NO,          KC_NO,          KC_NO,                          KC_NO,          KC_NO,          KC_NO,          KC_I,           KC_NO,          KC_NO,          KC_NO,         
-    KC_NO,          KC_NO,          KC_NO,            KC_NO,        KC_F,           KC_NO,                                                          KC_NO,          KC_J,           KC_NO,          KC_NO,          KC_NO,          KC_NO,         
-    KC_NO,          KC_NO,          KC_NO,            KC_NO,        KC_NO,          KC_NO,          KC_NO,                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,         
-    KC_NO,          KC_NO,          KC_NO,            KC_NO,        KC_NO,                                                                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,         
-                                                                                                    KC_NO,          KC_NO,          KC_NO,          KC_NO,        
-                                                                                                                    KC_NO,          KC_NO,         
-                                                                                     KC_NO,         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO        
-  ),
-};
-
+///////////////////////////////////////////////////////////////////////////////
+// Tap or Hold?
+///////////////////////////////////////////////////////////////////////////////
 
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodox(
   'L', 'L', 'L', 'L', 'L', 'L', 'L', 
@@ -111,42 +245,90 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodo
   'R', 'R', 'R', 'R'
 );
 
-const uint16_t PROGMEM combo0[] = { LGUI(KC_N), LGUI(KC_W), COMBO_END};
-const uint16_t PROGMEM combo1[] = { LGUI(KC_V), LGUI(KC_B), COMBO_END};
-const uint16_t PROGMEM combo2[] = { KC_UP, SELWORD, COMBO_END};
-const uint16_t PROGMEM combo3[] = { SELWBAK, KC_UP, COMBO_END};
-const uint16_t PROGMEM combo4[] = { SELLINE, SWITCHER, COMBO_END};
-const uint16_t PROGMEM combo5[] = { LGUI(KC_SPACE), SELLINE, COMBO_END};
-const uint16_t PROGMEM combo6[] = { LGUI(KC_S), KC_DOT, COMBO_END};
-const uint16_t PROGMEM combo7[] = { KC_DOT, LGUI(LSFT(KC_Z)), COMBO_END};
-const uint16_t PROGMEM combo8[] = { LGUI(KC_X), LGUI(KC_C), COMBO_END};
-const uint16_t PROGMEM combo9[] = { LGUI(KC_C), LGUI(KC_V), COMBO_END};
-const uint16_t PROGMEM combo10[] = { LGUI(KC_W), LGUI(LCTL(KC_F)), COMBO_END};
-const uint16_t PROGMEM combo11[] = { MT(MOD_LCTL, KC_R), MT(MOD_LGUI, KC_T), MT(MOD_LSFT, KC_S), COMBO_END};
-const uint16_t PROGMEM combo12[] = { MT(MOD_RSFT, KC_H), MT(MOD_RGUI, KC_A), MT(MOD_RCTL, KC_E), COMBO_END};
-const uint16_t PROGMEM epistory_enter_nav[] = { KC_D, MT(MOD_LSFT, KC_S), MT(MOD_RSFT, KC_H), KC_O, COMBO_END}; // EPISTORY combo - delete when no longer playing
-const uint16_t PROGMEM epistory_exit_nav[] = { KC_E, KC_F, KC_J, KC_I, COMBO_END}; // EPISTORY combo - delete when no longer playing
-const uint16_t PROGMEM one_shot_shift[] = { MO(3), LT(1, KC_SPACE), COMBO_END};
+uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record,
+                           uint16_t prev_keycode) {
+    if (is_flow_tap_key(keycode) && is_flow_tap_key(prev_keycode)) {
+        // Disable flow tap when shifting after a space, enter or backspace
+        uint16_t prev_tap = get_tap_keycode(prev_keycode);
+        if (prev_tap == KC_SPC || prev_tap == KC_ENTER || prev_tap == KC_BSPC) {
+            switch (keycode) {
+                case MT(MOD_LSFT, KC_S):
+                case MT(MOD_RSFT, KC_H):
+                    return 0;
+                default:
+                    return FLOW_TAP_TERM;
+            }
+        }  
+    }
+    return 0;
+}
 
-combo_t key_combos[COMBO_COUNT] = {
-    COMBO(combo0, KC_ESCAPE),
-    COMBO(combo1, LALT(LGUI(LSFT(KC_V)))),
-    COMBO(combo2, LCTL(KC_TAB)),
-    COMBO(combo3, LCTL(LSFT(KC_TAB))),
-    COMBO(combo4, LGUI(KC_GRAVE)),
-    COMBO(combo5, LGUI(LSFT(KC_GRAVE))),
-    COMBO(combo6, LGUI(KC_EQUAL)),
-    COMBO(combo7, LGUI(KC_MINUS)),
-    COMBO(combo8, LALT(LGUI(LCTL(LSFT(KC_L))))),
-    COMBO(combo9, LALT(LGUI(LCTL(LSFT(KC_R))))),
-    COMBO(combo10, LGUI(KC_Q)),
-    COMBO(combo11, LALT(KC_BSPC)),
-    COMBO(combo12, KC_ENTER),
-    COMBO(epistory_enter_nav, EPISTORY_NAV), // EPISTORY combo - delete when no longer playing
-    COMBO(epistory_exit_nav, EPISTORY_NAV), // EPISTORY combo - delete when no longer playing
-    COMBO(one_shot_shift, SHIFT_COMBO),
+
+///////////////////////////////////////////////////////////////////////////////
+// Combos
+///////////////////////////////////////////////////////////////////////////////
+
+// Typing
+const uint16_t PROGMEM enter[] = { HRM_H, HRM_A, HRM_E, COMBO_END};
+const uint16_t PROGMEM del_word[] = { HRM_R, HRM_T, HRM_S, COMBO_END};
+const uint16_t PROGMEM one_shot_shift[] = { MO(3), NUM_SPC, COMBO_END};
+// Editing
+const uint16_t PROGMEM paste_plain[] = { PASTE, BOLD, COMBO_END};
+// Window Navigation
+const uint16_t PROGMEM prev_tab[] = { SELWBAK, KC_UP, COMBO_END};
+const uint16_t PROGMEM next_tab[] = { KC_UP, SELWORD, COMBO_END};
+const uint16_t PROGMEM prev_win[] = { ALFRED, SELLINE, COMBO_END};
+const uint16_t PROGMEM next_win[] = { SELLINE, SWTCH, COMBO_END};
+// Window Layout
+const uint16_t PROGMEM left_screen[] = { CUT, COPY, COMBO_END};
+const uint16_t PROGMEM right_screen[] = { COPY, PASTE, COMBO_END};
+// Window Management
+const uint16_t PROGMEM escape[] = { NEW, CLOSE, COMBO_END};
+const uint16_t PROGMEM quit[] = { CLOSE, FULLSCR, COMBO_END};
+// Magnification
+const uint16_t PROGMEM zoom_out[] = { REDO, KC_DOT, COMBO_END};
+const uint16_t PROGMEM zoom_in[] = { KC_DOT, SAVE, COMBO_END};
+// Gaming
+const uint16_t PROGMEM epistory_enter_nav[] = { KC_D, HRM_S, HRM_H, KC_O, COMBO_END};
+const uint16_t PROGMEM epistory_exit_nav[] = { KC_E, KC_F, KC_J, KC_I, COMBO_END};
+
+combo_t key_combos[] = {
+
+    // Typing
+    COMBO(enter, KC_ENTER),                // H + A + E           => Enter
+    COMBO(del_word, A(KC_BSPC)),           // R + T + S           => Delete Word
+    COMBO(one_shot_shift, SHIFT_COMBO),    // Nav + Spc           => Shift
+
+    // Editing
+    COMBO(paste_plain, A(G(S(KC_V)))),     // Paste + Bold        => Paste (Plain Text)
+
+    // Window Navigation
+    COMBO(prev_tab, C(S(KC_TAB))),         // Sel Left + Up       => Previous Tab
+    COMBO(next_tab, C(KC_TAB)),            // Up + Sel Right      => Next Tab
+    COMBO(prev_win, G(S(KC_GRAVE))),       // Alfred + Sel Down   => Previous Window
+    COMBO(next_win, G(KC_GRAVE)),          // Sel Down + Switcher => Next Window
+
+    // Window Layout
+    COMBO(left_screen, A(G(C(S(KC_L))))),  // Cut + Copy          => Tile on Left of Screen
+    COMBO(right_screen, A(G(C(S(KC_R))))), // Copy + Paste        => Tile on Right of Screen
+
+    // Window Management
+    COMBO(escape, KC_ESCAPE),              // New + Close         => Escape
+    COMBO(quit, G(KC_Q)),                  // Close + Fullscreen  => Quit App
+
+    // Magnification
+    COMBO(zoom_out, G(KC_MINS)),           // Redo + .            => Zoom out
+    COMBO(zoom_in, G(KC_EQL)),             // . + Save            => Zoom In
+
+    // Gaming
+    COMBO(epistory_enter_nav, EPISTORY_NAV),
+    COMBO(epistory_exit_nav, EPISTORY_NAV),
+
 };
 
+///////////////////////////////////////////////////////////////////////////////
+// RGB Matrix Lighting
+///////////////////////////////////////////////////////////////////////////////
 
 extern rgb_config_t rgb_matrix_config;
 
@@ -163,10 +345,8 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
     [3] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
-    // NANOTALE
     [4] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
-    // EPISTORY
     [5] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {219,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
 };
@@ -203,10 +383,10 @@ bool rgb_matrix_indicators_user(void) {
     case 3:
       set_layer_color(3);
       break;
-    case 4: // NANOTALE
+    case 4:
       set_layer_color(4);
       break;
-    case 5: // EPISTORY
+    case 5:
       set_layer_color(5);
       break;  
    default:
@@ -216,6 +396,19 @@ bool rgb_matrix_indicators_user(void) {
   }
   return true;
 }
+
+uint8_t layer_state_set_user(uint8_t state) {
+  return state;
+};
+
+
+///////////////////////////////////////////////////////////////////////////////
+// User macro callbacks
+///////////////////////////////////////////////////////////////////////////////
+
+/** One-shot shift via Thumb Keys **/
+static uint16_t shift_tap_timer = 0;
+#define SHIFT_TAP_TIMEOUT 1000 // Maximum time in ms between shift combo presses to count as a double tap and thus CAPS_WORD; double tapping both thumb keys simultaneously takes longer than a typical TAPPING_TERM
 
 bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
     // One-shot Shifting via Thumb keys: Special early handling for Custom Shifted keys only
@@ -267,11 +460,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     switch (keycode) {
 
-        // EPISTORY
+        // Epistory
         case EPISTORY_NAV:
             if (record->event.pressed) {
                 tap_code(KC_SPC);
-                layer_invert(5);
+                layer_invert(EPI);
             }
             return false;
 
@@ -287,76 +480,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 void housekeeping_task_user(void) {
-    if (shift_tap_timer && timer_expired(timer_read(), shift_tap_timer)) {// Shift combo was tapped recently, it's not been tapped a second time, and the tapping term's expired
+    if (shift_tap_timer && timer_expired(timer_read(), shift_tap_timer)) { // Shift combo was tapped recently, it's not been tapped a second time, and the tapping term's expired
     // SINGLE_TAP => ONE SHOT SHIFT
     set_oneshot_mods(MOD_LSFT);
     shift_tap_timer = 0;
   }
 }
 
-uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record,
-                           uint16_t prev_keycode) {
-    if (is_flow_tap_key(keycode) && is_flow_tap_key(prev_keycode)) {
-        // Disable flow tap when shifting after a space, enter or backspace
-        uint16_t prev_tap = get_tap_keycode(prev_keycode);
-        if (prev_tap == KC_SPC || prev_tap == KC_ENTER || prev_tap == KC_BSPC) {
-            switch (keycode) {
-                case MT(MOD_LSFT, KC_S):
-                case MT(MOD_RSFT, KC_H):
-                    return 0;
-                default:
-                    return FLOW_TAP_TERM;
-            }
-        }  
-    }
-    return 0;
-}
-
-char sentence_case_press_user(uint16_t keycode,
-                              keyrecord_t* record,
-                              uint8_t mods) {
-
-  if ((mods & ~(MOD_MASK_SHIFT | MOD_BIT(KC_RALT))) == 0) {
-    const bool shifted = mods & MOD_MASK_SHIFT;
-    switch (keycode) {
-      
-      case KC_A ... KC_Z:
-      case KC_2 ... KC_0:  // 2 3 4 5 6 7 8 9 0  (DT Customisation - treat numbers as letters rather than symbols)
-        return 'a';  // Letter key.
-
-      case KC_DOT:  // . is punctuation, Shift . is a symbol (>)
-        return '.'; // DT Customisation - Shift-. is  ! rather than >
-      
-      case KC_COMM:
-        return shifted ? '.' : '#'; // DT Cutomisation - Shift-, is  ? rather than <
-      
-      case KC_EXLM:
-      case KC_QUES:
-        return '.';
-      
-      case KC_AT ... KC_RPRN:  // @ # $ % ^ & * ( )
-      case KC_MINS ... KC_SCLN:  // - = [ ] backslash ;
-      case KC_UNDS ... KC_COLN:  // _ + { } | :
-      case KC_GRV:
-        return '#';  // Symbol key.
-      
-      case KC_SPC:
-      case KC_ENTER: // DT Customisation - Treat enter as a space, thus capitalising the start of paragraphs
-        return ' ';  // Space key.
-      
-      case KC_QUOT:
-        return '\'';  // Quote key.
-
-      case SHIFT_COMBO: // DT Customisation - Ignore the Shift Combo
-        return '\0';
-    }
-  }
-
-  // Otherwise clear Sentence Case to initial state.
-  sentence_case_clear();
-  return '\0';
-}
-
-uint8_t layer_state_set_user(uint8_t state) {
-  return state;
-};
