@@ -10,7 +10,9 @@ enum custom_keycodes {
 
 
 ///////////////////////////////////////////////////////////////////////////////
+//
 // Keyboard Layout
+//
 ///////////////////////////////////////////////////////////////////////////////
 
 enum layers {
@@ -73,7 +75,7 @@ enum keycode_aliases {
   // Miscellaneous
   ALFRED = G(KC_SPC),
   LOCKCMP = G(C(KC_Q)),
-  BUILD_K = A(G(C(S(KC_K)))),
+  BUILD_K = HYPR(KC_K),
 
 };
 
@@ -138,18 +140,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 ///////////////////////////////////////////////////////////////////////////////
+//
 // Custom Shift
+//
 ///////////////////////////////////////////////////////////////////////////////
 
 const custom_shift_key_t custom_shift_keys[] = {
   {KC_COMM, KC_QUES},          // Shift , is ?
   {KC_DOT , KC_EXLM},          // Shift . is !
-  {KC_QUOTE, KC_DOUBLE_QUOTE}, // Shift ' is "
 };
 
 
 ///////////////////////////////////////////////////////////////////////////////
+//
 // Switcher
+//
 ///////////////////////////////////////////////////////////////////////////////
 
 SWITCHER_SECONDARY_KEYS(
@@ -157,13 +162,15 @@ SWITCHER_SECONDARY_KEYS(
     {KC_RIGHT, KC_RIGHT},   // 'right' functions as usual  
     {KC_UP, KC_UP},         // 'up' functions as usual
     {KC_DOWN, KC_DOWN},     // 'down' functions as usual
-    {G(KC_A), KC_Q},        // left pinky sends 'Q' to quit app
-    {G(KC_V), KC_H},        // left index sends 'H' to hide app
+    {ALL, KC_Q},            // left pinky sends 'Q' to quit app
+    {PASTE, KC_H},          // left index sends 'H' to hide app
 );
 
 
 ///////////////////////////////////////////////////////////////////////////////
+//
 // Sentence Case
+//
 ///////////////////////////////////////////////////////////////////////////////
 
 char sentence_case_press_user(uint16_t keycode,
@@ -174,35 +181,40 @@ char sentence_case_press_user(uint16_t keycode,
     const bool shifted = mods & MOD_MASK_SHIFT;
     switch (keycode) {
       
+      // Letters
       case KC_A ... KC_Z:
-      case KC_2 ... KC_0:  // 2 3 4 5 6 7 8 9 0  (DT Customisation - treat numbers as letters rather than symbols)
-        return 'a';  // Letter key.
-
-      case KC_DOT:  // . is punctuation, Shift . is a symbol (>)
-        return '.'; // DT Customisation - Shift-. is  ! rather than >
+      case KC_2 ... KC_0:  // treat numbers as letters
+        return 'a';
       
-      case KC_COMM:
-        return shifted ? '.' : '#'; // DT Cutomisation - Shift-, is  ? rather than <
-      
+      // Punctuation
+      case KC_DOT: // KC_DOT is punctuation both when custom shifted (= !) and not
       case KC_EXLM:
       case KC_QUES:
         return '.';
       
+      // Symnbols
       case KC_AT ... KC_RPRN:  // @ # $ % ^ & * ( )
       case KC_MINS ... KC_SCLN:  // - = [ ] backslash ;
       case KC_UNDS ... KC_COLN:  // _ + { } | :
       case KC_GRV:
-        return '#';  // Symbol key.
-      
-      case KC_SPC:
-      case KC_ENTER: // DT Customisation - Treat enter as a space, thus capitalising the start of paragraphs
-        return ' ';  // Space key.
-      
-      case KC_QUOT:
-        return '\'';  // Quote key.
+        return '#';
 
-      case SHIFT_COMBO: // DT Customisation - Ignore the Shift Combo
+      // Spaces
+      case KC_SPC:
+      case KC_ENTER: // treat enter as a space to capitalise paragraph starts
+        return ' ';
+      
+      // Quotes
+      case KC_QUOT:
+        return '\'';
+
+      //Ignore
+      case SHIFT_COMBO:
         return '\0';
+      
+      // Mixed
+      case KC_COMM:
+        return shifted ? '.' : '#'; // custom shifted , is ?
     }
   }
 
@@ -213,7 +225,9 @@ char sentence_case_press_user(uint16_t keycode,
 
 
 ///////////////////////////////////////////////////////////////////////////////
+//
 // Tap or Hold?
+//
 ///////////////////////////////////////////////////////////////////////////////
 
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodox(
@@ -236,12 +250,12 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodo
 uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record,
                            uint16_t prev_keycode) {
     if (is_flow_tap_key(keycode) && is_flow_tap_key(prev_keycode)) {
-        // Disable flow tap when shifting after a space, enter or backspace
+        // Disable flow tap when home-row shifting after a space, enter or backspace
         uint16_t prev_tap = get_tap_keycode(prev_keycode);
         if (prev_tap == KC_SPC || prev_tap == KC_ENTER || prev_tap == KC_BSPC) {
             switch (keycode) {
-                case MT(MOD_LSFT, KC_S):
-                case MT(MOD_RSFT, KC_H):
+                case HRM_S:
+                case HRM_H:
                     return 0;
                 default:
                     return FLOW_TAP_TERM;
@@ -253,38 +267,40 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record,
 
 
 ///////////////////////////////////////////////////////////////////////////////
+//
 // Combos
+//
 ///////////////////////////////////////////////////////////////////////////////
 
 // Typing
-const uint16_t PROGMEM enter[] = { HRM_H, HRM_A, HRM_E, COMBO_END};
-const uint16_t PROGMEM del_word[] = { HRM_R, HRM_T, HRM_S, COMBO_END};
-const uint16_t PROGMEM one_shot_shift[] = { MO(3), NUM_SPC, COMBO_END};
+const uint16_t PROGMEM enter[]          = {HRM_H, HRM_A, HRM_E, COMBO_END};
+const uint16_t PROGMEM del_word[]       = {HRM_R, HRM_T, HRM_S, COMBO_END};
+const uint16_t PROGMEM one_shot_shift[] = {MO(NAV), NUM_SPC, COMBO_END};
 
 // Editing
-const uint16_t PROGMEM paste_plain[] = { PASTE, BOLD, COMBO_END};
+const uint16_t PROGMEM paste_plain[]    = {PASTE, BOLD, COMBO_END};
 
 // Window Navigation
-const uint16_t PROGMEM prev_tab[] = { SELWBAK, KC_UP, COMBO_END};
-const uint16_t PROGMEM next_tab[] = { KC_UP, SELWORD, COMBO_END};
-const uint16_t PROGMEM prev_win[] = { ALFRED, SELLINE, COMBO_END};
-const uint16_t PROGMEM next_win[] = { SELLINE, SWTCH, COMBO_END};
+const uint16_t PROGMEM prev_tab[]       = {SELWBAK, KC_UP, COMBO_END};
+const uint16_t PROGMEM next_tab[]       = {KC_UP, SELWORD, COMBO_END};
+const uint16_t PROGMEM prev_win[]       = {ALFRED, SELLINE, COMBO_END};
+const uint16_t PROGMEM next_win[]       = {SELLINE, SWTCH, COMBO_END};
 
 // Window Layout
-const uint16_t PROGMEM left_screen[] = { CUT, COPY, COMBO_END};
-const uint16_t PROGMEM right_screen[] = { COPY, PASTE, COMBO_END};
+const uint16_t PROGMEM left_screen[]    = {CUT, COPY, COMBO_END};
+const uint16_t PROGMEM right_screen[]   = {COPY, PASTE, COMBO_END};
 
 // Window Management
-const uint16_t PROGMEM escape[] = { NEW, CLOSE, COMBO_END};
-const uint16_t PROGMEM quit[] = { CLOSE, FULLSCR, COMBO_END};
+const uint16_t PROGMEM escape[]         = {NEW, CLOSE, COMBO_END};
+const uint16_t PROGMEM quit[]           = {CLOSE, FULLSCR, COMBO_END};
 
 // Magnification
-const uint16_t PROGMEM zoom_out[] = { REDO, KC_DOT, COMBO_END};
-const uint16_t PROGMEM zoom_in[] = { KC_DOT, SAVE, COMBO_END};
+const uint16_t PROGMEM zoom_out[]       = {REDO, KC_DOT, COMBO_END};
+const uint16_t PROGMEM zoom_in[]        = {KC_DOT, SAVE, COMBO_END};
 
-// Gaming
-const uint16_t PROGMEM epistory_enter_nav[] = { KC_D, HRM_S, HRM_H, KC_O, COMBO_END};
-const uint16_t PROGMEM epistory_exit_nav[] = { KC_E, KC_F, KC_J, KC_I, COMBO_END};
+// Epistory
+const uint16_t PROGMEM epi_enter_nav[]  = {KC_D, HRM_S, HRM_H, KC_O, COMBO_END};
+const uint16_t PROGMEM epi_exit_nav[]   = {KC_E, KC_F, KC_J, KC_I, COMBO_END};
 
 
 combo_t key_combos[] = {
@@ -295,7 +311,7 @@ combo_t key_combos[] = {
     COMBO(one_shot_shift, SHIFT_COMBO),    // Nav + Spc           => Shift
 
     // Editing
-    COMBO(paste_plain, A(G(S(KC_V)))),     // Paste + Bold        => Paste (Plain Text)
+    COMBO(paste_plain, C(KC_V)),           // Paste + Bold        => Paste (Plain Text)
 
     // Window Navigation
     COMBO(prev_tab, C(S(KC_TAB))),         // Sel Left + Up       => Previous Tab
@@ -304,8 +320,8 @@ combo_t key_combos[] = {
     COMBO(next_win, G(KC_GRAVE)),          // Sel Down + Switcher => Next Window
 
     // Window Layout
-    COMBO(left_screen, A(G(C(S(KC_L))))),  // Cut + Copy          => Tile on Left of Screen
-    COMBO(right_screen, A(G(C(S(KC_R))))), // Copy + Paste        => Tile on Right of Screen
+    COMBO(left_screen, HYPR(KC_L)),        // Cut + Copy          => Tile on Left of Screen
+    COMBO(right_screen, HYPR(KC_R)),       // Copy + Paste        => Tile on Right of Screen
 
     // Window Management
     COMBO(escape, KC_ESCAPE),              // New + Close         => Escape
@@ -315,15 +331,17 @@ combo_t key_combos[] = {
     COMBO(zoom_out, G(KC_MINS)),           // Redo + .            => Zoom out
     COMBO(zoom_in, G(KC_EQL)),             // . + Save            => Zoom In
 
-    // Gaming
-    COMBO(epistory_enter_nav, EPISTORY_NAV),
-    COMBO(epistory_exit_nav, EPISTORY_NAV),
+    // Epistory
+    COMBO(epi_enter_nav, EPISTORY_NAV),
+    COMBO(epi_exit_nav, EPISTORY_NAV),
 
 };
 
 
 ///////////////////////////////////////////////////////////////////////////////
+//
 // RGB Matrix Lighting
+//
 ///////////////////////////////////////////////////////////////////////////////
 
 extern rgb_config_t rgb_matrix_config;
@@ -359,7 +377,7 @@ void set_layer_color(uint8_t layer) {
     float f = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
     
     // Update the LEDs
-    rgb_matrix_set_color_all(0, 0, 0); // Clear any old colours
+    rgb_matrix_set_color_all(0, 0, 0);
     for (int i = 0; i < ARRAY_SIZE(active_leds); i++) {
         rgb_matrix_set_color(active_leds[i], f * rgb.r, f * rgb.g, f * rgb.b);
     }
@@ -374,63 +392,36 @@ bool rgb_matrix_indicators_user(void) {
 
 
 ///////////////////////////////////////////////////////////////////////////////
+//
 // User macro callbacks
+//   - One-Shot Shift / Caps Word
+//   - Epistory
+//
 ///////////////////////////////////////////////////////////////////////////////
 
-/** One-shot shift via Thumb Keys **/
 static uint16_t shift_tap_timer = 0;
-#define SHIFT_TAP_TIMEOUT 1000 // Maximum time in ms between shift combo presses to count as a double tap and thus CAPS_WORD; double tapping both thumb keys simultaneously takes longer than a typical TAPPING_TERM
-
-bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
-    // One-shot Shifting via Thumb keys: Special early handling for Custom Shifted keys only
-    // (This is too early for the general case, but process_record_user will be too late for __Custom_Shifted__ keys.)
-
-    // Is it a custom shift key?
-    bool is_custom_shift_key = false;
-    for (int i = 0; i < (int)ARRAY_SIZE(custom_shift_keys); ++i) {
-        const custom_shift_key_t* custom_shift_key = &custom_shift_keys[i];
-        if (keycode == custom_shift_key->keycode) {
-            is_custom_shift_key = true;
-            break;
-        }
-    }
-
-    // If shift combo recently tapped, not been tapped a second time, and now a custom shift key tapped
-    if (shift_tap_timer && is_custom_shift_key) { 
-            // SINGLE_TAP followed by Custom Shift key => (JIT) ONE SHOT SHIFT
-            set_oneshot_mods(MOD_LSFT);
-            shift_tap_timer = 0;
-        }
-    return true;
-}
+#define SHIFT_TAPPING_TERM 1000 // Max ms for shift double tap (thumb keys slow to double tap)
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   
-    // TODO: Refactor one-shot shift / caps word so that one-shot shift is applied instantly, and then just removed and replaced with caps word on double tap
-    // One-shot Shifting via Thumb keys
-    if (keycode == SHIFT_COMBO) { // It's the Shift combo
+    // Thumb Key Combo: One-Shot Shift / Caps Word
+    if (keycode == SHIFT_COMBO) {
         if (record->event.pressed) {
-                if (shift_tap_timer && !timer_expired(timer_read(), shift_tap_timer)) { // This is the second half of a double tap
-                    // DOUBLE TAP => CAPS_WORD
+                if (!(shift_tap_timer && !timer_expired(timer_read(), shift_tap_timer))) {
+                    // First Tap => One-Shot Shift
+                    set_oneshot_mods(MOD_LSFT);
+                    shift_tap_timer = (record->event.time + SHIFT_TAPPING_TERM) | 1;
+                } else {
+                    // Second Tap => Caps Word
+                    clear_mods(); // Clear the one-shot shift
                     caps_word_on();
                     shift_tap_timer = 0;
-                } else {
-                    // This is either a single tap, or the first half of a double tap; let's wait to find out which.
-                    shift_tap_timer = (record->event.time + SHIFT_TAP_TIMEOUT) | 1;
                 }
-            } 
+            }
             return false;
-    }
-    else { // It's something else; check to see if we need to apply shift before it's processed
-        if (shift_tap_timer) { // Shift combo was tapped recently, it's not been tapped a second time, and now something else has been tapped
-                // SINGLE_TAP => (JIT) ONE SHOT SHIFT
-                set_oneshot_mods(MOD_LSFT);
-                shift_tap_timer = 0;
-         }
     }
 
     switch (keycode) {
-
         // Epistory
         case EPISTORY_NAV:
             if (record->event.pressed) {
@@ -438,23 +429,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 layer_invert(EPI);
             }
             return false;
-
-        // Oryx Stuff
-        case RGB_SLD:
-            if (record->event.pressed) {
-                rgblight_mode(1);
-            }
-            return false;
-    } 
+    }
 
     return true;
 }
-
-void housekeeping_task_user(void) {
-    if (shift_tap_timer && timer_expired(timer_read(), shift_tap_timer)) { // Shift combo was tapped recently, it's not been tapped a second time, and the tapping term's expired
-    // SINGLE_TAP => ONE SHOT SHIFT
-    set_oneshot_mods(MOD_LSFT);
-    shift_tap_timer = 0;
-  }
-}
-

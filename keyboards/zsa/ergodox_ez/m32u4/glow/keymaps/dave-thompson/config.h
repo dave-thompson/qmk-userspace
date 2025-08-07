@@ -2,7 +2,7 @@
 //----------//
 #define FLOW_TAP_TERM 125
 #define CHORDAL_HOLD
-#define QUICK_TAP_TERM 0 // Disable key repeating, even on the second keypress, so that a quick <space> then <num layer hold> activates the num layer rather than holding down the space key
+#define QUICK_TAP_TERM 0 // Fully disable key repeating so that tap <space> -> hold <num> still activates the num layer
 
 
 // Oneshots //
