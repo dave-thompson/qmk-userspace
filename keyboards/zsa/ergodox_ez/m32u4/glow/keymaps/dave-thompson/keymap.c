@@ -1,6 +1,5 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
-#include "i18n.h"
 
 enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
@@ -47,8 +46,9 @@ enum keycode_aliases {
   NUM_SPC = LT(NUM, KC_SPC),
 
   // Symbols
+  POUND = S(KC_3),
   M_DSH = A(S(KC_MINS)),
-  HASH = A(S(KC_MINS)),
+  HASH = A(KC_3),
 
   // Window Management
   NEW = G(KC_N),
@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
     _______, KC_LABK, KC_MINS, KC_PERC, KC_SLSH, KC_LBRC, _______,          _______, KC_RBRC, KC_ASTR, KC_EQL,  KC_PLUS, KC_RABK, _______,
     _______, HRM_1,   HRM_2,   HRM_3,   HRM_4,   KC_LPRN,                            KC_RPRN, HRM_7,   HRM_8,   HRM_9,   HRM_0,   _______,
-    _______, KC_CIRC, KC_DLR,  UK_PND,  KC_5,    KC_LCBR, _______,          _______, KC_RCBR, KC_6,    _______, _______, OSL(SYM),_______,
+    _______, KC_CIRC, KC_DLR,  POUND,   KC_5,    KC_LCBR, _______,          _______, KC_RCBR, KC_6,    _______, _______, OSL(SYM),_______,
     _______, _______, _______, _______, _______,                                              _______, _______, _______, _______, _______,
 
                                                      _______, _______,  _______, _______,
@@ -358,8 +358,8 @@ const hsv_color_t PROGMEM layer_colors[] = {
     [BASE] = {0, 0, 255},    // White (hue=0, sat=0, bright=255)
     [NUM] = {74, 255, 255},  // Green
     [SYM] = {0, 255, 255},   // Red
-    [NAV] = {188, 255, 255}, // Purple
-    [EPI] = {219, 255, 255}, // Pink
+    [NAV] = {219, 255, 255}, // Pink
+    [EPI] = {188, 255, 255}, // Purple
 };
 
 void set_layer_color(uint8_t layer) {
