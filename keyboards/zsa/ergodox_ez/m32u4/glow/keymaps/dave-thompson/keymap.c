@@ -164,6 +164,7 @@ SWITCHER_SECONDARY_KEYS(
     {KC_DOWN, KC_DOWN},     // 'down' functions as usual
     {ALL, KC_Q},            // left pinky sends 'Q' to quit app
     {PASTE, KC_H},          // left index sends 'H' to hide app
+    {NUM_SPC, KC_GRAVE},    // space sends 'backtick' to cycle apps in exposé
 );
 
 
