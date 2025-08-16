@@ -407,7 +407,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // Thumb Key Combo: One-Shot Shift / Caps Word
     if (keycode == SHIFT_COMBO) {
         if (record->event.pressed) {
-                if (!(shift_tap_timer && !timer_expired(timer_read(), shift_tap_timer))) {
+                if (!(shift_tap_timer && !timer_expired(record->event.time, shift_tap_timer))) {
                     // First Tap => One-Shot Shift
                     set_oneshot_mods(MOD_LSFT);
                     shift_tap_timer = (record->event.time + SHIFT_TAPPING_TERM) | 1;
@@ -432,4 +432,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     return true;
+}
+
+void housekeeping_task_user(void) {
+    // Clear shift double tap timer if expired (to prevent wraparound)
+    if (shift_tap_timer && timer_expired(timer_read(), shift_tap_timer)) {
+        shift_tap_timer = 0;
+    }
 }

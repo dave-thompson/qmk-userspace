@@ -18,3 +18,4 @@ SWAP_HANDS_ENABLE= no
 
 # Debugging
 # CONSOLE_ENABLE = yes
+# KEYCODE_STRING_ENABLE = yes
