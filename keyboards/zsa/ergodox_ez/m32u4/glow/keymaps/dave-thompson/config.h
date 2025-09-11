@@ -22,10 +22,17 @@
 #define ONESHOT_TIMEOUT 5000
 
 
+// Lumberjack //
+//------------//
+#define LUMBERJACK_LOG_KEYS
+#define LUMBERJACK_COLOR
+
+
 // Switcher //
 //----------//
 #define SWITCHER_MACOS_APP_SWITCHER
 #define SWITCHER_ENABLE_SECONDARY_KEYS
+
 
 // Sentence Case //
 //---------------//
