@@ -4,7 +4,6 @@
 enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
   EPISTORY_NAV,
-  SHIFT_COMBO,
 };
 
 
@@ -208,10 +207,6 @@ char sentence_case_press_user(uint16_t keycode,
       // Quotes
       case KC_QUOT:
         return '\'';
-
-      //Ignore
-      case SHIFT_COMBO:
-        return '\0';
       
       // Mixed
       case KC_COMM:
@@ -288,7 +283,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // Typing
 const uint16_t PROGMEM enter[]          = {HRM_H, HRM_A, HRM_E, COMBO_END};
 const uint16_t PROGMEM del_word[]       = {HRM_R, HRM_T, HRM_S, COMBO_END};
-const uint16_t PROGMEM one_shot_shift[] = {MO(NAV), NUM_SPC, COMBO_END};
 
 // Editing
 const uint16_t PROGMEM paste_plain[]    = {PASTE, BOLD, COMBO_END};
@@ -321,7 +315,6 @@ combo_t key_combos[] = {
     // Typing
     COMBO(enter, KC_ENTER),                // H + A + E           => Enter
     COMBO(del_word, A(KC_BSPC)),           // R + T + S           => Delete Word
-    COMBO(one_shot_shift, SHIFT_COMBO),    // Nav + Spc           => Shift
 
     // Editing
     COMBO(paste_plain, C(KC_V)),           // Paste + Bold        => Paste (Plain Text)
@@ -412,27 +405,7 @@ bool rgb_matrix_indicators_user(void) {
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-static uint16_t shift_tap_timer = 0;
-#define SHIFT_TAPPING_TERM 1000 // Max ms for shift double tap (thumb keys slow to double tap)
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  
-    // Thumb Key Combo: One-Shot Shift / Caps Word
-    if (keycode == SHIFT_COMBO) {
-        if (record->event.pressed) {
-                if (!(shift_tap_timer && !timer_expired(record->event.time, shift_tap_timer))) {
-                    // First Tap => One-Shot Shift
-                    set_oneshot_mods(MOD_LSFT);
-                    shift_tap_timer = (record->event.time + SHIFT_TAPPING_TERM) | 1;
-                } else {
-                    // Second Tap => Caps Word
-                    clear_mods(); // Clear the one-shot shift
-                    caps_word_on();
-                    shift_tap_timer = 0;
-                }
-            }
-            return false;
-    }
 
     switch (keycode) {
         // Epistory
@@ -445,11 +418,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     return true;
-}
-
-void housekeeping_task_user(void) {
-    // Clear shift double tap timer if expired (to prevent wraparound)
-    if (shift_tap_timer && timer_expired(timer_read(), shift_tap_timer)) {
-        shift_tap_timer = 0;
-    }
 }
