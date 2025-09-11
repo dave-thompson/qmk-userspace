@@ -1,7 +1,17 @@
 // Tap-Hold //
 //----------//
-#define FLOW_TAP_TERM 125
-#define CHORDAL_HOLD
+#define TAPPING_TERM 200
+#define TAPPING_TERM_PER_KEY     // Only three keys need shorter tapping terms:  HRM_S, HRM_H, NAV_SPC
+
+#define FLOW_TAP_TERM 125        // Disable HRMs during fast typing (HRM_S and HRM_H are excepted after whitespace in keymap.c)
+
+#define PERMISSIVE_HOLD          // Mod-tap keys held for LESS than TAPPING_TERM but fully encasing another key tap  =>  Treat as held modifier...
+#define CHORDAL_HOLD             //                                                                                      ...unless the two keys are on the same hand
+#define BILATERAL_COMBINATIONS   // Mod-tap keys held for MORE than TAPPING_TERM, then same-hand tap  =>  Treat modifier hold as a tap
+
+
+// Key Repeating//
+//--------------//
 #define QUICK_TAP_TERM 0 // Fully disable key repeating so that tap <space> -> hold <num> still activates the num layer
 
 
@@ -17,10 +27,13 @@
 #define SWITCHER_MACOS_APP_SWITCHER
 #define SWITCHER_ENABLE_SECONDARY_KEYS
 
-
-// Getreuer //
-//----------//
+// Sentence Case //
+//---------------//
 #define SENTENCE_CASE_TIMEOUT 0  // disable timeout
+
+
+// Select Word //
+//-------------//
 #define SELECT_WORD_OS_MAC
 
 

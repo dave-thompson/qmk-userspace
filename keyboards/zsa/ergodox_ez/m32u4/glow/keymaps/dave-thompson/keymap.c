@@ -264,6 +264,18 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record,
         }  
     }
     return 0;
+}   
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        // Lower TT for home-row shifts to support capital letters while fast typing
+        case HRM_S:
+        case HRM_H:
+            //return 160;
+        case NUM_SPC:
+        default:
+            return TAPPING_TERM;
+    }
 }
 
 
