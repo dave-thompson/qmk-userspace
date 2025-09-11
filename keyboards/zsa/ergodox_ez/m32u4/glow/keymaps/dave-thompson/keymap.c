@@ -226,22 +226,9 @@ char sentence_case_press_user(uint16_t keycode,
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_ergodox(
-  'L', 'L', 'L', 'L', 'L', 'L', 'L', 
-  'L', 'L', 'L', 'L', 'L', 'L', 'L', 
-  'L', 'L', 'L', 'L', 'L', 'L', 
-  'L', 'L', 'L', 'L', 'L', 'L', 'L', 
-  'L', 'L', 'L', 'L', 'L',
-  'L', 'L',
-  'L', 'L', 'L', 'L',
-  'R', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'R', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'R', 'R', 'R', 'R', 'R', 'R', 
-  'R', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'R', 'R', 'R', 'R', 'R', 
-  'R', 'R', 
-  'R', 'R', 'R', 'R'
-);
+char chordal_hold_handedness(keypos_t key) {
+    return key.row < MATRIX_ROWS / 2 ? 'L' : 'R';
+}
 
 uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record,
                            uint16_t prev_keycode) {
