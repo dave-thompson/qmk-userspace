@@ -24,7 +24,6 @@
 
 // Lumberjack //
 //------------//
-#define LUMBERJACK_LOG_KEYS
 #define LUMBERJACK_COLOR
 
 

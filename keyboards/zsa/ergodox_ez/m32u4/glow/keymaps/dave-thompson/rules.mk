@@ -1,21 +1,23 @@
-# Space saving
+# Space saving - Smarter Compilation
+LTO_ENABLE = yes
+
+# Space saving - Disable Features
 GRAVE_ESC_ENABLE = no 
 MAGIC_ENABLE = no
 EXTRAKEY_ENABLE = no
 UNICODE_ENABLE = no
 SWAP_HANDS_ENABLE= no
-CONSOLE_ENABLE = no
 COMMAND_ENABLE = no
 MOUSEKEY_ENABLE = no
 SPACE_CADET_ENABLE = no
 REPEAT_KEY_ENABLE = no
-LTO_ENABLE = yes
+CONSOLE_ENABLE = no
 
 # Used Features
 COMBO_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 LAYER_LOCK_ENABLE = yes
 
-# Debugging
-# CONSOLE_ENABLE = yes
-# KEYCODE_STRING_ENABLE = yes
+# Lumberjack
+# KEYCODE_STRING_ENABLE = no
+# LUMBERJACK_ENABLE = no

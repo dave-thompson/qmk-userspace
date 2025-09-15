@@ -1,3 +1,9 @@
 {
-  "modules": ["dave-thompson/lumberjack", "dave-thompson/switcher", "getreuer/sentence_case", "getreuer/custom_shift_keys", "getreuer/select_word"]
+  "modules": [
+    "dave-thompson/lumberjack",
+    "dave-thompson/switcher",
+    "getreuer/sentence_case",
+    "getreuer/custom_shift_keys",
+    "getreuer/select_word",
+  ]
 }
