@@ -79,61 +79,131 @@ enum keycode_aliases {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [BASE] = LAYOUT_ergodox_pretty(
-    _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_B,    KC_L,    KC_D,    KC_W,    KC_Z,    _______,          _______, KC_QUOT, KC_F,    KC_O,    KC_U,    KC_J,    _______,
-    _______, HRM_N,   HRM_R,   HRM_T,   HRM_S,   KC_G,                               KC_Y,    HRM_H,   HRM_A,   HRM_E,   HRM_I,   _______,
-    _______, KC_Q,    KC_X,    KC_M,    KC_C,    KC_V,    _______,          _______, KC_K,    KC_P,    KC_COMM, KC_DOT,  OSL(SYM),_______,
-    _______, _______, _______, _______, _______,                                              _______, _______, _______, _______, _______,
+  [BASE] = LAYOUT_ergodox(
 
-                                                     _______, _______,  _______, _______,
-                                                              _______,  _______,
-                                            MO(NAV), _______, BUILD_K,  QK_BOOT, _______, NUM_SPC
+    // BASE - Left
+    _______, _______, _______, _______, _______, _______, _______,    
+    _______, KC_B,    KC_L,    KC_D,    KC_W,    KC_Z,    _______,    
+    _______, HRM_N,   HRM_R,   HRM_T,   HRM_S,   KC_G,                
+    _______, KC_Q,    KC_X,    KC_M,    KC_C,    KC_V,    _______,    
+    _______, _______, _______, _______, _______,                      
+
+                                                 _______, _______,
+                                                          _______,
+                                        MO(NAV), _______, BUILD_K,
+
+    // BASE - Right
+    _______, _______, _______, _______, _______, _______, _______,
+    _______, KC_QUOT, KC_F,    KC_O,    KC_U,    KC_J,    _______,
+             KC_Y,    HRM_H,   HRM_A,   HRM_E,   HRM_I,   _______,
+    _______, KC_K,    KC_P,    KC_COMM, KC_DOT,  OSL(SYM),_______,
+                      _______, _______, _______, _______, _______,
+
+    _______, _______,
+    _______,
+    QK_BOOT, _______, NUM_SPC
 
   ),
-  [NUM] = LAYOUT_ergodox_pretty(
-    _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_LABK, KC_MINS, KC_PERC, KC_SLSH, KC_LBRC, _______,          _______, KC_RBRC, KC_ASTR, KC_EQL,  KC_PLUS, KC_RABK, _______,
-    _______, HRM_1,   HRM_2,   HRM_3,   HRM_4,   KC_LPRN,                            KC_RPRN, HRM_7,   HRM_8,   HRM_9,   HRM_0,   _______,
-    _______, KC_CIRC, KC_DLR,  POUND,   KC_5,    KC_LCBR, _______,          _______, KC_RCBR, KC_6,    _______, _______, OSL(SYM),_______,
-    _______, _______, _______, _______, _______,                                              _______, _______, _______, _______, _______,
+  [NUM] = LAYOUT_ergodox(
 
-                                                     _______, _______,  _______, _______,
-                                                              _______,  _______,
-                                            _______, _______, _______,  _______, _______, KC_SPC
+    // NUM - Left
+    _______, _______, _______, _______, _______, _______, _______,      
+    _______, KC_LABK, KC_MINS, KC_PERC, KC_SLSH, KC_LBRC, _______,      
+    _______, HRM_1,   HRM_2,   HRM_3,   HRM_4,   KC_LPRN,               
+    _______, KC_CIRC, KC_DLR,  POUND,   KC_5,    KC_LCBR, _______,      
+    _______, _______, _______, _______, _______,                        
+
+                                                 _______, _______,  
+                                                          _______,  
+                                        _______, _______, _______,
+
+    // NUM - Right
+    _______, _______, _______, _______, _______, _______, _______,
+    _______, KC_RBRC, KC_ASTR, KC_EQL,  KC_PLUS, KC_RABK, _______,
+             KC_RPRN, HRM_7,   HRM_8,   HRM_9,   HRM_0,   _______,
+    _______, KC_RCBR, KC_6,    _______, _______, OSL(SYM),_______,
+                      _______, _______, _______, _______, _______,
+
+    _______, _______,
+    _______,
+    _______, _______, KC_SPC
+
   ),
-  [SYM] = LAYOUT_ergodox_pretty(
-    _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_GRV,  KC_BSLS, KC_PIPE, KC_SLSH, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_AMPR, KC_UNDS, KC_AT,   M_DSH,   _______,                            _______, _______, _______, _______, _______, _______,
-    _______, KC_TILD, HASH,    KC_SCLN, KC_COLN, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______,                                              _______, _______, _______, _______, _______,
+  [SYM] = LAYOUT_ergodox(
+    
+    // SYM - Left
+    _______, _______, _______, _______, _______, _______, _______,          
+    _______, KC_GRV,  KC_BSLS, KC_PIPE, KC_SLSH, _______, _______,          
+    _______, KC_AMPR, KC_UNDS, KC_AT,   M_DSH,   _______,                   
+    _______, KC_TILD, HASH,    KC_SCLN, KC_COLN, _______, _______,          
+    _______, _______, _______, _______, _______,                            
 
-                                                     _______, _______,  _______, _______,
-                                                              _______,  _______,
-                                            _______, _______, _______,  _______, _______, _______
+                                                 _______, _______,      
+                                                          _______,      
+                                        _______, _______, _______,
+    
+    // SYM - Right
+    _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______,
+             _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______,
+                      _______, _______, _______, _______, _______,
+
+    _______, _______,
+    _______,
+    _______, _______, _______      
+
   ),
-  [NAV] = LAYOUT_ergodox_pretty(
-    _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
-    _______, NEW,     CLOSE,   FULLSCR, MINIM,   ITALIC,  _______,          _______, SWTCH_E, SELWBAK, KC_UP,   SELWORD, QK_LLCK, _______,
-    _______, ALL,     CUT,     COPY,    PASTE,   BOLD,                               KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, KC_BSPC, _______,
-    _______, UNDO,    REDO,    KC_DOT,  SAVE,    UNDER,   _______,          _______, _______, ALFRED,  SELLINE, SWTCH,   LOCKCMP, _______,
-    _______, _______, _______, _______, _______,                                              _______, _______, _______, _______, _______,
+  [NAV] = LAYOUT_ergodox(
+    
+    // NAV - Left
+    _______, _______, _______, _______, _______, _______, _______,          
+    _______, NEW,     CLOSE,   FULLSCR, MINIM,   ITALIC,  _______,          
+    _______, ALL,     CUT,     COPY,    PASTE,   BOLD,                      
+    _______, UNDO,    REDO,    KC_DOT,  SAVE,    UNDER,   _______,          
+    _______, _______, _______, _______, _______,                            
 
-                                                     _______, _______,  _______, _______,
-                                                              _______,  _______,
-                                            _______, _______, _______,  _______, _______, _______
+                                                     _______, _______,      
+                                                              _______,      
+                                            _______, _______, _______,
+    
+    // NAV - Right
+    _______, _______, _______, _______, _______, _______, _______,
+    _______, SWTCH_E, SELWBAK, KC_UP,   SELWORD, QK_LLCK, _______,
+             KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, KC_BSPC, _______,
+    _______, _______, ALFRED,  SELLINE, SWTCH,   LOCKCMP, _______,
+                      _______, _______, _______, _______, _______,
+
+    _______, _______,
+    _______,
+    _______, _______, _______
+
   ),
-  [EPI] = LAYOUT_ergodox_pretty(
-    _______, _______, _______, _______, _______, _______,  _______,         _______, _______, _______, _______, _______, _______, _______,         
-    _______, _______, _______, KC_E,    _______, _______,  _______,         _______, _______, _______, KC_I,    _______, _______, _______,         
-    _______, _______, _______, _______, KC_F,    _______,                            _______, KC_J,    _______, _______, _______, _______,         
-    _______, _______, _______, _______, _______, _______,  _______,         _______, _______, _______, _______, _______, _______, _______,         
-    _______, _______, _______, _______, _______,                                              _______, _______, _______, _______, _______,         
 
-                                                     _______, _______,  _______, _______,
-                                                              _______,  _______,
-                                            _______, _______, _______,  _______, _______, _______
+  [EPI] = LAYOUT_ergodox(
+
+    // EPI - Left
+    _______, _______, _______, _______, _______, _______,  _______,                  
+    _______, _______, _______, KC_E,    _______, _______,  _______,                  
+    _______, _______, _______, _______, KC_F,    _______,                            
+    _______, _______, _______, _______, _______, _______,  _______,                  
+    _______, _______, _______, _______, _______,                                     
+
+                                                     _______, _______,      
+                                                              _______,      
+                                            _______, _______, _______,
+
+    // EPI - Right
+    _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, KC_I,    _______, _______, _______,
+             _______, KC_J,    _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______,
+                      _______, _______, _______, _______, _______,
+
+    _______, _______,
+    _______,
+    _______, _______, _______
+
   ),
 };
 
@@ -187,7 +257,7 @@ char sentence_case_press_user(uint16_t keycode,
         return 'a';
       
       // Punctuation
-      case KC_DOT: // KC_DOT is punctuation both when custom shifted (= !) and not
+      case KC_DOT: // KC_DOT is punctuation both when shifted (= !) and not
       case KC_EXLM:
       case KC_QUES:
         return '.';
@@ -233,9 +303,11 @@ char chordal_hold_handedness(keypos_t key) {
 uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record,
                            uint16_t prev_keycode) {
     if (is_flow_tap_key(keycode) && is_flow_tap_key(prev_keycode)) {
-        // Disable flow tap when home-row shifting after a space, enter or backspace
+        // Disable flow tap when home-row shifting after space/enter/backspace
         uint16_t prev_tap = get_tap_keycode(prev_keycode);
-        if (prev_tap == KC_SPC || prev_tap == KC_ENTER || prev_tap == KC_BSPC) {
+        if (prev_tap == KC_SPC
+            || prev_tap == KC_ENTER
+            || prev_tap == KC_BSPC) {
             switch (keycode) {
                 case HRM_S:
                 case HRM_H:
@@ -250,7 +322,7 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record,
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        // Lower TT for home-row shifts to support capital letters while fast typing
+        // Lower TT for home-row shifts for capital letters while fast typing
         case HRM_S:
         case HRM_H:
             //return 160;
@@ -300,29 +372,29 @@ const uint16_t PROGMEM epi_exit_nav[]   = {KC_E, KC_F, KC_J, KC_I, COMBO_END};
 combo_t key_combos[] = {
 
     // Typing
-    COMBO(enter, KC_ENTER),                // H + A + E           => Enter
-    COMBO(del_word, A(KC_BSPC)),           // R + T + S           => Delete Word
+    COMBO(enter, KC_ENTER),              // H + A + E           => Enter
+    COMBO(del_word, A(KC_BSPC)),         // R + T + S           => Delete Word
 
     // Editing
-    COMBO(paste_plain, C(KC_V)),           // Paste + Bold        => Paste (Plain Text)
+    COMBO(paste_plain, C(KC_V)),         // Paste + Bold        => Plain Paste
 
     // Window Navigation
-    COMBO(prev_tab, C(S(KC_TAB))),         // Sel Left + Up       => Previous Tab
-    COMBO(next_tab, C(KC_TAB)),            // Up + Sel Right      => Next Tab
-    COMBO(prev_win, G(S(KC_GRAVE))),       // Alfred + Sel Down   => Previous Window
-    COMBO(next_win, G(KC_GRAVE)),          // Sel Down + Switcher => Next Window
+    COMBO(prev_tab, C(S(KC_TAB))),       // Sel Left + Up       => Previous Tab
+    COMBO(next_tab, C(KC_TAB)),          // Up + Sel Right      => Next Tab
+    COMBO(prev_win, G(S(KC_GRAVE))),     // Alfred + Sel Down   => Previous Win
+    COMBO(next_win, G(KC_GRAVE)),        // Sel Down + Switcher => Next Window
 
     // Window Layout
-    COMBO(left_screen, HYPR(KC_L)),        // Cut + Copy          => Tile on Left of Screen
-    COMBO(right_screen, HYPR(KC_R)),       // Copy + Paste        => Tile on Right of Screen
+    COMBO(left_screen, HYPR(KC_L)),      // Cut + Copy          => Tile Left
+    COMBO(right_screen, HYPR(KC_R)),     // Copy + Paste        => Tile Right
 
     // Window Management
-    COMBO(escape, KC_ESCAPE),              // New + Close         => Escape
-    COMBO(quit, G(KC_Q)),                  // Close + Fullscreen  => Quit App
+    COMBO(escape, KC_ESCAPE),            // New + Close         => Escape
+    COMBO(quit, G(KC_Q)),                // Close + Fullscreen  => Quit App
 
     // Magnification
-    COMBO(zoom_out, G(KC_MINS)),           // Redo + .            => Zoom out
-    COMBO(zoom_in, G(KC_EQL)),             // . + Save            => Zoom In
+    COMBO(zoom_out, G(KC_MINS)),         // Redo + .            => Zoom out
+    COMBO(zoom_in, G(KC_EQL)),           // . + Save            => Zoom In
 
     // Epistory
     COMBO(epi_enter_nav, EPISTORY_NAV),
@@ -345,7 +417,14 @@ typedef struct {
 
 // Only light up 3x5 keys on each side
 const uint8_t active_leds[] =
-    {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43};
+    // left side
+    { 5,  6,  7,  8,  9,
+     10, 11, 12, 13, 14,
+     15, 16, 17, 18, 19,
+     // right side
+     29, 30, 31, 32, 33,
+     34, 35, 36, 37, 38,
+     39, 40, 41, 42, 43};
 
 const hsv_color_t PROGMEM layer_colors[] = {
     [BASE] = {0, 0, 255},    // White (hue=0, sat=0, bright=255)
