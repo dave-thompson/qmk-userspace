@@ -163,9 +163,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, UNDO,    REDO,    KC_DOT,  SAVE,    UNDER,   _______,          
     _______, _______, _______, _______, _______,                            
 
-                                                     _______, _______,      
-                                                              _______,      
-                                            _______, _______, _______,
+                                                 _______, _______,      
+                                                          _______,      
+                                        _______, _______, _______,
     
     // NAV - Right
     _______, _______, _______, _______, _______, _______, _______,
@@ -183,15 +183,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [EPI] = LAYOUT_ergodox(
 
     // EPI - Left
-    _______, _______, _______, _______, _______, _______,  _______,                  
-    _______, _______, _______, KC_E,    _______, _______,  _______,                  
+    _______, _______, _______, _______, _______, _______, _______,                  
+    _______, _______, _______, KC_E,    _______, _______, _______,                  
     _______, _______, _______, _______, KC_F,    _______,                            
-    _______, _______, _______, _______, _______, _______,  _______,                  
+    _______, _______, _______, _______, _______, _______, _______,                  
     _______, _______, _______, _______, _______,                                     
 
-                                                     _______, _______,      
-                                                              _______,      
-                                            _______, _______, _______,
+                                                 _______, _______,      
+                                                          _______,      
+                                        _______, _______, _______,
 
     // EPI - Right
     _______, _______, _______, _______, _______, _______, _______,
@@ -339,9 +339,17 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 //
 ///////////////////////////////////////////////////////////////////////////////
 
+// -- BASE --
+
 // Typing
 const uint16_t PROGMEM enter[]          = {HRM_H, HRM_A, HRM_E, COMBO_END};
 const uint16_t PROGMEM del_word[]       = {HRM_R, HRM_T, HRM_S, COMBO_END};
+
+// Epistory
+const uint16_t PROGMEM epi_enter_nav[]  = {KC_D, HRM_S, HRM_H, KC_O, COMBO_END};
+const uint16_t PROGMEM epi_exit_nav[]   = {KC_E, KC_F, KC_J, KC_I, COMBO_END};
+
+// -- NAV --
 
 // Editing
 const uint16_t PROGMEM paste_plain[]    = {PASTE, BOLD, COMBO_END};
@@ -363,10 +371,6 @@ const uint16_t PROGMEM quit[]           = {CLOSE, FULLSCR, COMBO_END};
 // Magnification
 const uint16_t PROGMEM zoom_out[]       = {REDO, KC_DOT, COMBO_END};
 const uint16_t PROGMEM zoom_in[]        = {KC_DOT, SAVE, COMBO_END};
-
-// Epistory
-const uint16_t PROGMEM epi_enter_nav[]  = {KC_D, HRM_S, HRM_H, KC_O, COMBO_END};
-const uint16_t PROGMEM epi_exit_nav[]   = {KC_E, KC_F, KC_J, KC_I, COMBO_END};
 
 
 combo_t key_combos[] = {
@@ -466,7 +470,6 @@ bool rgb_matrix_indicators_user(void) {
 ///////////////////////////////////////////////////////////////////////////////
 //
 // User macro callbacks
-//   - One-Shot Shift / Caps Word
 //   - Epistory
 //
 ///////////////////////////////////////////////////////////////////////////////
