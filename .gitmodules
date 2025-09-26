@@ -4,3 +4,6 @@
 [submodule "modules/dave-thompson"]
 	path = modules/dave-thompson
 	url = https://github.com/dave-thompson/qmk-modules.git
+[submodule "modules/stasmarkin"]
+	path = modules/stasmarkin
+	url = https://github.com/stasmarkin/sm_td.git
