@@ -4,6 +4,7 @@
     "dave-thompson/switcher",
     "getreuer/sentence_case",
     "getreuer/custom_shift_keys",
+    "zsa/defaults",
     "getreuer/select_word",
   ]
 }
