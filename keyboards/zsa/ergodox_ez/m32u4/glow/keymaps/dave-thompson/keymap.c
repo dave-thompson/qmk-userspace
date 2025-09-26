@@ -44,6 +44,10 @@ enum keycode_aliases {
   // Layer Switches
   NUM_SPC = LT(NUM, KC_SPC),
 
+  // One-Shots
+  OS_LSFT = OSM(MOD_LSFT), // until zsa firmware update (in qmk since Jul-25)
+  OS_RSFT = OSM(MOD_RSFT), // 
+
   // Symbols
   POUND = S(KC_3),
   M_DSH = A(S(KC_MINS)),
@@ -86,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_B,    KC_L,    KC_D,    KC_W,    KC_Z,    _______,    
     _______, HRM_N,   HRM_R,   HRM_T,   HRM_S,   KC_G,                
     _______, KC_Q,    KC_X,    KC_M,    KC_C,    KC_V,    _______,    
-    _______, _______, _______, _______, _______,                      
+    _______, _______, _______, _______, OS_LSFT,                      
 
                                                  _______, _______,
                                                           _______,
@@ -97,7 +101,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_QUOT, KC_F,    KC_O,    KC_U,    KC_J,    _______,
              KC_Y,    HRM_H,   HRM_A,   HRM_E,   HRM_I,   _______,
     _______, KC_K,    KC_P,    KC_COMM, KC_DOT,  OSL(SYM),_______,
-                      _______, _______, _______, _______, _______,
+                      OS_RSFT, _______, _______, _______, _______,
 
     _______, _______,
     _______,
