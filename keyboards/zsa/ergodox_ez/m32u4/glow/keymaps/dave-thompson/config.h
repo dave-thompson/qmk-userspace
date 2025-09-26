@@ -1,18 +1,45 @@
 // Tap-Hold //
 //----------//
+
+// This still isn't working for me.  Core issue:
+
+// For Shift-I, LSFT(KC_S) is pressed for ~170ms, so TAPPING_TERM need to be
+// less than that.  PERMISSIVE_HOLD doesn't solve the problem, because
+// (right-little) I is slower to release than left-index LSFT(KC_S).  A
+// typical pattern looks like this:
+//
+// S (down) - 
+// I (down) - 90
+// S ( up ) - 80  (Hold: 170)
+// I ( up ) -  4  (Hold: 84)
+
+// However, reducing TAPPING_TERM below 170 creates its own problem:
+//
+// In the left-handed roll 'str', S is depressed for ~170ms, so 'string'
+// becomes TRing'.
+
 #define TAPPING_TERM 200
-#define TAPPING_TERM_PER_KEY     // Only three keys need shorter tapping terms:  HRM_S, HRM_H, NAV_SPC
+#define TAPPING_TERM_PER_KEY     // Only three candidates for shorter tapping
+								 // terms:  HRM_S, HRM_H, NAV_SPC
 
-#define FLOW_TAP_TERM 125        // Disable HRMs during fast typing (HRM_S and HRM_H are excepted after whitespace in keymap.c)
+#define FLOW_TAP_TERM 125        // Disable HRMs on fast typing (HRM_S / HRM_H
+								 // after whitespace excepted in keymap.c)
 
-#define PERMISSIVE_HOLD          // Mod-tap keys held for LESS than TAPPING_TERM but fully encasing another key tap  =>  Treat as held modifier...
-#define CHORDAL_HOLD             //                                                                                      ...unless the two keys are on the same hand
-#define BILATERAL_COMBINATIONS   // Mod-tap keys held for MORE than TAPPING_TERM, then same-hand tap  =>  Treat modifier hold as a tap
+#define PERMISSIVE_HOLD          // Mod-taps held LESS than TAPPING_TERM but
+								 // fully encasing another key tap  =>  Treat
+								 // as held modifier...
+#define CHORDAL_HOLD             //      ...unless both keys on the same hand
+
+// Sadly, BILATERAL_COMBINATIONS was never merged, so this does nothing.
+// Otherwise, it would fix the problem.
+#define BILATERAL_COMBINATIONS   // Mod-taps held MORE than TAPPING_TERM, then
+                                 // same-hand tap  =>  Treat as tap
 
 
 // Key Repeating//
 //--------------//
-#define QUICK_TAP_TERM 0 // Fully disable key repeating so that tap <space> -> hold <num> still activates the num layer
+#define QUICK_TAP_TERM 0         // Fully disable key repeating, so
+								 // tap <space> -> hold <num> activates NUM
 
 
 // Oneshots //
