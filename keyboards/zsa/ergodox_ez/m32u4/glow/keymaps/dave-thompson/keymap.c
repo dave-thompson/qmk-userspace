@@ -21,66 +21,99 @@ enum layers {
   EPI,
 };
 
-enum keycode_aliases {
+///////////////////////////////////////////////////////////////////////////////
+//
+// Keycode Aliases
+//
+///////////////////////////////////////////////////////////////////////////////
 
-  // Home-row Mods
-  HRM_N = LALT_T(KC_N),
-  HRM_R = LCTL_T(KC_R),
-  HRM_T = LGUI_T(KC_T),
-  HRM_S = LSFT_T(KC_S),
-  HRM_H = RSFT_T(KC_H),
-  HRM_A = RGUI_T(KC_A),
-  HRM_E = RCTL_T(KC_E),
-  HRM_I = RALT_T(KC_I),
-  HRM_1 = LALT_T(KC_1),
-  HRM_2 = LCTL_T(KC_2),
-  HRM_3 = LGUI_T(KC_3),
-  HRM_4 = LSFT_T(KC_4),
-  HRM_7 = RSFT_T(KC_7),
-  HRM_8 = RGUI_T(KC_8),
-  HRM_9 = RCTL_T(KC_9),
-  HRM_0 = RALT_T(KC_0),
+#define KEYCODE_ALIASES              \
+                                     \
+  /* Home-row Mods */                \
+  X(CTL_N, LCTL_T(KC_N))             \
+  X(GUI_R, LGUI_T(KC_R))             \
+  X(ALT_T, LALT_T(KC_T))             \
+  X(SFT_S, LSFT_T(KC_S))             \
+  X(SFT_H, RSFT_T(KC_H))             \
+  X(ALT_A, RALT_T(KC_A))             \
+  X(GUI_E, RGUI_T(KC_E))             \
+  X(CTL_I, RCTL_T(KC_I))             \
+  X(CTL_1, LCTL_T(KC_1))             \
+  X(GUI_2, LGUI_T(KC_2))             \
+  X(ALT_3, LALT_T(KC_3))             \
+  X(SFT_4, LSFT_T(KC_4))             \
+  X(SFT_7, RSFT_T(KC_7))             \
+  X(ALT_8, RALT_T(KC_8))             \
+  X(GUI_9, RGUI_T(KC_9))             \
+  X(CTL_0, RCTL_T(KC_0))             \
+                                     \
+  /* Layer Switches */               \
+  X(NUM_SPC, LT(NUM, KC_SPC))        \
+                                     \
+  /* Symbols */                      \
+  X(POUND, S(KC_3))                  \
+  X(M_DSH, A(S(KC_MINS)))            \
+  X(HASH, A(KC_3))                   \
+                                     \
+  /* Window Management */            \
+  X(NEW, G(KC_N))                    \
+  X(CLOSE, G(KC_W))                  \
+  X(FULLSCR, G(C(KC_F)))             \
+  X(MINIM, G(KC_M))                  \
+                                     \
+  /* Formatting */                   \
+  X(ITALIC, G(KC_I))                 \
+  X(BOLD, G(KC_B))                   \
+  X(UNDER, G(KC_U))                  \
+                                     \
+  /* Editing */                      \
+  /* see process_record_user */      \
+  X(CTL_ALL, LCTL_T(KC_NO))          \
+  X(GUI_CUT, LGUI_T(KC_NO))          \
+  X(ALT_CPY, LALT_T(KC_NO))          \
+  X(SFT_PST, LSFT_T(KC_NO))          \
+                                     \
+  /* State */                        \
+  X(UNDO, G(KC_Z))                   \
+  X(REDO, G(S(KC_Z)))                \
+  X(SAVE, G(KC_S))                   \
+                                     \
+  /* Miscellaneous */                \
+  X(ALFRED, G(KC_SPC))               \
+  X(LOCKCMP, G(C(KC_Q)))             \
+  X(BUILD_K, HYPR(KC_K))             \
+                                     \
+  /* Lighting */                     \
+  X(LIGHT_1, HYPR(KC_J))             \
+  X(LIGHT_2, HYPR(KC_L))             \
+  X(LIGHT_3, HYPR(KC_M))             \
+                                     \
+  /* Monitor */                      \
+  X(BRGH_UP, G(KC_F2))               \
+  X(BRGH_DN, G(KC_F1))             
 
-  // Layer Switches
-  NUM_SPC = LT(NUM, KC_SPC),
 
-  // One-Shots
-  OS_LSFT = OSM(MOD_LSFT), // until zsa firmware update (in qmk since Jul-25)
-  OS_RSFT = OSM(MOD_RSFT), // 
-
-  // Symbols
-  POUND = S(KC_3),
-  M_DSH = A(S(KC_MINS)),
-  HASH = A(KC_3),
-
-  // Window Management
-  NEW = G(KC_N),
-  CLOSE = G(KC_W),
-  FULLSCR = G(C(KC_F)),
-  MINIM = G(KC_M),
-
-  // Formatting
-  ITALIC = G(KC_I),
-  BOLD = G(KC_B),
-  UNDER = G(KC_U),
-
-  // Editing
-  ALL = G(KC_A),
-  CUT = G(KC_X),
-  COPY = G(KC_C),
-  PASTE = G(KC_V),
-
-  // State
-  UNDO = G(KC_Z),
-  REDO = G(S(KC_Z)),
-  SAVE = G(KC_S),
-
-  // Miscellaneous
-  ALFRED = G(KC_SPC),
-  LOCKCMP = G(C(KC_Q)),
-  BUILD_K = HYPR(KC_K),
-
+// Aliases Enum
+#define X(name, value) name = value,
+enum keycode_enum {
+  KEYCODE_ALIASES
 };
+#undef X
+
+
+// Keycode String
+#define X(name, value) KEYCODE_STRING_NAME(name),
+KEYCODE_STRING_NAMES_USER(
+  KEYCODE_ALIASES
+);
+#undef X
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Keymap
+//
+///////////////////////////////////////////////////////////////////////////////
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BASE] = LAYOUT_ergodox(
@@ -88,23 +121,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // BASE - Left
     _______, _______, _______, _______, _______, _______, _______,    
     _______, KC_B,    KC_L,    KC_D,    KC_W,    KC_Z,    _______,    
-    _______, HRM_N,   HRM_R,   HRM_T,   HRM_S,   KC_G,                
+    _______, CTL_N,   GUI_R,   ALT_T,   SFT_S,   KC_G,                
     _______, KC_Q,    KC_X,    KC_M,    KC_C,    KC_V,    _______,    
-    _______, _______, _______, _______, OS_LSFT,                      
+    _______, _______, _______, _______, _______,                      
 
-                                                 _______, _______,
+                                                 BRGH_DN, BRGH_UP,
                                                           _______,
                                         MO(NAV), _______, BUILD_K,
 
     // BASE - Right
     _______, _______, _______, _______, _______, _______, _______,
     _______, KC_QUOT, KC_F,    KC_O,    KC_U,    KC_J,    _______,
-             KC_Y,    HRM_H,   HRM_A,   HRM_E,   HRM_I,   _______,
+             KC_Y,    SFT_H,   ALT_A,   GUI_E,   CTL_I,   _______,
     _______, KC_K,    KC_P,    KC_COMM, KC_DOT,  OSL(SYM),_______,
-                      OS_RSFT, _______, _______, _______, _______,
+                      _______, _______, _______, _______, _______,
 
-    _______, _______,
-    _______,
+    LIGHT_1, LIGHT_3,
+    LIGHT_2,
     QK_BOOT, _______, NUM_SPC
 
   ),
@@ -113,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // NUM - Left
     _______, _______, _______, _______, _______, _______, _______,      
     _______, KC_LABK, KC_MINS, KC_PERC, KC_SLSH, KC_LBRC, _______,      
-    _______, HRM_1,   HRM_2,   HRM_3,   HRM_4,   KC_LPRN,               
+    _______, CTL_1,   GUI_2,   ALT_3,   SFT_4,   KC_LPRN,               
     _______, KC_CIRC, KC_DLR,  POUND,   KC_5,    KC_LCBR, _______,      
     _______, _______, _______, _______, _______,                        
 
@@ -124,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // NUM - Right
     _______, _______, _______, _______, _______, _______, _______,
     _______, KC_RBRC, KC_ASTR, KC_EQL,  KC_PLUS, KC_RABK, _______,
-             KC_RPRN, HRM_7,   HRM_8,   HRM_9,   HRM_0,   _______,
+             KC_RPRN, SFT_7,   ALT_8,   GUI_9,   CTL_0,   _______,
     _______, KC_RCBR, KC_6,    _______, _______, OSL(SYM),_______,
                       _______, _______, _______, _______, _______,
 
@@ -163,7 +196,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // NAV - Left
     _______, _______, _______, _______, _______, _______, _______,          
     _______, NEW,     CLOSE,   FULLSCR, MINIM,   ITALIC,  _______,          
-    _______, ALL,     CUT,     COPY,    PASTE,   BOLD,                      
+    _______, CTL_ALL, GUI_CUT, ALT_CPY, SFT_PST, BOLD,                      
     _______, UNDO,    REDO,    KC_DOT,  SAVE,    UNDER,   _______,          
     _______, _______, _______, _______, _______,                            
 
@@ -334,6 +367,27 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         default:
             return TAPPING_TERM;
     }
+////////////////
+// Processing //
+////////////////
+
+// Tap-hold for compound keycodes (QMK's MT/LT only allow basic keycodes)
+static bool process_tap_hold(keyrecord_t* record,
+                             uint16_t tap_keycode,
+                             uint16_t hold_keycode) {
+    // tap or hold?
+    uint16_t keycode;
+    if (record->tap.count > 0) keycode = tap_keycode;
+    else keycode = hold_keycode;
+    
+    if (record->event.pressed) {
+        register_code16(keycode);
+    } else {
+        unregister_code16(keycode);
+    }
+
+    // do not process further
+    return false;
 }
 
 
@@ -346,17 +400,18 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // -- BASE --
 
 // Typing
-const uint16_t PROGMEM enter[]          = {HRM_H, HRM_A, HRM_E, COMBO_END};
-const uint16_t PROGMEM del_word[]       = {HRM_R, HRM_T, HRM_S, COMBO_END};
+const uint16_t PROGMEM enter[]          = {SFT_H, ALT_A, GUI_E, COMBO_END};
+const uint16_t PROGMEM del_word[]       = {GUI_R, ALT_T, SFT_S, COMBO_END};
+const uint16_t PROGMEM caps_word[]      = {MO(NAV), NUM_SPC, COMBO_END};
 
 // Epistory
-const uint16_t PROGMEM epi_enter_nav[]  = {KC_D, HRM_S, HRM_H, KC_O, COMBO_END};
-const uint16_t PROGMEM epi_exit_nav[]   = {KC_E, KC_F, KC_J, KC_I, COMBO_END};
+//const uint16_t PROGMEM epi_enter_nav[]  = {KC_D, SFT_S, SFT_H, KC_O, COMBO_END};
+//const uint16_t PROGMEM epi_exit_nav[]   = {KC_E, KC_F, KC_J, KC_I, COMBO_END};
 
 // -- NAV --
 
 // Editing
-const uint16_t PROGMEM paste_plain[]    = {PASTE, BOLD, COMBO_END};
+const uint16_t PROGMEM paste_plain[]    = {SFT_PST, BOLD, COMBO_END};
 
 // Window Navigation
 const uint16_t PROGMEM prev_tab[]       = {SELWBAK, KC_UP, COMBO_END};
@@ -365,8 +420,9 @@ const uint16_t PROGMEM prev_win[]       = {ALFRED, SELLINE, COMBO_END};
 const uint16_t PROGMEM next_win[]       = {SELLINE, SWTCH, COMBO_END};
 
 // Window Layout
-const uint16_t PROGMEM left_screen[]    = {CUT, COPY, COMBO_END};
-const uint16_t PROGMEM right_screen[]   = {COPY, PASTE, COMBO_END};
+//const uint16_t PROGMEM left_screen[]    = {GUI_CUT, ALT_CPY, COMBO_END};
+// right_screen needs remapping, it conflicts with alt-shift for text selection
+//const uint16_t PROGMEM right_screen[]   = {ALT_CPY, SFT_PST, COMBO_END};
 
 // Window Management
 const uint16_t PROGMEM escape[]         = {NEW, CLOSE, COMBO_END};
@@ -383,6 +439,9 @@ combo_t key_combos[] = {
     COMBO(enter, KC_ENTER),              // H + A + E           => Enter
     COMBO(del_word, A(KC_BSPC)),         // R + T + S           => Delete Word
 
+    // Caps Word
+    COMBO(caps_word, CW_TOGG),           // Double Thumb        => Caps Word
+
     // Editing
     COMBO(paste_plain, C(KC_V)),         // Paste + Bold        => Plain Paste
 
@@ -393,8 +452,8 @@ combo_t key_combos[] = {
     COMBO(next_win, G(KC_GRAVE)),        // Sel Down + Switcher => Next Window
 
     // Window Layout
-    COMBO(left_screen, HYPR(KC_L)),      // Cut + Copy          => Tile Left
-    COMBO(right_screen, HYPR(KC_R)),     // Copy + Paste        => Tile Right
+    // COMBO(left_screen, HYPR(KC_L)),      // Cut + Copy          => Tile Left
+    // COMBO(right_screen, HYPR(KC_R)),     // Copy + Paste        => Tile Right
 
     // Window Management
     COMBO(escape, KC_ESCAPE),            // New + Close         => Escape
@@ -479,6 +538,18 @@ bool rgb_matrix_indicators_user(void) {
 ///////////////////////////////////////////////////////////////////////////////
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+
+    // HRM Editing Keys
+    switch (keycode) {
+        case CTL_ALL:
+            return process_tap_hold(record, G(KC_A), KC_LCTL);
+        case GUI_CUT:
+            return process_tap_hold(record, G(KC_X), KC_LGUI);
+        case ALT_CPY:
+            return process_tap_hold(record, G(KC_C), KC_LALT);
+        case SFT_PST:
+            return process_tap_hold(record, G(KC_V), KC_LSFT);
+    }
 
     switch (keycode) {
         // Epistory

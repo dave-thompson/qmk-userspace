@@ -65,6 +65,11 @@
 #define SENTENCE_CASE_TIMEOUT 0  // disable timeout
 
 
+// Caps Word //
+//-----------//
+#define CAPS_WORD_INVERT_ON_SHIFT
+
+
 // Select Word //
 //-------------//
 #define SELECT_WORD_OS_MAC

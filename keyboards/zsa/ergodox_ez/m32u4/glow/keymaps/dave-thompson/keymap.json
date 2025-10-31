@@ -1,10 +1,10 @@
 {
   "modules": [
     "dave-thompson/lumberjack",
-    "dave-thompson/switcher",
+    //"dave-thompson/switcher",
     "getreuer/sentence_case",
     "getreuer/custom_shift_keys",
-    "zsa/defaults",
-    "getreuer/select_word",
+    //"getreuer/select_word",
+    "zsa/defaults"
   ]
 }
