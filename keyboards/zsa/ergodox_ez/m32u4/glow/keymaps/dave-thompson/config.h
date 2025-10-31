@@ -41,6 +41,10 @@
 #define QUICK_TAP_TERM 0         // Fully disable key repeating, so
 								 // tap <space> -> hold <num> activates NUM
 
+// Layer Switching //
+//-----------------//
+#define TAPPING_TOGGLE 1
+
 
 // Oneshots //
 //----------//
