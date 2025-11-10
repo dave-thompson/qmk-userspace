@@ -340,38 +340,6 @@ char chordal_hold_handedness(keypos_t key) {
     return key.row < MATRIX_ROWS / 2 ? 'L' : 'R';
 }
 
-// Lightshift Test Harnesses
-// -------------------------
-
-// char chordal_hold_handedness(keypos_t key) {
-//     return 'R';
-// }
-
-// const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
-//   LAYOUT_ergodox(
-//     // Left
-//     'L', 'L', 'L', 'L', 'L', 'L', 'L',    
-//     'L', 'L', 'L', 'L', 'L', 'L', 'L',    
-//     'L', 'L', 'L', 'L', 'L', 'L',                
-//     'L', 'L', 'L', 'L', 'L', 'L', 'L',    
-//     'L', 'L', 'L', 'L', 'L',
-
-//                              '*', '*',
-//                                   '*',
-//                         '*', '*', '*',
-
-//     // Right
-//     'L', 'L', 'L', 'L', 'L', 'L', 'L',
-//     'L', 'L', 'L', 'L', 'L', 'L', 'L',
-//          'L', 'L', 'L', 'L', 'L', 'L',
-//     'L', 'L', 'L', 'L', 'L', 'L', 'L',
-//               'L', 'L', 'L', 'L', 'L',
-
-//     '*', '*',
-//     '*',
-//     '*', '*', '*'
-//   );
-
 
 ////////////////////////////////////
 // Tap-Hold for Compound Keycodes //
