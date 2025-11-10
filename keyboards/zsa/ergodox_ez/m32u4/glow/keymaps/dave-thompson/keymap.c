@@ -331,43 +331,51 @@ char sentence_case_press_user(uint16_t keycode,
 //
 ///////////////////////////////////////////////////////////////////////////////
 
+////////////////
+// Lightshift //
+////////////////
+
+// Doesn't change behaviour, but saves 178 bytes
 char chordal_hold_handedness(keypos_t key) {
     return key.row < MATRIX_ROWS / 2 ? 'L' : 'R';
 }
 
-uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record,
-                           uint16_t prev_keycode) {
-    if (is_flow_tap_key(keycode) && is_flow_tap_key(prev_keycode)) {
-        // Disable flow tap when home-row shifting after space/enter/backspace
-        uint16_t prev_tap = get_tap_keycode(prev_keycode);
-        if (prev_tap == KC_SPC
-            || prev_tap == KC_ENTER
-            || prev_tap == KC_BSPC) {
-            switch (keycode) {
-                case HRM_S:
-                case HRM_H:
-                    return 0;
-                default:
-                    return FLOW_TAP_TERM;
-            }
-        }  
-    }
-    return 0;
-}   
+// Lightshift Test Harnesses
+// -------------------------
 
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        // Lower TT for home-row shifts for capital letters while fast typing
-        case HRM_S:
-        case HRM_H:
-            //return 160;
-        case NUM_SPC:
-        default:
-            return TAPPING_TERM;
-    }
-////////////////
-// Processing //
-////////////////
+// char chordal_hold_handedness(keypos_t key) {
+//     return 'R';
+// }
+
+// const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+//   LAYOUT_ergodox(
+//     // Left
+//     'L', 'L', 'L', 'L', 'L', 'L', 'L',    
+//     'L', 'L', 'L', 'L', 'L', 'L', 'L',    
+//     'L', 'L', 'L', 'L', 'L', 'L',                
+//     'L', 'L', 'L', 'L', 'L', 'L', 'L',    
+//     'L', 'L', 'L', 'L', 'L',
+
+//                              '*', '*',
+//                                   '*',
+//                         '*', '*', '*',
+
+//     // Right
+//     'L', 'L', 'L', 'L', 'L', 'L', 'L',
+//     'L', 'L', 'L', 'L', 'L', 'L', 'L',
+//          'L', 'L', 'L', 'L', 'L', 'L',
+//     'L', 'L', 'L', 'L', 'L', 'L', 'L',
+//               'L', 'L', 'L', 'L', 'L',
+
+//     '*', '*',
+//     '*',
+//     '*', '*', '*'
+//   );
+
+
+////////////////////////////////////
+// Tap-Hold for Compound Keycodes //
+////////////////////////////////////
 
 // Tap-hold for compound keycodes (QMK's MT/LT only allow basic keycodes)
 static bool process_tap_hold(keyrecord_t* record,

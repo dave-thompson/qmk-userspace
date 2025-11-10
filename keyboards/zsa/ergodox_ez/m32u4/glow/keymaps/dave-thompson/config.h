@@ -1,39 +1,8 @@
 // Tap-Hold //
 //----------//
 
-// This still isn't working for me.  Core issue:
-
-// For Shift-I, LSFT(KC_S) is pressed for ~170ms, so TAPPING_TERM need to be
-// less than that.  PERMISSIVE_HOLD doesn't solve the problem, because
-// (right-little) I is slower to release than left-index LSFT(KC_S).  A
-// typical pattern looks like this:
-//
-// S (down) - 
-// I (down) - 90
-// S ( up ) - 80  (Hold: 170)
-// I ( up ) -  4  (Hold: 84)
-
-// However, reducing TAPPING_TERM below 170 creates its own problem:
-//
-// In the left-handed roll 'str', S is depressed for ~170ms, so 'string'
-// becomes TRing'.
-
-#define TAPPING_TERM 200
-#define TAPPING_TERM_PER_KEY     // Only three candidates for shorter tapping
-								 // terms:  HRM_S, HRM_H, NAV_SPC
-
-#define FLOW_TAP_TERM 125        // Disable HRMs on fast typing (HRM_S / HRM_H
-								 // after whitespace excepted in keymap.c)
-
-#define PERMISSIVE_HOLD          // Mod-taps held LESS than TAPPING_TERM but
-								 // fully encasing another key tap  =>  Treat
-								 // as held modifier...
-#define CHORDAL_HOLD             //      ...unless both keys on the same hand
-
-// Sadly, BILATERAL_COMBINATIONS was never merged, so this does nothing.
-// Otherwise, it would fix the problem.
-#define BILATERAL_COMBINATIONS   // Mod-taps held MORE than TAPPING_TERM, then
-                                 // same-hand tap  =>  Treat as tap
+#define TAPPING_TERM 250        // High tapping term for (non-lightshift) HRMs
+#define FLOW_TAP_TERM 125       // Disable (non-lightshift) HRMs on typing
 
 
 // Key Repeating//
@@ -62,6 +31,11 @@
 //----------//
 #define SWITCHER_MACOS_APP_SWITCHER
 #define SWITCHER_ENABLE_SECONDARY_KEYS
+
+
+// Lightshift //
+//------------//
+#define LIGHTSHIFT_TAPPING_TERM 140
 
 
 // Sentence Case //

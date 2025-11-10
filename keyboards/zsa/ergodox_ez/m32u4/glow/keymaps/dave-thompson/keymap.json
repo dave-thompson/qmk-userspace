@@ -2,6 +2,7 @@
   "modules": [
     "dave-thompson/lumberjack",
     //"dave-thompson/switcher",
+    "dave-thompson/lightshift",
     "getreuer/sentence_case",
     "getreuer/custom_shift_keys",
     //"getreuer/select_word",
