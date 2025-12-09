@@ -66,12 +66,6 @@ enum layers {
   X(BOLD, G(KC_B))                   \
   X(UNDER, G(KC_U))                  \
                                      \
-  /* Editing */                      \
-  /* see process_record_user */      \
-  X(CTL_ALL, LCTL_T(KC_NO))          \
-  X(GUI_CUT, LGUI_T(KC_NO))          \
-  X(ALT_CPY, LALT_T(KC_NO))          \
-  X(SFT_PST, LSFT_T(KC_NO))          \
                                      \
   /* State */                        \
   X(UNDO, G(KC_Z))                   \
@@ -85,12 +79,24 @@ enum layers {
                                      \
   /* Lighting */                     \
   X(LIGHT_1, HYPR(KC_J))             \
-  X(LIGHT_2, HYPR(KC_L))             \
+  X(LIGHT_2, HYPR(KC_T))             \
   X(LIGHT_3, HYPR(KC_M))             \
                                      \
   /* Monitor */                      \
   X(BRGH_UP, G(KC_F2))               \
-  X(BRGH_DN, G(KC_F1))             
+  X(BRGH_DN, G(KC_F1))               \
+                                     \
+                                     \
+  /* Mod-Tap Dummies (Below)   */    \
+  /* ———————————————————————   */    \
+  /* trigger tap-hold logic in */    \
+  /* process_record_user       */    \
+                                     \
+  /* Editing */                      \
+  X(CTL_ALL, LCTL_T(KC_NO))          \
+  X(GUI_CUT, LGUI_T(KC_NO))          \
+  X(ALT_CPY, LALT_T(KC_NO))          \
+  X(SFT_PST, LSFT_T(KC_NO))
 
 
 // Aliases Enum
