@@ -3,6 +3,7 @@
 
 enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
+  DASH,
   EPISTORY_NAV,
   // Select Word harness (if uninstalled for space)
   // SELWORD, 
@@ -52,7 +53,6 @@ enum layers {
                                      \
   /* Symbols */                      \
   X(POUND, S(KC_3))                  \
-  X(M_DSH, A(S(KC_MINS)))            \
   X(HASH, A(KC_3))                   \
                                      \
   /* Window Management */            \
@@ -171,7 +171,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // SYM - Left
     _______, _______, _______, _______, _______, _______, _______,          
     _______, KC_GRV,  KC_BSLS, KC_PIPE, KC_SLSH, _______, _______,          
-    _______, KC_AMPR, KC_UNDS, KC_AT,   M_DSH,   _______,                   
+    _______, KC_AMPR, KC_AT,   KC_UNDS, DASH,   _______,                   
     _______, KC_TILD, HASH,    KC_SCLN, KC_COLN, _______, _______,          
     _______, _______, _______, _______, _______,                            
 
@@ -381,8 +381,8 @@ const uint16_t PROGMEM del_word[]       = {GUI_R, ALT_T, SFT_S, COMBO_END};
 const uint16_t PROGMEM caps_word[]      = {MO(NAV), NUM_SPC, COMBO_END};
 
 // Epistory
-//const uint16_t PROGMEM epi_enter_nav[]  = {KC_D, SFT_S, SFT_H, KC_O, COMBO_END};
-//const uint16_t PROGMEM epi_exit_nav[]   = {KC_E, KC_F, KC_J, KC_I, COMBO_END};
+const uint16_t PROGMEM epi_enter_nav[]  = {KC_D, SFT_S, SFT_H, KC_O, COMBO_END};
+const uint16_t PROGMEM epi_exit_nav[]   = {KC_E, KC_F, KC_J, KC_I, COMBO_END};
 
 // -- NAV --
 
@@ -396,17 +396,17 @@ const uint16_t PROGMEM prev_win[]       = {ALFRED, SELLINE, COMBO_END};
 const uint16_t PROGMEM next_win[]       = {SELLINE, SWTCH, COMBO_END};
 
 // Window Layout
-//const uint16_t PROGMEM left_screen[]    = {GUI_CUT, ALT_CPY, COMBO_END};
-// right_screen needs remapping, it conflicts with alt-shift for text selection
-//const uint16_t PROGMEM right_screen[]   = {ALT_CPY, SFT_PST, COMBO_END};
+const uint16_t PROGMEM left_screen[]    = {BACKSPC, CLOSE, MINIM, COMBO_END};
+const uint16_t PROGMEM full_screen[]    = {GUI_CUT, ALT_CPY, SFT_PST, COMBO_END};
+const uint16_t PROGMEM right_screen[]   = {REDO, SAVE, KC_ENT, COMBO_END};
 
 // Window Management
-const uint16_t PROGMEM escape[]         = {NEW, CLOSE, COMBO_END};
-const uint16_t PROGMEM quit[]           = {CLOSE, FULLSCR, COMBO_END};
+const uint16_t PROGMEM escape[]         = {NEW, BACKSPC, COMBO_END};
+const uint16_t PROGMEM quit[]           = {BACKSPC, CLOSE, COMBO_END};
 
 // Magnification
-const uint16_t PROGMEM zoom_out[]       = {REDO, KC_DOT, COMBO_END};
-const uint16_t PROGMEM zoom_in[]        = {KC_DOT, SAVE, COMBO_END};
+const uint16_t PROGMEM zoom_out[]       = {REDO, SAVE, COMBO_END};
+const uint16_t PROGMEM zoom_in[]        = {SAVE, KC_ENT, COMBO_END};
 
 
 combo_t key_combos[] = {
@@ -428,8 +428,9 @@ combo_t key_combos[] = {
     COMBO(next_win, G(KC_GRAVE)),        // Sel Down + Switcher => Next Window
 
     // Window Layout
-    // COMBO(left_screen, HYPR(KC_L)),      // Cut + Copy          => Tile Left
-    // COMBO(right_screen, HYPR(KC_R)),     // Copy + Paste        => Tile Right
+    COMBO(left_screen, HYPR(KC_L)),      // Bkspc + Close + Min => Tile Left
+    COMBO(full_screen, G(C(KC_F))),      // Cut + Copy + Paste  => Fullscreen
+    COMBO(right_screen, HYPR(KC_R)),     // Redo + Save + Enter => Tile Right
 
     // Window Management
     COMBO(escape, KC_ESCAPE),            // New + Close         => Escape
@@ -516,8 +517,27 @@ bool rgb_matrix_indicators_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
-    // HRM Editing Keys
+    // DASH — send hyphen normally, or em-dash after SPACE
+    static bool last_char_space = false;
+    if (keycode == DASH && record->event.pressed) {
+        if (last_char_space) {
+            SEND_STRING(SS_LALT(SS_LSFT("-"))); // em-dash
+         } else {
+            SEND_STRING("-"); // hyphen
+         }
+    }
+    // naive tracking of whether last char was SPACE (to minimise firmware space)
+    if (!(keycode == OSL(SYM))) {
+        if ((keycode == NUM_SPC) && (record->tap.count == 1)) {
+            last_char_space = true;
+        }
+        else {
+            last_char_space = false;
+        }
+    }
+
     switch (keycode) {
+        // HRM Editing Keys
         case CTL_ALL:
             return process_tap_hold(record, G(KC_A), KC_LCTL);
         case GUI_CUT:
