@@ -127,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
                                                  BRGH_DN, BRGH_UP,
                                                           _______,
-                                        TT(NAV), _______, BUILD_K,
+                                        MO(NAV), _______, BUILD_K,
 
     // BASE - Right
     _______, _______, _______, _______, _______, _______, _______,

@@ -7,19 +7,8 @@
 
 // Key Repeating//
 //--------------//
-#define QUICK_TAP_TERM 0         // Fully disable key repeating, so
-								 // tap <space> -> hold <num> activates NUM
-
-// Layer Switching //
-//-----------------//
-#define TAPPING_TOGGLE 1
-
-
-// Oneshots //
-//----------//
-#define ONESHOT_TAP_TOGGLE 2
-#undef ONESHOT_TIMEOUT
-#define ONESHOT_TIMEOUT 5000
+#define QUICK_TAP_TERM 0        // Fully disable key repeating, so
+							    // tap <space> -> hold <num> activates NUM
 
 
 // Lumberjack //
