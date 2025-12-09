@@ -145,9 +145,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // NUM - Left
     _______, _______, _______, _______, _______, _______, _______,      
-    _______, KC_LABK, KC_MINS, KC_PERC, KC_SLSH, KC_LBRC, _______,      
+    _______, KC_LABK, KC_MINS, KC_PERC, KC_SLSH, KC_LCBR, _______,      
     _______, CTL_1,   GUI_2,   ALT_3,   SFT_4,   KC_LPRN,               
-    _______, KC_CIRC, KC_DLR,  POUND,   KC_5,    KC_LCBR, _______,      
+    _______, KC_CIRC, KC_DLR,  POUND,   KC_5,    KC_LBRC, _______,      
     _______, _______, _______, _______, _______,                        
 
                                                  _______, _______,  
@@ -156,9 +156,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // NUM - Right
     _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_RBRC, KC_ASTR, KC_EQL,  KC_PLUS, KC_RABK, _______,
+    _______, KC_RCBR, KC_ASTR, KC_EQL,  KC_PLUS, KC_RABK, _______,
              KC_RPRN, SFT_7,   ALT_8,   GUI_9,   CTL_0,   _______,
-    _______, KC_RCBR, KC_6,    _______, _______, OSL(SYM),_______,
+    _______, KC_RBRC, KC_6,    _______, _______, OSL(SYM),_______,
                       _______, _______, _______, _______, _______,
 
     _______, _______,
@@ -195,9 +195,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     
     // NAV - Left
     _______, _______, _______, _______, _______, _______, _______,          
-    _______, NEW,     CLOSE,   FULLSCR, MINIM,   ITALIC,  _______,          
+    _______, NEW,     BACKSPC, CLOSE,   MINIM,   ITALIC,  _______,          
     _______, CTL_ALL, GUI_CUT, ALT_CPY, SFT_PST, BOLD,                      
-    _______, UNDO,    REDO,    KC_DOT,  SAVE,    UNDER,   _______,          
+    _______, UNDO,    REDO,    SAVE,    KC_ENT,  UNDER,   _______,          
     _______, _______, _______, _______, _______,                            
 
                                                  _______, _______,      
@@ -207,7 +207,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // NAV - Right
     _______, _______, _______, _______, _______, _______, _______,
     _______, SWTCH_E, SELWBAK, KC_UP,   SELWORD, QK_LLCK, _______,
-             KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, KC_BSPC, _______,
+             KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,  _______,
     _______, _______, ALFRED,  SELLINE, SWTCH,   LOCKCMP, _______,
                       _______, _______, _______, _______, _______,
 
