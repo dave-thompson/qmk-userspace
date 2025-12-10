@@ -66,7 +66,6 @@ enum layers {
   X(BOLD, G(KC_B))                   \
   X(UNDER, G(KC_U))                  \
                                      \
-                                     \
   /* State */                        \
   X(UNDO, G(KC_Z))                   \
   X(REDO, G(S(KC_Z)))                \
@@ -201,7 +200,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     
     // NAV - Left
     _______, _______, _______, _______, _______, _______, _______,          
-    _______, NEW,     BACKSPC, CLOSE,   MINIM,   ITALIC,  _______,          
+    _______, NEW,     KC_BSPC, CLOSE,   MINIM,   ITALIC,  _______,          
     _______, CTL_ALL, GUI_CUT, ALT_CPY, SFT_PST, BOLD,                      
     _______, UNDO,    REDO,    SAVE,    KC_ENT,  UNDER,   _______,          
     _______, _______, _______, _______, _______,                            
@@ -382,8 +381,8 @@ static bool process_tap_hold(keyrecord_t* record,
 // -- BASE --
 
 // Typing
-const uint16_t PROGMEM enter[]          = {SFT_H, ALT_A, GUI_E, COMBO_END};
 const uint16_t PROGMEM del_word[]       = {GUI_R, ALT_T, SFT_S, COMBO_END};
+const uint16_t PROGMEM enter[]          = {SFT_H, ALT_A, GUI_E, COMBO_END};
 const uint16_t PROGMEM caps_word[]      = {MO(NAV), NUM_SPC, COMBO_END};
 
 // Epistory
@@ -402,24 +401,28 @@ const uint16_t PROGMEM prev_win[]       = {ALFRED, SELLINE, COMBO_END};
 const uint16_t PROGMEM next_win[]       = {SELLINE, SWTCH, COMBO_END};
 
 // Window Layout
-const uint16_t PROGMEM left_screen[]    = {BACKSPC, CLOSE, MINIM, COMBO_END};
+const uint16_t PROGMEM left_screen[]    = {KC_BSPC, CLOSE, MINIM, COMBO_END};
 const uint16_t PROGMEM full_screen[]    = {GUI_CUT, ALT_CPY, SFT_PST, COMBO_END};
 const uint16_t PROGMEM right_screen[]   = {REDO, SAVE, KC_ENT, COMBO_END};
 
 // Window Management
-const uint16_t PROGMEM escape[]         = {NEW, BACKSPC, COMBO_END};
-const uint16_t PROGMEM quit[]           = {BACKSPC, CLOSE, COMBO_END};
+const uint16_t PROGMEM escape[]         = {NEW, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM quit[]           = {KC_BSPC, CLOSE, COMBO_END};
 
 // Magnification
 const uint16_t PROGMEM zoom_out[]       = {REDO, SAVE, COMBO_END};
 const uint16_t PROGMEM zoom_in[]        = {SAVE, KC_ENT, COMBO_END};
 
+// Finder
+const uint16_t PROGMEM screenshot[]     = {KC_ENT, UNDER, COMBO_END};
+const uint16_t PROGMEM del_file[]       = {MINIM, ITALIC, COMBO_END};
+
 
 combo_t key_combos[] = {
 
     // Typing
-    COMBO(enter, KC_ENTER),              // H + A + E           => Enter
     COMBO(del_word, A(KC_BSPC)),         // R + T + S           => Delete Word
+    COMBO(enter, KC_ENTER),              // H + A + E           => Enter
 
     // Caps Word
     COMBO(caps_word, CW_TOGG),           // Double Thumb        => Caps Word
@@ -445,6 +448,10 @@ combo_t key_combos[] = {
     // Magnification
     COMBO(zoom_out, G(KC_MINS)),         // Redo + .            => Zoom out
     COMBO(zoom_in, G(KC_EQL)),           // . + Save            => Zoom In
+
+    // Finder
+    COMBO(screenshot, G(S(KC_4))),       // Enter + Under       => Screenshot
+    COMBO(del_file, G(KC_BSPC)),         // Minim + Italic      => Delete File
 
     // Epistory
     COMBO(epi_enter_nav, EPISTORY_NAV),
