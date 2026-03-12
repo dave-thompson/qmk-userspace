@@ -34,7 +34,7 @@
 
 // Caps Word //
 //-----------//
-#define CAPS_WORD_INVERT_ON_SHIFT
+// #define CAPS_WORD_INVERT_ON_SHIFT // breaks custom shift
 
 
 // Select Word //
