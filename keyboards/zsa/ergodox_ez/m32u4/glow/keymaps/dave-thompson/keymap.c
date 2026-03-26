@@ -3,10 +3,9 @@
 
 enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
-  DASH,
-  EPISTORY_NAV,
+  NUM_WRD,
   // Select Word harness (if uninstalled for space)
-  // SELWORD, 
+  // SELWORD,
   // SELWBAK,
   // SELLINE,
   // Switcher harness (if uninstalled for space)
@@ -17,9 +16,7 @@ enum custom_keycodes {
 enum layers {
   BASE,
   NUM,
-  SYM,
   NAV,
-  EPI,
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -138,7 +135,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______,
     _______, KC_QUOT, KC_F,    KC_O,    KC_U,    KC_J,    _______,
              KC_Y,    SFT_H,   ALT_A,   GUI_E,   CTL_I,   _______,
-    _______, KC_K,    KC_P,    KC_COMM, KC_DOT,  OSL(SYM),_______,
+    _______, KC_K,    KC_P,    KC_COMM, KC_DOT,  KC_COLN, _______,
                       _______, _______, _______, _______, _______,
 
     LIGHT_1, LIGHT_3,
@@ -150,9 +147,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // NUM - Left
     _______, _______, _______, _______, _______, _______, _______,      
-    _______, KC_LABK, KC_MINS, KC_PERC, KC_SLSH, KC_LCBR, _______,      
-    _______, CTL_1,   GUI_2,   ALT_3,   SFT_4,   KC_LPRN,               
-    _______, KC_CIRC, KC_DLR,  POUND,   KC_5,    KC_LBRC, _______,      
+    _______, KC_BSLS, KC_MINS, KC_PERC, KC_SLSH, KC_LCBR, _______,
+    _______, CTL_1,   GUI_2,   ALT_3,   SFT_4,   KC_LABK,
+    _______, HASH,    POUND,   KC_DLR,  KC_5,    KC_LBRC, _______,      
     _______, _______, _______, _______, _______,                        
 
                                                  _______, _______,  
@@ -161,9 +158,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // NUM - Right
     _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_RCBR, KC_ASTR, KC_EQL,  KC_PLUS, KC_RABK, _______,
-             KC_RPRN, SFT_7,   ALT_8,   GUI_9,   CTL_0,   _______,
-    _______, KC_RBRC, KC_6,    _______, _______, OSL(SYM),_______,
+    _______, KC_RCBR, KC_ASTR, KC_EQL,  KC_PLUS, KC_PIPE, _______,
+             KC_RABK, SFT_7,   ALT_8,   GUI_9,   CTL_0,   _______,
+    _______, KC_RBRC, KC_6,    KC_COMM, KC_DOT,  KC_CIRC, _______,
                       _______, _______, _______, _______, _______,
 
     _______, _______,
@@ -171,36 +168,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, KC_SPC
 
   ),
-  [SYM] = LAYOUT_ergodox(
-    
-    // SYM - Left
-    _______, _______, _______, _______, _______, _______, _______,          
-    _______, KC_GRV,  KC_BSLS, KC_PIPE, KC_SLSH, _______, _______,          
-    _______, KC_AMPR, KC_AT,   KC_UNDS, DASH,   _______,                   
-    _______, KC_TILD, HASH,    KC_SCLN, KC_COLN, _______, _______,          
-    _______, _______, _______, _______, _______,                            
 
-                                                 _______, _______,      
-                                                          _______,      
-                                        _______, _______, _______,
-    
-    // SYM - Right
-    _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______,
-             _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______,
-                      _______, _______, _______, _______, _______,
-
-    _______, _______,
-    _______,
-    _______, _______, _______      
-
-  ),
   [NAV] = LAYOUT_ergodox(
     
     // NAV - Left
     _______, _______, _______, _______, _______, _______, _______,          
-    _______, NEW,     KC_BSPC, CLOSE,   MINIM,   ITALIC,  _______,          
+    _______, KC_ESCAPE,KC_BSPC, CLOSE,   MINIM,  ITALIC,  _______,          
     _______, CTL_ALL, GUI_CUT, ALT_CPY, SFT_PST, BOLD,                      
     _______, UNDO,    REDO,    SAVE,    KC_ENT,  UNDER,   _______,          
     _______, _______, _______, _______, _______,                            
@@ -211,9 +184,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     
     // NAV - Right
     _______, _______, _______, _______, _______, _______, _______,
-    _______, SWTCH_E, SELWBAK, KC_UP,   SELWORD, QK_LLCK, _______,
+    _______, SWTCH_E, SELWBAK, KC_UP,   SELWORD, LOCKCMP, _______,
              KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,  _______,
-    _______, _______, ALFRED,  SELLINE, SWTCH,   LOCKCMP, _______,
+    _______, _______, ALFRED,  SELLINE, SWTCH,   _______, _______,
                       _______, _______, _______, _______, _______,
 
     _______, _______,
@@ -222,31 +195,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   ),
 
-  [EPI] = LAYOUT_ergodox(
 
-    // EPI - Left
-    _______, _______, _______, _______, _______, _______, _______,                  
-    _______, _______, _______, KC_E,    _______, _______, _______,                  
-    _______, _______, _______, _______, KC_F,    _______,                            
-    _______, _______, _______, _______, _______, _______, _______,                  
-    _______, _______, _______, _______, _______,                                     
-
-                                                 _______, _______,      
-                                                          _______,      
-                                        _______, _______, _______,
-
-    // EPI - Right
-    _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, KC_I,    _______, _______, _______,
-             _______, KC_J,    _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______,
-                      _______, _______, _______, _______, _______,
-
-    _______, _______,
-    _______,
-    _______, _______, _______
-
-  ),
 };
 
 
@@ -259,6 +208,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const custom_shift_key_t custom_shift_keys[] = {
   {KC_COMM, KC_QUES},          // Shift , is ?
   {KC_DOT , KC_EXLM},          // Shift . is !
+  {KC_COLN, KC_SCLN},          // Shift : is ;
 };
 
 
@@ -378,84 +328,86 @@ static bool process_tap_hold(keyrecord_t* record,
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// -- BASE --
+// -- BASE Row 1 --
+const uint16_t PROGMEM backtick[]     = {KC_W,    KC_Z,             COMBO_END};
+const uint16_t PROGMEM tilde[]        = {KC_QUOT, KC_F,             COMBO_END};
+const uint16_t PROGMEM num_word[]     = {KC_L,    KC_D,    KC_W,    COMBO_END};
+const uint16_t PROGMEM caps_word[]    = {KC_F,    KC_O,    KC_U,    COMBO_END};
 
-// Typing
-const uint16_t PROGMEM del_word[]       = {GUI_R, ALT_T, SFT_S, COMBO_END};
-const uint16_t PROGMEM enter[]          = {SFT_H, ALT_A, GUI_E, COMBO_END};
-const uint16_t PROGMEM caps_word[]      = {MO(NAV), NUM_SPC, COMBO_END};
+// -- BASE Row 2 --
+const uint16_t PROGMEM underscore[]   = {SFT_S,   KC_G,             COMBO_END};
+const uint16_t PROGMEM at_sign[]      = {KC_Y,    SFT_H,            COMBO_END};
+const uint16_t PROGMEM del_word[]     = {GUI_R,   ALT_T,   SFT_S,   COMBO_END};
+const uint16_t PROGMEM enter[]        = {SFT_H,   ALT_A,   GUI_E,   COMBO_END};
 
-// Epistory
-const uint16_t PROGMEM epi_enter_nav[]  = {KC_D, SFT_S, SFT_H, KC_O, COMBO_END};
-const uint16_t PROGMEM epi_exit_nav[]   = {KC_E, KC_F, KC_J, KC_I, COMBO_END};
+// -- BASE Row 3 --
+const uint16_t PROGMEM open_paren[]   = {KC_X,    KC_M,             COMBO_END};
+const uint16_t PROGMEM em_dash[]      = {KC_M,    KC_C,             COMBO_END};
+const uint16_t PROGMEM ampersand[]    = {KC_P,    KC_COMM,          COMBO_END};
+const uint16_t PROGMEM close_paren[]  = {KC_COMM, KC_DOT,           COMBO_END};
 
-// -- NAV --
+// -- NAV Row 1 --
+const uint16_t PROGMEM quit[]         = {KC_BSPC, CLOSE,            COMBO_END};
+const uint16_t PROGMEM new_window[]   = {CLOSE,   MINIM,            COMBO_END};
+const uint16_t PROGMEM screenshot[]   = {MINIM,   ITALIC,           COMBO_END};
+const uint16_t PROGMEM prev_tab[]     = {SELWBAK, KC_UP,            COMBO_END};
+const uint16_t PROGMEM next_tab[]     = {KC_UP,   SELWORD,          COMBO_END};
+const uint16_t PROGMEM left_screen[]  = {KC_BSPC, CLOSE,   MINIM,   COMBO_END};
 
-// Editing
-const uint16_t PROGMEM paste_plain[]    = {SFT_PST, BOLD, COMBO_END};
+// -- NAV Row 2 --
+const uint16_t PROGMEM select_all[]   = {GUI_CUT, ALT_CPY,          COMBO_END};
+const uint16_t PROGMEM paste_plain[]  = {ALT_CPY, SFT_PST,          COMBO_END};
+const uint16_t PROGMEM del_file[]     = {SFT_PST, BOLD,             COMBO_END};
+const uint16_t PROGMEM full_screen[]  = {GUI_CUT, ALT_CPY, SFT_PST, COMBO_END};
 
-// Window Navigation
-const uint16_t PROGMEM prev_tab[]       = {SELWBAK, KC_UP, COMBO_END};
-const uint16_t PROGMEM next_tab[]       = {KC_UP, SELWORD, COMBO_END};
-const uint16_t PROGMEM prev_win[]       = {ALFRED, SELLINE, COMBO_END};
-const uint16_t PROGMEM next_win[]       = {SELLINE, SWTCH, COMBO_END};
-
-// Window Layout
-const uint16_t PROGMEM left_screen[]    = {KC_BSPC, CLOSE, MINIM, COMBO_END};
-const uint16_t PROGMEM full_screen[]    = {GUI_CUT, ALT_CPY, SFT_PST, COMBO_END};
-const uint16_t PROGMEM right_screen[]   = {REDO, SAVE, KC_ENT, COMBO_END};
-
-// Window Management
-const uint16_t PROGMEM escape[]         = {NEW, KC_BSPC, COMBO_END};
-const uint16_t PROGMEM quit[]           = {KC_BSPC, CLOSE, COMBO_END};
-
-// Magnification
-const uint16_t PROGMEM zoom_out[]       = {REDO, SAVE, COMBO_END};
-const uint16_t PROGMEM zoom_in[]        = {SAVE, KC_ENT, COMBO_END};
-
-// Finder
-const uint16_t PROGMEM screenshot[]     = {KC_ENT, UNDER, COMBO_END};
-const uint16_t PROGMEM del_file[]       = {MINIM, ITALIC, COMBO_END};
+// -- NAV Row 3 --
+const uint16_t PROGMEM zoom_out[]     = {REDO,    SAVE,             COMBO_END};
+const uint16_t PROGMEM zoom_in[]      = {SAVE,    KC_ENT,           COMBO_END};
+const uint16_t PROGMEM prev_win[]     = {ALFRED,  SELLINE,          COMBO_END};
+const uint16_t PROGMEM next_win[]     = {SELLINE, SWTCH,            COMBO_END};
+const uint16_t PROGMEM right_screen[] = {REDO,    SAVE,    KC_ENT,  COMBO_END};
 
 
 combo_t key_combos[] = {
 
-    // Typing
-    COMBO(del_word, A(KC_BSPC)),         // R + T + S           => Delete Word
-    COMBO(enter, KC_ENTER),              // H + A + E           => Enter
+    // BASE Row 1
+    COMBO(backtick,    KC_GRV),            // W + Z             => `
+    COMBO(tilde,       KC_TILD),           // ' + F             => ~
+    COMBO(num_word,    NUM_WRD),           // L + D + W         => Num Word
+    COMBO(caps_word,   CW_TOGG),           // F + O + U         => Caps Word
 
-    // Caps Word
-    COMBO(caps_word, CW_TOGG),           // Double Thumb        => Caps Word
+    // BASE Row 2
+    COMBO(underscore,  KC_UNDS),           // S + G             => _
+    COMBO(at_sign,     KC_AT),             // Y + H             => @
+    COMBO(del_word,    A(KC_BSPC)),        // R + T + S         => Delete Word
+    COMBO(enter,       KC_ENTER),          // H + A + E         => Enter
 
-    // Editing
-    COMBO(paste_plain, C(KC_V)),         // Paste + Bold        => Plain Paste
+    // BASE Row 3
+    COMBO(open_paren,  KC_LPRN),           // X + M             => (
+    COMBO(em_dash,     S(A(KC_MINS))),     // M + C             => —
+    COMBO(ampersand,   KC_AMPR),           // P + ,             => &
+    COMBO(close_paren, KC_RPRN),           // , + .             => )
 
-    // Window Navigation
-    COMBO(prev_tab, C(S(KC_TAB))),       // Sel Left + Up       => Previous Tab
-    COMBO(next_tab, C(KC_TAB)),          // Up + Sel Right      => Next Tab
-    COMBO(prev_win, G(S(KC_GRAVE))),     // Alfred + Sel Down   => Previous Win
-    COMBO(next_win, G(KC_GRAVE)),        // Sel Down + Switcher => Next Window
+    // NAV Row 1
+    COMBO(quit,        G(KC_Q)),           // ⌫ + close         => Quit
+    COMBO(new_window,  G(KC_N)),           // close + min       => New Window
+    COMBO(screenshot,  G(S(KC_4))),        // min + italic      => Screenshot
+    COMBO(prev_tab,    C(S(KC_TAB))),      // ◀sel + ▲          => Previous Tab
+    COMBO(next_tab,    C(KC_TAB)),         // ▲ + sel▶          => Next Tab
+    COMBO(left_screen, HYPR(KC_L)),        // ⌫ + close + min   => Tile Left
 
-    // Window Layout
-    COMBO(left_screen, HYPR(KC_L)),      // Bkspc + Close + Min => Tile Left
-    COMBO(full_screen, G(C(KC_F))),      // Cut + Copy + Paste  => Fullscreen
-    COMBO(right_screen, HYPR(KC_R)),     // Redo + Save + Enter => Tile Right
+    // NAV Row 2
+    COMBO(select_all,  G(KC_A)),           // cut + copy        => Select All
+    COMBO(paste_plain, C(KC_V)),           // copy + paste      => Plain Paste
+    COMBO(del_file,    G(KC_BSPC)),        // paste + bold      => Delete File
+    COMBO(full_screen, G(C(KC_F))),        // cut + copy + paste => Fullscreen
 
-    // Window Management
-    COMBO(escape, KC_ESCAPE),            // New + Close         => Escape
-    COMBO(quit, G(KC_Q)),                // Close + Fullscreen  => Quit App
-
-    // Magnification
-    COMBO(zoom_out, G(KC_MINS)),         // Redo + .            => Zoom out
-    COMBO(zoom_in, G(KC_EQL)),           // . + Save            => Zoom In
-
-    // Finder
-    COMBO(screenshot, G(S(KC_4))),       // Enter + Under       => Screenshot
-    COMBO(del_file, G(KC_BSPC)),         // Minim + Italic      => Delete File
-
-    // Epistory
-    COMBO(epi_enter_nav, EPISTORY_NAV),
-    COMBO(epi_exit_nav, EPISTORY_NAV),
+    // NAV Row 3
+    COMBO(zoom_out,    G(KC_MINS)),        // redo + save       => Zoom Out
+    COMBO(zoom_in,     G(KC_EQL)),         // save + ↩          => Zoom In
+    COMBO(prev_win,    G(S(KC_GRAVE))),    // alfred + ▼sel     => Previous Win
+    COMBO(next_win,    G(KC_GRAVE)),       // ▼sel + switch     => Next Window
+    COMBO(right_screen, HYPR(KC_R)),       // redo + save + ↩   => Tile Right
 
 };
 
@@ -486,9 +438,7 @@ const uint8_t active_leds[] =
 const hsv_color_t PROGMEM layer_colors[] = {
     [BASE] = {0, 0, 255},    // White (hue=0, sat=0, bright=255)
     [NUM] = {74, 255, 255},  // Green
-    [SYM] = {0, 255, 255},   // Red
     [NAV] = {219, 255, 255}, // Pink
-    [EPI] = {188, 255, 255}, // Purple
 };
 
 
@@ -524,32 +474,22 @@ bool rgb_matrix_indicators_user(void) {
 ///////////////////////////////////////////////////////////////////////////////
 //
 // User macro callbacks
-//   - Epistory
 //
 ///////////////////////////////////////////////////////////////////////////////
 
+static bool num_word_active = false;
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
-    // DASH — send hyphen normally, or em-dash after SPACE
-    static bool last_char_space = false;
-    if (keycode == DASH && record->event.pressed) {
-        if (last_char_space) {
-            SEND_STRING(SS_LALT(SS_LSFT("-"))); // em-dash
-         } else {
-            SEND_STRING("-"); // hyphen
-         }
-    }
-    // naive tracking of whether last char was SPACE (to minimise firmware space)
-    if (!(keycode == OSL(SYM))) {
-        if ((keycode == NUM_SPC) && (record->tap.count == 1)) {
-            last_char_space = true;
-        }
-        else {
-            last_char_space = false;
-        }
-    }
-
     switch (keycode) {
+
+        case NUM_WRD:
+            if (record->event.pressed) {
+                num_word_active = true;
+                layer_on(NUM);
+            }
+            return false;
+
         // HRM Editing Keys
         case CTL_ALL:
             return process_tap_hold(record, G(KC_A), KC_LCTL);
@@ -561,15 +501,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return process_tap_hold(record, G(KC_V), KC_LSFT);
     }
 
-    switch (keycode) {
-        // Epistory
-        case EPISTORY_NAV:
-            if (record->event.pressed) {
-                tap_code(KC_SPC);
-                layer_invert(EPI);
-            }
-            return false;
-    }
-
     return true;
+}
+
+void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (num_word_active && keycode == KC_SPC && record->event.pressed) {
+        num_word_active = false;
+        layer_off(NUM); // Call in PoPR: leave layer AFTER ending key processed
+    }
 }

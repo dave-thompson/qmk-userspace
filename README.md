@@ -4,4 +4,4 @@ My personal keymap, implemented as a qmk external userspace.  The main keymap fi
 
 </br>
 
-![](doc/layout.png)
+![](doc/keyboard.svg)
