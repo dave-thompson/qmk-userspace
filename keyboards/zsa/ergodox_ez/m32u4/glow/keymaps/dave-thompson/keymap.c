@@ -513,8 +513,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (num_word_active && keycode == KC_SPC && record->event.pressed) {
+  if ((keycode == KC_SPC || keycode == KC_ENTER)
+      && num_word_active
+      && record->event.pressed) {
         num_word_active = false;
         layer_off(NUM); // Call in PoPR: leave layer AFTER ending key processed
-    }
+  }
 }
