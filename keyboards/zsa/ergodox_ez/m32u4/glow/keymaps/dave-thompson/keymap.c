@@ -346,6 +346,10 @@ const uint16_t PROGMEM em_dash[]      = {KC_M,    KC_C,             COMBO_END};
 const uint16_t PROGMEM ampersand[]    = {KC_P,    KC_COMM,          COMBO_END};
 const uint16_t PROGMEM close_paren[]  = {KC_COMM, KC_DOT,           COMBO_END};
 
+// -- NUM Row 2 --
+const uint16_t PROGMEM del_word_num[] = {GUI_2,   ALT_3,   SFT_4,   COMBO_END};
+const uint16_t PROGMEM enter_num[]    = {SFT_7,   ALT_8,   GUI_9,   COMBO_END};
+
 // -- NAV Row 1 --
 const uint16_t PROGMEM quit[]         = {KC_BSPC, CLOSE,            COMBO_END};
 const uint16_t PROGMEM new_window[]   = {CLOSE,   MINIM,            COMBO_END};
@@ -387,6 +391,10 @@ combo_t key_combos[] = {
     COMBO(em_dash,     S(A(KC_MINS))),     // M + C             => —
     COMBO(ampersand,   KC_AMPR),           // P + ,             => &
     COMBO(close_paren, KC_RPRN),           // , + .             => )
+
+    // NUM Row 2
+    COMBO(del_word_num, A(KC_BSPC)),       // 2 + 3 + 4         => Delete Word
+    COMBO(enter_num,    KC_ENTER),         // 7 + 8 + 9         => Enter
 
     // NAV Row 1
     COMBO(quit,        G(KC_Q)),           // ⌫ + close         => Quit
