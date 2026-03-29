@@ -173,8 +173,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     
     // NAV - Left
     _______, _______, _______, _______, _______, _______, _______,          
-    _______, KC_ESCAPE,KC_BSPC, CLOSE,   MINIM,  ITALIC,  _______,          
-    _______, CTL_ALL, GUI_CUT, ALT_CPY, SFT_PST, BOLD,                      
+    _______, KC_ESC,  KC_BSPC, CLOSE,   MINIM,  ITALIC,  _______,          
+    _______, KC_SPC,  GUI_CUT, ALT_CPY, SFT_PST, BOLD,                      
     _______, UNDO,    REDO,    SAVE,    KC_ENT,  UNDER,   _______,          
     _______, _______, _______, _______, _______,                            
 
