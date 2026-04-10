@@ -29,20 +29,20 @@ enum layers {
                                      \
   /* Home-row Mods */                \
   X(CTL_N, LCTL_T(KC_N))             \
-  X(GUI_R, LGUI_T(KC_R))             \
-  X(ALT_T, LALT_T(KC_T))             \
+  X(ALT_R, LALT_T(KC_R))             \
+  X(GUI_T, LGUI_T(KC_T))             \
   X(SFT_S, LSFT_T(KC_S))             \
   X(SFT_H, RSFT_T(KC_H))             \
-  X(ALT_A, RALT_T(KC_A))             \
-  X(GUI_E, RGUI_T(KC_E))             \
+  X(GUI_A, RGUI_T(KC_A))             \
+  X(ALT_E, RALT_T(KC_E))             \
   X(CTL_I, RCTL_T(KC_I))             \
   X(CTL_1, LCTL_T(KC_1))             \
-  X(GUI_2, LGUI_T(KC_2))             \
-  X(ALT_3, LALT_T(KC_3))             \
+  X(ALT_2, LALT_T(KC_2))             \
+  X(GUI_3, LGUI_T(KC_3))             \
   X(SFT_4, LSFT_T(KC_4))             \
   X(SFT_7, RSFT_T(KC_7))             \
-  X(ALT_8, RALT_T(KC_8))             \
-  X(GUI_9, RGUI_T(KC_9))             \
+  X(GUI_8, RGUI_T(KC_8))             \
+  X(ALT_9, RALT_T(KC_9))             \
   X(CTL_0, RCTL_T(KC_0))             \
                                      \
   /* Layer Switches */               \
@@ -90,8 +90,8 @@ enum layers {
                                      \
   /* Editing */                      \
   X(CTL_SPC, LCTL_T(KC_NO))          \
-  X(GUI_CUT, LGUI_T(KC_NO))          \
-  X(ALT_CPY, LALT_T(KC_NO))          \
+  X(ALT_CUT, LALT_T(KC_NO))          \
+  X(GUI_CPY, LGUI_T(KC_NO))          \
   X(SFT_PST, LSFT_T(KC_NO))
 
 
@@ -123,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // BASE - Left
     _______, _______, _______, _______, _______, _______, _______,    
     _______, KC_B,    KC_L,    KC_D,    KC_W,    KC_Z,    _______,    
-    _______, CTL_N,   GUI_R,   ALT_T,   SFT_S,   KC_G,                
+    _______, CTL_N,   ALT_R,   GUI_T,   SFT_S,   KC_G,                
     _______, KC_Q,    KC_X,    KC_M,    KC_C,    KC_V,    _______,    
     _______, _______, _______, _______, _______,                      
 
@@ -134,7 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // BASE - Right
     _______, _______, _______, _______, _______, _______, _______,
     _______, KC_QUOT, KC_F,    KC_O,    KC_U,    KC_J,    _______,
-             KC_Y,    SFT_H,   ALT_A,   GUI_E,   CTL_I,   _______,
+             KC_Y,    SFT_H,   GUI_A,   ALT_E,   CTL_I,   _______,
     _______, KC_K,    KC_P,    KC_COMM, KC_DOT,  KC_COLN, _______,
                       _______, _______, _______, _______, _______,
 
@@ -148,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // NUM - Left
     _______, _______, _______, _______, _______, _______, _______,      
     _______, KC_BSLS, KC_MINS, KC_PERC, KC_SLSH, KC_LCBR, _______,
-    _______, CTL_1,   GUI_2,   ALT_3,   SFT_4,   KC_LABK,
+    _______, CTL_1,   ALT_2,   GUI_3,   SFT_4,   KC_LABK,
     _______, HASH,    POUND,   KC_DLR,  KC_5,    KC_LBRC, _______,      
     _______, _______, _______, _______, _______,                        
 
@@ -159,7 +159,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // NUM - Right
     _______, _______, _______, _______, _______, _______, _______,
     _______, KC_RCBR, KC_ASTR, KC_EQL,  KC_PLUS, KC_PIPE, _______,
-             KC_RABK, SFT_7,   ALT_8,   GUI_9,   CTL_0,   _______,
+             KC_RABK, SFT_7,   GUI_8,   ALT_9,   CTL_0,   _______,
     _______, KC_RBRC, KC_6,    KC_COMM, KC_DOT,  KC_CIRC, _______,
                       _______, _______, _______, _______, _______,
 
@@ -174,7 +174,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // NAV - Left
     _______, _______, _______, _______, _______, _______, _______,          
     _______, KC_ESC,  KC_BSPC, CLOSE,   MINIM,  ITALIC,  _______,          
-    _______, CTL_SPC, GUI_CUT, ALT_CPY, SFT_PST, BOLD,                      
+    _______, CTL_SPC, ALT_CUT, GUI_CPY, SFT_PST, BOLD,                      
     _______, UNDO,    REDO,    SAVE,    KC_ENT,  UNDER,   _______,          
     _______, _______, _______, _______, _______,                            
 
@@ -338,8 +338,8 @@ const uint16_t PROGMEM caps_word[]    = {KC_F,    KC_O,    KC_U,    COMBO_END};
 // -- BASE Row 2 --
 const uint16_t PROGMEM underscore[]   = {SFT_S,   KC_G,             COMBO_END};
 const uint16_t PROGMEM at_sign[]      = {KC_Y,    SFT_H,            COMBO_END};
-const uint16_t PROGMEM del_word[]     = {GUI_R,   ALT_T,   SFT_S,   COMBO_END};
-const uint16_t PROGMEM enter[]        = {SFT_H,   ALT_A,   GUI_E,   COMBO_END};
+const uint16_t PROGMEM del_word[]     = {ALT_R,   GUI_T,   SFT_S,   COMBO_END};
+const uint16_t PROGMEM enter[]        = {SFT_H,   GUI_A,   ALT_E,   COMBO_END};
 
 // -- BASE Row 3 --
 const uint16_t PROGMEM open_paren[]   = {KC_X,    KC_M,             COMBO_END};
@@ -348,8 +348,8 @@ const uint16_t PROGMEM ampersand[]    = {KC_P,    KC_COMM,          COMBO_END};
 const uint16_t PROGMEM close_paren[]  = {KC_COMM, KC_DOT,           COMBO_END};
 
 // -- NUM Row 2 --
-const uint16_t PROGMEM del_word_num[] = {GUI_2,   ALT_3,   SFT_4,   COMBO_END};
-const uint16_t PROGMEM enter_num[]    = {SFT_7,   ALT_8,   GUI_9,   COMBO_END};
+const uint16_t PROGMEM del_word_num[] = {ALT_2,   GUI_3,   SFT_4,   COMBO_END};
+const uint16_t PROGMEM enter_num[]    = {SFT_7,   GUI_8,   ALT_9,   COMBO_END};
 
 // -- NAV Row 1 --
 const uint16_t PROGMEM quit[]         = {KC_BSPC, CLOSE,            COMBO_END};
@@ -360,10 +360,10 @@ const uint16_t PROGMEM next_tab[]     = {KC_UP,   SELWORD,          COMBO_END};
 const uint16_t PROGMEM left_screen[]  = {KC_BSPC, CLOSE,   MINIM,   COMBO_END};
 
 // -- NAV Row 2 --
-const uint16_t PROGMEM select_all[]   = {GUI_CUT, ALT_CPY,          COMBO_END};
-const uint16_t PROGMEM paste_plain[]  = {ALT_CPY, SFT_PST,          COMBO_END};
+const uint16_t PROGMEM select_all[]   = {ALT_CUT, GUI_CPY,          COMBO_END};
+const uint16_t PROGMEM paste_plain[]  = {GUI_CPY, SFT_PST,          COMBO_END};
 const uint16_t PROGMEM del_file[]     = {SFT_PST, BOLD,             COMBO_END};
-const uint16_t PROGMEM full_screen[]  = {GUI_CUT, ALT_CPY, SFT_PST, COMBO_END};
+const uint16_t PROGMEM full_screen[]  = {ALT_CUT, GUI_CPY, SFT_PST, COMBO_END};
 
 // -- NAV Row 3 --
 const uint16_t PROGMEM zoom_out[]     = {REDO,    SAVE,             COMBO_END};
@@ -503,10 +503,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         // HRM Editing Keys
         case CTL_SPC:
             return process_tap_hold(record, KC_SPC, KC_LCTL);
-        case GUI_CUT:
-            return process_tap_hold(record, G(KC_X), KC_LGUI);
-        case ALT_CPY:
-            return process_tap_hold(record, G(KC_C), KC_LALT);
+        case ALT_CUT:
+            return process_tap_hold(record, G(KC_X), KC_LALT);
+        case GUI_CPY:
+            return process_tap_hold(record, G(KC_C), KC_LGUI);
         case SFT_PST:
             return process_tap_hold(record, G(KC_V), KC_LSFT);
     }
