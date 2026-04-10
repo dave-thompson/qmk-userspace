@@ -89,7 +89,7 @@ enum layers {
   /* process_record_user       */    \
                                      \
   /* Editing */                      \
-  X(CTL_ALL, LCTL_T(KC_NO))          \
+  X(CTL_SPC, LCTL_T(KC_NO))          \
   X(GUI_CUT, LGUI_T(KC_NO))          \
   X(ALT_CPY, LALT_T(KC_NO))          \
   X(SFT_PST, LSFT_T(KC_NO))
@@ -174,7 +174,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // NAV - Left
     _______, _______, _______, _______, _______, _______, _______,          
     _______, KC_ESC,  KC_BSPC, CLOSE,   MINIM,  ITALIC,  _______,          
-    _______, KC_SPC,  GUI_CUT, ALT_CPY, SFT_PST, BOLD,                      
+    _______, CTL_SPC, GUI_CUT, ALT_CPY, SFT_PST, BOLD,                      
     _______, UNDO,    REDO,    SAVE,    KC_ENT,  UNDER,   _______,          
     _______, _______, _______, _______, _______,                            
 
@@ -223,7 +223,7 @@ SWITCHER_SECONDARY_KEYS(
     {KC_RIGHT, KC_RIGHT},   // 'right' functions as usual  
     {KC_UP, KC_UP},         // 'up' functions as usual
     {KC_DOWN, KC_DOWN},     // 'down' functions as usual
-    {CTL_ALL, KC_Q},        // left pinky sends 'Q' to quit app
+    {CTL_SPC, KC_Q},        // left pinky sends 'Q' to quit app
     {SFT_PST, KC_H},        // left index sends 'H' to hide app
     {NUM_SPC, KC_GRAVE},    // space sends 'backtick' to cycle apps in exposé
 );
@@ -499,8 +499,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
 
         // HRM Editing Keys
-        case CTL_ALL:
-            return process_tap_hold(record, G(KC_A), KC_LCTL);
+        case CTL_SPC:
+            return process_tap_hold(record, KC_SPC, KC_LCTL);
         case GUI_CUT:
             return process_tap_hold(record, G(KC_X), KC_LGUI);
         case ALT_CPY:
