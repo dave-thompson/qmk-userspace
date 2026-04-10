@@ -4,4 +4,4 @@ My personal keymap, implemented as a qmk external userspace.  The main keymap fi
 
 </br>
 
-![](doc/keyboard.svg)
+![](keyboards/zsa/ergodox_ez/m32u4/glow/keymaps/dave-thompson/design/keyboard.svg)

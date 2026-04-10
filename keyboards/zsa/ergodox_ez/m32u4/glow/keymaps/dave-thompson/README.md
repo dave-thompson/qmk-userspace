@@ -1,1 +1,1 @@
-![](../../../../../../../doc/keyboard.svg)
+![](design/keyboard.svg)
