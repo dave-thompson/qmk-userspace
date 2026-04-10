@@ -93,6 +93,7 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 **Row 1** (corresponding to physical row 1: B L D W Z / ' F O U J):
 | Keys | Output | Notes |
 |---|---|---|
+| D + W | `-` | hyphen |
 | W + Z | `` ` `` | backtick |
 | ' + F | `~` | tilde |
 | L + D + W | `num word` | 3-key brace |
