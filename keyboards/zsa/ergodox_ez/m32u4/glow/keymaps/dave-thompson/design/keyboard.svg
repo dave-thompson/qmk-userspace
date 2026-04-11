@@ -330,13 +330,13 @@
 <!-- ROW 2 labels -->
 <text x="138" y="964" class="cl-s" fill="#14532d" text-anchor="middle">all</text>
 <text class="cl-s" fill="#14532d"><tspan x="199" y="960" text-anchor="middle">pst</tspan><tspan x="199" y="970" text-anchor="middle">text</tspan></text>
-<!-- ROW 2 3-key brace: RTS=fullscreen -->
+<!-- ROW 2 3-key brace: RTS=fill screen -->
 <line x1="108" y1="976" x2="108" y2="986" class="cb-gr"/>
 <line x1="169" y1="976" x2="169" y2="986" class="cb-gr"/>
 <line x1="230" y1="976" x2="230" y2="986" class="cb-gr"/>
 <line x1="108" y1="986" x2="230" y2="986" class="cb-gr"/>
 <rect x="136" y="981" width="66" height="10" fill="#eef0f3"/>
-<text x="169" y="989" class="cl-gr">fullscreen</text>
+<text x="169" y="989" class="cl-gr">fill screen</text>
 
 <!-- ROW 2 3-key brace: LDR=swap screen -->
 <line x1="440" y1="976" x2="440" y2="986" class="cb-gr"/>

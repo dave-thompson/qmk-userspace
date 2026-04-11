@@ -55,7 +55,7 @@ enum layers {
   /* Window Management */            \
   X(NEW, G(KC_N))                    \
   X(CLOSE, G(KC_W))                  \
-  X(FULLSCR, G(C(KC_F)))             \
+  X(FILLSCR, HYPR(KC_F))             \
   X(MINIM, G(KC_M))                  \
                                      \
   /* Formatting */                   \
@@ -363,7 +363,7 @@ const uint16_t PROGMEM left_screen[]  = {KC_BSPC, CLOSE,   MINIM,   COMBO_END};
 const uint16_t PROGMEM select_all[]   = {ALT_CUT, GUI_CPY,          COMBO_END};
 const uint16_t PROGMEM paste_plain[]  = {GUI_CPY, SFT_PST,          COMBO_END};
 const uint16_t PROGMEM del_file[]     = {SFT_PST, BOLD,             COMBO_END};
-const uint16_t PROGMEM full_screen[]  = {ALT_CUT, GUI_CPY, SFT_PST, COMBO_END};
+const uint16_t PROGMEM fill_screen[]  = {ALT_CUT, GUI_CPY, SFT_PST, COMBO_END};
 
 // -- NAV Row 3 --
 const uint16_t PROGMEM zoom_out[]     = {REDO,    SAVE,             COMBO_END};
@@ -411,7 +411,7 @@ combo_t key_combos[] = {
     COMBO(select_all,  G(KC_A)),           // cut + copy        => Select All
     COMBO(paste_plain, C(KC_V)),           // copy + paste      => Plain Paste
     COMBO(del_file,    G(KC_BSPC)),        // paste + bold      => Delete File
-    COMBO(full_screen, G(C(KC_F))),        // cut + copy + paste => Fullscreen
+    COMBO(fill_screen, HYPR(KC_F)),        // cut + copy + paste => Fill Screen
 
     // NAV Row 3
     COMBO(zoom_out,    G(KC_MINS)),        // redo + save       => Zoom Out
