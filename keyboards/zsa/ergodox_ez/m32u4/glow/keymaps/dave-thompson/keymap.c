@@ -371,6 +371,7 @@ const uint16_t PROGMEM zoom_in[]      = {SAVE,    KC_ENT,           COMBO_END};
 const uint16_t PROGMEM prev_win[]     = {ALFRED,  SELLINE,          COMBO_END};
 const uint16_t PROGMEM next_win[]     = {SELLINE, SWTCH,            COMBO_END};
 const uint16_t PROGMEM right_screen[] = {REDO,    SAVE,    KC_ENT,  COMBO_END};
+const uint16_t PROGMEM swap_screen[]  = {KC_LEFT, KC_DOWN, KC_RGHT, COMBO_END};
 
 
 combo_t key_combos[] = {
@@ -418,6 +419,7 @@ combo_t key_combos[] = {
     COMBO(prev_win,    G(S(KC_GRAVE))),    // alfred + ▼sel     => Previous Win
     COMBO(next_win,    G(KC_GRAVE)),       // ▼sel + switch     => Next Window
     COMBO(right_screen, HYPR(KC_R)),       // redo + save + ↩   => Tile Right
+    COMBO(swap_screen,  HYPR(KC_D)),       // ◀ + ▼ + ▶         => Swap Screen
 
 };
 

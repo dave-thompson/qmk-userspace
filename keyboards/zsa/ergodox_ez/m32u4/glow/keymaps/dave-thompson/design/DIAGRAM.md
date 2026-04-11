@@ -143,6 +143,7 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 | alfred + ▼sel | `prev win` | teal |
 | ▼sel + switch | `next win` | teal |
 | undo + redo + save | `tile right` — 3-key brace | — |
+| ◀ + ▼ + ▶ | `swap screen` — 3-key brace | — |
 
 ---
 
