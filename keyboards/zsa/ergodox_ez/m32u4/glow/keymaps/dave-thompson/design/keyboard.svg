@@ -62,9 +62,6 @@
 <clipPath id="cr3c3"><rect x="153" y="1001" width="32" height="28" rx="4"/></clipPath>
 <clipPath id="cr3c4"><rect x="214" y="1001" width="32" height="28" rx="4"/></clipPath>
 <clipPath id="cr3c5"><rect x="275" y="1001" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr3c7"><rect x="424" y="1001" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr3c8"><rect x="485" y="1001" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr3c9"><rect x="546" y="1001" width="32" height="28" rx="4"/></clipPath>
 </defs>
 
 <rect width="680" height="1074" fill="#eef0f3" rx="14"/>
@@ -282,9 +279,6 @@
   <rect x="92"  y="1001" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="153" y="1001" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="214" y="1001" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="424" y="1001" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="485" y="1001" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="546" y="1001" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
 </g>
 
 <!-- Nav combo shading -->
@@ -308,10 +302,10 @@
 <rect x="153" y="1001" width="11" height="28" fill="#ede9fe" clip-path="url(#cr3c3)"/>
 <rect x="174" y="1001" width="11" height="28" fill="#ede9fe" clip-path="url(#cr3c3)"/>
 <rect x="214" y="1001" width="11" height="28" fill="#ede9fe" clip-path="url(#cr3c4)"/>
-<rect x="445" y="1001" width="11" height="28" fill="#ccfbf1" clip-path="url(#cr3c7)"/>
-<rect x="485" y="1001" width="11" height="28" fill="#ccfbf1" clip-path="url(#cr3c8)"/>
-<rect x="506" y="1001" width="11" height="28" fill="#ccfbf1" clip-path="url(#cr3c8)"/>
-<rect x="546" y="1001" width="11" height="28" fill="#ccfbf1" clip-path="url(#cr3c9)"/>
+<rect x="445" y="948" width="11" height="28" fill="#ccfbf1" clip-path="url(#cr2c7)"/>
+<rect x="485" y="948" width="11" height="28" fill="#ccfbf1" clip-path="url(#cr2c8)"/>
+<rect x="506" y="948" width="11" height="28" fill="#ccfbf1" clip-path="url(#cr2c8)"/>
+<rect x="546" y="948" width="11" height="28" fill="#ccfbf1" clip-path="url(#cr2c9)"/>
 
 <!-- ROW 1 labels -->
 <text x="138" y="911" class="cl-s" fill="#9d174d">quit</text>
@@ -350,8 +344,8 @@
 <text class="cl-s" fill="#6d28d9"><tspan x="138" y="1015" text-anchor="middle">zoom</tspan><tspan x="138" y="1025" text-anchor="middle">-</tspan></text>
 <text class="cl-s" fill="#6d28d9"><tspan x="199" y="1015" text-anchor="middle">zoom</tspan><tspan x="199" y="1025" text-anchor="middle">+</tspan></text>
 <text class="cl-s" fill="#6d28d9"><tspan x="260" y="960" text-anchor="middle">del</tspan><tspan x="260" y="970" text-anchor="middle">file</tspan></text>
-<text class="cl-s" fill="#134e4a"><tspan x="470" y="1013" text-anchor="middle">prev</tspan><tspan x="470" y="1023" text-anchor="middle">win</tspan></text>
-<text class="cl-s" fill="#134e4a"><tspan x="531" y="1013" text-anchor="middle">next</tspan><tspan x="531" y="1023" text-anchor="middle">win</tspan></text>
+<text class="cl-s" fill="#134e4a"><tspan x="470" y="960" text-anchor="middle">prev</tspan><tspan x="470" y="970" text-anchor="middle">win</tspan></text>
+<text class="cl-s" fill="#134e4a"><tspan x="531" y="960" text-anchor="middle">next</tspan><tspan x="531" y="970" text-anchor="middle">win</tspan></text>
 <!-- ROW 3 3-key brace: XMC=tile right -->
 <line x1="108" y1="1029" x2="108" y2="1039" class="cb-gr"/>
 <line x1="169" y1="1029" x2="169" y2="1039" class="cb-gr"/>

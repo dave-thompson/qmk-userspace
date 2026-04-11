@@ -368,8 +368,8 @@ const uint16_t PROGMEM fill_screen[]  = {ALT_CUT, GUI_CPY, SFT_PST, COMBO_END};
 // -- NAV Row 3 --
 const uint16_t PROGMEM zoom_out[]     = {REDO,    SAVE,             COMBO_END};
 const uint16_t PROGMEM zoom_in[]      = {SAVE,    KC_ENT,           COMBO_END};
-const uint16_t PROGMEM prev_win[]     = {ALFRED,  SELLINE,          COMBO_END};
-const uint16_t PROGMEM next_win[]     = {SELLINE, SWTCH,            COMBO_END};
+const uint16_t PROGMEM prev_win[]     = {KC_LEFT, KC_DOWN,          COMBO_END};
+const uint16_t PROGMEM next_win[]     = {KC_DOWN, KC_RGHT,          COMBO_END};
 const uint16_t PROGMEM right_screen[] = {REDO,    SAVE,    KC_ENT,  COMBO_END};
 const uint16_t PROGMEM swap_screen[]  = {KC_LEFT, KC_DOWN, KC_RGHT, COMBO_END};
 
