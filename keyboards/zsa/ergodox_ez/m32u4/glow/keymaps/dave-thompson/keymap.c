@@ -416,8 +416,8 @@ combo_t key_combos[] = {
     // NAV Row 3
     COMBO(zoom_out,    G(KC_MINS)),        // redo + save       => Zoom Out
     COMBO(zoom_in,     G(KC_EQL)),         // save + ↩          => Zoom In
-    COMBO(prev_win,    G(S(KC_GRAVE))),    // alfred + ▼sel     => Previous Win
-    COMBO(next_win,    G(KC_GRAVE)),       // ▼sel + switch     => Next Window
+    COMBO(prev_win,    HYPR(KC_P)),         // alfred + ▼sel     => Previous Win
+    COMBO(next_win,    HYPR(KC_N)),         // ▼sel + switch     => Next Window
     COMBO(right_screen, HYPR(KC_R)),       // redo + save + ↩   => Tile Right
     COMBO(swap_screen,  HYPR(KC_D)),       // ◀ + ▼ + ▶         => Swap Screen
 
