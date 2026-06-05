@@ -234,7 +234,7 @@
 <rect x="20"  y="708" width="54" height="46" rx="8" fill="#ffffff" stroke="#c8cdd5" stroke-width="1" filter="url(#ks)"/><text x="47"  y="731" text-anchor="middle" dominant-baseline="central" class="kln t-gry">esc</text>
 <rect x="81"  y="708" width="54" height="46" rx="8" fill="#ffffff" stroke="#c8cdd5" stroke-width="1" filter="url(#ks)"/><text x="108" y="731" text-anchor="middle" dominant-baseline="central" class="ico">&#9003;</text>
 <rect x="142" y="708" width="54" height="46" rx="8" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1" filter="url(#ks)"/><text x="169" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-pnk">close</text>
-<rect x="203" y="708" width="54" height="46" rx="8" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1" filter="url(#ks)"/><text x="230" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-pnk">min</text>
+<rect x="203" y="708" width="54" height="46" rx="8" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1" filter="url(#ks)"/><text x="230" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-pnk">new</text>
 <rect x="264" y="708" width="54" height="46" rx="8" fill="#fef9c3" stroke="#fde047" stroke-width="1" filter="url(#ks)"/><text x="291" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-yel">italic</text>
 <rect x="352" y="708" width="54" height="46" rx="8" fill="#ccfbf1" stroke="#5eead4" stroke-width="1" filter="url(#ks)"/><text x="379" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-tel">expose</text>
 <rect x="413" y="708" width="54" height="46" rx="8" fill="#ffedd5" stroke="#fdba74" stroke-width="1" filter="url(#ks)"/><text x="440" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-ora">&#9664; sel</text>
@@ -309,7 +309,7 @@
 
 <!-- ROW 1 labels -->
 <text x="138" y="911" class="cl-s" fill="#9d174d">quit</text>
-<text x="199" y="911" class="cl-s" fill="#9d174d">new</text>
+<text x="199" y="911" class="cl-s" fill="#9d174d">min</text>
 <text class="cl-s" fill="#6d28d9"><tspan x="260" y="907" text-anchor="middle">scr</tspan><tspan x="260" y="917" text-anchor="middle">shot</tspan></text>
 <text class="cl-s" fill="#134e4a"><tspan x="470" y="907" text-anchor="middle">prev</tspan><tspan x="470" y="917" text-anchor="middle">tab</tspan></text>
 <text class="cl-s" fill="#134e4a"><tspan x="531" y="907" text-anchor="middle">next</tspan><tspan x="531" y="917" text-anchor="middle">tab</tspan></text>

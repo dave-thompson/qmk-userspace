@@ -173,7 +173,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     
     // NAV - Left
     _______, _______, _______, _______, _______, _______, _______,          
-    _______, KC_ESC,  KC_BSPC, CLOSE,   MINIM,  ITALIC,  _______,          
+    _______, KC_ESC,  KC_BSPC, CLOSE,   NEW,    ITALIC,  _______,
     _______, CTL_SPC, ALT_CUT, GUI_CPY, SFT_PST, BOLD,                      
     _______, UNDO,    REDO,    SAVE,    KC_ENT,  UNDER,   _______,          
     _______, _______, _______, _______, _______,                            
@@ -353,11 +353,11 @@ const uint16_t PROGMEM enter_num[]    = {SFT_7,   GUI_8,   ALT_9,   COMBO_END};
 
 // -- NAV Row 1 --
 const uint16_t PROGMEM quit[]         = {KC_BSPC, CLOSE,            COMBO_END};
-const uint16_t PROGMEM new_window[]   = {CLOSE,   MINIM,            COMBO_END};
-const uint16_t PROGMEM screenshot[]   = {MINIM,   ITALIC,           COMBO_END};
+const uint16_t PROGMEM minimize[]     = {CLOSE,   NEW,              COMBO_END};
+const uint16_t PROGMEM screenshot[]   = {NEW,     ITALIC,           COMBO_END};
 const uint16_t PROGMEM prev_tab[]     = {SELWBAK, KC_UP,            COMBO_END};
 const uint16_t PROGMEM next_tab[]     = {KC_UP,   SELWORD,          COMBO_END};
-const uint16_t PROGMEM left_screen[]  = {KC_BSPC, CLOSE,   MINIM,   COMBO_END};
+const uint16_t PROGMEM left_screen[]  = {KC_BSPC, CLOSE,   NEW,     COMBO_END};
 
 // -- NAV Row 2 --
 const uint16_t PROGMEM select_all[]   = {ALT_CUT, GUI_CPY,          COMBO_END};
@@ -401,7 +401,7 @@ combo_t key_combos[] = {
 
     // NAV Row 1
     COMBO(quit,        G(KC_Q)),           // ⌫ + close         => Quit
-    COMBO(new_window,  G(KC_N)),           // close + min       => New Window
+    COMBO(minimize,    MINIM),             // close + new       => Minimize
     COMBO(screenshot,  G(S(KC_4))),        // min + italic      => Screenshot
     COMBO(prev_tab,    C(S(KC_TAB))),      // ◀sel + ▲          => Previous Tab
     COMBO(next_tab,    C(KC_TAB)),         // ▲ + sel▶          => Next Tab
