@@ -322,6 +322,21 @@ static bool process_tap_hold(keyrecord_t* record,
 }
 
 
+//////////////////////////////////////
+// Shorter tapping term for NUM_SPC //
+//////////////////////////////////////
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+
+  // hook for lightshift compatibility
+  if (is_lightshift(keycode)) return get_lightshift_term(keycode, record);
+
+  // shorter tapping term for NUM_SPC
+  if (keycode == NUM_SPC) return 150;
+  else return TAPPING_TERM;
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Combos
