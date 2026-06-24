@@ -4,6 +4,7 @@
 enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
   NUM_WRD,
+  LYR_TOG,
   // Select Word harness (if uninstalled for space)
   // SELWORD,
   // SELWBAK,
@@ -388,6 +389,11 @@ const uint16_t PROGMEM next_win[]     = {KC_DOWN, KC_RGHT,          COMBO_END};
 const uint16_t PROGMEM right_screen[] = {REDO,    SAVE,    KC_ENT,  COMBO_END};
 const uint16_t PROGMEM swap_screen[]  = {KC_LEFT, KC_DOWN, KC_RGHT, COMBO_END};
 
+// -- Layer Lock (RTAE across all layers) --
+const uint16_t PROGMEM lyr_lock_base[] = {ALT_R,   GUI_T,   GUI_A,   ALT_E,   COMBO_END};
+const uint16_t PROGMEM lyr_lock_num[]  = {ALT_2,   GUI_3,   GUI_8,   ALT_9,   COMBO_END};
+const uint16_t PROGMEM lyr_lock_nav[]  = {ALT_CUT, GUI_CPY, KC_DOWN, KC_RGHT, COMBO_END};
+
 
 combo_t key_combos[] = {
 
@@ -431,10 +437,15 @@ combo_t key_combos[] = {
     // NAV Row 3
     COMBO(zoom_out,    G(KC_MINS)),        // redo + save       => Zoom Out
     COMBO(zoom_in,     G(KC_EQL)),         // save + ↩          => Zoom In
-    COMBO(prev_win,    HYPR(KC_P)),         // alfred + ▼sel     => Previous Win
-    COMBO(next_win,    HYPR(KC_N)),         // ▼sel + switch     => Next Window
+    COMBO(prev_win,    HYPR(KC_P)),        // alfred + ▼sel     => Previous Win
+    COMBO(next_win,    HYPR(KC_N)),        // ▼sel + switch     => Next Window
     COMBO(right_screen, HYPR(KC_R)),       // redo + save + ↩   => Tile Right
     COMBO(swap_screen,  HYPR(KC_D)),       // ◀ + ▼ + ▶         => Swap Screen
+
+    // ALL layers — Layer Toggle/Lock (RTAE)
+    COMBO(lyr_lock_base, LYR_TOG),        // R + T + A + E      => Toggle BASE/NUM
+    COMBO(lyr_lock_num,  LYR_TOG),        // 2 + 3 + 8 + 9      => Toggle BASE/NUM
+    COMBO(lyr_lock_nav,  LYR_TOG),        // cut + copy + ▼ + ▶ => Toggle NAV Lock
 
 };
 
@@ -514,6 +525,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 num_word_active = true;
                 layer_on(NUM);
+            }
+            return false;
+
+        case LYR_TOG:
+            if (record->event.pressed) {
+                switch (get_highest_layer(layer_state)) {
+                    case BASE:
+                        layer_lock_on(NUM);
+                        break;
+                    case NUM:
+                        if (is_layer_locked(NUM)) layer_lock_off(NUM);
+                        break;
+                    case NAV:
+                        layer_lock_invert(NAV);
+                        break;
+                }
             }
             return false;
 
