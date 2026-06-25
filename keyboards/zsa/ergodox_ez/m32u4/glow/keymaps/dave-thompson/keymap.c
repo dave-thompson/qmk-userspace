@@ -662,6 +662,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // Layer Toggle
     case LYR_TOG:
       if (record->event.pressed) {
+        if (num_word_active) {
+          num_word_active = false;
+          layer_off(NUM);
+          break;
+        }
         switch (get_highest_layer(layer_state)) {
           case BASE:
             layer_lock_on(NUM);
