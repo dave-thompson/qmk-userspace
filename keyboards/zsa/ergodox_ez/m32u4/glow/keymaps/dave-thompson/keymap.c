@@ -355,7 +355,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 ///////////////////////////////////////////////////////////////////////////////
 
 // -- BASE Row 1 --
-const uint16_t PROGMEM backtick[]     = {KC_F,    KC_O,             COMBO_END};
+const uint16_t PROGMEM backtick[]     = {KC_QUOT, KC_F,             COMBO_END};
 const uint16_t PROGMEM tilde[]        = {KC_W,    KC_Z,             COMBO_END};
 const uint16_t PROGMEM hyphen[]       = {KC_D,    KC_W,             COMBO_END};
 const uint16_t PROGMEM spanish[]      = {KC_L,    KC_D,             COMBO_END};
