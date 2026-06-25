@@ -197,7 +197,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   ),
 
-
 };
 
 
@@ -231,13 +230,13 @@ bool caps_word_press_user(uint16_t keycode) {
 ///////////////////////////////////////////////////////////////////////////////
 
 SWITCHER_SECONDARY_KEYS(
-    {KC_LEFT, KC_LEFT},     // 'left' functions as usual
-    {KC_RIGHT, KC_RIGHT},   // 'right' functions as usual  
-    {KC_UP, KC_UP},         // 'up' functions as usual
-    {KC_DOWN, KC_DOWN},     // 'down' functions as usual
-    {CTL_SPC, KC_Q},        // left pinky sends 'Q' to quit app
-    {SFT_PST, KC_H},        // left index sends 'H' to hide app
-    {NUM_SPC, KC_GRAVE},    // space sends 'backtick' to cycle apps in exposé
+  {KC_LEFT, KC_LEFT},     // 'left' functions as usual
+  {KC_RIGHT, KC_RIGHT},   // 'right' functions as usual  
+  {KC_UP, KC_UP},         // 'up' functions as usual
+  {KC_DOWN, KC_DOWN},     // 'down' functions as usual
+  {CTL_SPC, KC_Q},        // left pinky sends 'Q' to quit app
+  {SFT_PST, KC_H},        // left index sends 'H' to hide app
+  {NUM_SPC, KC_GRAVE},    // space sends 'backtick' to cycle apps in exposé
 );
 
 
@@ -306,7 +305,7 @@ char sentence_case_press_user(uint16_t keycode,
 
 // Doesn't change behaviour, but saves 178 bytes
 char chordal_hold_handedness(keypos_t key) {
-    return key.row < MATRIX_ROWS / 2 ? 'L' : 'R';
+  return key.row < MATRIX_ROWS / 2 ? 'L' : 'R';
 }
 
 
@@ -318,19 +317,19 @@ char chordal_hold_handedness(keypos_t key) {
 static bool process_tap_hold(keyrecord_t* record,
                              uint16_t tap_keycode,
                              uint16_t hold_keycode) {
-    // tap or hold?
-    uint16_t keycode;
-    if (record->tap.count > 0) keycode = tap_keycode;
-    else keycode = hold_keycode;
-    
-    if (record->event.pressed) {
-        register_code16(keycode);
-    } else {
-        unregister_code16(keycode);
-    }
+  // tap or hold?
+  uint16_t keycode;
+  if (record->tap.count > 0) keycode = tap_keycode;
+  else keycode = hold_keycode;
+  
+  if (record->event.pressed) {
+    register_code16(keycode);
+  } else {
+    unregister_code16(keycode);
+  }
 
-    // do not process further
-    return false;
+  // do not process further
+  return false;
 }
 
 
@@ -409,56 +408,56 @@ const uint16_t PROGMEM lyr_lock_nav[]  = {ALT_CUT, GUI_CPY, KC_DOWN, KC_RGHT, CO
 
 combo_t key_combos[] = {
 
-    // BASE Row 1
-    COMBO(backtick,    KC_GRV),            // W + Z             => `
-    COMBO(tilde,       KC_TILD),           // ' + F             => ~
-    COMBO(hyphen,      KC_MINS),           // D + W             => -
-    COMBO(spanish,     SPANISH),           // L + D             => Spanish
-    COMBO(num_word,    NUM_WRD),           // L + D + W         => Num Word
-    COMBO(caps_word,   CW_TOGG),           // F + O + U         => Caps Word
+  // BASE Row 1
+  COMBO(backtick,    KC_GRV),            // W + Z             => `
+  COMBO(tilde,       KC_TILD),           // ' + F             => ~
+  COMBO(hyphen,      KC_MINS),           // D + W             => -
+  COMBO(spanish,     SPANISH),           // L + D             => Spanish
+  COMBO(num_word,    NUM_WRD),           // L + D + W         => Num Word
+  COMBO(caps_word,   CW_TOGG),           // F + O + U         => Caps Word
 
-    // BASE Row 2
-    COMBO(underscore,  KC_UNDS),           // S + G             => _
-    COMBO(at_sign,     KC_AT),             // Y + H             => @
-    COMBO(del_word,    A(KC_BSPC)),        // R + T + S         => Delete Word
-    COMBO(enter,       KC_ENTER),          // H + A + E         => Enter
+  // BASE Row 2
+  COMBO(underscore,  KC_UNDS),           // S + G             => _
+  COMBO(at_sign,     KC_AT),             // Y + H             => @
+  COMBO(del_word,    A(KC_BSPC)),        // R + T + S         => Delete Word
+  COMBO(enter,       KC_ENTER),          // H + A + E         => Enter
 
-    // BASE Row 3
-    COMBO(open_paren,  KC_LPRN),           // X + M             => (
-    COMBO(em_dash,     S(A(KC_MINS))),     // M + C             => —
-    COMBO(ampersand,   KC_AMPR),           // P + ,             => &
-    COMBO(close_paren, KC_RPRN),           // , + .             => )
+  // BASE Row 3
+  COMBO(open_paren,  KC_LPRN),           // X + M             => (
+  COMBO(em_dash,     S(A(KC_MINS))),     // M + C             => —
+  COMBO(ampersand,   KC_AMPR),           // P + ,             => &
+  COMBO(close_paren, KC_RPRN),           // , + .             => )
 
-    // NUM Row 2
-    COMBO(del_word_num, A(KC_BSPC)),       // 2 + 3 + 4         => Delete Word
-    COMBO(enter_num,    KC_ENTER),         // 7 + 8 + 9         => Enter
+  // NUM Row 2
+  COMBO(del_word_num, A(KC_BSPC)),       // 2 + 3 + 4         => Delete Word
+  COMBO(enter_num,    KC_ENTER),         // 7 + 8 + 9         => Enter
 
-    // NAV Row 1
-    COMBO(quit,        G(KC_Q)),           // ⌫ + close         => Quit
-    COMBO(minimize,    MINIM),             // close + new       => Minimize
-    COMBO(screenshot,  G(S(KC_4))),        // min + italic      => Screenshot
-    COMBO(prev_tab,    C(S(KC_TAB))),      // ◀sel + ▲          => Previous Tab
-    COMBO(next_tab,    C(KC_TAB)),         // ▲ + sel▶          => Next Tab
-    COMBO(left_screen, HYPR(KC_L)),        // ⌫ + close + min   => Tile Left
+  // NAV Row 1
+  COMBO(quit,        G(KC_Q)),           // ⌫ + close         => Quit
+  COMBO(minimize,    MINIM),             // close + new       => Minimize
+  COMBO(screenshot,  G(S(KC_4))),        // min + italic      => Screenshot
+  COMBO(prev_tab,    C(S(KC_TAB))),      // ◀sel + ▲          => Previous Tab
+  COMBO(next_tab,    C(KC_TAB)),         // ▲ + sel▶          => Next Tab
+  COMBO(left_screen, HYPR(KC_L)),        // ⌫ + close + min   => Tile Left
 
-    // NAV Row 2
-    COMBO(select_all,  G(KC_A)),           // cut + copy        => Select All
-    COMBO(paste_plain, C(KC_V)),           // copy + paste      => Plain Paste
-    COMBO(del_file,    G(KC_BSPC)),        // paste + bold      => Delete File
-    COMBO(fill_screen, HYPR(KC_F)),        // cut + copy + paste => Fill Screen
+  // NAV Row 2
+  COMBO(select_all,  G(KC_A)),           // cut + copy        => Select All
+  COMBO(paste_plain, C(KC_V)),           // copy + paste      => Plain Paste
+  COMBO(del_file,    G(KC_BSPC)),        // paste + bold      => Delete File
+  COMBO(fill_screen, HYPR(KC_F)),        // cut + copy + paste => Fill Screen
 
-    // NAV Row 3
-    COMBO(zoom_out,    G(KC_MINS)),        // redo + save       => Zoom Out
-    COMBO(zoom_in,     G(KC_EQL)),         // save + ↩          => Zoom In
-    COMBO(prev_win,    HYPR(KC_P)),        // alfred + ▼sel     => Previous Win
-    COMBO(next_win,    HYPR(KC_N)),        // ▼sel + switch     => Next Window
-    COMBO(right_screen, HYPR(KC_R)),       // redo + save + ↩   => Tile Right
-    COMBO(swap_screen,  HYPR(KC_D)),       // ◀ + ▼ + ▶         => Swap Screen
+  // NAV Row 3
+  COMBO(zoom_out,    G(KC_MINS)),        // redo + save       => Zoom Out
+  COMBO(zoom_in,     G(KC_EQL)),         // save + ↩          => Zoom In
+  COMBO(prev_win,    HYPR(KC_P)),        // alfred + ▼sel     => Previous Win
+  COMBO(next_win,    HYPR(KC_N)),        // ▼sel + switch     => Next Window
+  COMBO(right_screen, HYPR(KC_R)),       // redo + save + ↩   => Tile Right
+  COMBO(swap_screen,  HYPR(KC_D)),       // ◀ + ▼ + ▶         => Swap Screen
 
-    // ALL layers — Layer Toggle/Lock (RTAE)
-    COMBO(lyr_lock_base, LYR_TOG),        // R + T + A + E      => Toggle BASE/NUM
-    COMBO(lyr_lock_num,  LYR_TOG),        // 2 + 3 + 8 + 9      => Toggle BASE/NUM
-    COMBO(lyr_lock_nav,  LYR_TOG),        // cut + copy + ▼ + ▶ => Toggle NAV Lock
+  // ALL layers — Layer Toggle/Lock (RTAE)
+  COMBO(lyr_lock_base, LYR_TOG),        // R + T + A + E      => Toggle BASE/NUM
+  COMBO(lyr_lock_num,  LYR_TOG),        // 2 + 3 + 8 + 9      => Toggle BASE/NUM
+  COMBO(lyr_lock_nav,  LYR_TOG),        // cut + copy + ▼ + ▶ => Toggle NAV Lock
 
 };
 
@@ -472,53 +471,53 @@ combo_t key_combos[] = {
 extern rgb_config_t rgb_matrix_config;
 
 typedef struct {
-    uint8_t h, s, v;
+  uint8_t h, s, v;
 } hsv_color_t;
 
 // Only light up 3x5 keys on each side
 const uint8_t active_leds[] =
-    // left side
-    { 5,  6,  7,  8,  9,
-     10, 11, 12, 13, 14,
-     15, 16, 17, 18, 19,
-     // right side
-     29, 30, 31, 32, 33,
-     34, 35, 36, 37, 38,
-     39, 40, 41, 42, 43};
+  // left side
+  { 5,  6,  7,  8,  9,
+   10, 11, 12, 13, 14,
+   15, 16, 17, 18, 19,
+   // right side
+   29, 30, 31, 32, 33,
+   34, 35, 36, 37, 38,
+   39, 40, 41, 42, 43};
 
 const hsv_color_t PROGMEM layer_colors[] = {
-    [BASE] = {0, 0, 255},    // White (hue=0, sat=0, bright=255)
-    [NUM] = {74, 255, 255},  // Green
-    [NAV] = {219, 255, 255}, // Pink
+  [BASE] = {0, 0, 255},    // White (hue=0, sat=0, bright=255)
+  [NUM] = {74, 255, 255},  // Green
+  [NAV] = {219, 255, 255}, // Pink
 };
 
 
 void set_layer_color(uint8_t layer) {
 
-    // Get HSV colour
-    uint8_t h = pgm_read_byte(&layer_colors[layer].h);
-    uint8_t s = pgm_read_byte(&layer_colors[layer].s);
-    uint8_t v = pgm_read_byte(&layer_colors[layer].v);
-    HSV hsv = {.h = h, .s = s, .v = v};
+  // Get HSV colour
+  uint8_t h = pgm_read_byte(&layer_colors[layer].h);
+  uint8_t s = pgm_read_byte(&layer_colors[layer].s);
+  uint8_t v = pgm_read_byte(&layer_colors[layer].v);
+  HSV hsv = {.h = h, .s = s, .v = v};
 
-    // Convert HSV to RGB
-    RGB rgb = hsv_to_rgb(hsv); 
+  // Convert HSV to RGB
+  RGB rgb = hsv_to_rgb(hsv); 
 
-    // Apply global brightness scaling
-    float f = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
-    
-    // Update the LEDs
-    rgb_matrix_set_color_all(0, 0, 0);
-    for (int i = 0; i < ARRAY_SIZE(active_leds); i++) {
-        rgb_matrix_set_color(active_leds[i], f * rgb.r, f * rgb.g, f * rgb.b);
-    }
+  // Apply global brightness scaling
+  float f = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
+  
+  // Update the LEDs
+  rgb_matrix_set_color_all(0, 0, 0);
+  for (int i = 0; i < ARRAY_SIZE(active_leds); i++) {
+    rgb_matrix_set_color(active_leds[i], f * rgb.r, f * rgb.g, f * rgb.b);
+  }
 }
 
 
 bool rgb_matrix_indicators_user(void) {
-    if (keyboard_config.disable_layer_led) return false;
-    set_layer_color(get_highest_layer(layer_state));
-    return true;
+  if (keyboard_config.disable_layer_led) return false;
+  set_layer_color(get_highest_layer(layer_state));
+  return true;
 }
 
 
@@ -650,45 +649,45 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   if (custom_shift(keycode, record)) return false;
 
-    switch (keycode) {
+  switch (keycode) {
 
-        // Num Word
-        case NUM_WRD:
-            if (record->event.pressed) {
-                num_word_active = true;
-                layer_on(NUM);
-            }
-            return false;
+    // Num Word
+    case NUM_WRD:
+      if (record->event.pressed) {
+        num_word_active = true;
+        layer_on(NUM);
+      }
+      return false;
 
-        // Layer Toggle
-        case LYR_TOG:
-            if (record->event.pressed) {
-                switch (get_highest_layer(layer_state)) {
-                    case BASE:
-                        layer_lock_on(NUM);
-                        break;
-                    case NUM:
-                        if (is_layer_locked(NUM)) layer_lock_off(NUM);
-                        break;
-                    case NAV:
-                        layer_lock_invert(NAV);
-                        break;
-                }
-            }
-            return false;
+    // Layer Toggle
+    case LYR_TOG:
+      if (record->event.pressed) {
+        switch (get_highest_layer(layer_state)) {
+          case BASE:
+            layer_lock_on(NUM);
+            break;
+          case NUM:
+            if (is_layer_locked(NUM)) layer_lock_off(NUM);
+            break;
+          case NAV:
+            layer_lock_invert(NAV);
+            break;
+        }
+      }
+      return false;
 
-        // HRM Editing Keys
-        case CTL_SPC:
-            return process_tap_hold(record, KC_SPC, KC_LCTL);
-        case ALT_CUT:
-            return process_tap_hold(record, G(KC_X), KC_LALT);
-        case GUI_CPY:
-            return process_tap_hold(record, G(KC_C), KC_LGUI);
-        case SFT_PST:
-            return process_tap_hold(record, G(KC_V), KC_LSFT);
-    }
+    // HRM Editing Keys
+    case CTL_SPC:
+      return process_tap_hold(record, KC_SPC, KC_LCTL);
+    case ALT_CUT:
+      return process_tap_hold(record, G(KC_X), KC_LALT);
+    case GUI_CPY:
+      return process_tap_hold(record, G(KC_C), KC_LGUI);
+    case SFT_PST:
+      return process_tap_hold(record, G(KC_V), KC_LSFT);
+  }
 
-    return true;
+  return true;
 }
 
 void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
