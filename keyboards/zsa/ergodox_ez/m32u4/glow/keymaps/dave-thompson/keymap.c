@@ -374,9 +374,21 @@ const uint16_t PROGMEM em_dash[]      = {KC_M,    KC_C,             COMBO_END};
 const uint16_t PROGMEM ampersand[]    = {KC_P,    KC_COMM,          COMBO_END};
 const uint16_t PROGMEM close_paren[]  = {KC_COMM, KC_DOT,           COMBO_END};
 
+// -- NUM Row 1 --
+const uint16_t PROGMEM hyphen_num[]   = {KC_PERC, KC_SLSH,          COMBO_END};
+const uint16_t PROGMEM tilde_num[]    = {KC_SLSH, KC_LCBR,          COMBO_END};
+const uint16_t PROGMEM backtick_num[] = {KC_RCBR, KC_ASTR,          COMBO_END};
+
 // -- NUM Row 2 --
+const uint16_t PROGMEM undrscr_num[]  = {SFT_4,   KC_LABK,          COMBO_END};
+const uint16_t PROGMEM at_sign_num[]  = {KC_RABK, SFT_7,            COMBO_END};
 const uint16_t PROGMEM del_word_num[] = {ALT_2,   GUI_3,   SFT_4,   COMBO_END};
 const uint16_t PROGMEM enter_num[]    = {SFT_7,   GUI_8,   ALT_9,   COMBO_END};
+
+// -- NUM Row 3 --
+const uint16_t PROGMEM opn_prn_num[]  = {KC_DLR,  POUND,            COMBO_END};
+const uint16_t PROGMEM em_dash_num[]  = {POUND,   KC_5,             COMBO_END};
+const uint16_t PROGMEM amprsd_num[]   = {KC_6,    KC_COMM,          COMBO_END};
 
 // -- NAV Row 1 --
 const uint16_t PROGMEM quit[]         = {KC_BSPC, CLOSE,            COMBO_END};
@@ -428,9 +440,21 @@ combo_t key_combos[] = {
   COMBO(ampersand,   KC_AMPR),           // P + ,             => &
   COMBO(close_paren, KC_RPRN),           // , + .             => )
 
+  // NUM Row 1
+  COMBO(hyphen_num,   KC_MINS),          // % + /             => -
+  COMBO(tilde_num,    KC_TILD),          // / + {             => ~
+  COMBO(backtick_num, KC_GRV),           // } + *             => `
+
   // NUM Row 2
+  COMBO(undrscr_num,  KC_UNDS),          // 4 + <             => _
+  COMBO(at_sign_num,  KC_AT),            // > + 7             => @
   COMBO(del_word_num, A(KC_BSPC)),       // 2 + 3 + 4         => Delete Word
   COMBO(enter_num,    KC_ENTER),         // 7 + 8 + 9         => Enter
+
+  // NUM Row 3
+  COMBO(opn_prn_num,  KC_LPRN),          // $ + £             => (
+  COMBO(em_dash_num,  S(A(KC_MINS))),    // £ + 5             => —
+  COMBO(amprsd_num,   KC_AMPR),          // 6 + ,             => &
 
   // NAV Row 1
   COMBO(quit,        G(KC_Q)),           // ⌫ + close         => Quit
