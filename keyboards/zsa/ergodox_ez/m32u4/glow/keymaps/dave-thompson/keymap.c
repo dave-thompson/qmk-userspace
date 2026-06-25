@@ -5,6 +5,7 @@ enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
   NUM_WRD,
   LYR_TOG,
+  SPANISH,
   // Select Word harness (if uninstalled for space)
   // SELWORD,
   // SELWBAK,
@@ -202,19 +203,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 ///////////////////////////////////////////////////////////////////////////////
 //
-// Custom Shift
-//
-///////////////////////////////////////////////////////////////////////////////
-
-const custom_shift_key_t custom_shift_keys[] = {
-  {KC_COMM, KC_QUES},          // Shift , is ?
-  {KC_DOT , KC_EXLM},          // Shift . is !
-  {KC_COLN, KC_SCLN},          // Shift : is ;
-};
-
-
-///////////////////////////////////////////////////////////////////////////////
-//
 // Caps Word
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -371,6 +359,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM backtick[]     = {KC_W,    KC_Z,             COMBO_END};
 const uint16_t PROGMEM tilde[]        = {KC_QUOT, KC_F,             COMBO_END};
 const uint16_t PROGMEM hyphen[]       = {KC_D,    KC_W,             COMBO_END};
+const uint16_t PROGMEM spanish[]      = {KC_L,    KC_D,             COMBO_END};
 const uint16_t PROGMEM num_word[]     = {KC_L,    KC_D,    KC_W,    COMBO_END};
 const uint16_t PROGMEM caps_word[]    = {KC_F,    KC_O,    KC_U,    COMBO_END};
 
@@ -424,6 +413,7 @@ combo_t key_combos[] = {
     COMBO(backtick,    KC_GRV),            // W + Z             => `
     COMBO(tilde,       KC_TILD),           // ' + F             => ~
     COMBO(hyphen,      KC_MINS),           // D + W             => -
+    COMBO(spanish,     SPANISH),           // L + D             => Spanish
     COMBO(num_word,    NUM_WRD),           // L + D + W         => Num Word
     COMBO(caps_word,   CW_TOGG),           // F + O + U         => Caps Word
 
@@ -534,6 +524,120 @@ bool rgb_matrix_indicators_user(void) {
 
 ///////////////////////////////////////////////////////////////////////////////
 //
+// Custom Shifts:  {, —> ?}  {. —> !}  {: —> ;}
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// returns true if this event is a pressed custom shift
+bool custom_shift(uint16_t keycode, keyrecord_t *record) {
+  static uint16_t cs_registered = KC_NO;
+  // if the last key event was a pressed custom shift, unregister it
+  if (cs_registered != KC_NO) {
+    unregister_code16(cs_registered);
+    cs_registered = KC_NO;
+  }
+  // if this key event is a pressed custom shift, register it
+  if ((record->event.pressed) // if this is a shifted keypress
+      && ((get_mods() | get_weak_mods()) & MOD_MASK_SHIFT)) {
+    // should this key be CUSTOM shifted?
+    uint16_t shifted_code = KC_NO;
+    if (keycode == KC_COMM) shifted_code = KC_QUES;
+    else if (keycode == KC_DOT) shifted_code = KC_EXLM;
+    else if (keycode == KC_COLN) shifted_code = KC_SCLN;
+    // if so, clear shift, send the custom keypress, and reinstate shift
+    if (shifted_code != KC_NO) {
+      uint8_t saved_mods = get_mods();
+      del_weak_mods(MOD_MASK_SHIFT);
+      unregister_mods(MOD_MASK_SHIFT);
+      cs_registered = shifted_code;
+      register_code16(cs_registered);
+      set_mods(saved_mods);
+      return true;
+    }
+  }
+  return false;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Spanish Letters: {á, é, í, ó, ú, ñ, Á, É, Í, Ó, Ú, ¿, ¡}
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// sends Spanish version of the current keycode (and returns true on success)
+bool process_spanish_char(uint16_t keycode) {
+    
+  // get base keycode
+  uint16_t base_kc = keycode;
+  if (IS_QK_MOD_TAP(keycode))
+    base_kc = QK_MOD_TAP_GET_TAP_KEYCODE(keycode);
+  else if (IS_QK_LAYER_TAP(keycode))
+    base_kc = QK_LAYER_TAP_GET_TAP_KEYCODE(keycode);
+
+  // get shift state
+  if (is_caps_word_on()) caps_word_press_user(keycode); // run caps word early
+  uint8_t saved_mods = get_mods();
+  uint8_t saved_weak = get_weak_mods();
+  bool shifted = (saved_mods | saved_weak) & MOD_MASK_SHIFT;
+  
+  // if key can be made spanish, set dead_key and follow_key
+  uint16_t dead_key = KC_NO;
+  uint16_t follow_key = KC_NO;
+  switch (base_kc) {
+    case KC_A: case KC_E: case KC_I: case KC_O: case KC_U:
+      // a —> á, A —> Á (also e,i,o,u)
+      dead_key = A(KC_E);  follow_key = base_kc;  break;
+    case KC_N: // n —> ñ, N —> Ñ
+      dead_key = A(KC_N);  follow_key = base_kc;  break;
+    case KC_DOT: // ! —> ¡
+      if (shifted) {dead_key = A(KC_1);}          break;
+    case KC_COMM: // ? —> ¿
+      if (shifted) {dead_key = A(S(KC_SLSH));}    break;
+  }
+
+  // replace typed key with dead_key and follow_key
+  if (dead_key != KC_NO) {
+    // suspend mods while sending dead key
+    clear_mods();
+    clear_weak_mods();
+    tap_code16(dead_key);
+    // reinstate mods before sending follow key
+    set_mods(saved_mods);
+    set_weak_mods(saved_weak);
+    if (follow_key != KC_NO) tap_code16(follow_key);
+    return true;
+  }
+  return false;
+}
+
+// returns true if either:
+// - this is a spanish leader key
+// - this is a printable Spanish key, which has been successfully sent
+bool process_spanish_keys(uint16_t keycode, keyrecord_t *record) {
+  static bool spanish_pending = false;
+  
+  // Spanish leader key
+  if (keycode == SPANISH) { // remember it was pressed
+    if (record->event.pressed) spanish_pending = true;
+    return true;
+  }
+
+  // Key after Spanish leader key: swap for Spanish version
+  if (spanish_pending && record->event.pressed
+      // ignore mod and layer holds
+      && !(IS_QK_MOD_TAP(keycode) && record->tap.count == 0)
+      && !(IS_QK_LAYER_TAP(keycode) && record->tap.count == 0)) {
+
+    spanish_pending = false;
+    return process_spanish_char(keycode);
+  }
+  return false;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
 // User macro callbacks
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -542,8 +646,13 @@ static bool num_word_active = false;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
+  if (process_spanish_keys(keycode, record)) return false;
+
+  if (custom_shift(keycode, record)) return false;
+
     switch (keycode) {
 
+        // Num Word
         case NUM_WRD:
             if (record->event.pressed) {
                 num_word_active = true;
@@ -551,6 +660,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
 
+        // Layer Toggle
         case LYR_TOG:
             if (record->event.pressed) {
                 switch (get_highest_layer(layer_state)) {
