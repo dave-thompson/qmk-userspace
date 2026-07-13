@@ -149,9 +149,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // NUM - Left
     _______, _______, _______, _______, _______, _______, _______,      
-    _______, KC_BSLS, KC_MINS, KC_PERC, KC_SLSH, KC_LCBR, _______,
-    _______, CTL_1,   ALT_2,   GUI_3,   SFT_4,   KC_LABK,
-    _______, HASH,    KC_DLR,  POUND,   KC_5,    KC_LBRC, _______,      
+    _______, KC_LABK, KC_SLSH, KC_PERC, KC_MINS, KC_BSLS, _______,
+    _______, CTL_1,   ALT_2,   GUI_3,   SFT_4,   KC_LBRC,
+    _______, HASH,    KC_DLR,  POUND,   KC_5,    KC_LCBR, _______,      
     _______, _______, _______, _______, _______,                        
 
                                                  _______, _______,  
@@ -160,9 +160,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // NUM - Right
     _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_RCBR, KC_ASTR, KC_EQL,  KC_PLUS, KC_PIPE, _______,
-             KC_RABK, SFT_7,   GUI_8,   ALT_9,   CTL_0,   _______,
-    _______, KC_RBRC, KC_6,    KC_COMM, KC_DOT,  KC_CIRC, _______,
+    _______, KC_PIPE, KC_PLUS, KC_EQL,  KC_ASTR, KC_RABK, _______,
+             KC_RBRC, SFT_7,   GUI_8,   ALT_9,   CTL_0,   _______,
+    _______, KC_RCBR, KC_6,    KC_COMM, KC_DOT,  KC_CIRC, _______,
                       _______, _______, _______, _______, _______,
 
     _______, _______,
@@ -358,7 +358,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM backtick[]     = {KC_QUOT, KC_F,             COMBO_END};
 const uint16_t PROGMEM tilde[]        = {KC_W,    KC_Z,             COMBO_END};
 const uint16_t PROGMEM hyphen[]       = {KC_D,    KC_W,             COMBO_END};
-const uint16_t PROGMEM spanish[]      = {KC_L,    KC_D,             COMBO_END};
+const uint16_t PROGMEM spanish[]      = {KC_C,    KC_V,             COMBO_END};
 const uint16_t PROGMEM num_word[]     = {KC_L,    KC_D,    KC_W,    COMBO_END};
 const uint16_t PROGMEM caps_word[]    = {KC_F,    KC_O,    KC_U,    COMBO_END};
 
@@ -375,13 +375,13 @@ const uint16_t PROGMEM ampersand[]    = {KC_P,    KC_COMM,          COMBO_END};
 const uint16_t PROGMEM close_paren[]  = {KC_COMM, KC_DOT,           COMBO_END};
 
 // -- NUM Row 1 --
-const uint16_t PROGMEM hyphen_num[]   = {KC_PERC, KC_SLSH,          COMBO_END};
-const uint16_t PROGMEM tilde_num[]    = {KC_SLSH, KC_LCBR,          COMBO_END};
-const uint16_t PROGMEM backtick_num[] = {KC_RCBR, KC_ASTR,          COMBO_END};
+const uint16_t PROGMEM hyphen_num[]   = {KC_PERC, KC_MINS,          COMBO_END};
+const uint16_t PROGMEM tilde_num[]    = {KC_MINS, KC_BSLS,          COMBO_END};
+const uint16_t PROGMEM backtick_num[] = {KC_PIPE, KC_PLUS,          COMBO_END};
 
 // -- NUM Row 2 --
-const uint16_t PROGMEM undrscr_num[]  = {SFT_4,   KC_LABK,          COMBO_END};
-const uint16_t PROGMEM at_sign_num[]  = {KC_RABK, SFT_7,            COMBO_END};
+const uint16_t PROGMEM undrscr_num[]  = {SFT_4,   KC_LBRC,          COMBO_END};
+const uint16_t PROGMEM at_sign_num[]  = {KC_RBRC, SFT_7,            COMBO_END};
 const uint16_t PROGMEM del_word_num[] = {ALT_2,   GUI_3,   SFT_4,   COMBO_END};
 const uint16_t PROGMEM enter_num[]    = {SFT_7,   GUI_8,   ALT_9,   COMBO_END};
 
@@ -441,13 +441,13 @@ combo_t key_combos[] = {
   COMBO(close_paren, KC_RPRN),           // , + .             => )
 
   // NUM Row 1
-  COMBO(hyphen_num,   KC_MINS),          // % + /             => -
-  COMBO(tilde_num,    KC_TILD),          // / + {             => ~
-  COMBO(backtick_num, KC_GRV),           // } + *             => `
+  COMBO(hyphen_num,   KC_MINS),          // % + -             => -
+  COMBO(tilde_num,    KC_TILD),          // - + \             => ~
+  COMBO(backtick_num, KC_GRV),           // | + +             => `
 
   // NUM Row 2
-  COMBO(undrscr_num,  KC_UNDS),          // 4 + <             => _
-  COMBO(at_sign_num,  KC_AT),            // > + 7             => @
+  COMBO(undrscr_num,  KC_UNDS),          // 4 + [             => _
+  COMBO(at_sign_num,  KC_AT),            // ] + 7             => @
   COMBO(del_word_num, A(KC_BSPC)),       // 2 + 3 + 4         => Delete Word
   COMBO(enter_num,    KC_ENTER),         // 7 + 8 + 9         => Enter
 
