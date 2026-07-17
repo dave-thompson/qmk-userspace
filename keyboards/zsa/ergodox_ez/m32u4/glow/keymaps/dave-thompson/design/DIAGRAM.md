@@ -68,11 +68,18 @@ Each combo key in the grid may have a **coloured stripe** on its left or right e
 - A 2-key combo therefore shows one stripe on the right of the left key, and one stripe on the left of the right key — both the same colour.
 - An unshaded key position within a combo group means that position is not used by any combo.
 
-The stripe colour identifies the combo's **output category** (matches the colour coding of the corresponding NAV keys where applicable):
-- **Pink** (`#fce7f3`) — punctuation / symbol combos
-- **Teal** (`#ccfbf1`) — bracket/parenthesis combos
-- **Green** (`#dcfce7`) — editing action combos (NAV layer)
-- **Purple** (`#ede9fe`) — window/tiling combos (NAV layer)
+The stripe colour identifies the combo's output category, and differs by layer:
+
+**BASE layer combos:**
+- **Pink** (`#fce7f3`) — punctuation/symbol combos (`-`, `~`, `` ` ``, `_`, `@`, `(`, `—`, `&`, `)`)
+- **Green** (`#dcfce7`), labelled `sp` — the R+T+A+E 4-key combo (Spanish input)
+- **Purple** (`#ede9fe`), labelled `lyr` — the L+D+O+U 4-key combo (layer toggle)
+
+**NAV layer combos:**
+- **Pink** (`#fce7f3`) — window management (`quit`, `min`)
+- **Purple** (`#ede9fe`) — window/tiling actions (`scr shot`, `zoom -`, `zoom +`, `del file`)
+- **Green** (`#dcfce7`) — clipboard/editing actions (`all`, `pst text`)
+- **Teal** (`#ccfbf1`) — tab/window switching (`prev tab`, `next tab`, `prev win`, `next win`), matching the teal app-switcher NAV keys
 
 ### The combo label
 The output of each combo is shown as a label **centred between the two (or three) involved keys**:
@@ -91,29 +98,31 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 ### BASE layer combos (3 rows, left/right halves mirror each other)
 
 **Row 1** (corresponding to physical row 1: B L D W Z / ' F O U J):
-| Keys | Output | Notes |
-|---|---|---|
-| D + W | `-` | hyphen |
-| W + Z | `` ` `` | backtick |
-| ' + F | `~` | tilde |
-| L + D + W | `num word` | 3-key brace |
-| F + O + U | `caps word` | 3-key brace |
+| Keys | Output | Colour | Notes |
+|---|---|---|---|
+| L + D + O + U | `lyr` (layer toggle) | purple | 4-key combo spanning both halves |
+| D + W | `-` | pink | hyphen |
+| W + Z | `` ` `` | pink | backtick |
+| ' + F | `~` | pink | tilde |
+| L + D + W | `num word` | — | 3-key brace |
+| F + O + U | `caps word` | — | 3-key brace |
 
 **Row 2** (physical row 2: N R T S G / Y H A E I):
-| Keys | Output |
-|---|---|
-| S + G | `_` |
-| Y + H | `@` |
-| R + T + S | `del word` — 3-key brace |
-| H + A + E | `enter` — 3-key brace |
+| Keys | Output | Colour |
+|---|---|---|
+| R + T + A + E | `sp` (Spanish input) | green |
+| S + G | `_` | pink |
+| Y + H | `@` | pink |
+| R + T + S | `del word` — 3-key brace | — |
+| H + A + E | `enter` — 3-key brace | — |
 
 **Row 3** (physical row 3: Q X M C V / K P , . :;):
 | Keys | Output | Colour |
 |---|---|---|
-| X + M | `(` | teal |
+| X + M | `(` | pink |
 | M + C | `—` (em dash) | pink |
 | P + , | `&` | pink |
-| , + . | `)` | teal |
+| , + . | `)` | pink |
 
 ### NAV layer combos (3 rows)
 

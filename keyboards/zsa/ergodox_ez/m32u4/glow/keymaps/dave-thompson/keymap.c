@@ -358,7 +358,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM backtick[]     = {KC_QUOT, KC_F,             COMBO_END};
 const uint16_t PROGMEM tilde[]        = {KC_W,    KC_Z,             COMBO_END};
 const uint16_t PROGMEM hyphen[]       = {KC_D,    KC_W,             COMBO_END};
-const uint16_t PROGMEM spanish[]      = {KC_L,    KC_D,    KC_O,    KC_U,    COMBO_END};
+const uint16_t PROGMEM spanish[]      = {ALT_R,   GUI_T,   GUI_A,   ALT_E,   COMBO_END};
 const uint16_t PROGMEM num_word[]     = {KC_L,    KC_D,    KC_W,    COMBO_END};
 const uint16_t PROGMEM caps_word[]    = {KC_F,    KC_O,    KC_U,    COMBO_END};
 
@@ -412,10 +412,10 @@ const uint16_t PROGMEM next_win[]     = {KC_DOWN, KC_RGHT,          COMBO_END};
 const uint16_t PROGMEM right_screen[] = {REDO,    SAVE,    KC_ENT,  COMBO_END};
 const uint16_t PROGMEM swap_screen[]  = {KC_LEFT, KC_DOWN, KC_RGHT, COMBO_END};
 
-// -- Layer Lock (RTAE across all layers) --
-const uint16_t PROGMEM lyr_lock_base[] = {ALT_R,   GUI_T,   GUI_A,   ALT_E,   COMBO_END};
-const uint16_t PROGMEM lyr_lock_num[]  = {ALT_2,   GUI_3,   GUI_8,   ALT_9,   COMBO_END};
-const uint16_t PROGMEM lyr_lock_nav[]  = {ALT_CUT, GUI_CPY, KC_DOWN, KC_RGHT, COMBO_END};
+// -- Layer Lock (row-1 columns 2,3,8,9 on each layer: LDOU on BASE, slash-percent-equal-asterisk on NUM, bspc-close-up-selword on NAV) --
+const uint16_t PROGMEM lyr_lock_base[] = {KC_L,    KC_D,    KC_O,    KC_U,    COMBO_END};
+const uint16_t PROGMEM lyr_lock_num[]  = {KC_SLSH, KC_PERC, KC_EQL,  KC_ASTR, COMBO_END};
+const uint16_t PROGMEM lyr_lock_nav[]  = {KC_BSPC, CLOSE,   KC_UP,   SELWORD, COMBO_END};
 
 
 combo_t key_combos[] = {
@@ -424,7 +424,7 @@ combo_t key_combos[] = {
   COMBO(backtick,    KC_GRV),            // W + Z             => `
   COMBO(tilde,       KC_TILD),           // ' + F             => ~
   COMBO(hyphen,      KC_MINS),           // D + W             => -
-  COMBO(spanish,     SPANISH),           // L + D + O + U     => Spanish
+  COMBO(spanish,     SPANISH),           // R + T + A + E     => Spanish
   COMBO(num_word,    NUM_WRD),           // L + D + W         => Num Word
   COMBO(caps_word,   CW_TOGG),           // F + O + U         => Caps Word
 
@@ -478,10 +478,10 @@ combo_t key_combos[] = {
   COMBO(right_screen, HYPR(KC_R)),       // redo + save + ↩   => Tile Right
   COMBO(swap_screen,  HYPR(KC_D)),       // ◀ + ▼ + ▶         => Swap Screen
 
-  // ALL layers — Layer Toggle/Lock (RTAE)
-  COMBO(lyr_lock_base, LYR_TOG),        // R + T + A + E      => Toggle BASE/NUM
-  COMBO(lyr_lock_num,  LYR_TOG),        // 2 + 3 + 8 + 9      => Toggle BASE/NUM
-  COMBO(lyr_lock_nav,  LYR_TOG),        // cut + copy + ▼ + ▶ => Toggle NAV Lock
+  // ALL layers — Layer Toggle/Lock
+  COMBO(lyr_lock_base, LYR_TOG),        // L + D + O + U      => Toggle BASE/NUM
+  COMBO(lyr_lock_num,  LYR_TOG),        // / + % + = + *      => Toggle BASE/NUM
+  COMBO(lyr_lock_nav,  LYR_TOG),        // ⌫ + close + ▲ + sel▶ => Toggle NAV Lock
 
 };
 
