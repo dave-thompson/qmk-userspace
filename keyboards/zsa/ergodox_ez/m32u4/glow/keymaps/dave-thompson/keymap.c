@@ -358,7 +358,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM backtick[]     = {KC_QUOT, KC_F,             COMBO_END};
 const uint16_t PROGMEM tilde[]        = {KC_W,    KC_Z,             COMBO_END};
 const uint16_t PROGMEM hyphen[]       = {KC_D,    KC_W,             COMBO_END};
-const uint16_t PROGMEM spanish[]      = {KC_C,    KC_V,             COMBO_END};
+const uint16_t PROGMEM spanish[]      = {KC_L,    KC_D,    KC_O,    KC_U,    COMBO_END};
 const uint16_t PROGMEM num_word[]     = {KC_L,    KC_D,    KC_W,    COMBO_END};
 const uint16_t PROGMEM caps_word[]    = {KC_F,    KC_O,    KC_U,    COMBO_END};
 
@@ -424,7 +424,7 @@ combo_t key_combos[] = {
   COMBO(backtick,    KC_GRV),            // W + Z             => `
   COMBO(tilde,       KC_TILD),           // ' + F             => ~
   COMBO(hyphen,      KC_MINS),           // D + W             => -
-  COMBO(spanish,     SPANISH),           // L + D             => Spanish
+  COMBO(spanish,     SPANISH),           // L + D + O + U     => Spanish
   COMBO(num_word,    NUM_WRD),           // L + D + W         => Num Word
   COMBO(caps_word,   CW_TOGG),           // F + O + U         => Caps Word
 
