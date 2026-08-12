@@ -347,6 +347,14 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   else return TAPPING_TERM;
 }
 
+//////////////////////
+// Speculative Hold //
+//////////////////////
+
+bool get_speculative_hold(uint16_t keycode, keyrecord_t *record) {
+    return true;  // spec hold ALL mod-taps, including Alt and Cmd
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //

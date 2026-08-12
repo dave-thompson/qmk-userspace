@@ -5,6 +5,8 @@
 #define FLOW_TAP_TERM 125       // Disable (non-lightshift) HRMs on typing
 #define TAPPING_TERM_PER_KEY           // For NUM_SPC only
 #define LIGHTSHIFT_USER_TAPPING_TERM   // For NUM_SPC only
+#define SPECULATIVE_HOLD
+
 
 // Key Repeating//
 //--------------//
