@@ -2,7 +2,7 @@
 #include "version.h"
 
 enum custom_keycodes {
-  RGB_SLD = ZSA_SAFE_RANGE,
+  RGB_SLD = SAFE_RANGE,
   NUM_WRD,
   LYR_TOG,
   SPANISH,
