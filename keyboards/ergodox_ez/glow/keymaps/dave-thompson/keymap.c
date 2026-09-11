@@ -12,7 +12,6 @@ enum custom_keycodes {
   // SELLINE,
   // Switcher harness (if uninstalled for space)
   // SWTCH,
-  // SWTCH_E,
 };
 
 enum layers {
@@ -72,6 +71,7 @@ enum layers {
                                      \
   /* Miscellaneous */                \
   X(ALFRED, G(KC_SPC))               \
+  X(EMOJI, C(G(KC_SPC)))             \
   X(LOCKCMP, G(C(KC_Q)))             \
   X(BUILD_K, HYPR(KC_K))             \
                                      \
@@ -186,9 +186,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     
     // NAV - Right
     _______, _______, _______, _______, _______, _______, _______,
-    _______, SWTCH_E, SELWBAK, KC_UP,   SELWORD, LOCKCMP, _______,
+    _______, EMOJI,   SELWBAK, KC_UP,   SELWORD, LOCKCMP, _______,
              KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,  _______,
-    _______, _______, ALFRED,  SELLINE, SWTCH,   _______, _______,
+    _______, KC_NO,   ALFRED,  SELLINE, SWTCH,   KC_NO,   _______,
                       _______, _______, _______, _______, _______,
 
     _______, _______,

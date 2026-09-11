@@ -329,8 +329,8 @@ Coloured backgrounds indicate action categories. All use the key treatment above
 | **Yellow** | `#feffda` | `#dfdf6d` | text formatting (bold, italic, underline) |
 | **Orange** | `#ffead2` | `#efb05e` | selection with arrow (◀ sel, sel ▶, ▼ sel) |
 | **Blue** | `#dbe9ff` | `#8db8ff` | arrow keys (◀ ▼ ▶ ▲) |
-| **Teal** | `#d5f8fc` | `#66d8e3` | app-switcher / launcher (expose, alfred, switch) |
-| **White** | `#ffffff` | `#cdcdcd` | utility / modifier-style keys (esc, lock, ctrl, tab, backspace, return) |
+| **Teal** | `#d5f8fc` | `#66d8e3` | app-switcher / launcher (alfred, switch) |
+| **White** | `#ffffff` | `#cdcdcd` | utility / modifier-style keys (esc, lock, ctrl, tab, backspace, return, emoji) |
 
 NAV still reads as the busiest layer, because 21 of its keys are tinted against 18 across BASE and NUMBER combined — and NAV's 21 carry six hues where BASE's 18 carry two. That is density and variety rather than a different palette, and is intended.
 
@@ -380,7 +380,7 @@ One visible consequence: in BASE combo row 1 the `D` position now carries no str
 - **Pink** (stripe `#ffe0ff`) — window management (`quit`, `min`)
 - **Blue** (stripe `#d6e5ff`) — window/tiling actions (`scr shot`, `zoom -`, `zoom +`, `del file`), matching the blue arrow keys
 - **Green** (stripe `#d8f8d0`) — clipboard/editing actions (`all`, `pst text`)
-- **Teal** (stripe `#d1f8fc`) — tab/window switching (`prev tab`, `next tab`, `prev win`, `next win`), matching the teal app-switcher NAV keys
+- **Teal** (stripe `#d1f8fc`) — tab/window switching (`tab ◀`, `tab ▶`, `win ◀`, `win ▶` — word over arrow, two lines), matching the teal app-switcher NAV keys
 
 **◆ The blue stripes are heavier than the rest of the tier** — 0.081 in lightness below the white combo key,
 against pink's 0.059, green's 0.054 and teal's 0.047. Blue cannot be both light and chromatic: matched to the
@@ -431,14 +431,14 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 
 ### NAV layer combos (3 rows)
 
-**Row 1** (physical NAV row 1: esc ⌫ close min italic / expose ◀sel ▲ sel▶ lock):
+**Row 1** (physical NAV row 1: esc ⌫ close min italic / ☺ ◀sel ▲ sel▶ lock):
 | Keys | Output | Colour |
 |---|---|---|
 | ⌫ + close | `quit` | pink |
 | close + min | `new` | pink |
 | min + italic | `del file` | purple |
-| ◀sel + ▲ | `prev tab` | teal |
-| ▲ + sel▶ | `next tab` | teal |
+| ◀sel + ▲ | `tab` / `◀` | teal |
+| ▲ + sel▶ | `tab` / `▶` | teal |
 | ⌫ + close + min | `tile left` — 3-key brace | — |
 
 **Row 2** (physical NAV row 2: ctrl cut copy paste bold / tab ◀ ▼ ▶ ⌫):
@@ -454,8 +454,8 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 |---|---|---|
 | redo + save | `zoom −` | purple |
 | save + ↩ | `zoom +` | purple |
-| alfred + ▼sel | `prev win` | teal |
-| ▼sel + switch | `next win` | teal |
+| alfred + ▼sel | `win` / `◀` | teal |
+| ▼sel + switch | `win` / `▶` | teal |
 | undo + redo + save | `tile right` — 3-key brace | — |
 | ◀ + ▼ + ▶ | `swap screen` — 3-key brace | — |
 
