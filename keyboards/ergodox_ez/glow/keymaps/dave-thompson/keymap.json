@@ -1,6 +1,6 @@
 {
   "modules": [
-    //"dave-thompson/lumberjack",
+    "dave-thompson/lumberjack",
     "dave-thompson/switcher",
     "dave-thompson/lightshift",
     "getreuer/sentence_case",
