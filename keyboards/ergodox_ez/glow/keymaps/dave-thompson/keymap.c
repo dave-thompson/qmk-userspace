@@ -69,6 +69,10 @@ enum layers {
   X(REDO, G(S(KC_Z)))                \
   X(SAVE, G(KC_S))                   \
                                      \
+  /* Finder */                       \
+  X(OPEN, G(KC_O))                   \
+  X(EDIT, HYPR(KC_E))                \
+                                     \
   /* Miscellaneous */                \
   X(ALFRED, G(KC_SPC))               \
   X(EMOJI, C(G(KC_SPC)))             \
@@ -186,9 +190,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     
     // NAV - Right
     _______, _______, _______, _______, _______, _______, _______,
-    _______, EMOJI,   SELWBAK, KC_UP,   SELWORD, LOCKCMP, _______,
+    _______, EDIT,    SELWBAK, KC_UP,   SELWORD, LOCKCMP, _______,
              KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,  _______,
-    _______, KC_NO,   ALFRED,  SELLINE, SWTCH,   KC_NO,   _______,
+    _______, OPEN,    ALFRED,  SELLINE, SWTCH,   EMOJI,   _______,
                       _______, _______, _______, _______, _______,
 
     _______, _______,

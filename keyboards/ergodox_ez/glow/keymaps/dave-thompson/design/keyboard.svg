@@ -245,7 +245,7 @@
 <rect x="142" y="708" width="54" height="46" rx="8" fill="#ffe7ff" stroke="#eea7ef" stroke-width="1" filter="url(#ks)"/><text x="169" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-pnk">close</text>
 <rect x="203" y="708" width="54" height="46" rx="8" fill="#ffe7ff" stroke="#eea7ef" stroke-width="1" filter="url(#ks)"/><text x="230" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-pnk">new</text>
 <rect x="264" y="708" width="54" height="46" rx="8" fill="#feffda" stroke="#dfdf6d" stroke-width="1" filter="url(#ks)"/><text x="291" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-yel">italic</text>
-<rect x="352" y="708" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="731" text-anchor="middle" dominant-baseline="central" class="ico">&#9786;&#65038;</text>
+<rect x="352" y="708" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-gry">edit</text>
 <rect x="413" y="708" width="54" height="46" rx="8" fill="#ffead2" stroke="#efb05e" stroke-width="1" filter="url(#ks)"/><text x="440" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-ora">&#9664; sel</text>
 <rect x="474" y="708" width="54" height="46" rx="8" fill="#dbe9ff" stroke="#8db8ff" stroke-width="1" filter="url(#ks)"/><text x="501" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-blu">&#9650;</text>
 <rect x="535" y="708" width="54" height="46" rx="8" fill="#ffead2" stroke="#efb05e" stroke-width="1" filter="url(#ks)"/><text x="562" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-ora">sel &#9654;</text>
@@ -265,9 +265,11 @@
 <rect x="142" y="814" width="54" height="46" rx="8" fill="#ffdcdc" stroke="#ff9a9b" stroke-width="1" filter="url(#ks)"/><text x="169" y="837" text-anchor="middle" dominant-baseline="central" class="kln t-red">save</text>
 <rect x="203" y="814" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="230" y="837" text-anchor="middle" dominant-baseline="central" class="ico">&#8617;</text>
 <rect x="264" y="814" width="54" height="46" rx="8" fill="#feffda" stroke="#dfdf6d" stroke-width="1" filter="url(#ks)"/><text x="291" y="837" text-anchor="middle" dominant-baseline="central" class="kln t-yel">under</text>
+<rect x="352" y="814" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="837" text-anchor="middle" dominant-baseline="central" class="kln t-gry">open</text>
 <rect x="413" y="814" width="54" height="46" rx="8" fill="#d5f8fc" stroke="#66d8e3" stroke-width="1" filter="url(#ks)"/><text x="440" y="837" text-anchor="middle" dominant-baseline="central" class="kln t-tel">alfred</text>
 <rect x="474" y="814" width="54" height="46" rx="8" fill="#ffead2" stroke="#efb05e" stroke-width="1" filter="url(#ks)"/><text x="501" y="837" text-anchor="middle" dominant-baseline="central" class="kln t-ora">&#9660; sel</text>
 <rect x="535" y="814" width="54" height="46" rx="8" fill="#d5f8fc" stroke="#66d8e3" stroke-width="1" filter="url(#ks)"/><text x="562" y="837" text-anchor="middle" dominant-baseline="central" class="kln t-tel">switch</text>
+<rect x="596" y="814" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="623" y="837" text-anchor="middle" dominant-baseline="central" class="ico">&#9786;&#65038;</text>
 
 <!-- NAV COMBOS -->
 <g style="isolation:isolate">
