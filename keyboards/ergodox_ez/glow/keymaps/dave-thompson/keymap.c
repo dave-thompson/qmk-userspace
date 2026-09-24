@@ -385,6 +385,7 @@ const uint16_t PROGMEM open_paren[]   = {KC_X,    KC_M,             COMBO_END};
 const uint16_t PROGMEM em_dash[]      = {KC_M,    KC_C,             COMBO_END};
 const uint16_t PROGMEM ampersand[]    = {KC_P,    KC_COMM,          COMBO_END};
 const uint16_t PROGMEM close_paren[]  = {KC_COMM, KC_DOT,           COMBO_END};
+const uint16_t PROGMEM tab[]          = {KC_X,    KC_M,    KC_C,    COMBO_END};
 
 // -- NUM Row 1 --
 const uint16_t PROGMEM hyphen_num[]   = {KC_PERC, KC_MINS,          COMBO_END};
@@ -451,6 +452,7 @@ combo_t key_combos[] = {
   COMBO(em_dash,     S(A(KC_MINS))),     // M + C             => —
   COMBO(ampersand,   KC_AMPR),           // P + ,             => &
   COMBO(close_paren, KC_RPRN),           // , + .             => )
+  COMBO(tab,         KC_TAB),            // X + M + C         => Tab
 
   // NUM Row 1
   COMBO(hyphen_num,   KC_MINS),          // % + -             => -
