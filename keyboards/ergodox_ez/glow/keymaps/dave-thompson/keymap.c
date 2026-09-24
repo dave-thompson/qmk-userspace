@@ -406,8 +406,8 @@ const uint16_t PROGMEM amprsd_num[]   = {KC_6,    KC_COMM,          COMBO_END};
 const uint16_t PROGMEM quit[]         = {KC_BSPC, CLOSE,            COMBO_END};
 const uint16_t PROGMEM minimize[]     = {CLOSE,   NEW,              COMBO_END};
 const uint16_t PROGMEM screenshot[]   = {NEW,     ITALIC,           COMBO_END};
-const uint16_t PROGMEM prev_tab[]     = {SELWBAK, KC_UP,            COMBO_END};
-const uint16_t PROGMEM next_tab[]     = {KC_UP,   SELWORD,          COMBO_END};
+const uint16_t PROGMEM prev_tab[]     = {KC_LEFT, KC_DOWN,          COMBO_END};
+const uint16_t PROGMEM next_tab[]     = {KC_DOWN, KC_RGHT,          COMBO_END};
 const uint16_t PROGMEM left_screen[]  = {KC_BSPC, CLOSE,   NEW,     COMBO_END};
 
 // -- NAV Row 2 --
@@ -419,8 +419,8 @@ const uint16_t PROGMEM fill_screen[]  = {ALT_CUT, GUI_CPY, SFT_PST, COMBO_END};
 // -- NAV Row 3 --
 const uint16_t PROGMEM zoom_out[]     = {REDO,    SAVE,             COMBO_END};
 const uint16_t PROGMEM zoom_in[]      = {SAVE,    KC_ENT,           COMBO_END};
-const uint16_t PROGMEM prev_win[]     = {KC_LEFT, KC_DOWN,          COMBO_END};
-const uint16_t PROGMEM next_win[]     = {KC_DOWN, KC_RGHT,          COMBO_END};
+const uint16_t PROGMEM prev_win[]     = {SELWBAK, KC_UP,            COMBO_END};
+const uint16_t PROGMEM next_win[]     = {KC_UP,   SELWORD,          COMBO_END};
 const uint16_t PROGMEM right_screen[] = {REDO,    SAVE,    KC_ENT,  COMBO_END};
 const uint16_t PROGMEM swap_screen[]  = {KC_LEFT, KC_DOWN, KC_RGHT, COMBO_END};
 
@@ -472,8 +472,8 @@ combo_t key_combos[] = {
   COMBO(quit,        G(KC_Q)),           // ⌫ + close         => Quit
   COMBO(minimize,    MINIM),             // close + new       => Minimize
   COMBO(screenshot,  G(S(KC_4))),        // min + italic      => Screenshot
-  COMBO(prev_tab,    C(S(KC_TAB))),      // ◀sel + ▲          => Previous Tab
-  COMBO(next_tab,    C(KC_TAB)),         // ▲ + sel▶          => Next Tab
+  COMBO(prev_tab,    C(S(KC_TAB))),      // ◀ + ▼             => Previous Tab
+  COMBO(next_tab,    C(KC_TAB)),         // ▼ + ▶             => Next Tab
   COMBO(left_screen, HYPR(KC_L)),        // ⌫ + close + min   => Tile Left
 
   // NAV Row 2
@@ -485,8 +485,8 @@ combo_t key_combos[] = {
   // NAV Row 3
   COMBO(zoom_out,    G(KC_MINS)),        // redo + save       => Zoom Out
   COMBO(zoom_in,     G(KC_EQL)),         // save + ↩          => Zoom In
-  COMBO(prev_win,    S(G(KC_GRV))),      // alfred + ▼sel     => Previous Window (current app)
-  COMBO(next_win,    G(KC_GRV)),         // ▼sel + switch     => Next Window (current app)
+  COMBO(prev_win,    S(G(KC_GRV))),      // ◀sel + ▲          => Previous Window (current app)
+  COMBO(next_win,    G(KC_GRV)),         // ▲ + sel▶          => Next Window (current app)
   COMBO(right_screen, HYPR(KC_R)),       // redo + save + ↩   => Tile Right
   COMBO(swap_screen,  HYPR(KC_D)),       // ◀ + ▼ + ▶         => Swap Screen
 
