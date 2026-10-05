@@ -386,6 +386,7 @@ const uint16_t PROGMEM em_dash[]      = {KC_M,    KC_C,             COMBO_END};
 const uint16_t PROGMEM ampersand[]    = {KC_P,    KC_COMM,          COMBO_END};
 const uint16_t PROGMEM close_paren[]  = {KC_COMM, KC_DOT,           COMBO_END};
 const uint16_t PROGMEM tab[]          = {KC_X,    KC_M,    KC_C,    COMBO_END};
+const uint16_t PROGMEM send_msg[]     = {KC_P,    KC_COMM, KC_DOT,  COMBO_END};
 
 // -- NUM Row 1 --
 const uint16_t PROGMEM hyphen_num[]   = {KC_PERC, KC_MINS,          COMBO_END};
@@ -402,6 +403,7 @@ const uint16_t PROGMEM enter_num[]    = {SFT_7,   GUI_8,   ALT_9,   COMBO_END};
 const uint16_t PROGMEM opn_prn_num[]  = {KC_DLR,  POUND,            COMBO_END};
 const uint16_t PROGMEM em_dash_num[]  = {POUND,   KC_5,             COMBO_END};
 const uint16_t PROGMEM amprsd_num[]   = {KC_6,    KC_COMM,          COMBO_END};
+const uint16_t PROGMEM send_msg_num[] = {KC_6,    KC_COMM, KC_DOT,  COMBO_END};
 
 // -- NAV Row 1 --
 const uint16_t PROGMEM quit[]         = {KC_BSPC, CLOSE,            COMBO_END};
@@ -453,6 +455,7 @@ combo_t key_combos[] = {
   COMBO(ampersand,   KC_AMPR),           // P + ,             => &
   COMBO(close_paren, KC_RPRN),           // , + .             => )
   COMBO(tab,         KC_TAB),            // X + M + C         => Tab
+  COMBO(send_msg,    G(KC_ENTER)),       // P + , + .         => Send (Cmd+Enter)
 
   // NUM Row 1
   COMBO(hyphen_num,   KC_MINS),          // % + -             => -
@@ -469,6 +472,7 @@ combo_t key_combos[] = {
   COMBO(opn_prn_num,  KC_LPRN),          // $ + £             => (
   COMBO(em_dash_num,  S(A(KC_MINS))),    // £ + 5             => —
   COMBO(amprsd_num,   KC_AMPR),          // 6 + ,             => &
+  COMBO(send_msg_num, G(KC_ENTER)),      // 6 + , + .         => Send (Cmd+Enter)
 
   // NAV Row 1
   COMBO(quit,        G(KC_Q)),           // ⌫ + close         => Quit
@@ -734,7 +738,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if ((keycode == KC_SPC || keycode == KC_ENTER)
+  if ((keycode == KC_SPC || keycode == KC_ENTER || keycode == G(KC_ENTER))
       && num_word_active
       && record->event.pressed) {
         num_word_active = false;
