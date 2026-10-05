@@ -27,7 +27,7 @@
 
 // Lightshift //
 //------------//
-#define LIGHTSHIFT_TAPPING_TERM 140
+#define LIGHTSHIFT_TAPPING_TERM 120
 
 
 // Sentence Case //
