@@ -1,4 +1,4 @@
-<svg width="100%" viewBox="0 0 680 1074" xmlns="http://www.w3.org/2000/svg">
+<svg width="100%" viewBox="0 0 680 1087" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <style>
   text { font-family: ui-monospace, monospace; }
@@ -49,28 +49,28 @@
 <clipPath id="br3c8"><rect x="485" y="392" width="32" height="28" rx="4"/></clipPath>
 <clipPath id="br3c9"><rect x="546" y="392" width="32" height="28" rx="4"/></clipPath>
 <!-- Nav combos clip paths -->
-<clipPath id="cr1c1"><rect x="31"  y="895" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr1c2"><rect x="92"  y="895" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr1c3"><rect x="153" y="895" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr1c4"><rect x="214" y="895" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr1c5"><rect x="275" y="895" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr1c7"><rect x="424" y="895" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr1c8"><rect x="485" y="895" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr1c9"><rect x="546" y="895" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr2c2"><rect x="92"  y="948" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr2c3"><rect x="153" y="948" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr2c4"><rect x="214" y="948" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr2c5"><rect x="275" y="948" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr2c7"><rect x="424" y="948" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr2c8"><rect x="485" y="948" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr2c9"><rect x="546" y="948" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr3c2"><rect x="92"  y="1001" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr3c3"><rect x="153" y="1001" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr3c4"><rect x="214" y="1001" width="32" height="28" rx="4"/></clipPath>
-<clipPath id="cr3c5"><rect x="275" y="1001" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr1c1"><rect x="31"  y="908" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr1c2"><rect x="92"  y="908" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr1c3"><rect x="153" y="908" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr1c4"><rect x="214" y="908" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr1c5"><rect x="275" y="908" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr1c7"><rect x="424" y="908" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr1c8"><rect x="485" y="908" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr1c9"><rect x="546" y="908" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr2c2"><rect x="92"  y="961" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr2c3"><rect x="153" y="961" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr2c4"><rect x="214" y="961" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr2c5"><rect x="275" y="961" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr2c7"><rect x="424" y="961" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr2c8"><rect x="485" y="961" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr2c9"><rect x="546" y="961" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr3c2"><rect x="92"  y="1014" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr3c3"><rect x="153" y="1014" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr3c4"><rect x="214" y="1014" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr3c5"><rect x="275" y="1014" width="32" height="28" rx="4"/></clipPath>
 </defs>
 
-<rect width="680" height="1074" fill="#f4f4f4" rx="14"/>
+<rect width="680" height="1087" fill="#f4f4f4" rx="14"/>
 
 <!-- BASE -->
 <text x="340" y="34" text-anchor="middle" class="sec">BASE</text>
@@ -203,166 +203,182 @@
 <rect x="469" y="372" width="66" height="10" fill="#f4f4f4"/>
 <text x="501" y="380" class="cl-gr">enter</text>
 
+<!-- ROW 3 braces -->
+<!-- XMC: tab -->
+<line x1="108" y1="420" x2="108" y2="430" class="cb-gr"/>
+<line x1="169" y1="420" x2="169" y2="430" class="cb-gr"/>
+<line x1="230" y1="420" x2="230" y2="430" class="cb-gr"/>
+<line x1="108" y1="430" x2="230" y2="430" class="cb-gr"/>
+<rect x="136" y="425" width="66" height="10" fill="#f4f4f4"/>
+<text x="169" y="433" class="cl-gr">tab</text>
+<!-- P,.: send -->
+<line x1="440" y1="420" x2="440" y2="430" class="cb-gr"/>
+<line x1="501" y1="420" x2="501" y2="430" class="cb-gr"/>
+<line x1="562" y1="420" x2="562" y2="430" class="cb-gr"/>
+<line x1="440" y1="430" x2="562" y2="430" class="cb-gr"/>
+<rect x="469" y="425" width="66" height="10" fill="#f4f4f4"/>
+<text x="501" y="433" class="cl-gr">send</text>
+
 <!-- NUMBERS -->
-<line x1="20" y1="446" x2="660" y2="446" stroke="#d5d5d5" stroke-width="0.5"/>
-<text x="340" y="473" text-anchor="middle" class="sec">NUMBER</text>
-<rect x="20"  y="488" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="47"  y="511" text-anchor="middle" dominant-baseline="central" class="kl">&lt;</text>
-<rect x="81"  y="488" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="108" y="511" text-anchor="middle" dominant-baseline="central" class="kl">/</text>
-<rect x="142" y="488" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="169" y="511" text-anchor="middle" dominant-baseline="central" class="kl">%</text>
-<rect x="203" y="488" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="230" y="511" text-anchor="middle" dominant-baseline="central" class="kl">&#8722;</text>
-<rect x="264" y="488" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="291" y="511" text-anchor="middle" dominant-baseline="central" class="kl">\</text>
-<rect x="352" y="488" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="511" text-anchor="middle" dominant-baseline="central" class="kl">|</text>
-<rect x="413" y="488" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="440" y="511" text-anchor="middle" dominant-baseline="central" class="kl">+</text>
-<rect x="474" y="488" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="501" y="511" text-anchor="middle" dominant-baseline="central" class="kl">=</text>
-<rect x="535" y="488" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="562" y="511" text-anchor="middle" dominant-baseline="central" class="kl">*</text>
-<rect x="596" y="488" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="623" y="511" text-anchor="middle" dominant-baseline="central" class="kl">&gt;</text>
-<rect x="20"  y="541" width="54" height="46" rx="8" fill="#feffe9" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="47"  y="564" text-anchor="middle" dominant-baseline="central" class="klm">1</text><text x="47"  y="582" text-anchor="middle" class="kls">ctrl</text>
-<rect x="81"  y="541" width="54" height="46" rx="8" fill="#feffe9" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="108" y="564" text-anchor="middle" dominant-baseline="central" class="klm">2</text><text x="108" y="582" text-anchor="middle" class="kls">opt</text>
-<rect x="142" y="541" width="54" height="46" rx="8" fill="#feffe9" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="169" y="564" text-anchor="middle" dominant-baseline="central" class="klm">3</text><text x="169" y="582" text-anchor="middle" class="kls">cmd</text>
-<rect x="203" y="541" width="54" height="46" rx="8" fill="#feffe9" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="230" y="564" text-anchor="middle" dominant-baseline="central" class="klm">4</text><text x="230" y="582" text-anchor="middle" class="kls">shift</text>
-<rect x="264" y="541" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="291" y="564" text-anchor="middle" dominant-baseline="central" class="kl">[</text>
-<rect x="352" y="541" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="564" text-anchor="middle" dominant-baseline="central" class="kl">]</text>
-<rect x="413" y="541" width="54" height="46" rx="8" fill="#feffe9" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="440" y="564" text-anchor="middle" dominant-baseline="central" class="klm">7</text><text x="440" y="582" text-anchor="middle" class="kls">shift</text>
-<rect x="474" y="541" width="54" height="46" rx="8" fill="#feffe9" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="501" y="564" text-anchor="middle" dominant-baseline="central" class="klm">8</text><text x="501" y="582" text-anchor="middle" class="kls">cmd</text>
-<rect x="535" y="541" width="54" height="46" rx="8" fill="#feffe9" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="562" y="564" text-anchor="middle" dominant-baseline="central" class="klm">9</text><text x="562" y="582" text-anchor="middle" class="kls">opt</text>
-<rect x="596" y="541" width="54" height="46" rx="8" fill="#feffe9" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="623" y="564" text-anchor="middle" dominant-baseline="central" class="klm">0</text><text x="623" y="582" text-anchor="middle" class="kls">ctrl</text>
-<rect x="20"  y="594" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="47"  y="617" text-anchor="middle" dominant-baseline="central" class="kl">#</text>
-<rect x="81"  y="594" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="108" y="617" text-anchor="middle" dominant-baseline="central" class="kl">$</text>
-<rect x="142" y="594" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="169" y="617" text-anchor="middle" dominant-baseline="central" class="kl">&#163;</text>
-<rect x="203" y="594" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="230" y="617" text-anchor="middle" dominant-baseline="central" class="kl">5</text>
-<rect x="264" y="594" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="291" y="617" text-anchor="middle" dominant-baseline="central" class="kl">{</text>
-<rect x="352" y="594" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="617" text-anchor="middle" dominant-baseline="central" class="kl">}</text>
-<rect x="413" y="594" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="440" y="617" text-anchor="middle" dominant-baseline="central" class="kl">6</text>
-<rect x="474" y="594" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="501" y="617" text-anchor="middle" dominant-baseline="central" class="kl">,</text>
-<rect x="535" y="594" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="562" y="617" text-anchor="middle" dominant-baseline="central" class="kl">.</text>
-<rect x="596" y="594" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="623" y="617" text-anchor="middle" dominant-baseline="central" class="kl">^</text>
+<line x1="20" y1="459" x2="660" y2="459" stroke="#d5d5d5" stroke-width="0.5"/>
+<text x="340" y="486" text-anchor="middle" class="sec">NUMBER</text>
+<rect x="20"  y="501" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="47"  y="524" text-anchor="middle" dominant-baseline="central" class="kl">&lt;</text>
+<rect x="81"  y="501" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="108" y="524" text-anchor="middle" dominant-baseline="central" class="kl">/</text>
+<rect x="142" y="501" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="169" y="524" text-anchor="middle" dominant-baseline="central" class="kl">%</text>
+<rect x="203" y="501" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="230" y="524" text-anchor="middle" dominant-baseline="central" class="kl">&#8722;</text>
+<rect x="264" y="501" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="291" y="524" text-anchor="middle" dominant-baseline="central" class="kl">\</text>
+<rect x="352" y="501" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="524" text-anchor="middle" dominant-baseline="central" class="kl">|</text>
+<rect x="413" y="501" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="440" y="524" text-anchor="middle" dominant-baseline="central" class="kl">+</text>
+<rect x="474" y="501" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="501" y="524" text-anchor="middle" dominant-baseline="central" class="kl">=</text>
+<rect x="535" y="501" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="562" y="524" text-anchor="middle" dominant-baseline="central" class="kl">*</text>
+<rect x="596" y="501" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="623" y="524" text-anchor="middle" dominant-baseline="central" class="kl">&gt;</text>
+<rect x="20"  y="554" width="54" height="46" rx="8" fill="#feffe9" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="47"  y="577" text-anchor="middle" dominant-baseline="central" class="klm">1</text><text x="47"  y="595" text-anchor="middle" class="kls">ctrl</text>
+<rect x="81"  y="554" width="54" height="46" rx="8" fill="#feffe9" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="108" y="577" text-anchor="middle" dominant-baseline="central" class="klm">2</text><text x="108" y="595" text-anchor="middle" class="kls">opt</text>
+<rect x="142" y="554" width="54" height="46" rx="8" fill="#feffe9" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="169" y="577" text-anchor="middle" dominant-baseline="central" class="klm">3</text><text x="169" y="595" text-anchor="middle" class="kls">cmd</text>
+<rect x="203" y="554" width="54" height="46" rx="8" fill="#feffe9" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="230" y="577" text-anchor="middle" dominant-baseline="central" class="klm">4</text><text x="230" y="595" text-anchor="middle" class="kls">shift</text>
+<rect x="264" y="554" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="291" y="577" text-anchor="middle" dominant-baseline="central" class="kl">[</text>
+<rect x="352" y="554" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="577" text-anchor="middle" dominant-baseline="central" class="kl">]</text>
+<rect x="413" y="554" width="54" height="46" rx="8" fill="#feffe9" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="440" y="577" text-anchor="middle" dominant-baseline="central" class="klm">7</text><text x="440" y="595" text-anchor="middle" class="kls">shift</text>
+<rect x="474" y="554" width="54" height="46" rx="8" fill="#feffe9" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="501" y="577" text-anchor="middle" dominant-baseline="central" class="klm">8</text><text x="501" y="595" text-anchor="middle" class="kls">cmd</text>
+<rect x="535" y="554" width="54" height="46" rx="8" fill="#feffe9" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="562" y="577" text-anchor="middle" dominant-baseline="central" class="klm">9</text><text x="562" y="595" text-anchor="middle" class="kls">opt</text>
+<rect x="596" y="554" width="54" height="46" rx="8" fill="#feffe9" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="623" y="577" text-anchor="middle" dominant-baseline="central" class="klm">0</text><text x="623" y="595" text-anchor="middle" class="kls">ctrl</text>
+<rect x="20"  y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="47"  y="630" text-anchor="middle" dominant-baseline="central" class="kl">#</text>
+<rect x="81"  y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="108" y="630" text-anchor="middle" dominant-baseline="central" class="kl">$</text>
+<rect x="142" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="169" y="630" text-anchor="middle" dominant-baseline="central" class="kl">&#163;</text>
+<rect x="203" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="230" y="630" text-anchor="middle" dominant-baseline="central" class="kl">5</text>
+<rect x="264" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="291" y="630" text-anchor="middle" dominant-baseline="central" class="kl">{</text>
+<rect x="352" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="630" text-anchor="middle" dominant-baseline="central" class="kl">}</text>
+<rect x="413" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="440" y="630" text-anchor="middle" dominant-baseline="central" class="kl">6</text>
+<rect x="474" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="501" y="630" text-anchor="middle" dominant-baseline="central" class="kl">,</text>
+<rect x="535" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="562" y="630" text-anchor="middle" dominant-baseline="central" class="kl">.</text>
+<rect x="596" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="623" y="630" text-anchor="middle" dominant-baseline="central" class="kl">^</text>
 
 <!-- NAVIGATION -->
-<line x1="20" y1="666" x2="660" y2="666" stroke="#d5d5d5" stroke-width="0.5"/>
-<text x="340" y="693" text-anchor="middle" class="sec">NAVIGATION</text>
-<rect x="20"  y="708" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="47"  y="731" text-anchor="middle" dominant-baseline="central" class="kln t-gry">esc</text>
-<rect x="81"  y="708" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="108" y="731" text-anchor="middle" dominant-baseline="central" class="ico">&#9003;</text>
-<rect x="142" y="708" width="54" height="46" rx="8" fill="#ffe7ff" stroke="#eea7ef" stroke-width="1" filter="url(#ks)"/><text x="169" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-pnk">close</text>
-<rect x="203" y="708" width="54" height="46" rx="8" fill="#ffe7ff" stroke="#eea7ef" stroke-width="1" filter="url(#ks)"/><text x="230" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-pnk">new</text>
-<rect x="264" y="708" width="54" height="46" rx="8" fill="#feffda" stroke="#dfdf6d" stroke-width="1" filter="url(#ks)"/><text x="291" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-yel">italic</text>
-<rect x="352" y="708" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-gry">edit</text>
-<rect x="413" y="708" width="54" height="46" rx="8" fill="#ffead2" stroke="#efb05e" stroke-width="1" filter="url(#ks)"/><text x="440" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-ora">&#9664; sel</text>
-<rect x="474" y="708" width="54" height="46" rx="8" fill="#dbe9ff" stroke="#8db8ff" stroke-width="1" filter="url(#ks)"/><text x="501" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-blu">&#9650;</text>
-<rect x="535" y="708" width="54" height="46" rx="8" fill="#ffead2" stroke="#efb05e" stroke-width="1" filter="url(#ks)"/><text x="562" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-ora">sel &#9654;</text>
-<rect x="596" y="708" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="623" y="731" text-anchor="middle" dominant-baseline="central" class="kln t-gry">lock</text>
-<rect x="20"  y="761" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="47"  y="774" text-anchor="middle" dominant-baseline="central" class="ico">&#9251;</text><text x="47"  y="802" text-anchor="middle" class="kls" style="fill:#282828">ctrl</text>
-<rect x="81"  y="761" width="54" height="46" rx="8" fill="#e4ffdf" stroke="#98e488" stroke-width="1" filter="url(#ks)"/><text x="108" y="784" text-anchor="middle" dominant-baseline="central" class="kln t-grn">cut</text><text x="108" y="802" text-anchor="middle" class="kls t-grn">opt</text>
-<rect x="142" y="761" width="54" height="46" rx="8" fill="#e4ffdf" stroke="#98e488" stroke-width="1" filter="url(#ks)"/><text x="169" y="784" text-anchor="middle" dominant-baseline="central" class="kln t-grn">copy</text><text x="169" y="802" text-anchor="middle" class="kls t-grn">cmd</text>
-<rect x="203" y="761" width="54" height="46" rx="8" fill="#e4ffdf" stroke="#98e488" stroke-width="1" filter="url(#ks)"/><text x="230" y="784" text-anchor="middle" dominant-baseline="central" class="kln t-grn">paste</text><text x="230" y="802" text-anchor="middle" class="kls t-grn">shift</text>
-<rect x="264" y="761" width="54" height="46" rx="8" fill="#feffda" stroke="#dfdf6d" stroke-width="1" filter="url(#ks)"/><text x="291" y="784" text-anchor="middle" dominant-baseline="central" class="kln t-yel">bold</text>
-<rect x="352" y="761" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="784" text-anchor="middle" dominant-baseline="central" class="ico">&#8677;</text>
-<rect x="413" y="761" width="54" height="46" rx="8" fill="#dbe9ff" stroke="#8db8ff" stroke-width="1" filter="url(#ks)"/><text x="440" y="784" text-anchor="middle" dominant-baseline="central" class="kln t-blu">&#9664;</text>
-<rect x="474" y="761" width="54" height="46" rx="8" fill="#dbe9ff" stroke="#8db8ff" stroke-width="1" filter="url(#ks)"/><text x="501" y="784" text-anchor="middle" dominant-baseline="central" class="kln t-blu">&#9660;</text>
-<rect x="535" y="761" width="54" height="46" rx="8" fill="#dbe9ff" stroke="#8db8ff" stroke-width="1" filter="url(#ks)"/><text x="562" y="784" text-anchor="middle" dominant-baseline="central" class="kln t-blu">&#9654;</text>
-<rect x="596" y="761" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="623" y="784" text-anchor="middle" dominant-baseline="central" class="ico">&#8998;</text>
-<rect x="20"  y="814" width="54" height="46" rx="8" fill="#ffdcdc" stroke="#ff9a9b" stroke-width="1" filter="url(#ks)"/><text x="47"  y="837" text-anchor="middle" dominant-baseline="central" class="kln t-red">undo</text>
-<rect x="81"  y="814" width="54" height="46" rx="8" fill="#ffdcdc" stroke="#ff9a9b" stroke-width="1" filter="url(#ks)"/><text x="108" y="837" text-anchor="middle" dominant-baseline="central" class="kln t-red">redo</text>
-<rect x="142" y="814" width="54" height="46" rx="8" fill="#ffdcdc" stroke="#ff9a9b" stroke-width="1" filter="url(#ks)"/><text x="169" y="837" text-anchor="middle" dominant-baseline="central" class="kln t-red">save</text>
-<rect x="203" y="814" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="230" y="837" text-anchor="middle" dominant-baseline="central" class="ico">&#8617;</text>
-<rect x="264" y="814" width="54" height="46" rx="8" fill="#feffda" stroke="#dfdf6d" stroke-width="1" filter="url(#ks)"/><text x="291" y="837" text-anchor="middle" dominant-baseline="central" class="kln t-yel">under</text>
-<rect x="352" y="814" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="837" text-anchor="middle" dominant-baseline="central" class="kln t-gry">open</text>
-<rect x="413" y="814" width="54" height="46" rx="8" fill="#d5f8fc" stroke="#66d8e3" stroke-width="1" filter="url(#ks)"/><text x="440" y="837" text-anchor="middle" dominant-baseline="central" class="kln t-tel">alfred</text>
-<rect x="474" y="814" width="54" height="46" rx="8" fill="#ffead2" stroke="#efb05e" stroke-width="1" filter="url(#ks)"/><text x="501" y="837" text-anchor="middle" dominant-baseline="central" class="kln t-ora">&#9660; sel</text>
-<rect x="535" y="814" width="54" height="46" rx="8" fill="#d5f8fc" stroke="#66d8e3" stroke-width="1" filter="url(#ks)"/><text x="562" y="837" text-anchor="middle" dominant-baseline="central" class="kln t-tel">switch</text>
-<rect x="596" y="814" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="623" y="837" text-anchor="middle" dominant-baseline="central" class="ico">&#9786;&#65038;</text>
+<line x1="20" y1="679" x2="660" y2="679" stroke="#d5d5d5" stroke-width="0.5"/>
+<text x="340" y="706" text-anchor="middle" class="sec">NAVIGATION</text>
+<rect x="20"  y="721" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="47"  y="744" text-anchor="middle" dominant-baseline="central" class="kln t-gry">esc</text>
+<rect x="81"  y="721" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="108" y="744" text-anchor="middle" dominant-baseline="central" class="ico">&#9003;</text>
+<rect x="142" y="721" width="54" height="46" rx="8" fill="#ffe7ff" stroke="#eea7ef" stroke-width="1" filter="url(#ks)"/><text x="169" y="744" text-anchor="middle" dominant-baseline="central" class="kln t-pnk">close</text>
+<rect x="203" y="721" width="54" height="46" rx="8" fill="#ffe7ff" stroke="#eea7ef" stroke-width="1" filter="url(#ks)"/><text x="230" y="744" text-anchor="middle" dominant-baseline="central" class="kln t-pnk">new</text>
+<rect x="264" y="721" width="54" height="46" rx="8" fill="#feffda" stroke="#dfdf6d" stroke-width="1" filter="url(#ks)"/><text x="291" y="744" text-anchor="middle" dominant-baseline="central" class="kln t-yel">italic</text>
+<rect x="352" y="721" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="744" text-anchor="middle" dominant-baseline="central" class="kln t-gry">edit</text>
+<rect x="413" y="721" width="54" height="46" rx="8" fill="#ffead2" stroke="#efb05e" stroke-width="1" filter="url(#ks)"/><text x="440" y="744" text-anchor="middle" dominant-baseline="central" class="kln t-ora">&#9664; sel</text>
+<rect x="474" y="721" width="54" height="46" rx="8" fill="#dbe9ff" stroke="#8db8ff" stroke-width="1" filter="url(#ks)"/><text x="501" y="744" text-anchor="middle" dominant-baseline="central" class="kln t-blu">&#9650;</text>
+<rect x="535" y="721" width="54" height="46" rx="8" fill="#ffead2" stroke="#efb05e" stroke-width="1" filter="url(#ks)"/><text x="562" y="744" text-anchor="middle" dominant-baseline="central" class="kln t-ora">sel &#9654;</text>
+<rect x="596" y="721" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="623" y="744" text-anchor="middle" dominant-baseline="central" class="kln t-gry">lock</text>
+<rect x="20"  y="774" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="47"  y="787" text-anchor="middle" dominant-baseline="central" class="ico">&#9251;</text><text x="47"  y="815" text-anchor="middle" class="kls" style="fill:#282828">ctrl</text>
+<rect x="81"  y="774" width="54" height="46" rx="8" fill="#e4ffdf" stroke="#98e488" stroke-width="1" filter="url(#ks)"/><text x="108" y="797" text-anchor="middle" dominant-baseline="central" class="kln t-grn">cut</text><text x="108" y="815" text-anchor="middle" class="kls t-grn">opt</text>
+<rect x="142" y="774" width="54" height="46" rx="8" fill="#e4ffdf" stroke="#98e488" stroke-width="1" filter="url(#ks)"/><text x="169" y="797" text-anchor="middle" dominant-baseline="central" class="kln t-grn">copy</text><text x="169" y="815" text-anchor="middle" class="kls t-grn">cmd</text>
+<rect x="203" y="774" width="54" height="46" rx="8" fill="#e4ffdf" stroke="#98e488" stroke-width="1" filter="url(#ks)"/><text x="230" y="797" text-anchor="middle" dominant-baseline="central" class="kln t-grn">paste</text><text x="230" y="815" text-anchor="middle" class="kls t-grn">shift</text>
+<rect x="264" y="774" width="54" height="46" rx="8" fill="#feffda" stroke="#dfdf6d" stroke-width="1" filter="url(#ks)"/><text x="291" y="797" text-anchor="middle" dominant-baseline="central" class="kln t-yel">bold</text>
+<rect x="352" y="774" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="797" text-anchor="middle" dominant-baseline="central" class="ico">&#8677;</text>
+<rect x="413" y="774" width="54" height="46" rx="8" fill="#dbe9ff" stroke="#8db8ff" stroke-width="1" filter="url(#ks)"/><text x="440" y="797" text-anchor="middle" dominant-baseline="central" class="kln t-blu">&#9664;</text>
+<rect x="474" y="774" width="54" height="46" rx="8" fill="#dbe9ff" stroke="#8db8ff" stroke-width="1" filter="url(#ks)"/><text x="501" y="797" text-anchor="middle" dominant-baseline="central" class="kln t-blu">&#9660;</text>
+<rect x="535" y="774" width="54" height="46" rx="8" fill="#dbe9ff" stroke="#8db8ff" stroke-width="1" filter="url(#ks)"/><text x="562" y="797" text-anchor="middle" dominant-baseline="central" class="kln t-blu">&#9654;</text>
+<rect x="596" y="774" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="623" y="797" text-anchor="middle" dominant-baseline="central" class="ico">&#8998;</text>
+<rect x="20"  y="827" width="54" height="46" rx="8" fill="#ffdcdc" stroke="#ff9a9b" stroke-width="1" filter="url(#ks)"/><text x="47"  y="850" text-anchor="middle" dominant-baseline="central" class="kln t-red">undo</text>
+<rect x="81"  y="827" width="54" height="46" rx="8" fill="#ffdcdc" stroke="#ff9a9b" stroke-width="1" filter="url(#ks)"/><text x="108" y="850" text-anchor="middle" dominant-baseline="central" class="kln t-red">redo</text>
+<rect x="142" y="827" width="54" height="46" rx="8" fill="#ffdcdc" stroke="#ff9a9b" stroke-width="1" filter="url(#ks)"/><text x="169" y="850" text-anchor="middle" dominant-baseline="central" class="kln t-red">save</text>
+<rect x="203" y="827" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="230" y="850" text-anchor="middle" dominant-baseline="central" class="ico">&#8617;</text>
+<rect x="264" y="827" width="54" height="46" rx="8" fill="#feffda" stroke="#dfdf6d" stroke-width="1" filter="url(#ks)"/><text x="291" y="850" text-anchor="middle" dominant-baseline="central" class="kln t-yel">under</text>
+<rect x="352" y="827" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="850" text-anchor="middle" dominant-baseline="central" class="kln t-gry">open</text>
+<rect x="413" y="827" width="54" height="46" rx="8" fill="#d5f8fc" stroke="#66d8e3" stroke-width="1" filter="url(#ks)"/><text x="440" y="850" text-anchor="middle" dominant-baseline="central" class="kln t-tel">alfred</text>
+<rect x="474" y="827" width="54" height="46" rx="8" fill="#ffead2" stroke="#efb05e" stroke-width="1" filter="url(#ks)"/><text x="501" y="850" text-anchor="middle" dominant-baseline="central" class="kln t-ora">&#9660; sel</text>
+<rect x="535" y="827" width="54" height="46" rx="8" fill="#d5f8fc" stroke="#66d8e3" stroke-width="1" filter="url(#ks)"/><text x="562" y="850" text-anchor="middle" dominant-baseline="central" class="kln t-tel">switch</text>
+<rect x="596" y="827" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="623" y="850" text-anchor="middle" dominant-baseline="central" class="ico">&#9786;&#65038;</text>
 
 <!-- NAV COMBOS -->
 <g style="isolation:isolate">
-  <rect x="92"  y="895" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="153" y="895" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="214" y="895" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="275" y="895" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="424" y="895" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="485" y="895" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="546" y="895" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="92"  y="948" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="153" y="948" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="214" y="948" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="275" y="948" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="424" y="948" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="485" y="948" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="546" y="948" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="92"  y="1001" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="153" y="1001" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="214" y="1001" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="92"  y="908" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="153" y="908" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="214" y="908" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="275" y="908" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="424" y="908" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="485" y="908" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="546" y="908" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="92"  y="961" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="153" y="961" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="214" y="961" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="275" y="961" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="424" y="961" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="485" y="961" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="546" y="961" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="92"  y="1014" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="153" y="1014" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="214" y="1014" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
 </g>
 
 <!-- Nav combo shading -->
-<rect x="113" y="895" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr1c2)"/>
-<rect x="153" y="895" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr1c3)"/>
-<rect x="174" y="895" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr1c3)"/>
-<rect x="214" y="895" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr1c4)"/>
-<rect x="235" y="895" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr1c4)"/>
-<rect x="275" y="895" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr1c5)"/>
-<rect x="445" y="895" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr1c7)"/>
-<rect x="485" y="895" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr1c8)"/>
-<rect x="506" y="895" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr1c8)"/>
-<rect x="546" y="895" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr1c9)"/>
-<rect x="113" y="948" width="11" height="28" fill="#d8f8d0" clip-path="url(#cr2c2)"/>
-<rect x="153" y="948" width="11" height="28" fill="#d8f8d0" clip-path="url(#cr2c3)"/>
-<rect x="174" y="948" width="11" height="28" fill="#d8f8d0" clip-path="url(#cr2c3)"/>
-<rect x="214" y="948" width="11" height="28" fill="#d8f8d0" clip-path="url(#cr2c4)"/>
-<rect x="235" y="948" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr2c4)"/>
-<rect x="275" y="948" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr2c5)"/>
-<rect x="113" y="1001" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr3c2)"/>
-<rect x="153" y="1001" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr3c3)"/>
-<rect x="174" y="1001" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr3c3)"/>
-<rect x="214" y="1001" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr3c4)"/>
-<rect x="445" y="948" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr2c7)"/>
-<rect x="485" y="948" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr2c8)"/>
-<rect x="506" y="948" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr2c8)"/>
-<rect x="546" y="948" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr2c9)"/>
+<rect x="113" y="908" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr1c2)"/>
+<rect x="153" y="908" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr1c3)"/>
+<rect x="174" y="908" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr1c3)"/>
+<rect x="214" y="908" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr1c4)"/>
+<rect x="235" y="908" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr1c4)"/>
+<rect x="275" y="908" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr1c5)"/>
+<rect x="445" y="908" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr1c7)"/>
+<rect x="485" y="908" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr1c8)"/>
+<rect x="506" y="908" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr1c8)"/>
+<rect x="546" y="908" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr1c9)"/>
+<rect x="113" y="961" width="11" height="28" fill="#d8f8d0" clip-path="url(#cr2c2)"/>
+<rect x="153" y="961" width="11" height="28" fill="#d8f8d0" clip-path="url(#cr2c3)"/>
+<rect x="174" y="961" width="11" height="28" fill="#d8f8d0" clip-path="url(#cr2c3)"/>
+<rect x="214" y="961" width="11" height="28" fill="#d8f8d0" clip-path="url(#cr2c4)"/>
+<rect x="235" y="961" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr2c4)"/>
+<rect x="275" y="961" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr2c5)"/>
+<rect x="113" y="1014" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr3c2)"/>
+<rect x="153" y="1014" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr3c3)"/>
+<rect x="174" y="1014" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr3c3)"/>
+<rect x="214" y="1014" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr3c4)"/>
+<rect x="445" y="961" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr2c7)"/>
+<rect x="485" y="961" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr2c8)"/>
+<rect x="506" y="961" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr2c8)"/>
+<rect x="546" y="961" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr2c9)"/>
 
 <!-- ROW 1 labels -->
-<text x="138" y="911" class="cl-s" fill="#703472">quit</text>
-<text x="199" y="911" class="cl-s" fill="#703472">min</text>
-<text class="cl-s" fill="#254d90"><tspan x="260" y="907" text-anchor="middle">scr</tspan><tspan x="260" y="917" text-anchor="middle">shot</tspan></text>
-<text class="cl-s" fill="#005b62"><tspan x="470" y="907" text-anchor="middle">win</tspan><tspan x="470" y="917" text-anchor="middle">&#9664;</tspan></text>
-<text class="cl-s" fill="#005b62"><tspan x="531" y="907" text-anchor="middle">win</tspan><tspan x="531" y="917" text-anchor="middle">&#9654;</tspan></text>
+<text x="138" y="924" class="cl-s" fill="#703472">quit</text>
+<text x="199" y="924" class="cl-s" fill="#703472">min</text>
+<text class="cl-s" fill="#254d90"><tspan x="260" y="920" text-anchor="middle">scr</tspan><tspan x="260" y="930" text-anchor="middle">shot</tspan></text>
+<text class="cl-s" fill="#005b62"><tspan x="470" y="920" text-anchor="middle">win</tspan><tspan x="470" y="930" text-anchor="middle">&#9664;</tspan></text>
+<text class="cl-s" fill="#005b62"><tspan x="531" y="920" text-anchor="middle">win</tspan><tspan x="531" y="930" text-anchor="middle">&#9654;</tspan></text>
 <!-- ROW 1 3-key brace: LDW=tile left -->
-<line x1="108" y1="923" x2="108" y2="933" class="cb-gr"/>
-<line x1="169" y1="923" x2="169" y2="933" class="cb-gr"/>
-<line x1="230" y1="923" x2="230" y2="933" class="cb-gr"/>
-<line x1="108" y1="933" x2="230" y2="933" class="cb-gr"/>
-<rect x="136" y="928" width="66" height="10" fill="#f4f4f4"/>
-<text x="169" y="936" class="cl-gr">tile left</text>
+<line x1="108" y1="936" x2="108" y2="946" class="cb-gr"/>
+<line x1="169" y1="936" x2="169" y2="946" class="cb-gr"/>
+<line x1="230" y1="936" x2="230" y2="946" class="cb-gr"/>
+<line x1="108" y1="946" x2="230" y2="946" class="cb-gr"/>
+<rect x="136" y="941" width="66" height="10" fill="#f4f4f4"/>
+<text x="169" y="949" class="cl-gr">tile left</text>
 
 <!-- ROW 2 labels -->
-<text x="138" y="964" class="cl-s" fill="#245f17" text-anchor="middle">all</text>
-<text class="cl-s" fill="#245f17"><tspan x="199" y="960" text-anchor="middle">pst</tspan><tspan x="199" y="970" text-anchor="middle">text</tspan></text>
+<text x="138" y="977" class="cl-s" fill="#245f17" text-anchor="middle">all</text>
+<text class="cl-s" fill="#245f17"><tspan x="199" y="973" text-anchor="middle">pst</tspan><tspan x="199" y="983" text-anchor="middle">text</tspan></text>
 <!-- ROW 2 3-key brace: RTS=fill screen -->
-<line x1="108" y1="976" x2="108" y2="986" class="cb-gr"/>
-<line x1="169" y1="976" x2="169" y2="986" class="cb-gr"/>
-<line x1="230" y1="976" x2="230" y2="986" class="cb-gr"/>
-<line x1="108" y1="986" x2="230" y2="986" class="cb-gr"/>
-<rect x="136" y="981" width="66" height="10" fill="#f4f4f4"/>
-<text x="169" y="989" class="cl-gr">fill screen</text>
+<line x1="108" y1="989" x2="108" y2="999" class="cb-gr"/>
+<line x1="169" y1="989" x2="169" y2="999" class="cb-gr"/>
+<line x1="230" y1="989" x2="230" y2="999" class="cb-gr"/>
+<line x1="108" y1="999" x2="230" y2="999" class="cb-gr"/>
+<rect x="136" y="994" width="66" height="10" fill="#f4f4f4"/>
+<text x="169" y="1002" class="cl-gr">fill screen</text>
 
 <!-- ROW 2 3-key brace: LDR=swap screen -->
-<line x1="440" y1="976" x2="440" y2="986" class="cb-gr"/>
-<line x1="501" y1="976" x2="501" y2="986" class="cb-gr"/>
-<line x1="562" y1="976" x2="562" y2="986" class="cb-gr"/>
-<line x1="440" y1="986" x2="562" y2="986" class="cb-gr"/>
-<rect x="468" y="981" width="66" height="10" fill="#f4f4f4"/>
-<text x="501" y="989" class="cl-gr">swap screen</text>
+<line x1="440" y1="989" x2="440" y2="999" class="cb-gr"/>
+<line x1="501" y1="989" x2="501" y2="999" class="cb-gr"/>
+<line x1="562" y1="989" x2="562" y2="999" class="cb-gr"/>
+<line x1="440" y1="999" x2="562" y2="999" class="cb-gr"/>
+<rect x="468" y="994" width="66" height="10" fill="#f4f4f4"/>
+<text x="501" y="1002" class="cl-gr">swap screen</text>
 
 <!-- ROW 3 labels -->
-<text class="cl-s" fill="#254d90"><tspan x="138" y="1015" text-anchor="middle">zoom</tspan><tspan x="138" y="1025" text-anchor="middle">-</tspan></text>
-<text class="cl-s" fill="#254d90"><tspan x="199" y="1015" text-anchor="middle">zoom</tspan><tspan x="199" y="1025" text-anchor="middle">+</tspan></text>
-<text class="cl-s" fill="#254d90"><tspan x="260" y="960" text-anchor="middle">del</tspan><tspan x="260" y="970" text-anchor="middle">file</tspan></text>
-<text class="cl-s" fill="#005b62"><tspan x="470" y="960" text-anchor="middle">tab</tspan><tspan x="470" y="970" text-anchor="middle">&#9664;</tspan></text>
-<text class="cl-s" fill="#005b62"><tspan x="531" y="960" text-anchor="middle">tab</tspan><tspan x="531" y="970" text-anchor="middle">&#9654;</tspan></text>
+<text class="cl-s" fill="#254d90"><tspan x="138" y="1028" text-anchor="middle">zoom</tspan><tspan x="138" y="1038" text-anchor="middle">-</tspan></text>
+<text class="cl-s" fill="#254d90"><tspan x="199" y="1028" text-anchor="middle">zoom</tspan><tspan x="199" y="1038" text-anchor="middle">+</tspan></text>
+<text class="cl-s" fill="#254d90"><tspan x="260" y="973" text-anchor="middle">del</tspan><tspan x="260" y="983" text-anchor="middle">file</tspan></text>
+<text class="cl-s" fill="#005b62"><tspan x="470" y="973" text-anchor="middle">tab</tspan><tspan x="470" y="983" text-anchor="middle">&#9664;</tspan></text>
+<text class="cl-s" fill="#005b62"><tspan x="531" y="973" text-anchor="middle">tab</tspan><tspan x="531" y="983" text-anchor="middle">&#9654;</tspan></text>
 <!-- ROW 3 3-key brace: XMC=tile right -->
-<line x1="108" y1="1029" x2="108" y2="1039" class="cb-gr"/>
-<line x1="169" y1="1029" x2="169" y2="1039" class="cb-gr"/>
-<line x1="230" y1="1029" x2="230" y2="1039" class="cb-gr"/>
-<line x1="108" y1="1039" x2="230" y2="1039" class="cb-gr"/>
-<rect x="136" y="1034" width="66" height="10" fill="#f4f4f4"/>
-<text x="169" y="1042" class="cl-gr">tile right</text>
+<line x1="108" y1="1042" x2="108" y2="1052" class="cb-gr"/>
+<line x1="169" y1="1042" x2="169" y2="1052" class="cb-gr"/>
+<line x1="230" y1="1042" x2="230" y2="1052" class="cb-gr"/>
+<line x1="108" y1="1052" x2="230" y2="1052" class="cb-gr"/>
+<rect x="136" y="1047" width="66" height="10" fill="#f4f4f4"/>
+<text x="169" y="1055" class="cl-gr">tile right</text>
 
 </svg>

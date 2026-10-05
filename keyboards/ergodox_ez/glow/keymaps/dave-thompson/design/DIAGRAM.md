@@ -428,6 +428,8 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 | M + C | `—` (em dash) | pink |
 | P + , | `&` | pink |
 | , + . | `)` | pink |
+| X + M + C | `tab` — 3-key brace | — |
+| P + , + . | `send` (Cmd+Enter) — 3-key brace | — |
 
 ### NAV layer combos (3 rows)
 
