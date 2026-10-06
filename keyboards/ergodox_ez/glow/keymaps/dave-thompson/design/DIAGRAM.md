@@ -330,7 +330,7 @@ Coloured backgrounds indicate action categories. All use the key treatment above
 | **Orange** | `#ffead2` | `#efb05e` | selection with arrow (◀ sel, sel ▶, ▼ sel) |
 | **Blue** | `#dbe9ff` | `#8db8ff` | arrow keys (◀ ▼ ▶ ▲) |
 | **Teal** | `#d5f8fc` | `#66d8e3` | app-switcher / launcher (alfred, switch) |
-| **White** | `#ffffff` | `#cdcdcd` | utility / modifier-style keys (esc, lock, ctrl, tab, backspace, return, edit, open, emoji) |
+| **White** | `#ffffff` | `#cdcdcd` | utility / modifier-style keys (esc, lock, ctrl, backspace, return, edit, open, emoji) |
 
 NAV still reads as the busiest layer, because 21 of its keys are tinted against 18 across BASE and NUMBER combined — and NAV's 21 carry six hues where BASE's 18 carry two. That is density and variety rather than a different palette, and is intended.
 
@@ -443,7 +443,7 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 | ▲ + sel▶ | `tab` / `▶` | teal |
 | ⌫ + close + min | `tile left` — 3-key brace | — |
 
-**Row 2** (physical NAV row 2: ctrl cut copy paste bold / tab ◀ ▼ ▶ ⌫):
+**Row 2** (physical NAV row 2: ctrl cut copy paste bold / (blank) ◀ ▼ ▶ ⌫):
 | Keys | Output | Colour |
 |---|---|---|
 | cut + copy | `all` | green |
