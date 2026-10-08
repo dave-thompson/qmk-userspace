@@ -9,10 +9,10 @@ This document explains the structure and conventions of `keyboard.svg` for the b
 The diagram documents a 32-key Ergodox EZ layout across **three layers**, stacked vertically:
 
 1. **BASE** — Graphite alpha layout with home-row mods (HRMs)
-2. **NUMBERS** — Symbols and numbers, also with HRMs on the number row
+2. **NUMBER** — Symbols and numbers, also with HRMs on the number row
 3. **NAVIGATION** — Navigation, window management, editing shortcuts; no HRMs
 
-Each layer section has two parts: the **keymap** (the physical keys) and a **combo group** below it (for BASE and NAV only; NUMBERS has no combos).
+Each layer section has two parts: the **keymap** (the physical keys) and a **combo group** below it (for BASE and NAV only). NUMBER has no combo group of its own: it shares BASE's combos by key position, so the BASE combo group applies to it too.
 
 ---
 
@@ -69,14 +69,14 @@ presence when the hues differ and the distribution differs.
 matters more, since the constraint has gained a second side. Freeing the yellow would let the HRM go wherever
 the thumbs need it.
 
-In BASE, HRMs are on row 2: **N R T S** (left, ctrl/cmd/opt/shift) and **H A E I** (right, shift/opt/cmd/ctrl).
+In BASE, HRMs are on row 2: **N R T S** (left, ctrl/opt/cmd/shift) and **H A E I** (right, shift/cmd/opt/ctrl).
 
-In NUMBERS, HRMs are on the number row: **1 2 3 4** (left) and **7 8 9 0** (right), same modifier order.
+In NUMBER, HRMs are on the number row: **1 2 3 4** (left) and **7 8 9 0** (right), same modifier order.
 
 ### Thumb keys (BASE only)
 The two thumb keys sit below row 3, inset toward the centre:
 - Left thumb: **nav** — holds the NAV layer
-- Right thumb: **num** (with space-bar symbol) — holds the NUMBERS layer
+- Right thumb: **num** (with space-bar symbol) — holds the NUMBER layer
 
 Both use **teal** — `#eafcfe` fill, `#95d0d6` stroke, `#005b62` labels. On BASE, teal means *layer
 switching*: the thumbs and the `lyr` combo, and nothing else.
@@ -158,7 +158,7 @@ and a stripe — and the layer reads less cluttered for having one fewer hue.
 |---|---|
 | Stripe | base tint blended 45% toward white |
 | Key fill | base tint blended 50% toward white (see ¶ for the four exceptions) |
-| HRM fill | yellow base tint blended 75% toward white (HRM keys only) |
+| HRM fill | yellow base tint blended 70% toward white (HRM keys only) |
 | Stroke | OKLCH(`L`−0.10 floored at 0.78, `C`+0.045, `h`) of the base tint (see ‖ for two departures) |
 | Dark | OKLCH(0.43, 0.12 clamped to sRGB, `h`) of the base tint |
 
@@ -213,7 +213,7 @@ the problem.
 
 **One hue, one set of values.** A green key is `#e4ffdf` whether it is a BASE thumb or a NAV clipboard key; a green label is `#245f17` wherever it sits. An earlier revision let green drift into two fills and two darks by setting them in separate places — if you add an element, take its values from this row rather than copying a neighbouring hex.
 
-**The one exception is muted yellow**, used only by the 16 HRM keys. It is a *fill-only* hue: it follows the blend rule but at 75% rather than the keys' 50%, and its stroke is the standard neutral rather than a yellow one. Both exist for the same reason — 16 keys is the largest block of colour in the diagram, so a full-strength treatment there outweighs everything else on the page.
+**The one exception is muted yellow**, used only by the 16 HRM keys. It is a *fill-only* hue: it follows the blend rule but at 70% rather than the keys' 50%, and its stroke is the standard neutral rather than a yellow one. Both exist for the same reason — 16 keys is the largest block of colour in the diagram, so a full-strength treatment there outweighs everything else on the page.
 
 The grey stroke also does the work of keeping muted yellow apart from real yellow. A desaturated yellow stroke reads as the same family as NAV's `#dfdf6d`, so the home rows and the formatting keys grouped together across the page even though their fills differ; removing hue from the border breaks that grouping. Treat this as its own row rather than as "yellow, lighter" — the two are not interchangeable, and the home rows stay findable on the tint and the `ctrl`/`opt`/`cmd`/`shift` sub-labels alone.
 
@@ -280,11 +280,11 @@ tinted grey anywhere in the file, and no near-neutral hiding at low chroma:
 | Value | Lightness | Used by |
 |---|---|---|
 | `#ffffff` | 1.000 | key fill, combo-key fill |
-| `#f4f4f4` | 0.967 | the ground — panel, plus eight small rects that mask the brace lines behind their labels |
+| `#f4f4f4` | 0.967 | the ground — panel, plus ten small rects that mask the brace lines behind their labels |
 | `#d5d5d5` | 0.872 | section divider rule |
 | `#cdcdcd` | 0.847 | key stroke, combo-key stroke, HRM stroke |
 | `#727272` | 0.551 | HRM sub-labels, icons, section headers, brace lines, brace labels |
-| `#404040` | 0.372 | `.t-gry`, the grey combo label |
+| `#404040` | 0.372 | `.t-gry`, the grey NAV key labels (`esc`, `edit`, `lock`, `open`) |
 | `#282828` | 0.277 | key legends (`.kl`, `.klm`) |
 | `#000000` | 0.000 | drop-shadow flood only, at `18` alpha |
 
@@ -302,7 +302,7 @@ Pure grey is the only ramp that favours nothing. If you ever warm or cool these,
 of the palette looking more "designed in" than the other.
 
 **One caution on the ground.** At 0.967 it is only 0.033 in lightness below white, and white is the dominant
-surface here — 51 white keymap keys and 39 white combo keys against 39 tinted keys. That gap is the single most
+surface here — 54 white keymap keys and 39 white combo keys against 38 tinted keys. That gap is the single most
 load-bearing contrast in the diagram, and it is deliberately narrow: the previous `#eef0f3` gave 0.046. Going
 lighter still would leave the all-white rows on BASE and NUMBER leaning entirely on the stroke and the shadow.
 Note that the direction is asymmetric — lightening the ground *increased* contrast for everything darker than it
@@ -330,15 +330,15 @@ Coloured backgrounds indicate action categories. All use the key treatment above
 | **Orange** | `#ffead2` | `#efb05e` | selection with arrow (◀ sel, sel ▶, ▼ sel) |
 | **Blue** | `#dbe9ff` | `#8db8ff` | arrow keys (◀ ▼ ▶ ▲) |
 | **Teal** | `#d5f8fc` | `#66d8e3` | app-switcher / launcher (alfred, switch) |
-| **White** | `#ffffff` | `#cdcdcd` | utility / modifier-style keys (esc, lock, ctrl, backspace, return, edit, open, emoji) |
+| **White** | `#ffffff` | `#cdcdcd` | utility / modifier-style keys (esc, lock, space/ctrl, backspace, delete, return, edit, open, emoji) |
 
-NAV still reads as the busiest layer, because 21 of its keys are tinted against 18 across BASE and NUMBER combined — and NAV's 21 carry six hues where BASE's 18 carry two. That is density and variety rather than a different palette, and is intended.
+NAV still reads as the busiest layer, because 20 of its keys are tinted against 18 across BASE and NUMBER combined — and NAV's 20 carry seven hues where BASE and NUMBER's 18 carry two. That is density and variety rather than a different palette, and is intended.
 
 ---
 
 ## Reading the Combo Groups
 
-Below the BASE and NAV keymaps is a **combo group**: a grid of small rounded-rectangle keys representing physical key combinations. Each combo is triggered by pressing two or three keys simultaneously.
+Below the BASE and NAV keymaps is a **combo group**: a grid of small rounded-rectangle keys representing physical key combinations. Each combo is triggered by pressing two or more keys simultaneously.
 
 ### Grid layout
 Combo keys are arranged in three rows, each row corresponding to the matching physical row of the keymap above. The x-positions of combo keys align with the x-positions of the keymap columns, so you can read which physical keys are involved by looking at which columns the combo keys occupy.
@@ -357,7 +357,7 @@ The stripe colour identifies the combo's output category, and differs by layer:
 
 **BASE layer combos:**
 - **Pink** (stripe `#ffe0ff`, label `#703472`) — punctuation/symbol combos (`~`, `` ` ``, `_`, `@`, `(`, `—`, `&`, `)`)
-- **Teal** (stripe `#d1f8fc`, label `#005b62`), labelled `lyr` — the R+T+A+E 4-key combo (layer toggle)
+- **Teal** (stripe `#d1f8fc`, label `#005b62`), labelled `lyr` — the R+T+A+E 4-key combo (layer toggle). It fires on every layer (on NAV, as cut + copy + ▼ + ▶, it toggles NAV lock), but is drawn only on BASE.
 
 The `lyr` stripe carries its link to the thumb keys by **hue**: teal is the layer-switching colour on BASE, so
 `lyr` and the `nav`/`num` thumbs read as one category despite being different element types. It is the minority
@@ -415,7 +415,7 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 **Row 2** (physical row 2: N R T S G / Y H A E I):
 | Keys | Output | Colour |
 |---|---|---|
-| R + T + A + E | `lyr` (layer toggle) | blue |
+| R + T + A + E | `lyr` (layer toggle) | teal |
 | S + G | `_` | pink |
 | Y + H | `@` | pink |
 | R + T + S | `del word` — 3-key brace | — |
@@ -433,33 +433,33 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 
 ### NAV layer combos (3 rows)
 
-**Row 1** (physical NAV row 1: esc ⌫ close min italic / edit ◀sel ▲ sel▶ lock):
+**Row 1** (physical NAV row 1: esc ⌫ close new italic / edit ◀sel ▲ sel▶ lock):
 | Keys | Output | Colour |
 |---|---|---|
 | ⌫ + close | `quit` | pink |
-| close + min | `new` | pink |
-| min + italic | `del file` | purple |
-| ◀sel + ▲ | `tab` / `◀` | teal |
-| ▲ + sel▶ | `tab` / `▶` | teal |
-| ⌫ + close + min | `tile left` — 3-key brace | — |
+| close + new | `min` | pink |
+| new + italic | `scr shot` | blue |
+| ◀sel + ▲ | `win` / `◀` | teal |
+| ▲ + sel▶ | `win` / `▶` | teal |
+| ⌫ + close + new | `tile left` — 3-key brace | — |
 
-**Row 2** (physical NAV row 2: ctrl cut copy paste bold / (blank) ◀ ▼ ▶ ⌫):
+**Row 2** (physical NAV row 2: ␣/ctrl cut copy paste bold / (blank) ◀ ▼ ▶ ⌦):
 | Keys | Output | Colour |
 |---|---|---|
 | cut + copy | `all` | green |
 | copy + paste | `pst text` | green |
-| paste + bold | `scr shot` | purple |
-| cut + copy + paste | `fullscreen` — 3-key brace | — |
+| paste + bold | `del file` | blue |
+| ◀ + ▼ | `tab` / `◀` | teal |
+| ▼ + ▶ | `tab` / `▶` | teal |
+| cut + copy + paste | `fill screen` — 3-key brace | — |
+| ◀ + ▼ + ▶ | `swap screen` — 3-key brace | — |
 
 **Row 3** (physical NAV row 3: undo redo save ↩ under / open alfred ▼sel switch ☺):
 | Keys | Output | Colour |
 |---|---|---|
-| redo + save | `zoom −` | purple |
-| save + ↩ | `zoom +` | purple |
-| alfred + ▼sel | `win` / `◀` | teal |
-| ▼sel + switch | `win` / `▶` | teal |
-| undo + redo + save | `tile right` — 3-key brace | — |
-| ◀ + ▼ + ▶ | `swap screen` — 3-key brace | — |
+| redo + save | `zoom −` | blue |
+| save + ↩ | `zoom +` | blue |
+| redo + save + ↩ | `tile right` — 3-key brace | — |
 
 ---
 
@@ -474,7 +474,7 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 | `.klps` | Thumb key sub-label (9px, teal) — also the `num` thumb's space glyph, at an inline 20px |
 | `.kln` | Navigation layer key label (11px) |
 | `.ico` | Icon/symbol key (24px, grey, light weight) |
-| `.sec` | Section title (BASE / NUMBERS / NAVIGATION) |
+| `.sec` | Section title (BASE / NUMBER / NAVIGATION) |
 | `.combo-key` | Combo key box (white fill, grey stroke) |
 | `.cl-m` | Base combo label, single char (12px) |
 | `.cl-s` | Combo label, multi-char (9px) |
