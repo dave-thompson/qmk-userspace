@@ -14,6 +14,12 @@
 							    // tap <space> -> hold <num> activates NUM
 
 
+// Combos //
+//--------//
+#define COMBO_ONLY_FROM_LAYER 0  // match all combos against BASE keycodes
+#define COMBO_SHOULD_TRIGGER     // per-layer filtering in combo_should_trigger							    
+
+
 // Lumberjack //
 //------------//
 #define LUMBERJACK_COLOR

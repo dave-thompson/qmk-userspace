@@ -366,7 +366,7 @@ bool get_speculative_hold(uint16_t keycode, keyrecord_t *record) {
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// -- BASE Row 1 --
+// -- BASE/NUM Row 1 --
 const uint16_t PROGMEM backtick[]     = {KC_QUOT, KC_F,             COMBO_END};
 const uint16_t PROGMEM tilde[]        = {KC_W,    KC_Z,             COMBO_END};
 const uint16_t PROGMEM hyphen[]       = {KC_D,    KC_W,             COMBO_END};
@@ -374,13 +374,13 @@ const uint16_t PROGMEM spanish[]      = {KC_L,    KC_D,    KC_O,    KC_U,    COM
 const uint16_t PROGMEM num_word[]     = {KC_L,    KC_D,    KC_W,    COMBO_END};
 const uint16_t PROGMEM caps_word[]    = {KC_F,    KC_O,    KC_U,    COMBO_END};
 
-// -- BASE Row 2 --
+// -- BASE/NUM Row 2 --
 const uint16_t PROGMEM underscore[]   = {SFT_S,   KC_G,             COMBO_END};
 const uint16_t PROGMEM at_sign[]      = {KC_Y,    SFT_H,            COMBO_END};
 const uint16_t PROGMEM del_word[]     = {ALT_R,   GUI_T,   SFT_S,   COMBO_END};
 const uint16_t PROGMEM enter[]        = {SFT_H,   GUI_A,   ALT_E,   COMBO_END};
 
-// -- BASE Row 3 --
+// -- BASE/NUM Row 3 --
 const uint16_t PROGMEM open_paren[]   = {KC_X,    KC_M,             COMBO_END};
 const uint16_t PROGMEM em_dash[]      = {KC_M,    KC_C,             COMBO_END};
 const uint16_t PROGMEM ampersand[]    = {KC_P,    KC_COMM,          COMBO_END};
@@ -388,120 +388,104 @@ const uint16_t PROGMEM close_paren[]  = {KC_COMM, KC_DOT,           COMBO_END};
 const uint16_t PROGMEM tab[]          = {KC_X,    KC_M,    KC_C,    COMBO_END};
 const uint16_t PROGMEM send_msg[]     = {KC_P,    KC_COMM, KC_DOT,  COMBO_END};
 
-// -- NUM Row 1 --
-const uint16_t PROGMEM hyphen_num[]   = {KC_PERC, KC_MINS,          COMBO_END};
-const uint16_t PROGMEM tilde_num[]    = {KC_MINS, KC_BSLS,          COMBO_END};
-const uint16_t PROGMEM backtick_num[] = {KC_PIPE, KC_PLUS,          COMBO_END};
-
-// -- NUM Row 2 --
-const uint16_t PROGMEM undrscr_num[]  = {SFT_4,   KC_LBRC,          COMBO_END};
-const uint16_t PROGMEM at_sign_num[]  = {KC_RBRC, SFT_7,            COMBO_END};
-const uint16_t PROGMEM del_word_num[] = {ALT_2,   GUI_3,   SFT_4,   COMBO_END};
-const uint16_t PROGMEM enter_num[]    = {SFT_7,   GUI_8,   ALT_9,   COMBO_END};
-
-// -- NUM Row 3 --
-const uint16_t PROGMEM opn_prn_num[]  = {KC_DLR,  POUND,            COMBO_END};
-const uint16_t PROGMEM em_dash_num[]  = {POUND,   KC_5,             COMBO_END};
-const uint16_t PROGMEM amprsd_num[]   = {KC_6,    KC_COMM,          COMBO_END};
-const uint16_t PROGMEM send_msg_num[] = {KC_6,    KC_COMM, KC_DOT,  COMBO_END};
-
 // -- NAV Row 1 --
-const uint16_t PROGMEM quit[]         = {KC_BSPC, CLOSE,            COMBO_END};
-const uint16_t PROGMEM minimize[]     = {CLOSE,   NEW,              COMBO_END};
-const uint16_t PROGMEM screenshot[]   = {NEW,     ITALIC,           COMBO_END};
-const uint16_t PROGMEM prev_tab[]     = {KC_LEFT, KC_DOWN,          COMBO_END};
-const uint16_t PROGMEM next_tab[]     = {KC_DOWN, KC_RGHT,          COMBO_END};
-const uint16_t PROGMEM left_screen[]  = {KC_BSPC, CLOSE,   NEW,     COMBO_END};
+const uint16_t PROGMEM quit[]         = {KC_L,    KC_D,             COMBO_END};
+const uint16_t PROGMEM minimize[]     = {KC_D,    KC_W,             COMBO_END};
+const uint16_t PROGMEM screenshot[]   = {KC_W,    KC_Z,             COMBO_END};
+const uint16_t PROGMEM prev_tab[]     = {SFT_H,   GUI_A,            COMBO_END};
+const uint16_t PROGMEM next_tab[]     = {GUI_A,   ALT_E,            COMBO_END};
+const uint16_t PROGMEM left_screen[]  = {KC_L,    KC_D,    KC_W,    COMBO_END};
 
 // -- NAV Row 2 --
-const uint16_t PROGMEM select_all[]   = {ALT_CUT, GUI_CPY,          COMBO_END};
-const uint16_t PROGMEM paste_plain[]  = {GUI_CPY, SFT_PST,          COMBO_END};
-const uint16_t PROGMEM del_file[]     = {SFT_PST, BOLD,             COMBO_END};
-const uint16_t PROGMEM fill_screen[]  = {ALT_CUT, GUI_CPY, SFT_PST, COMBO_END};
+const uint16_t PROGMEM select_all[]   = {ALT_R,   GUI_T,            COMBO_END};
+const uint16_t PROGMEM paste_plain[]  = {GUI_T,   SFT_S,            COMBO_END};
+const uint16_t PROGMEM del_file[]     = {SFT_S,   KC_G,             COMBO_END};
+const uint16_t PROGMEM fill_screen[]  = {ALT_R,   GUI_T,   SFT_S,   COMBO_END};
 
 // -- NAV Row 3 --
-const uint16_t PROGMEM zoom_out[]     = {REDO,    SAVE,             COMBO_END};
-const uint16_t PROGMEM zoom_in[]      = {SAVE,    KC_ENT,           COMBO_END};
-const uint16_t PROGMEM prev_win[]     = {SELWBAK, KC_UP,            COMBO_END};
-const uint16_t PROGMEM next_win[]     = {KC_UP,   SELWORD,          COMBO_END};
-const uint16_t PROGMEM right_screen[] = {REDO,    SAVE,    KC_ENT,  COMBO_END};
-const uint16_t PROGMEM swap_screen[]  = {KC_LEFT, KC_DOWN, KC_RGHT, COMBO_END};
+const uint16_t PROGMEM zoom_out[]     = {KC_X,    KC_M,             COMBO_END};
+const uint16_t PROGMEM zoom_in[]      = {KC_M,    KC_C,             COMBO_END};
+const uint16_t PROGMEM prev_win[]     = {KC_F,    KC_O,             COMBO_END};
+const uint16_t PROGMEM next_win[]     = {KC_O,    KC_U,             COMBO_END};
+const uint16_t PROGMEM right_screen[] = {KC_X,    KC_M,    KC_C,    COMBO_END};
+const uint16_t PROGMEM swap_screen[]  = {SFT_H,   GUI_A,   ALT_E,   COMBO_END};
 
-// -- Layer Lock (RTAE across all layers) --
-const uint16_t PROGMEM lyr_lock_base[] = {ALT_R,   GUI_T,   GUI_A,   ALT_E,   COMBO_END};
-const uint16_t PROGMEM lyr_lock_num[]  = {ALT_2,   GUI_3,   GUI_8,   ALT_9,   COMBO_END};
-const uint16_t PROGMEM lyr_lock_nav[]  = {ALT_CUT, GUI_CPY, KC_DOWN, KC_RGHT, COMBO_END};
+// -- Layer Lock (RTAE on every layer) --
+const uint16_t PROGMEM lyr_lock[]     = {ALT_R,   GUI_T,   GUI_A,   ALT_E,   COMBO_END};
 
 
+// BASE/NUM combos (only on BASE/NUM)
+#define BASE_COMBOS                                                           \
+                                                                              \
+  /* BASE/NUM Row 1 */                                                        \
+  X(backtick,     KC_GRV)         /* ' + F              => `              */  \
+  X(tilde,        KC_TILD)        /* W + Z              => ~              */  \
+  X(hyphen,       KC_MINS)        /* D + W              => -              */  \
+  X(spanish,      SPANISH)        /* L + D + O + U      => Spanish        */  \
+  X(num_word,     NUM_WRD)        /* L + D + W          => Num Word       */  \
+  X(caps_word,    CW_TOGG)        /* F + O + U          => Caps Word      */  \
+                                                                              \
+  /* BASE/NUM Row 2 */                                                        \
+  X(underscore,   KC_UNDS)        /* S + G              => _              */  \
+  X(at_sign,      KC_AT)          /* Y + H              => @              */  \
+  X(del_word,     A(KC_BSPC))     /* R + T + S          => Delete Word    */  \
+  X(enter,        KC_ENTER)       /* H + A + E          => Enter          */  \
+                                                                              \
+  /* BASE/NUM Row 3 */                                                        \
+  X(open_paren,   KC_LPRN)        /* X + M              => (              */  \
+  X(em_dash,      S(A(KC_MINS)))  /* M + C              => —              */  \
+  X(ampersand,    KC_AMPR)        /* P + ,              => &              */  \
+  X(close_paren,  KC_RPRN)        /* , + .              => )              */  \
+  X(tab,          KC_TAB)         /* X + M + C          => Tab            */  \
+  X(send_msg,     G(KC_ENTER))    /* P + , + .          => Send (Cmd+Ent) */
+
+// NAV combos (only on NAV)
+#define NAV_COMBOS                                                            \
+                                                                              \
+  /* NAV Row 1 */                                                             \
+  X(quit,         G(KC_Q))        /* ⌫ + close          => Quit           */  \
+  X(minimize,     MINIM)          /* close + new        => Minimize       */  \
+  X(screenshot,   G(S(KC_4)))     /* min + italic       => Screenshot     */  \
+  X(prev_tab,     C(S(KC_TAB)))   /* ◀ + ▼              => Previous Tab   */  \
+  X(next_tab,     C(KC_TAB))      /* ▼ + ▶              => Next Tab       */  \
+  X(left_screen,  HYPR(KC_L))     /* ⌫ + close + min    => Tile Left      */  \
+                                                                              \
+  /* NAV Row 2 */                                                             \
+  X(select_all,   G(KC_A))        /* cut + copy         => Select All     */  \
+  X(paste_plain,  C(KC_V))        /* copy + paste       => Plain Paste    */  \
+  X(del_file,     G(KC_BSPC))     /* paste + bold       => Delete File    */  \
+  X(fill_screen,  HYPR(KC_F))     /* cut + copy + paste => Fill Screen    */  \
+                                                                              \
+  /* NAV Row 3 */                                                             \
+  X(zoom_out,     G(KC_MINS))     /* redo + save        => Zoom Out       */  \
+  X(zoom_in,      G(KC_EQL))      /* save + ↩           => Zoom In        */  \
+  X(prev_win,     S(G(KC_GRV)))   /* ◀sel + ▲           => Prev Window    */  \
+  X(next_win,     G(KC_GRV))      /* ▲ + sel▶           => Next Window    */  \
+  X(right_screen, HYPR(KC_R))     /* redo + save + ↩    => Tile Right     */  \
+  X(swap_screen,  HYPR(KC_D))     /* ◀ + ▼ + ▶          => Swap Screen    */
+
+
+#define X(name, output) COMBO(name, output),
 combo_t key_combos[] = {
-
-  // BASE Row 1
-  COMBO(backtick,    KC_GRV),            // ' + F             => `
-  COMBO(tilde,       KC_TILD),           // W + Z             => ~
-  COMBO(hyphen,      KC_MINS),           // D + W             => -
-  COMBO(spanish,     SPANISH),           // L + D + O + U     => Spanish
-  COMBO(num_word,    NUM_WRD),           // L + D + W         => Num Word
-  COMBO(caps_word,   CW_TOGG),           // F + O + U         => Caps Word
-
-  // BASE Row 2
-  COMBO(underscore,  KC_UNDS),           // S + G             => _
-  COMBO(at_sign,     KC_AT),             // Y + H             => @
-  COMBO(del_word,    A(KC_BSPC)),        // R + T + S         => Delete Word
-  COMBO(enter,       KC_ENTER),          // H + A + E         => Enter
-
-  // BASE Row 3
-  COMBO(open_paren,  KC_LPRN),           // X + M             => (
-  COMBO(em_dash,     S(A(KC_MINS))),     // M + C             => —
-  COMBO(ampersand,   KC_AMPR),           // P + ,             => &
-  COMBO(close_paren, KC_RPRN),           // , + .             => )
-  COMBO(tab,         KC_TAB),            // X + M + C         => Tab
-  COMBO(send_msg,    G(KC_ENTER)),       // P + , + .         => Send (Cmd+Enter)
-
-  // NUM Row 1
-  COMBO(hyphen_num,   KC_MINS),          // % + -             => -
-  COMBO(tilde_num,    KC_TILD),          // - + \             => ~
-  COMBO(backtick_num, KC_GRV),           // | + +             => `
-
-  // NUM Row 2
-  COMBO(undrscr_num,  KC_UNDS),          // 4 + [             => _
-  COMBO(at_sign_num,  KC_AT),            // ] + 7             => @
-  COMBO(del_word_num, A(KC_BSPC)),       // 2 + 3 + 4         => Delete Word
-  COMBO(enter_num,    KC_ENTER),         // 7 + 8 + 9         => Enter
-
-  // NUM Row 3
-  COMBO(opn_prn_num,  KC_LPRN),          // $ + £             => (
-  COMBO(em_dash_num,  S(A(KC_MINS))),    // £ + 5             => —
-  COMBO(amprsd_num,   KC_AMPR),          // 6 + ,             => &
-  COMBO(send_msg_num, G(KC_ENTER)),      // 6 + , + .         => Send (Cmd+Enter)
-
-  // NAV Row 1
-  COMBO(quit,        G(KC_Q)),           // ⌫ + close         => Quit
-  COMBO(minimize,    MINIM),             // close + new       => Minimize
-  COMBO(screenshot,  G(S(KC_4))),        // min + italic      => Screenshot
-  COMBO(prev_tab,    C(S(KC_TAB))),      // ◀ + ▼             => Previous Tab
-  COMBO(next_tab,    C(KC_TAB)),         // ▼ + ▶             => Next Tab
-  COMBO(left_screen, HYPR(KC_L)),        // ⌫ + close + min   => Tile Left
-
-  // NAV Row 2
-  COMBO(select_all,  G(KC_A)),           // cut + copy        => Select All
-  COMBO(paste_plain, C(KC_V)),           // copy + paste      => Plain Paste
-  COMBO(del_file,    G(KC_BSPC)),        // paste + bold      => Delete File
-  COMBO(fill_screen, HYPR(KC_F)),        // cut + copy + paste => Fill Screen
-
-  // NAV Row 3
-  COMBO(zoom_out,    G(KC_MINS)),        // redo + save       => Zoom Out
-  COMBO(zoom_in,     G(KC_EQL)),         // save + ↩          => Zoom In
-  COMBO(prev_win,    S(G(KC_GRV))),      // ◀sel + ▲          => Previous Window (current app)
-  COMBO(next_win,    G(KC_GRV)),         // ▲ + sel▶          => Next Window (current app)
-  COMBO(right_screen, HYPR(KC_R)),       // redo + save + ↩   => Tile Right
-  COMBO(swap_screen,  HYPR(KC_D)),       // ◀ + ▼ + ▶         => Swap Screen
-
-  // ALL layers — Layer Toggle/Lock (RTAE)
-  COMBO(lyr_lock_base, LYR_TOG),        // R + T + A + E      => Toggle BASE/NUM
-  COMBO(lyr_lock_num,  LYR_TOG),        // 2 + 3 + 8 + 9      => Toggle BASE/NUM
-  COMBO(lyr_lock_nav,  LYR_TOG),        // cut + copy + ▼ + ▶ => Toggle NAV Lock
-
+  BASE_COMBOS
+  COMBO(lyr_lock, LYR_TOG),  // R + T + A + E => Toggle BASE/NUM, or NAV Lock
+  NAV_COMBOS                 // must come last: see combo_should_trigger
 };
+#undef X
+
+// Number of NAV combos
+#define X(name, output) + 1
+enum { NAV_COMBO_COUNT = 0 NAV_COMBOS };
+#undef X
+
+// Should this combo fire on this layer?
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo,
+                          uint16_t keycode, keyrecord_t *record) {
+  if (combo->keycode == LYR_TOG) return true; // lyr tog fires on all layers
+
+  bool is_nav_combo = combo_index >= ARRAY_SIZE(key_combos) - NAV_COMBO_COUNT;
+  return is_nav_combo == layer_state_is(NAV);
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////
