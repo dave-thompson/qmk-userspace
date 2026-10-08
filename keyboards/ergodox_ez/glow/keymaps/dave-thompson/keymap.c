@@ -197,7 +197,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     _______, _______,
     _______,
-    _______, _______, _______
+    _______, _______, KC_SPC
 
   ),
 
@@ -240,7 +240,8 @@ SWITCHER_SECONDARY_KEYS(
   {KC_DOWN, KC_DOWN},     // 'down' functions as usual
   {CTL_SPC, KC_Q},        // left pinky sends 'Q' to quit app
   {SFT_PST, KC_H},        // left index sends 'H' to hide app
-  {NUM_SPC, KC_GRAVE},    // space sends 'backtick' to cycle apps in exposé
+  {NUM_SPC, KC_GRAVE},    // { space sends 'backtick' to cycle apps in exposé
+  {KC_SPC, KC_GRAVE},     // {
 );
 
 
