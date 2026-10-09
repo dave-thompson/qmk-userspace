@@ -356,12 +356,12 @@ Each combo key in the grid may have a **coloured stripe** on its left or right e
 The stripe colour identifies the combo's output category, and differs by layer:
 
 **BASE layer combos:**
-- **Pink** (stripe `#ffe0ff`, label `#703472`) — punctuation/symbol combos (`~`, `` ` ``, `_`, `@`, `(`, `—`, `&`, `)`)
+- **Pink** (stripe `#ffe0ff`, label `#703472`) — punctuation/symbol combos (`` ` ``, `_`, `@`, `(` / `{`, `-`, `&`, `)` / `}`)
 - **Teal** (stripe `#d1f8fc`, label `#005b62`), labelled `lyr` — the R+T+A+E 4-key combo (layer toggle). It fires on every layer (on NAV, as cut + copy + ▼ + ▶, it toggles NAV lock), but is drawn only on BASE.
 
 The `lyr` stripe carries its link to the thumb keys by **hue**: teal is the layer-switching colour on BASE, so
 `lyr` and the `nav`/`num` thumbs read as one category despite being different element types. It is the minority
-colour in its own grid — four teal stripes among sixteen pink — which makes it easy to pick out.
+colour in its own grid — four teal stripes among fourteen pink — which makes it easy to pick out.
 
 ### Combos that are deliberately not drawn
 
@@ -370,11 +370,14 @@ Some combos exist in `keymap.c` but are intentionally omitted from this diagram.
 | Combo | Output | Defined in `keymap.c` as |
 |---|---|---|
 | L + D + O + U | Spanish input | `spanish[]` |
-| D + W | `-` (hyphen) | `hyphen[]` |
+
+The M + C hyphen combo also has an undrawn **custom shift**: shifted, it sends ` — ` (space, em dash, space). Its label shows only `-`, unlike the stacked `(` / `{` and `)` / `}` labels.
 
 The diagram is a legibility aid rather than an exhaustive index — the combo grid only stays readable at a glance with so many stripes on it. Which combos are omitted is a presentation choice and may change between iterations; `keymap.c` remains the complete and authoritative list.
 
-One visible consequence: in BASE combo row 1 the `D` position now carries no stripe at all. It is still part of the L+D+W `num word` brace below it — braces and stripes are independent annotations, so an unstriped key may still appear in a brace.
+One visible consequence: in BASE combo row 1 only `W` and `Z` carry stripes. `L`, `D`, `F`, `O` and `U` appear only in the `num word` and `caps word` braces below them — braces and stripes are independent annotations, so an unstriped key may still appear in a brace.
+
+The `'` position in that row is the one exception to "a combo key means a used position": it is a blank box, in no combo or brace, drawn purely so row 1 mirrors `Z` across the split.
 
 **NAV layer combos:**
 - **Pink** (stripe `#ffe0ff`) — window management (`quit`, `min`)
@@ -392,6 +395,7 @@ occupies the left half of the NAV grid, teal the right — so the two do not hav
 The output of each combo is shown as a label **centred between the two (or three) involved keys**:
 - Single-character outputs use a larger font (`cl-m` class, 12px).
 - Multi-character or two-line outputs use a smaller font (`cl-s` class, 9px), sometimes with two `<tspan>` lines.
+- A combo with a custom shift shows **both outputs stacked, shifted on top** — `{` over `(`, `}` over `)` — as a keycap would. They use `cl-s` with an inline 11px size: two 12px lines do not fit the 28px combo height, and 9px reads too light beside the single-character `cl-m` labels next to them. The shifted glyph is faded to `fill-opacity:0.55` so the tapped output leads; shrinking it instead was tried and lost it entirely at actual size. Side by side was tried and rejected: the 29px gap between combo keys left the glyphs crowding the keys on either side.
 
 ### The brace annotation
 Some combos also have a **bracket/brace** drawn below the combo row, spanning the involved keys, with a grey label underneath. This indicates a **three-key combo** (all three keys in the span must be pressed simultaneously). The label names the action.
@@ -407,8 +411,7 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 **Row 1** (corresponding to physical row 1: B L D W Z / ' F O U J):
 | Keys | Output | Colour | Notes |
 |---|---|---|---|
-| W + Z | `~` | pink | tilde |
-| ' + F | `` ` `` | pink | backtick |
+| W + Z | `` ` `` | pink | backtick |
 | L + D + W | `num word` | — | 3-key brace |
 | F + O + U | `caps word` | — | 3-key brace |
 
@@ -424,10 +427,10 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 **Row 3** (physical row 3: Q X M C V / K P , . :;):
 | Keys | Output | Colour |
 |---|---|---|
-| X + M | `(` | pink |
-| M + C | `—` (em dash) | pink |
+| X + M | `(` — shifted `{` | pink |
+| M + C | `-` (hyphen) | pink |
 | P + , | `&` | pink |
-| , + . | `)` | pink |
+| , + . | `)` — shifted `}` | pink |
 | X + M + C | `tab` — 3-key brace | — |
 | P + , + . | `send` (Cmd+Enter) — 3-key brace | — |
 
