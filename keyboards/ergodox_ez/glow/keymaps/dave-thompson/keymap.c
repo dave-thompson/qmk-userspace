@@ -368,21 +368,19 @@ bool get_speculative_hold(uint16_t keycode, keyrecord_t *record) {
 ///////////////////////////////////////////////////////////////////////////////
 
 // -- BASE/NUM Row 1 --
-const uint16_t PROGMEM backtick[]     = {KC_W,    KC_Z,             COMBO_END};
+const uint16_t PROGMEM hyphen[]       = {KC_D,    KC_W,             COMBO_END};
 const uint16_t PROGMEM spanish[]      = {KC_L,    KC_D,    KC_O,    KC_U,    COMBO_END};
 const uint16_t PROGMEM num_word[]     = {KC_L,    KC_D,    KC_W,    COMBO_END};
 const uint16_t PROGMEM caps_word[]    = {KC_F,    KC_O,    KC_U,    COMBO_END};
 
 // -- BASE/NUM Row 2 --
-const uint16_t PROGMEM underscore[]   = {SFT_S,   KC_G,             COMBO_END};
-const uint16_t PROGMEM at_sign[]      = {KC_Y,    SFT_H,            COMBO_END};
 const uint16_t PROGMEM del_word[]     = {ALT_R,   GUI_T,   SFT_S,   COMBO_END};
 const uint16_t PROGMEM enter[]        = {SFT_H,   GUI_A,   ALT_E,   COMBO_END};
 
 // -- BASE/NUM Row 3 --
 const uint16_t PROGMEM open_paren[]   = {KC_X,    KC_M,             COMBO_END};
-const uint16_t PROGMEM hyphen[]       = {KC_M,    KC_C,             COMBO_END};
-const uint16_t PROGMEM ampersand[]    = {KC_P,    KC_COMM,          COMBO_END};
+const uint16_t PROGMEM underscore[]   = {KC_M,    KC_C,             COMBO_END};
+const uint16_t PROGMEM at_sign[]      = {KC_P,    KC_COMM,          COMBO_END};
 const uint16_t PROGMEM close_paren[]  = {KC_COMM, KC_DOT,           COMBO_END};
 const uint16_t PROGMEM tab[]          = {KC_X,    KC_M,    KC_C,    COMBO_END};
 const uint16_t PROGMEM send_msg[]     = {KC_P,    KC_COMM, KC_DOT,  COMBO_END};
@@ -417,21 +415,19 @@ const uint16_t PROGMEM lyr_lock[]     = {ALT_R,   GUI_T,   GUI_A,   ALT_E,   COM
 #define BASE_COMBOS                                                           \
                                                                               \
   /* BASE/NUM Row 1 */                                                        \
-  X(backtick,     KC_GRV)         /* W + Z              => `              */  \
+  X(hyphen,       KC_MINS)        /* D + W              => - " — "        */  \
   X(spanish,      SPANISH)        /* L + D + O + U      => Spanish        */  \
   X(num_word,     NUM_WRD)        /* L + D + W          => Num Word       */  \
   X(caps_word,    CW_TOGG)        /* F + O + U          => Caps Word      */  \
                                                                               \
   /* BASE/NUM Row 2 */                                                        \
-  X(underscore,   KC_UNDS)        /* S + G              => _              */  \
-  X(at_sign,      KC_AT)          /* Y + H              => @              */  \
   X(del_word,     A(KC_BSPC))     /* R + T + S          => Delete Word    */  \
   X(enter,        KC_ENTER)       /* H + A + E          => Enter          */  \
                                                                               \
   /* BASE/NUM Row 3 */                                                        \
   X(open_paren,   KC_LPRN)        /* X + M              => ( {            */  \
-  X(hyphen,       KC_MINS)        /* M + C              => - " — "        */  \
-  X(ampersand,    KC_AMPR)        /* P + ,              => &              */  \
+  X(underscore,   KC_UNDS)        /* M + C              => _ `            */  \
+  X(at_sign,      KC_AT)          /* P + ,              => @ &            */  \
   X(close_paren,  KC_RPRN)        /* , + .              => ) }            */  \
   X(tab,          KC_TAB)         /* X + M + C          => Tab            */  \
   X(send_msg,     G(KC_ENTER))    /* P + , + .          => Send (Cmd+Ent) */
@@ -547,6 +543,7 @@ bool rgb_matrix_indicators_user(void) {
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Custom Shifts:  {, —> ?}  {. —> !}  {: —> ;}  {( —> {}  {) —> }}  {- —> " — "}
+//                 {_ —> `}  {@ —> &}
 //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -579,6 +576,8 @@ bool custom_shift(uint16_t keycode, keyrecord_t *record) {
     else if (keycode == KC_COLN) shifted_code = KC_SCLN;
     else if (keycode == KC_LPRN) shifted_code = KC_LCBR;
     else if (keycode == KC_RPRN) shifted_code = KC_RCBR;
+    else if (keycode == KC_UNDS) shifted_code = KC_GRV;
+    else if (keycode == KC_AT)   shifted_code = KC_AMPR;
     // if so, clear shift, send the custom keypress, and reinstate shift
     if (shifted_code != KC_NO) {
       uint8_t saved_mods = get_mods();

@@ -112,16 +112,12 @@
   <rect x="92"  y="286" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="153" y="286" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="214" y="286" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="275" y="286" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="363" y="286" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="424" y="286" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="485" y="286" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="546" y="286" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="92"  y="339" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="153" y="339" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="214" y="339" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="275" y="339" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
-  <rect x="363" y="339" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="424" y="339" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="485" y="339" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="546" y="339" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
@@ -133,19 +129,15 @@
   <rect x="546" y="392" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
 </g>
 
-<!-- Shading row 1: WZ(`) pink -->
-<rect x="235" y="286" width="11" height="28" fill="#ffe0ff" clip-path="url(#br1c4)"/>
-<rect x="275" y="286" width="11" height="28" fill="#ffe0ff" clip-path="url(#br1c5)"/>
-<!-- Shading row 2: RT(lyr) teal, SG(_) pink, YH(@) pink, AE(lyr) teal -->
+<!-- Shading row 1: DW(-) pink -->
+<rect x="174" y="286" width="11" height="28" fill="#ffe0ff" clip-path="url(#br1c3)"/>
+<rect x="214" y="286" width="11" height="28" fill="#ffe0ff" clip-path="url(#br1c4)"/>
+<!-- Shading row 2: RT(lyr) teal, AE(lyr) teal -->
 <rect x="113" y="339" width="11" height="28" fill="#d1f8fc" clip-path="url(#br2c2)"/>
 <rect x="153" y="339" width="11" height="28" fill="#d1f8fc" clip-path="url(#br2c3)"/>
-<rect x="235" y="339" width="11" height="28" fill="#ffe0ff" clip-path="url(#br2c4)"/>
-<rect x="275" y="339" width="11" height="28" fill="#ffe0ff" clip-path="url(#br2c5)"/>
-<rect x="384" y="339" width="11" height="28" fill="#ffe0ff" clip-path="url(#br2c6)"/>
-<rect x="424" y="339" width="11" height="28" fill="#ffe0ff" clip-path="url(#br2c7)"/>
 <rect x="506" y="339" width="11" height="28" fill="#d1f8fc" clip-path="url(#br2c8)"/>
 <rect x="546" y="339" width="11" height="28" fill="#d1f8fc" clip-path="url(#br2c9)"/>
-<!-- Shading row 3: XM(() MC(-) P,(&) ,.()) — all pink -->
+<!-- Shading row 3: XM(() MC(_) P,(@) ,.()) — all pink -->
 <rect x="113" y="392" width="11" height="28" fill="#ffe0ff" clip-path="url(#br3c2)"/>
 <rect x="153" y="392" width="11" height="28" fill="#ffe0ff" clip-path="url(#br3c3)"/>
 <rect x="174" y="392" width="11" height="28" fill="#ffe0ff" clip-path="url(#br3c3)"/>
@@ -155,17 +147,15 @@
 <rect x="506" y="392" width="11" height="28" fill="#ffe0ff" clip-path="url(#br3c8)"/>
 <rect x="546" y="392" width="11" height="28" fill="#ffe0ff" clip-path="url(#br3c9)"/>
 
-<!-- ROW 1 labels: `=WZ -->
-<text x="260" y="304" class="cl-m" fill="#703472">`</text>
-<!-- ROW 2 labels: lyr=RT, _=SG, @=YH, lyr=AE -->
+<!-- ROW 1 labels: -=DW -->
+<text x="199" y="304" class="cl-m" fill="#703472">-</text>
+<!-- ROW 2 labels: lyr=RT, lyr=AE -->
 <text x="138" y="357" class="cl-s" fill="#005b62" text-anchor="middle">lyr</text>
-<text x="260" y="357" class="cl-m" fill="#703472">_</text>
-<text x="409" y="357" class="cl-m" fill="#703472">@</text>
 <text x="531" y="357" class="cl-s" fill="#005b62" text-anchor="middle">lyr</text>
-<!-- ROW 3 labels: ({=XM, -=MC, &=P,, )}=,. -->
+<!-- ROW 3 labels: ({=XM, _`=MC, @&=P,, )}=,. -->
 <text class="cl-s" fill="#703472" style="font-size:11px;"><tspan x="138" y="402" style="fill-opacity:0.55;">{</tspan><tspan x="138" y="418">(</tspan></text>
-<text x="199" y="410" class="cl-m" fill="#703472">-</text>
-<text x="470" y="410" class="cl-m" fill="#703472">&amp;</text>
+<text class="cl-s" fill="#703472" style="font-size:11px;"><tspan x="199" y="409" style="fill-opacity:0.55; font-size:15px;">`</tspan><tspan x="199" y="414">_</tspan></text>
+<text class="cl-s" fill="#703472" style="font-size:11px;"><tspan x="470" y="402" style="fill-opacity:0.55;">&amp;</tspan><tspan x="470" y="418">@</tspan></text>
 <text class="cl-s" fill="#703472" style="font-size:11px;"><tspan x="531" y="402" style="fill-opacity:0.55;">}</tspan><tspan x="531" y="418">)</tspan></text>
 
 <!-- ROW 1 braces -->
