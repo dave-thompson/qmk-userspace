@@ -356,7 +356,7 @@ Each combo key in the grid may have a **coloured stripe** on its left or right e
 The stripe colour identifies the combo's output category, and differs by layer:
 
 **BASE layer combos:**
-- **Pink** (stripe `#ffe0ff`, label `#703472`) — punctuation/symbol combos (`-`, `(` / `{`, `_` / `` ` ``, `@` / `&`, `)` / `}`)
+- **Pink** (stripe `#ffe0ff`, label `#703472`) — punctuation/symbol combos (`-`, `(` / `[`, `_` / `` ` ``, `@` / `&`, `)` / `]`)
 - **Teal** (stripe `#d1f8fc`, label `#005b62`), labelled `lyr` — the R+T+A+E 4-key combo (layer toggle). It fires on every layer (on NAV, as cut + copy + ▼ + ▶, it toggles NAV lock), but is drawn only on BASE.
 
 The `lyr` stripe carries its link to the thumb keys by **hue**: teal is the layer-switching colour on BASE, so
@@ -393,7 +393,7 @@ occupies the left half of the NAV grid, teal the right — so the two do not hav
 The output of each combo is shown as a label **centred between the two (or three) involved keys**:
 - Single-character outputs use a larger font (`cl-m` class, 12px).
 - Multi-character or two-line outputs use a smaller font (`cl-s` class, 9px), sometimes with two `<tspan>` lines.
-- A combo with a custom shift shows **both outputs stacked, shifted on top** — `{` over `(`, `` ` `` over `_`, `&` over `@`, `}` over `)` — as a keycap would. `` ` `` over `_` sits at y 408/414 rather than the usual 402/418: the backtick rides high in the em box and the underscore low, so at the standard spacing the pair read visibly further apart than the others. The backtick is also drawn at 15px, since at 11px — and faded — it was barely visible. They use `cl-s` with an inline 11px size: two 12px lines do not fit the 28px combo height, and 9px reads too light beside the single-character `cl-m` labels next to them. The shifted glyph is faded to `fill-opacity:0.55` so the tapped output leads; shrinking it instead was tried and lost it entirely at actual size. Side by side was tried and rejected: the 29px gap between combo keys left the glyphs crowding the keys on either side.
+- A combo with a custom shift shows **both outputs stacked, shifted on top** — `[` over `(`, `` ` `` over `_`, `&` over `@`, `]` over `)` — as a keycap would. `` ` `` over `_` sits at y 408/414 rather than the usual 402/418: the backtick rides high in the em box and the underscore low, so at the standard spacing the pair read visibly further apart than the others. The backtick is also drawn at 15px, since at 11px — and faded — it was barely visible. They use `cl-s` with an inline 11px size: two 12px lines do not fit the 28px combo height, and 9px reads too light beside the single-character `cl-m` labels next to them. The shifted glyph is faded to `fill-opacity:0.55` so the tapped output leads; shrinking it instead was tried and lost it entirely at actual size. Side by side was tried and rejected: the 29px gap between combo keys left the glyphs crowding the keys on either side.
 
 ### The brace annotation
 Some combos also have a **bracket/brace** drawn below the combo row, spanning the involved keys, with a grey label underneath. This indicates a **three-key combo** (all three keys in the span must be pressed simultaneously). The label names the action.
@@ -423,10 +423,10 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 **Row 3** (physical row 3: Q X M C V / K P , . :;):
 | Keys | Output | Colour |
 |---|---|---|
-| X + M | `(` — shifted `{` | pink |
+| X + M | `(` — shifted `[` | pink |
 | M + C | `_` — shifted `` ` `` | pink |
 | P + , | `@` — shifted `&` | pink |
-| , + . | `)` — shifted `}` | pink |
+| , + . | `)` — shifted `]` | pink |
 | X + M + C | `tab` — 3-key brace | — |
 | P + , + . | `send` (Cmd+Enter) — 3-key brace | — |
 

@@ -152,11 +152,11 @@
 <!-- ROW 2 labels: lyr=RT, lyr=AE -->
 <text x="138" y="357" class="cl-s" fill="#005b62" text-anchor="middle">lyr</text>
 <text x="531" y="357" class="cl-s" fill="#005b62" text-anchor="middle">lyr</text>
-<!-- ROW 3 labels: ({=XM, _`=MC, @&=P,, )}=,. -->
-<text class="cl-s" fill="#703472" style="font-size:11px;"><tspan x="138" y="402" style="fill-opacity:0.55;">{</tspan><tspan x="138" y="418">(</tspan></text>
+<!-- ROW 3 labels: ([=XM, _`=MC, @&=P,, )]=,. -->
+<text class="cl-s" fill="#703472" style="font-size:11px;"><tspan x="138" y="402" style="fill-opacity:0.55;">[</tspan><tspan x="138" y="418">(</tspan></text>
 <text class="cl-s" fill="#703472" style="font-size:11px;"><tspan x="199" y="409" style="fill-opacity:0.55; font-size:15px;">`</tspan><tspan x="199" y="414">_</tspan></text>
 <text class="cl-s" fill="#703472" style="font-size:11px;"><tspan x="470" y="402" style="fill-opacity:0.55;">&amp;</tspan><tspan x="470" y="418">@</tspan></text>
-<text class="cl-s" fill="#703472" style="font-size:11px;"><tspan x="531" y="402" style="fill-opacity:0.55;">}</tspan><tspan x="531" y="418">)</tspan></text>
+<text class="cl-s" fill="#703472" style="font-size:11px;"><tspan x="531" y="402" style="fill-opacity:0.55;">]</tspan><tspan x="531" y="418">)</tspan></text>
 
 <!-- ROW 1 braces -->
 <!-- LDW: num word -->
@@ -232,10 +232,10 @@
 <rect x="20"  y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="47"  y="630" text-anchor="middle" dominant-baseline="central" class="kl">#</text>
 <rect x="81"  y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="108" y="630" text-anchor="middle" dominant-baseline="central" class="kl">~</text>
 <rect x="142" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="169" y="630" text-anchor="middle" dominant-baseline="central" class="kl">$</text>
-<rect x="203" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="230" y="630" text-anchor="middle" dominant-baseline="central" class="kl">[</text>
-<rect x="264" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="291" y="630" text-anchor="middle" dominant-baseline="central" class="kl">|</text>
-<rect x="352" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="630" text-anchor="middle" dominant-baseline="central" class="kl">&#163;</text>
-<rect x="413" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="440" y="630" text-anchor="middle" dominant-baseline="central" class="kl">]</text>
+<rect x="203" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="230" y="630" text-anchor="middle" dominant-baseline="central" class="kl">&#163;</text>
+<rect x="264" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="291" y="630" text-anchor="middle" dominant-baseline="central" class="kl">{</text>
+<rect x="352" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="630" text-anchor="middle" dominant-baseline="central" class="kl">}</text>
+<rect x="413" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="440" y="630" text-anchor="middle" dominant-baseline="central" class="kl">|</text>
 <rect x="474" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="501" y="630" text-anchor="middle" dominant-baseline="central" class="kl">,</text>
 <rect x="535" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="562" y="630" text-anchor="middle" dominant-baseline="central" class="kl">.</text>
 <rect x="596" y="607" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="623" y="630" text-anchor="middle" dominant-baseline="central" class="kl">:</text>

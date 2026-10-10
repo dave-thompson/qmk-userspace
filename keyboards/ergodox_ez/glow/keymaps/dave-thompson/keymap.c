@@ -155,7 +155,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______,      
     _______, KC_LABK, KC_SLSH, KC_PERC, KC_MINS, KC_BSLS, _______,
     _______, CTL_1,   ALT_2,   GUI_3,   SFT_4,   KC_5,
-    _______, HASH,    KC_TILD, KC_DLR,  KC_LBRC, KC_PIPE, _______,      
+    _______, HASH,    KC_TILD, KC_DLR,  POUND,   KC_LCBR, _______,      
     _______, _______, _______, _______, _______,                        
 
                                                  _______, _______,  
@@ -166,7 +166,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______,
     _______, KC_CIRC, KC_PLUS, KC_EQL,  KC_ASTR, KC_RABK, _______,
              KC_6,    SFT_7,   GUI_8,   ALT_9,   CTL_0,   _______,
-    _______, POUND,   KC_RBRC, KC_COMM, KC_DOT,  KC_COLN, _______,
+    _______, KC_RCBR, KC_PIPE, KC_COMM, KC_DOT,  KC_COLN, _______,
                       _______, _______, _______, _______, _______,
 
     _______, _______,
@@ -425,10 +425,10 @@ const uint16_t PROGMEM lyr_lock[]     = {ALT_R,   GUI_T,   GUI_A,   ALT_E,   COM
   X(enter,        KC_ENTER)       /* H + A + E          => Enter          */  \
                                                                               \
   /* BASE/NUM Row 3 */                                                        \
-  X(open_paren,   KC_LPRN)        /* X + M              => ( {            */  \
+  X(open_paren,   KC_LPRN)        /* X + M              => ( [            */  \
   X(underscore,   KC_UNDS)        /* M + C              => _ `            */  \
   X(at_sign,      KC_AT)          /* P + ,              => @ &            */  \
-  X(close_paren,  KC_RPRN)        /* , + .              => ) }            */  \
+  X(close_paren,  KC_RPRN)        /* , + .              => ) ]            */  \
   X(tab,          KC_TAB)         /* X + M + C          => Tab            */  \
   X(send_msg,     G(KC_ENTER))    /* P + , + .          => Send (Cmd+Ent) */
 
@@ -542,7 +542,7 @@ bool rgb_matrix_indicators_user(void) {
 
 ///////////////////////////////////////////////////////////////////////////////
 //
-// Custom Shifts:  {, —> ?}  {. —> !}  {: —> ;}  {( —> {}  {) —> }}  {- —> " — "}
+// Custom Shifts:  {, —> ?}  {. —> !}  {: —> ;}  {( —> [}  {) —> ]}  {- —> " — "}
 //                 {_ —> `}  {@ —> &}
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -574,8 +574,8 @@ bool custom_shift(uint16_t keycode, keyrecord_t *record) {
     if (keycode == KC_COMM) shifted_code = KC_QUES;
     else if (keycode == KC_DOT) shifted_code = KC_EXLM;
     else if (keycode == KC_COLN) shifted_code = KC_SCLN;
-    else if (keycode == KC_LPRN) shifted_code = KC_LCBR;
-    else if (keycode == KC_RPRN) shifted_code = KC_RCBR;
+    else if (keycode == KC_LPRN) shifted_code = KC_LBRC;
+    else if (keycode == KC_RPRN) shifted_code = KC_RBRC;
     else if (keycode == KC_UNDS) shifted_code = KC_GRV;
     else if (keycode == KC_AT)   shifted_code = KC_AMPR;
     // if so, clear shift, send the custom keypress, and reinstate shift
