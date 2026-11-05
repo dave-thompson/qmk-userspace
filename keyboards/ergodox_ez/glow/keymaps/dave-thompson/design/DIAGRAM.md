@@ -126,11 +126,11 @@ eight colours of [this colorkit palette](https://colorkit.co/palette/ffadad-ffd6
 
 | Hue | Meaning | Base tint | Stripe | Key fill | Stroke | Dark (labels) |
 |---|---|---|---|---|---|---|
-| Pink | punctuation (BASE) · window mgmt (NAV) | `#ffc6ff` | `#ffe0ff` | `#ffe7ff` ¶ | `#eea7ef` ‖ | `#703472` |
+| Pink | punctuation (BASE) · undo / redo / save keys, volume / brightness stripes (NAV) | `#ffc6ff` | `#ffe0ff` | `#ffe7ff` ¶ | `#eea7ef` ‖ | `#703472` |
 | Teal | layer switching (BASE) · app switching (NAV) | `#9bf6ff` | `#d1f8fc` ‡ | `#d5f8fc` ‡ · `#eafcfe` ✦ | `#66d8e3` ‡ · `#95d0d6` ✦ | `#005b62` |
 | Blue | arrow keys · window / tiling combos | `#a0c4ff` | `#d6e5ff` ◆ | `#dbe9ff` ¶ | `#8db8ff` | `#254d90` |
 | Green | clipboard / editing | `#caffbf` | `#d8f8d0` § | `#e4ffdf` | `#98e488` | `#245f17` |
-| Red | undo / redo / save | `#ffadad` | — | `#ffdcdc` ¶ | `#ff9a9b` ‖ | `#852e34` |
+| Red | window mgmt (NAV keys and stripes) | `#ffadad` | `#ffe0e0` ★ | `#ffe6e6` ¶ ⁂ | `#fbb3b2` ‖ ⁂ | `#852e34` |
 | Orange | selection | `#ffd6a5` | — | `#ffead2` | `#efb05e` | `#6f4600` |
 | Yellow | text formatting | `#fdffb6` | — | `#feffda` | `#dfdf6d` | `#545300` |
 | Muted yellow | home-row mods only | (yellow @ 70%) | — | `#feffe9` | standard `#cdcdcd` | neutral `#727272` |
@@ -180,7 +180,7 @@ The stroke offsets were fitted against the nine hues of the pre-palette diagram 
 because the palette itself is a step stronger than Tailwind ‑100.
 
 **§ Green's stripe is darkened, not blended.** Stripes have no stroke, so all that separates one from the
-white combo key beneath it is the fill. Green's base tint is the lightest of the five stripe hues, and on the
+white combo key beneath it is the fill. Green's base tint is the lightest of the stripe hues, and on the
 blend rule it sits only about 0.04 in OKLCH lightness below white — half what the other four manage, and visibly
 faint at 11px. Un-blending does not fix it: even undiluted, green reaches only 0.05, because the tint is intrinsically
 light rather than intrinsically pale. Its chroma was never the problem — on the rule it was already the *highest* of
@@ -228,9 +228,9 @@ fill plus stroke together, with the fill-to-stroke chroma ratio alongside:
 | Hue | Base tint L | Key blend | Weight | Ratio |
 |---|---|---|---|---|
 | Blue (arrows) | 0.816 | 62% ¶ | **0.225** | 3.35 |
-| Red | 0.827 | 57% ¶ | 0.220 | 3.11 |
 | Orange | 0.899 | 50% | 0.186 | 3.15 |
 | Pink (NAV keys) | 0.895 | 58% ¶ | 0.161 | 3.06 |
+| Red ⁂ | 0.827 | 69% ¶ | 0.155 | 3.08 |
 | Teal (BASE thumbs) ✦ | 0.919 | — | 0.159 | 3.19 |
 | Teal (NAV keys) ‡ | 0.919 | 50% | 0.159 | 2.85 |
 | Green | 0.948 | 50% | 0.125 | 2.85 |
@@ -245,24 +245,46 @@ Orange, teal, green and yellow are all left on a flat 50%.
 | Hue | Blend | Why |
 |---|---|---|
 | Blue | 62% | The four arrow keys are the heaviest group on NAV. They sit among the orange selection keys and above the teal row, so they have neighbours, but the tint is dark enough to need a real step. |
-| Pink (NAV keys) | 58% | `close`/`new` are lightness-matched to the teal keys beside them so the row reads level — fill L 0.954 against teal's 0.955, stroke L 0.819 against 0.820. |
+| Pink (NAV keys) | 58% | Tuned when pink was on `close`/`new`, to lightness-match the teal keys so the row read level — fill L 0.954 against teal's 0.955, stroke L 0.819 against 0.820. Pink and red later swapped NAV roles (pink now on `undo`/`redo`/`save`, red on `close`/`new`); each hue kept its own values. |
+| Red | 69% | Lightened from 57% when red moved to `close`/`new`: two red keys on the top row, beside yellow `italic` (the palest hue), read louder than three in the bottom-left corner had. The stroke was lifted with it — see ‖ and ⁂. |
 
 The BASE thumbs are not in this table because they are not on a blend at all — see ✦. They are the case that
 outgrew the correction: exposure was handled by lightening the fill for blue, purple and red, but two isolated
 keys in a hot hue needed both tiers moved, which is a different treatment rather than a different number.
-| Red | 57% | A trim, and a balance: see ‖. |
 
 **‖ Two strokes are not rule-derived, and both departures pay for something specific.**
 
 Red's stroke sits at L=0.791 rather than the rule's floored 0.780. On the rule it was too heavy at 0.233; pulled
 back by lightening the fill instead, its fill-to-stroke ratio hit 3.89 — the highest in the palette — and the
 border read markedly unlike the interior. Red loses chroma fast as it lightens, so a light red fill goes nearly
-colourless while its stroke stays strong. Moving the stroke off the floor instead gives weight 0.220 and ratio
+colourless while its stroke stays strong. Moving the stroke off the floor instead gave weight 0.220 and ratio
 3.11, both in family.
+
+When red moved to `close`/`new` it was quietened again, and the same lesson applied: the stroke was lifted with
+the fill rather than leaving the fill to lighten alone. Weight is now 0.155, down from 0.220.
+
+**⁂ Red keys are lightened well past the other hues — and only lightened.** Even at orange's weight, two red keys
+still read as a *warning* in a way orange does not (orange never has two keys together, and carries no warning
+connotation). Three approaches were tried:
+
+| Version | Fill | Stroke | Weight | Result |
+|---|---|---|---|---|
+| Lighten (62%) | `#ffe0e0` | `#fea5a5` | 0.192 | Better, still a little shouty — a paler alarm |
+| Chroma damp (×0.82 at 62%) | `#fbe2e2` | `#f4abaa` | 0.192 | Calm, but muddy — read as off-palette |
+| Part lighten, part damp (64%, ×0.92) | `#fde2e2` | `#faaaaa` | 0.184 | Not bad; still a touch loud |
+| **Lighten further (69%)** | **`#ffe6e6`** | **`#fbb3b2`** | **0.155** | Current |
+
+**Damping red made it muddy, so the final value is undamped.** At L≈0.81 a low-chroma red goes grey, and since the
+stroke carries most of a key's weight, that is where the mud came from; lightening keeps a tint clean. The stroke
+is set to hold the fill-to-stroke ratio (3.08) at each step — L 0.834, C 0.084. Steps of 0.162 and 0.149 were also
+tried either side; 0.155 sits just below the pink keys (0.161), so red is no longer the heavier of the two.
+
+**This is close to the floor for red.** The stroke at L 0.834 is within 0.013 of the neutral key border
+(`#cdcdcd`, 0.847); much lighter and the keys stop reading as coloured at all.
 
 That departure also avoids a collision. **The stroke rule floors lightness at 0.78, and only the hues whose base
 tints are dark enough reach that floor** — here, blue at 0.779. A rule-derived red would land at 0.780 and the
-two would agree to within 0.1%, reading as a matched pair for no reason. Red at 0.791 is clear of it.
+two would agree to within 0.1%, reading as a matched pair for no reason. Red at 0.834 is well clear of it.
 
 Pink's stroke is off the rule for the lightness match described above.
 
@@ -309,8 +331,8 @@ Note that the direction is asymmetric — lightening the ground *increased* cont
 (the divider went 0.083 to 0.096), so only the white surfaces pay.
 
 
-Note that hue meanings are mostly global but not entirely. Pink means punctuation on BASE and window
-management on NAV; teal means layer switching on BASE and app switching on NAV; blue covers both the NAV arrow
+Note that hue meanings are mostly global but not entirely. Pink means punctuation on BASE and
+undo/redo/save (keys) plus volume/brightness (stripes) on NAV; red means window management on NAV; teal means layer switching on BASE and app switching on NAV; blue covers both the NAV arrow
 keys and the window/tiling combos. NAV carries more categories than there are comfortably distinguishable hues, so it
 is treated as its own colour world; only green holds a single meaning everywhere. Pink's and teal's two meanings
 are at least on different layers. Blue's are not, which is why that pair leans on the key/stripe treatment split
@@ -323,8 +345,8 @@ Coloured backgrounds indicate action categories. All use the key treatment above
 
 | Category | Fill | Stroke | Keys |
 |---|---|---|---|
-| **Pink** | `#ffe7ff` | `#eea7ef` | window/app management (close, new) |
-| **Red** | `#ffdcdc` | `#ff9a9b` | undo/redo/save |
+| **Red** | `#ffe6e6` | `#fbb3b2` | window/app management (close, new) |
+| **Pink** | `#ffe7ff` | `#eea7ef` | undo/redo/save |
 | **Green** | `#e4ffdf` | `#98e488` | clipboard (cut, copy, paste) |
 | **Yellow** | `#feffda` | `#dfdf6d` | text formatting (bold, italic, underline) |
 | **Orange** | `#ffead2` | `#efb05e` | selection with arrow (◀ sel, sel ▶, ▼ sel) |
@@ -370,6 +392,9 @@ Some combos exist in `keymap.c` but are intentionally omitted from this diagram.
 | Combo | Output | Defined in `keymap.c` as |
 |---|---|---|
 | L + D + O + U | Spanish input | `spanish[]` |
+| B + N + Q | Build keymap (`BUILD_K`), any layer | `build_k[]` |
+| J + I + : | Bootloader (`QK_BOOT`), any layer | `qk_boot[]` |
+| U + J / E + I / . + : | Lights 1–3 (`LIGHT_1`–`LIGHT_3`), NAV only | `light_1[]`–`light_3[]` |
 
 The D + W hyphen combo also has an undrawn **custom shift**: shifted, it sends ` — ` (space, em dash, space). Its label shows only `-`, unlike the stacked labels on row 3.
 
@@ -378,8 +403,9 @@ The diagram is a legibility aid rather than an exhaustive index — the combo gr
 One visible consequence: in BASE combo row 1 only `D` and `W` carry stripes. `L`, `F`, `O` and `U` appear only in the `num word` and `caps word` braces below them — braces and stripes are independent annotations, so an unstriped key may still appear in a brace.
 
 **NAV layer combos:**
-- **Pink** (stripe `#ffe0ff`) — window management (`quit`, `min`)
-- **Blue** (stripe `#d6e5ff`) — window/tiling actions (`scr shot`, `zoom -`, `zoom +`, `del file`), matching the blue arrow keys
+- **Red** (stripe `#ffe0e0`) — window management (`quit`, `min`), matching the red `close`/`new` keys
+- **Blue** (stripe `#d6e5ff`) — `scr shot`, `del file`, `zoom -`/`+`, matching the blue arrow keys
+- **Pink** (stripe `#ffe0ff`) — system levels: `vol +`/`-`, `bri -`/`+` (display brightness)
 - **Green** (stripe `#d8f8d0`) — clipboard/editing actions (`all`, `pst text`)
 - **Teal** (stripe `#d1f8fc`) — tab/window switching (`tab ◀`, `tab ▶`, `win ◀`, `win ▶` — word over arrow, two lines), matching the teal app-switcher NAV keys
 
@@ -388,6 +414,20 @@ against pink's 0.059, green's 0.054 and teal's 0.047. Blue cannot be both light 
 tier on lightness its chroma falls to 0.029 and it reads badly washed out. 0.081 is a compromise that keeps
 chroma at teal's level while shedding most of the excess weight. Blue and teal stripes never sit adjacent — blue
 occupies the left half of the NAV grid, teal the right — so the two do not have to separate at close range.
+
+**★ The red stripe is off the 45% blend.** On the rule it is `#ffd2d2`, 0.098 in lightness below white — heavier
+than even blue. It is blended 62% instead, giving `#ffe0e0`: 0.068 below white, between pink (0.059) and blue
+(0.081). It is set by its key rather than by the stripe tier: it sits 0.013 below the red key fill (`#ffe6e6`),
+the same step pink's stripe sits below pink's key, so stripe and key keep their usual relationship. (An earlier
+55% stripe, `#ffdada`, read clearly heavier than the keys once they were lightened.) Red and blue
+are each used both as NAV keys (close/new, arrows) and as NAV stripes, and lean on the key/stripe treatment
+split to stay apart.
+
+**Red must not sit next to pink.** Red was first tried on `scr shot` and `del file`, where the `new` combo key
+carried pink (`min`) on one edge and red on the other; the two hues (h≈18 and h≈326) bled together at stripe
+strength. Red now sits only on `quit`/`min` (left half, row 1), next to blue (`scr shot`) on the `new` combo key;
+pink sits only on the right half, next to teal (on the `◀sel`/`◀` combo keys: pink `vol` on the left edge, teal
+win/tab on the right). If you move a red or pink stripe, keep them off a shared combo key.
 
 ### The combo label
 The output of each combo is shown as a label **centred between the two (or three) involved keys**:
@@ -435,11 +475,12 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 **Row 1** (physical NAV row 1: esc ⌫ close new italic / edit ◀sel ▲ sel▶ lock):
 | Keys | Output | Colour |
 |---|---|---|
-| ⌫ + close | `quit` | pink |
-| close + new | `min` | pink |
+| ⌫ + close | `quit` | red |
+| close + new | `min` | red |
 | new + italic | `scr shot` | blue |
 | ◀sel + ▲ | `win` / `◀` | teal |
 | ▲ + sel▶ | `win` / `▶` | teal |
+| edit + ◀sel | `vol` / `+` | pink |
 | ⌫ + close + new | `tile left` — 3-key brace | — |
 
 **Row 2** (physical NAV row 2: ␣/ctrl cut copy paste bold / (blank) ◀ ▼ ▶ ⌦):
@@ -450,6 +491,7 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 | paste + bold | `del file` | blue |
 | ◀ + ▼ | `tab` / `◀` | teal |
 | ▼ + ▶ | `tab` / `▶` | teal |
+| (blank) + ◀ | `vol` / `-` | pink |
 | cut + copy + paste | `fill screen` — 3-key brace | — |
 | ◀ + ▼ + ▶ | `swap screen` — 3-key brace | — |
 
@@ -458,6 +500,8 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 |---|---|---|
 | redo + save | `zoom −` | blue |
 | save + ↩ | `zoom +` | blue |
+| alfred + ▼sel | `bri` / `-` (display brightness) | pink |
+| ▼sel + switch | `bri` / `+` | pink |
 | redo + save + ↩ | `tile right` — 3-key brace | — |
 
 ---

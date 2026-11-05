@@ -54,6 +54,7 @@
 <clipPath id="cr1c3"><rect x="153" y="908" width="32" height="28" rx="4"/></clipPath>
 <clipPath id="cr1c4"><rect x="214" y="908" width="32" height="28" rx="4"/></clipPath>
 <clipPath id="cr1c5"><rect x="275" y="908" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr1c6"><rect x="363" y="908" width="32" height="28" rx="4"/></clipPath>
 <clipPath id="cr1c7"><rect x="424" y="908" width="32" height="28" rx="4"/></clipPath>
 <clipPath id="cr1c8"><rect x="485" y="908" width="32" height="28" rx="4"/></clipPath>
 <clipPath id="cr1c9"><rect x="546" y="908" width="32" height="28" rx="4"/></clipPath>
@@ -61,6 +62,7 @@
 <clipPath id="cr2c3"><rect x="153" y="961" width="32" height="28" rx="4"/></clipPath>
 <clipPath id="cr2c4"><rect x="214" y="961" width="32" height="28" rx="4"/></clipPath>
 <clipPath id="cr2c5"><rect x="275" y="961" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr2c6"><rect x="363" y="961" width="32" height="28" rx="4"/></clipPath>
 <clipPath id="cr2c7"><rect x="424" y="961" width="32" height="28" rx="4"/></clipPath>
 <clipPath id="cr2c8"><rect x="485" y="961" width="32" height="28" rx="4"/></clipPath>
 <clipPath id="cr2c9"><rect x="546" y="961" width="32" height="28" rx="4"/></clipPath>
@@ -68,6 +70,9 @@
 <clipPath id="cr3c3"><rect x="153" y="1014" width="32" height="28" rx="4"/></clipPath>
 <clipPath id="cr3c4"><rect x="214" y="1014" width="32" height="28" rx="4"/></clipPath>
 <clipPath id="cr3c5"><rect x="275" y="1014" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr3c7"><rect x="424" y="1014" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr3c8"><rect x="485" y="1014" width="32" height="28" rx="4"/></clipPath>
+<clipPath id="cr3c9"><rect x="546" y="1014" width="32" height="28" rx="4"/></clipPath>
 </defs>
 
 <rect width="680" height="1087" fill="#f4f4f4" rx="14"/>
@@ -245,8 +250,8 @@
 <text x="340" y="706" text-anchor="middle" class="sec">NAVIGATION</text>
 <rect x="20"  y="721" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="47"  y="744" text-anchor="middle" dominant-baseline="central" class="kln t-gry">esc</text>
 <rect x="81"  y="721" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="108" y="744" text-anchor="middle" dominant-baseline="central" class="ico">&#9003;</text>
-<rect x="142" y="721" width="54" height="46" rx="8" fill="#ffe7ff" stroke="#eea7ef" stroke-width="1" filter="url(#ks)"/><text x="169" y="744" text-anchor="middle" dominant-baseline="central" class="kln t-pnk">close</text>
-<rect x="203" y="721" width="54" height="46" rx="8" fill="#ffe7ff" stroke="#eea7ef" stroke-width="1" filter="url(#ks)"/><text x="230" y="744" text-anchor="middle" dominant-baseline="central" class="kln t-pnk">new</text>
+<rect x="142" y="721" width="54" height="46" rx="8" fill="#ffe6e6" stroke="#fbb3b2" stroke-width="1" filter="url(#ks)"/><text x="169" y="744" text-anchor="middle" dominant-baseline="central" class="kln t-red">close</text>
+<rect x="203" y="721" width="54" height="46" rx="8" fill="#ffe6e6" stroke="#fbb3b2" stroke-width="1" filter="url(#ks)"/><text x="230" y="744" text-anchor="middle" dominant-baseline="central" class="kln t-red">new</text>
 <rect x="264" y="721" width="54" height="46" rx="8" fill="#feffda" stroke="#dfdf6d" stroke-width="1" filter="url(#ks)"/><text x="291" y="744" text-anchor="middle" dominant-baseline="central" class="kln t-yel">italic</text>
 <rect x="352" y="721" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="744" text-anchor="middle" dominant-baseline="central" class="kln t-gry">edit</text>
 <rect x="413" y="721" width="54" height="46" rx="8" fill="#ffead2" stroke="#efb05e" stroke-width="1" filter="url(#ks)"/><text x="440" y="744" text-anchor="middle" dominant-baseline="central" class="kln t-ora">&#9664; sel</text>
@@ -263,9 +268,9 @@
 <rect x="474" y="774" width="54" height="46" rx="8" fill="#dbe9ff" stroke="#8db8ff" stroke-width="1" filter="url(#ks)"/><text x="501" y="797" text-anchor="middle" dominant-baseline="central" class="kln t-blu">&#9660;</text>
 <rect x="535" y="774" width="54" height="46" rx="8" fill="#dbe9ff" stroke="#8db8ff" stroke-width="1" filter="url(#ks)"/><text x="562" y="797" text-anchor="middle" dominant-baseline="central" class="kln t-blu">&#9654;</text>
 <rect x="596" y="774" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="623" y="797" text-anchor="middle" dominant-baseline="central" class="ico">&#8998;</text>
-<rect x="20"  y="827" width="54" height="46" rx="8" fill="#ffdcdc" stroke="#ff9a9b" stroke-width="1" filter="url(#ks)"/><text x="47"  y="850" text-anchor="middle" dominant-baseline="central" class="kln t-red">undo</text>
-<rect x="81"  y="827" width="54" height="46" rx="8" fill="#ffdcdc" stroke="#ff9a9b" stroke-width="1" filter="url(#ks)"/><text x="108" y="850" text-anchor="middle" dominant-baseline="central" class="kln t-red">redo</text>
-<rect x="142" y="827" width="54" height="46" rx="8" fill="#ffdcdc" stroke="#ff9a9b" stroke-width="1" filter="url(#ks)"/><text x="169" y="850" text-anchor="middle" dominant-baseline="central" class="kln t-red">save</text>
+<rect x="20"  y="827" width="54" height="46" rx="8" fill="#ffe7ff" stroke="#eea7ef" stroke-width="1" filter="url(#ks)"/><text x="47"  y="850" text-anchor="middle" dominant-baseline="central" class="kln t-pnk">undo</text>
+<rect x="81"  y="827" width="54" height="46" rx="8" fill="#ffe7ff" stroke="#eea7ef" stroke-width="1" filter="url(#ks)"/><text x="108" y="850" text-anchor="middle" dominant-baseline="central" class="kln t-pnk">redo</text>
+<rect x="142" y="827" width="54" height="46" rx="8" fill="#ffe7ff" stroke="#eea7ef" stroke-width="1" filter="url(#ks)"/><text x="169" y="850" text-anchor="middle" dominant-baseline="central" class="kln t-pnk">save</text>
 <rect x="203" y="827" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="230" y="850" text-anchor="middle" dominant-baseline="central" class="ico">&#8617;</text>
 <rect x="264" y="827" width="54" height="46" rx="8" fill="#feffda" stroke="#dfdf6d" stroke-width="1" filter="url(#ks)"/><text x="291" y="850" text-anchor="middle" dominant-baseline="central" class="kln t-yel">under</text>
 <rect x="352" y="827" width="54" height="46" rx="8" fill="#ffffff" stroke="#cdcdcd" stroke-width="1" filter="url(#ks)"/><text x="379" y="850" text-anchor="middle" dominant-baseline="central" class="kln t-gry">open</text>
@@ -280,6 +285,7 @@
   <rect x="153" y="908" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="214" y="908" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="275" y="908" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="363" y="908" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="424" y="908" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="485" y="908" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="546" y="908" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
@@ -287,19 +293,23 @@
   <rect x="153" y="961" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="214" y="961" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="275" y="961" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="363" y="961" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="424" y="961" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="485" y="961" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="546" y="961" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="92"  y="1014" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="153" y="1014" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
   <rect x="214" y="1014" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="424" y="1014" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="485" y="1014" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
+  <rect x="546" y="1014" width="32" height="28" rx="4" class="combo-key" filter="url(#ks)"/>
 </g>
 
 <!-- Nav combo shading -->
-<rect x="113" y="908" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr1c2)"/>
-<rect x="153" y="908" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr1c3)"/>
-<rect x="174" y="908" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr1c3)"/>
-<rect x="214" y="908" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr1c4)"/>
+<rect x="113" y="908" width="11" height="28" fill="#ffe0e0" clip-path="url(#cr1c2)"/>
+<rect x="153" y="908" width="11" height="28" fill="#ffe0e0" clip-path="url(#cr1c3)"/>
+<rect x="174" y="908" width="11" height="28" fill="#ffe0e0" clip-path="url(#cr1c3)"/>
+<rect x="214" y="908" width="11" height="28" fill="#ffe0e0" clip-path="url(#cr1c4)"/>
 <rect x="235" y="908" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr1c4)"/>
 <rect x="275" y="908" width="11" height="28" fill="#d6e5ff" clip-path="url(#cr1c5)"/>
 <rect x="445" y="908" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr1c7)"/>
@@ -320,13 +330,23 @@
 <rect x="485" y="961" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr2c8)"/>
 <rect x="506" y="961" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr2c8)"/>
 <rect x="546" y="961" width="11" height="28" fill="#d1f8fc" clip-path="url(#cr2c9)"/>
+<!-- Right-hand pink: 'F/YH(vol) P,/,.(bri) -->
+<rect x="384" y="908" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr1c6)"/>
+<rect x="424" y="908" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr1c7)"/>
+<rect x="384" y="961" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr2c6)"/>
+<rect x="424" y="961" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr2c7)"/>
+<rect x="445" y="1014" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr3c7)"/>
+<rect x="485" y="1014" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr3c8)"/>
+<rect x="506" y="1014" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr3c8)"/>
+<rect x="546" y="1014" width="11" height="28" fill="#ffe0ff" clip-path="url(#cr3c9)"/>
 
 <!-- ROW 1 labels -->
-<text x="138" y="924" class="cl-s" fill="#703472">quit</text>
-<text x="199" y="924" class="cl-s" fill="#703472">min</text>
+<text x="138" y="924" class="cl-s" fill="#852e34">quit</text>
+<text x="199" y="924" class="cl-s" fill="#852e34">min</text>
 <text class="cl-s" fill="#254d90"><tspan x="260" y="920" text-anchor="middle">scr</tspan><tspan x="260" y="930" text-anchor="middle">shot</tspan></text>
 <text class="cl-s" fill="#005b62"><tspan x="470" y="920" text-anchor="middle">win</tspan><tspan x="470" y="930" text-anchor="middle">&#9664;</tspan></text>
 <text class="cl-s" fill="#005b62"><tspan x="531" y="920" text-anchor="middle">win</tspan><tspan x="531" y="930" text-anchor="middle">&#9654;</tspan></text>
+<text class="cl-s" fill="#703472"><tspan x="409" y="920" text-anchor="middle">vol</tspan><tspan x="409" y="930" text-anchor="middle">+</tspan></text>
 <!-- ROW 1 3-key brace: LDW=tile left -->
 <line x1="108" y1="936" x2="108" y2="946" class="cb-gr"/>
 <line x1="169" y1="936" x2="169" y2="946" class="cb-gr"/>
@@ -341,6 +361,7 @@
 <text class="cl-s" fill="#254d90"><tspan x="260" y="973" text-anchor="middle">del</tspan><tspan x="260" y="983" text-anchor="middle">file</tspan></text>
 <text class="cl-s" fill="#005b62"><tspan x="470" y="973" text-anchor="middle">tab</tspan><tspan x="470" y="983" text-anchor="middle">&#9664;</tspan></text>
 <text class="cl-s" fill="#005b62"><tspan x="531" y="973" text-anchor="middle">tab</tspan><tspan x="531" y="983" text-anchor="middle">&#9654;</tspan></text>
+<text class="cl-s" fill="#703472"><tspan x="409" y="973" text-anchor="middle">vol</tspan><tspan x="409" y="983" text-anchor="middle">-</tspan></text>
 <!-- ROW 2 3-key brace: RTS=fill screen -->
 <line x1="108" y1="989" x2="108" y2="999" class="cb-gr"/>
 <line x1="169" y1="989" x2="169" y2="999" class="cb-gr"/>
@@ -360,6 +381,8 @@
 <!-- ROW 3 labels -->
 <text class="cl-s" fill="#254d90"><tspan x="138" y="1028" text-anchor="middle">zoom</tspan><tspan x="138" y="1038" text-anchor="middle">-</tspan></text>
 <text class="cl-s" fill="#254d90"><tspan x="199" y="1028" text-anchor="middle">zoom</tspan><tspan x="199" y="1038" text-anchor="middle">+</tspan></text>
+<text class="cl-s" fill="#703472"><tspan x="470" y="1028" text-anchor="middle">bri</tspan><tspan x="470" y="1038" text-anchor="middle">-</tspan></text>
+<text class="cl-s" fill="#703472"><tspan x="531" y="1028" text-anchor="middle">bri</tspan><tspan x="531" y="1038" text-anchor="middle">+</tspan></text>
 <!-- ROW 3 3-key brace: XMC=tile right -->
 <line x1="108" y1="1042" x2="108" y2="1052" class="cb-gr"/>
 <line x1="169" y1="1042" x2="169" y2="1052" class="cb-gr"/>

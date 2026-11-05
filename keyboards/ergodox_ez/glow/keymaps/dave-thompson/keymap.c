@@ -88,6 +88,10 @@ enum layers {
   X(BRGH_UP, G(KC_F2))               \
   X(BRGH_DN, G(KC_F1))               \
                                      \
+  /* Volume */                       \
+  X(VOL_UP, KC_KB_VOLUME_UP)         \
+  X(VOL_DN, KC_KB_VOLUME_DOWN)       \
+                                     \
                                      \
   /* Mod-Tap Dummies (Below)   */    \
   /* ———————————————————————   */    \
@@ -133,9 +137,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_Q,    KC_X,    KC_M,    KC_C,    KC_V,    _______,    
     _______, _______, _______, _______, _______,                      
 
-                                                 BRGH_DN, BRGH_UP,
+                                                 _______, _______,
                                                           _______,
-                                        MO(NAV), _______, BUILD_K,
+                                        MO(NAV), _______, _______,
 
     // BASE - Right
     _______, _______, _______, _______, _______, _______, _______,
@@ -144,9 +148,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_K,    KC_P,    KC_COMM, KC_DOT,  KC_COLN, _______,
                       _______, _______, _______, _______, _______,
 
-    LIGHT_1, LIGHT_3,
-    LIGHT_2,
-    QK_BOOT, _______, NUM_SPC
+    _______, _______,
+    _______,
+    _______, _______, NUM_SPC
 
   ),
   [NUM] = LAYOUT_ergodox(
@@ -392,12 +396,16 @@ const uint16_t PROGMEM screenshot[]   = {KC_W,    KC_Z,             COMBO_END};
 const uint16_t PROGMEM prev_tab[]     = {SFT_H,   GUI_A,            COMBO_END};
 const uint16_t PROGMEM next_tab[]     = {GUI_A,   ALT_E,            COMBO_END};
 const uint16_t PROGMEM left_screen[]  = {KC_L,    KC_D,    KC_W,    COMBO_END};
+const uint16_t PROGMEM vol_up[]       = {KC_QUOT, KC_F,             COMBO_END};
+const uint16_t PROGMEM light_1[]      = {KC_U,    KC_J,             COMBO_END};
 
 // -- NAV Row 2 --
 const uint16_t PROGMEM select_all[]   = {ALT_R,   GUI_T,            COMBO_END};
 const uint16_t PROGMEM paste_plain[]  = {GUI_T,   SFT_S,            COMBO_END};
 const uint16_t PROGMEM del_file[]     = {SFT_S,   KC_G,             COMBO_END};
 const uint16_t PROGMEM fill_screen[]  = {ALT_R,   GUI_T,   SFT_S,   COMBO_END};
+const uint16_t PROGMEM vol_down[]     = {KC_Y,    SFT_H,            COMBO_END};
+const uint16_t PROGMEM light_2[]      = {ALT_E,   CTL_I,            COMBO_END};
 
 // -- NAV Row 3 --
 const uint16_t PROGMEM zoom_out[]     = {KC_X,    KC_M,             COMBO_END};
@@ -406,12 +414,17 @@ const uint16_t PROGMEM prev_win[]     = {KC_F,    KC_O,             COMBO_END};
 const uint16_t PROGMEM next_win[]     = {KC_O,    KC_U,             COMBO_END};
 const uint16_t PROGMEM right_screen[] = {KC_X,    KC_M,    KC_C,    COMBO_END};
 const uint16_t PROGMEM swap_screen[]  = {SFT_H,   GUI_A,   ALT_E,   COMBO_END};
+const uint16_t PROGMEM bright_down[]  = {KC_P,    KC_COMM,          COMBO_END};
+const uint16_t PROGMEM bright_up[]    = {KC_COMM, KC_DOT,           COMBO_END};
+const uint16_t PROGMEM light_3[]      = {KC_DOT,  KC_COLN,          COMBO_END};
 
-// -- Layer Lock (RTAE on every layer) --
+// -- Any Layer --
 const uint16_t PROGMEM lyr_lock[]     = {ALT_R,   GUI_T,   GUI_A,   ALT_E,   COMBO_END};
+const uint16_t PROGMEM build_k[]      = {KC_B,    CTL_N,   KC_Q,    COMBO_END};
+const uint16_t PROGMEM qk_boot[]      = {KC_J,    CTL_I,   KC_COLN, COMBO_END};
 
 
-// BASE/NUM combos (only on BASE/NUM)
+// BASE/NUM combos
 #define BASE_COMBOS                                                           \
                                                                               \
   /* BASE/NUM Row 1 */                                                        \
@@ -432,7 +445,7 @@ const uint16_t PROGMEM lyr_lock[]     = {ALT_R,   GUI_T,   GUI_A,   ALT_E,   COM
   X(tab,          KC_TAB)         /* X + M + C          => Tab            */  \
   X(send_msg,     G(KC_ENTER))    /* P + , + .          => Send (Cmd+Ent) */
 
-// NAV combos (only on NAV)
+// NAV combos
 #define NAV_COMBOS                                                            \
                                                                               \
   /* NAV Row 1 */                                                             \
@@ -442,12 +455,16 @@ const uint16_t PROGMEM lyr_lock[]     = {ALT_R,   GUI_T,   GUI_A,   ALT_E,   COM
   X(prev_tab,     C(S(KC_TAB)))   /* ◀ + ▼              => Previous Tab   */  \
   X(next_tab,     C(KC_TAB))      /* ▼ + ▶              => Next Tab       */  \
   X(left_screen,  HYPR(KC_L))     /* ⌫ + close + min    => Tile Left      */  \
+  X(vol_up,       VOL_UP)         /* edit + ◀sel        => Volume Up      */  \
+  X(light_1,      LIGHT_1)        /* sel▶ + lock        => Light 1        */  \
                                                                               \
   /* NAV Row 2 */                                                             \
   X(select_all,   G(KC_A))        /* cut + copy         => Select All     */  \
   X(paste_plain,  C(KC_V))        /* copy + paste       => Plain Paste    */  \
   X(del_file,     G(KC_BSPC))     /* paste + bold       => Delete File    */  \
   X(fill_screen,  HYPR(KC_F))     /* cut + copy + paste => Fill Screen    */  \
+  X(vol_down,     VOL_DN)         /* (blank) + ◀        => Volume Down    */  \
+  X(light_2,      LIGHT_2)        /* ▶ + ⌦              => Light 2        */  \
                                                                               \
   /* NAV Row 3 */                                                             \
   X(zoom_out,     G(KC_MINS))     /* redo + save        => Zoom Out       */  \
@@ -455,28 +472,47 @@ const uint16_t PROGMEM lyr_lock[]     = {ALT_R,   GUI_T,   GUI_A,   ALT_E,   COM
   X(prev_win,     S(G(KC_GRV)))   /* ◀sel + ▲           => Prev Window    */  \
   X(next_win,     G(KC_GRV))      /* ▲ + sel▶           => Next Window    */  \
   X(right_screen, HYPR(KC_R))     /* redo + save + ↩    => Tile Right     */  \
-  X(swap_screen,  HYPR(KC_D))     /* ◀ + ▼ + ▶          => Swap Screen    */
+  X(swap_screen,  HYPR(KC_D))     /* ◀ + ▼ + ▶          => Swap Screen    */  \
+  X(bright_down,  BRGH_DN)        /* alfred + ▼sel      => Brightness Dn  */  \
+  X(bright_up,    BRGH_UP)        /* ▼sel + switch      => Brightness Up  */  \
+  X(light_3,      LIGHT_3)        /* switch + ☺         => Light 3        */
+
+// Any-layer combos
+#define ANY_COMBOS                                                            \
+                                                                              \
+  X(lyr_lock,     LYR_TOG)        /* R + T + A + E      => Layer Toggle   */  \
+  X(build_k,      BUILD_K)        /* B + N + Q          => Build Keymap   */  \
+  X(qk_boot,      QK_BOOT)        /* J + I + :          => Reset Keyboard */
 
 
+///////////////////////////////////////
+// Should Combo Fire on This Layer?  //
+///////////////////////////////////////
+
+// Order matters: see combo_should_trigger
 #define X(name, output) COMBO(name, output),
 combo_t key_combos[] = {
   BASE_COMBOS
-  COMBO(lyr_lock, LYR_TOG),  // R + T + A + E => Toggle BASE/NUM, or NAV Lock
-  NAV_COMBOS                 // must come last: see combo_should_trigger
+  ANY_COMBOS
+  NAV_COMBOS
 };
 #undef X
 
-// Number of NAV combos
+// Number of BASE / any-layer combos
 #define X(name, output) + 1
-enum { NAV_COMBO_COUNT = 0 NAV_COMBOS };
+enum {
+  BASE_COMBO_COUNT = 0 BASE_COMBOS,
+  ANY_COMBO_COUNT  = 0 ANY_COMBOS,
+};
 #undef X
 
-// Should this combo fire on this layer?
+// Hook from QMK's process_combo.c
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo,
                           uint16_t keycode, keyrecord_t *record) {
-  if (combo->keycode == LYR_TOG) return true; // lyr tog fires on all layers
+  if (combo_index >= BASE_COMBO_COUNT &&
+      combo_index < BASE_COMBO_COUNT + ANY_COMBO_COUNT) return true;
 
-  bool is_nav_combo = combo_index >= ARRAY_SIZE(key_combos) - NAV_COMBO_COUNT;
+  bool is_nav_combo = combo_index >= BASE_COMBO_COUNT + ANY_COMBO_COUNT;
   return is_nav_combo == layer_state_is(NAV);
 }
 
