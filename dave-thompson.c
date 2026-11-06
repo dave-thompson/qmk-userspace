@@ -345,8 +345,8 @@ bool get_speculative_hold(uint16_t keycode, keyrecord_t *record) {
 // -- BASE/NUM Row 1 --
 const uint16_t PROGMEM hyphen[]       = {KC_D,    KC_W,             COMBO_END};
 const uint16_t PROGMEM spanish[]      = {KC_L,    KC_D,    KC_O,    KC_U,    COMBO_END};
-const uint16_t PROGMEM num_word[]     = {KC_L,    KC_D,    KC_W,    COMBO_END};
-const uint16_t PROGMEM caps_word[]    = {KC_F,    KC_O,    KC_U,    COMBO_END};
+const uint16_t PROGMEM caps_word[]    = {KC_L,    KC_D,    KC_W,    COMBO_END};
+const uint16_t PROGMEM num_word[]     = {KC_F,    KC_O,    KC_U,    COMBO_END};
 
 // -- BASE/NUM Row 2 --
 const uint16_t PROGMEM del_word[]     = {ALT_R,   GUI_T,   SFT_S,   COMBO_END};
@@ -401,8 +401,8 @@ const uint16_t PROGMEM qk_boot[]      = {KC_J,    CTL_I,   KC_COLN, COMBO_END};
   /* BASE/NUM Row 1 */                                                        \
   X(hyphen,       KC_MINS)        /* D + W              => - " — "        */  \
   X(spanish,      SPANISH)        /* L + D + O + U      => Spanish        */  \
-  X(num_word,     NUM_WRD)        /* L + D + W          => Num Word       */  \
-  X(caps_word,    CW_TOGG)        /* F + O + U          => Caps Word      */  \
+  X(caps_word,    CW_TOGG)        /* L + D + W          => Caps Word      */  \
+  X(num_word,     NUM_WRD)        /* F + O + U          => Num Word       */  \
                                                                               \
   /* BASE/NUM Row 2 */                                                        \
   X(del_word,     A(KC_BSPC))     /* R + T + S          => Delete Word    */  \

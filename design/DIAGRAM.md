@@ -400,7 +400,7 @@ The D + W hyphen combo also has an undrawn **custom shift**: shifted, it sends `
 
 The diagram is a legibility aid rather than an exhaustive index — the combo grid only stays readable at a glance with so many stripes on it. Which combos are omitted is a presentation choice and may change between iterations; `dave-thompson.c` remains the complete and authoritative list.
 
-One visible consequence: in BASE combo row 1 only `D` and `W` carry stripes. `L`, `F`, `O` and `U` appear only in the `num word` and `caps word` braces below them — braces and stripes are independent annotations, so an unstriped key may still appear in a brace.
+One visible consequence: in BASE combo row 1 only `D` and `W` carry stripes. `L`, `F`, `O` and `U` appear only in the `caps word` and `num word` braces below them — braces and stripes are independent annotations, so an unstriped key may still appear in a brace.
 
 **NAV layer combos:**
 - **Red** (stripe `#ffe0e0`) — window management (`quit`, `min`), matching the red `close`/`new` keys
@@ -438,7 +438,7 @@ The output of each combo is shown as a label **centred between the two (or three
 ### The brace annotation
 Some combos also have a **bracket/brace** drawn below the combo row, spanning the involved keys, with a grey label underneath. This indicates a **three-key combo** (all three keys in the span must be pressed simultaneously). The label names the action.
 
-**Example:** In the BASE combo row 1, the keys at columns L, D, W have a brace below them labelled `num word` — pressing L+D+W together activates the Num Word feature.
+**Example:** In the BASE combo row 1, the keys at columns L, D, W have a brace below them labelled `caps word` — pressing L+D+W together activates the Caps Word feature.
 
 ---
 
@@ -450,8 +450,8 @@ Some combos also have a **bracket/brace** drawn below the combo row, spanning th
 | Keys | Output | Colour | Notes |
 |---|---|---|---|
 | D + W | `-` | pink | hyphen |
-| L + D + W | `num word` | — | 3-key brace |
-| F + O + U | `caps word` | — | 3-key brace |
+| L + D + W | `caps word` | — | 3-key brace |
+| F + O + U | `num word` | — | 3-key brace |
 
 **Row 2** (physical row 2: N R T S G / Y H A E I):
 | Keys | Output | Colour |

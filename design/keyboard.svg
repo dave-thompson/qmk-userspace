@@ -164,20 +164,20 @@
 <text class="cl-s" fill="#703472" style="font-size:11px;"><tspan x="531" y="402" style="fill-opacity:0.55;">]</tspan><tspan x="531" y="418">)</tspan></text>
 
 <!-- ROW 1 braces -->
-<!-- LDW: num word -->
+<!-- LDW: caps word -->
 <line x1="108" y1="314" x2="108" y2="324" class="cb-gr"/>
 <line x1="169" y1="314" x2="169" y2="324" class="cb-gr"/>
 <line x1="230" y1="314" x2="230" y2="324" class="cb-gr"/>
 <line x1="108" y1="324" x2="230" y2="324" class="cb-gr"/>
-<rect x="136" y="319" width="66" height="10" fill="#f4f4f4"/>
-<text x="169" y="327" class="cl-gr">num word</text>
-<!-- FOU: caps word -->
+<rect x="137" y="319" width="66" height="10" fill="#f4f4f4"/>
+<text x="169" y="327" class="cl-gr">caps word</text>
+<!-- FOU: num word -->
 <line x1="440" y1="314" x2="440" y2="324" class="cb-gr"/>
 <line x1="501" y1="314" x2="501" y2="324" class="cb-gr"/>
 <line x1="562" y1="314" x2="562" y2="324" class="cb-gr"/>
 <line x1="440" y1="324" x2="562" y2="324" class="cb-gr"/>
-<rect x="469" y="319" width="66" height="10" fill="#f4f4f4"/>
-<text x="501" y="327" class="cl-gr">caps word</text>
+<rect x="468" y="319" width="66" height="10" fill="#f4f4f4"/>
+<text x="501" y="327" class="cl-gr">num word</text>
 
 <!-- ROW 2 braces -->
 <!-- RTS: del word -->
