@@ -387,9 +387,9 @@ colour in its own grid — four teal stripes among ten pink — which makes it e
 
 ### Combos that are deliberately not drawn
 
-Some combos exist in `keymap.c` but are intentionally omitted from this diagram. **Their absence is not a mismatch with the source, and they should not be "restored" by anyone reconciling the two.**
+Some combos exist in `dave-thompson.c` but are intentionally omitted from this diagram. **Their absence is not a mismatch with the source, and they should not be "restored" by anyone reconciling the two.**
 
-| Combo | Output | Defined in `keymap.c` as |
+| Combo | Output | Defined in `dave-thompson.c` as |
 |---|---|---|
 | L + D + O + U | Spanish input | `spanish[]` |
 | B + N + Q | Build keymap (`BUILD_K`), any layer | `build_k[]` |
@@ -398,7 +398,7 @@ Some combos exist in `keymap.c` but are intentionally omitted from this diagram.
 
 The D + W hyphen combo also has an undrawn **custom shift**: shifted, it sends ` — ` (space, em dash, space). Its label shows only `-`, unlike the stacked labels on row 3.
 
-The diagram is a legibility aid rather than an exhaustive index — the combo grid only stays readable at a glance with so many stripes on it. Which combos are omitted is a presentation choice and may change between iterations; `keymap.c` remains the complete and authoritative list.
+The diagram is a legibility aid rather than an exhaustive index — the combo grid only stays readable at a glance with so many stripes on it. Which combos are omitted is a presentation choice and may change between iterations; `dave-thompson.c` remains the complete and authoritative list.
 
 One visible consequence: in BASE combo row 1 only `D` and `W` carry stripes. `L`, `F`, `O` and `U` appear only in the `num word` and `caps word` braces below them — braces and stripes are independent annotations, so an unstriped key may still appear in a brace.
 
