@@ -1,3 +1,9 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Dave Thompson's 32-key keymap (keyboard-independent)
+//
+///////////////////////////////////////////////////////////////////////////////
+
 #include QMK_KEYBOARD_H
 #include "version.h"
 
@@ -128,80 +134,52 @@ KEYCODE_STRING_NAMES_USER(
 ///////////////////////////////////////////////////////////////////////////////
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [BASE] = LAYOUT_ergodox(
+
+  [BASE] = LAYOUT_32(
 
     // BASE - Left
-    _______, _______, _______, _______, _______, _______, _______,    
-    _______, KC_B,    KC_L,    KC_D,    KC_W,    KC_Z,    _______,    
-    _______, CTL_N,   ALT_R,   GUI_T,   SFT_S,   KC_G,                
-    _______, KC_Q,    KC_X,    KC_M,    KC_C,    KC_V,    _______,    
-    _______, _______, _______, _______, _______,                      
-
-                                                 _______, _______,
-                                                          _______,
-                                        MO(NAV), _______, _______,
+    KC_B,    KC_L,    KC_D,    KC_W,    KC_Z,
+    CTL_N,   ALT_R,   GUI_T,   SFT_S,   KC_G,
+    KC_Q,    KC_X,    KC_M,    KC_C,    KC_V,
+                                        MO(NAV),
 
     // BASE - Right
-    _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_QUOT, KC_F,    KC_O,    KC_U,    KC_J,    _______,
-             KC_Y,    SFT_H,   GUI_A,   ALT_E,   CTL_I,   _______,
-    _______, KC_K,    KC_P,    KC_COMM, KC_DOT,  KC_COLN, _______,
-                      _______, _______, _______, _______, _______,
-
-    _______, _______,
-    _______,
-    _______, _______, NUM_SPC
+    KC_QUOT, KC_F,    KC_O,    KC_U,    KC_J,
+    KC_Y,    SFT_H,   GUI_A,   ALT_E,   CTL_I,
+    KC_K,    KC_P,    KC_COMM, KC_DOT,  KC_COLN,
+    NUM_SPC
 
   ),
-  [NUM] = LAYOUT_ergodox(
+
+  [NUM] = LAYOUT_32(
 
     // NUM - Left
-    _______, _______, _______, _______, _______, _______, _______,      
-    _______, KC_LABK, KC_SLSH, KC_PERC, KC_MINS, KC_BSLS, _______,
-    _______, CTL_1,   ALT_2,   GUI_3,   SFT_4,   KC_5,
-    _______, HASH,    KC_TILD, KC_DLR,  POUND,   KC_LCBR, _______,      
-    _______, _______, _______, _______, _______,                        
-
-                                                 _______, _______,  
-                                                          _______,  
-                                        _______, _______, _______,
+    KC_LABK, KC_SLSH, KC_PERC, KC_MINS, KC_BSLS,
+    CTL_1,   ALT_2,   GUI_3,   SFT_4,   KC_5,
+    HASH,    KC_TILD, KC_DLR,  POUND,   KC_LCBR,
+                                        _______,
 
     // NUM - Right
-    _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_CIRC, KC_PLUS, KC_EQL,  KC_ASTR, KC_RABK, _______,
-             KC_6,    SFT_7,   GUI_8,   ALT_9,   CTL_0,   _______,
-    _______, KC_RCBR, KC_PIPE, KC_COMM, KC_DOT,  KC_COLN, _______,
-                      _______, _______, _______, _______, _______,
-
-    _______, _______,
-    _______,
-    _______, _______, KC_SPC
+    KC_CIRC, KC_PLUS, KC_EQL,  KC_ASTR, KC_RABK,
+    KC_6,    SFT_7,   GUI_8,   ALT_9,   CTL_0,
+    KC_RCBR, KC_PIPE, KC_COMM, KC_DOT,  KC_COLN,
+    KC_SPC
 
   ),
 
-  [NAV] = LAYOUT_ergodox(
-    
+  [NAV] = LAYOUT_32(
+
     // NAV - Left
-    _______, _______, _______, _______, _______, _______, _______,          
-    _______, KC_ESC,  KC_BSPC, CLOSE,   NEW,    ITALIC,  _______,
-    _______, CTL_SPC, ALT_CUT, GUI_CPY, SFT_PST, BOLD,                      
-    _______, UNDO,    REDO,    SAVE,    KC_ENT,  UNDER,   _______,          
-    _______, _______, _______, _______, _______,                            
+    KC_ESC,  KC_BSPC, CLOSE,   NEW,     ITALIC,
+    CTL_SPC, ALT_CUT, GUI_CPY, SFT_PST, BOLD,
+    UNDO,    REDO,    SAVE,    KC_ENT,  UNDER,
+                                        _______,
 
-                                                 _______, _______,      
-                                                          _______,      
-                                        _______, _______, _______,
-    
     // NAV - Right
-    _______, _______, _______, _______, _______, _______, _______,
-    _______, EDIT,    SELWBAK, KC_UP,   SELWORD, LOCKCMP, _______,
-             XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,  _______,
-    _______, OPEN,    ALFRED,  SELLINE, SWTCH,   EMOJI,   _______,
-                      _______, _______, _______, _______, _______,
-
-    _______, _______,
-    _______,
-    _______, _______, KC_SPC
+    EDIT,    SELWBAK, KC_UP,   SELWORD, LOCKCMP,
+    XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,
+    OPEN,    ALFRED,  SELLINE, SWTCH,   EMOJI,
+    KC_SPC
 
   ),
 
@@ -308,14 +286,7 @@ char sentence_case_press_user(uint16_t keycode,
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-////////////////
-// Lightshift //
-////////////////
-
-// Doesn't change behaviour, but saves 178 bytes
-char chordal_hold_handedness(keypos_t key) {
-  return key.row < MATRIX_ROWS / 2 ? 'L' : 'R';
-}
+// (chordal_hold_handedness is per keyboard: see each board's keymap.c)
 
 
 ////////////////////////////////////
@@ -514,65 +485,6 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo,
 
   bool is_nav_combo = combo_index >= BASE_COMBO_COUNT + ANY_COMBO_COUNT;
   return is_nav_combo == layer_state_is(NAV);
-}
-
-
-///////////////////////////////////////////////////////////////////////////////
-//
-// RGB Matrix Lighting
-//
-///////////////////////////////////////////////////////////////////////////////
-
-extern rgb_config_t rgb_matrix_config;
-
-typedef struct {
-  uint8_t h, s, v;
-} hsv_color_t;
-
-// Only light up 3x5 keys on each side
-const uint8_t active_leds[] =
-  // left side
-  { 5,  6,  7,  8,  9,
-   10, 11, 12, 13, 14,
-   15, 16, 17, 18, 19,
-   // right side
-   29, 30, 31, 32, 33,
-   34, 35, 36, 37, 38,
-   39, 40, 41, 42, 43};
-
-const hsv_color_t PROGMEM layer_colors[] = {
-  [BASE] = {0, 0, 255},    // White (hue=0, sat=0, bright=255)
-  [NUM] = {74, 255, 255},  // Green
-  [NAV] = {219, 255, 255}, // Pink
-};
-
-
-void set_layer_color(uint8_t layer) {
-
-  // Get HSV colour
-  uint8_t h = pgm_read_byte(&layer_colors[layer].h);
-  uint8_t s = pgm_read_byte(&layer_colors[layer].s);
-  uint8_t v = pgm_read_byte(&layer_colors[layer].v);
-  HSV hsv = {.h = h, .s = s, .v = v};
-
-  // Convert HSV to RGB
-  RGB rgb = hsv_to_rgb(hsv); 
-
-  // Apply global brightness scaling
-  float f = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
-  
-  // Update the LEDs
-  rgb_matrix_set_color_all(0, 0, 0);
-  for (int i = 0; i < ARRAY_SIZE(active_leds); i++) {
-    rgb_matrix_set_color(active_leds[i], f * rgb.r, f * rgb.g, f * rgb.b);
-  }
-}
-
-
-bool rgb_matrix_indicators_user(void) {
-  if (keyboard_config.disable_layer_led) return false;
-  set_layer_color(get_highest_layer(layer_state));
-  return true;
 }
 
 
